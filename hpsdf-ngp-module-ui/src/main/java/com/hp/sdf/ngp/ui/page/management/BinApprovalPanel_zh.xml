@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">等待批准的应用</entry>
+<entry key="app.name">应用名</entry>
+<entry key="bin.version">版本</entry>
+<entry key="bin.platform">平台</entry>
+<entry key="app.brief">简述</entry>
+<entry key="label.status.current">当前状态</entry>
+<entry key="label.status.next">下一状态</entry>
+<entry key="btn.approve">批准</entry>
+<entry key="btn.reset">取消</entry>
+</properties>

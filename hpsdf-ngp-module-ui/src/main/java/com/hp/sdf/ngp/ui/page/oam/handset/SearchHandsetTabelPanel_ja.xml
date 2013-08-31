@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="selectAll">全て選択</entry>
+<entry key="msg.error.save.nohandset">移動機情報が存在していません。</entry>
+<entry key="confirmMsg">選択された移動機情報を削除してよろしいでしょうか。</entry>
+<entry key="title.list">移動機情報一覧</entry>
+<entry key="detail">編集</entry>
+<entry key="msg.error.del.noselect">移動機情報を選択してください。</entry>
+<entry key="deviceName">デバイス情報</entry>
+<entry key="displayName">機種名</entry>
+<entry key="createTime">登録日時</entry>
+<entry key="delete">削除</entry>
+</properties>

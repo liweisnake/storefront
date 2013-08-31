@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="providerID">プロバイダーID</entry>
+<entry key="commentTitle">ユーザコメントタイトル</entry>
+<entry key="selectAll">全て選択</entry>
+<entry key="confirmMsg">選択されたコメントを削除してよろしいか。</entry>
+<entry key="comment">ユーザコメント</entry>
+<entry key="detail">詳細リンク</entry>
+<entry key="updateTime">投稿日時</entry>
+<entry key="version">コンテンツVersion</entry>
+<entry key="commentsList">コメント一覧</entry>
+<entry key="msg.error.del.nocomments">コメントが存在していません。</entry>
+<entry key="view">詳細</entry>
+<entry key="providerName">プロバイダー名</entry>
+<entry key="delete">削除</entry>
+<entry key="msg.error.select.noselect">コメントを選択してください。</entry>
+<entry key="assetId">identifierID</entry>
+<entry key="assetName">商品名</entry>
+</properties>

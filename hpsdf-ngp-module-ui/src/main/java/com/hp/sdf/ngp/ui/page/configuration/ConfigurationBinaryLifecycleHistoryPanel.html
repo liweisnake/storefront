@@ -1,0 +1,31 @@
+<wicket:panel>
+	<div class="mainPanel">
+	<div class="panelBody">
+
+	<table width="90%" cellpadding="0" cellspacing="0" class="tableSet">
+<thead>
+		<tr>
+			<th><wicket:message key="date">Date</wicket:message></th>
+			<th><wicket:message key="event">Event</wicket:message></th>
+			<th><wicket:message key="preStatus">Pre Status</wicket:message></th>
+			<th><wicket:message key="postStatus">Post Status</wicket:message></th>
+			<th><wicket:message key="operator">Operator</wicket:message></th>
+		</tr>
+		</thead>
+		<span wicket:id="appBinaryHistory">
+		<tr>
+			<td><span wicket:id="Date" /></td>
+			<td><span wicket:id="Event" /></td>
+			<td><span wicket:id="PreStatus" /></td>
+			<td><span wicket:id="PostStatus" /></td>
+			<td><span wicket:id="Operator" /></td>
+		</tr>
+		</span>
+	</table>
+	<div align="right"><span wicket:id="navigator"></span></div>
+
+	<div class="clear"></div>
+	<div class="panelFoot"></div>
+	</div>
+	</div>
+</wicket:panel>

@@ -1,0 +1,186 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:jbp="http://www.jboss.com/portal"
+   xmlns:c="http://java.sun.com/jstl/core"
+   xmlns:pfc="http://www.jboss.com/portal/facelet/common"
+   xmlns:portlet="http://java.sun.com/portlet">
+
+<ui:composition template="portletsTemplate.xhtml">
+
+<ui:define name="content">
+
+<c:if test="#{empty portletmgr.selectedPlugin}">
+   <div class="provider-menu-container">
+       <h:form id="definition-form">
+         <h:outputLabel for="menu">
+            <h:outputText value="#{bundle.VIEW_PORTLETS_PROVIDED_BY}: "
+                          styleClass="portlet-form-field-label"/>
+         </h:outputLabel>
+         <h:selectOneMenu id="menu" styleClass="portlet-form-field"
+                          value="#{portletmgr.selectedPortletInvokerId}">
+            <f:selectItems value="#{portletmgr.portletInvokerItems}"/>
+         </h:selectOneMenu>
+         <h:commandButton id="view-portlets" value="#{bundle.VIEW_PORTLETS}" styleClass="portlet-form-button"/>
+      </h:form>
+   </div>
+  <h:form id="def-list">
+      <ul class="pagination property-container">
+         <c:if test="#{portletmgr.portletCount > portletmgr.paginationSize}">
+            <c:forEach begin="0" end="#{(portletmgr.portletCount - 1) / portletmgr.paginationSize}" step="1"
+                       var="index">
+               <li class="#{index == (portletmgr.selectedFrom / portletmgr.paginationSize)? 'selected' : ''}">
+                  <h:commandLink id="pagination-#{index}" action="#{portletmgr.selectFrom}">
+                     <f:param name="from" value="#{index * portletmgr.paginationSize}"/>
+                     #{index * portletmgr.paginationSize}
+                  </h:commandLink>
+               </li>
+            </c:forEach>
+         </c:if>
+      </ul>
+      <table class="portlet-def-table datatable">
+         <thead class="portlet-section-header">
+            <tr>
+               <th>#{bundle.PORTLET_NAME}</th>
+               <th>#{bundle.DESCRIPTION}</th>
+               <th>#{bundle.REMOTE}</th>
+               <th>#{bundle.REMOTABLE}</th>
+               <th>#{bundle.ACTIONS}</th>
+            </tr>
+         </thead>
+         <tbody>
+            <c:forEach items="#{portletmgr.selectedPortlets}" var="portlet" varStatus="status">
+               <tr
+                  class="#{portlet.context.id == portletmgr.selectedPortlet.context.id ? 'portlet-section-selected' : (status.index % 2 == 0 ? 'portlet-section-body' : 'portlet-section-alternate')}">
+                  <td>
+                     <img src="#{portlet.smallIconLocation}" align="middle" style="margin:0 4px 0 0"/>
+                     <h:commandLink
+                        id="portlet-def-#{status.index}"
+                        action="#{portletmgr.selectPortlet}"
+                        title="#{portlet.context.id}">
+                        <f:param name="id" value="#{portlet.context.id}"/>
+                        <f:param name="plugin" value="manager"/>
+                        #{portlet.name}
+                     </h:commandLink>
+                  </td>
+                  <td>#{portlet.description.value}</td>
+                  <td><h:selectBooleanCheckbox disabled="true" value="#{portlet.remote}"/></td>
+                  <td><h:selectBooleanCheckbox disabled="true" value="#{portlet.remotable}"/></td>
+                  <td>
+                     <h:panelGrid columns="2" cellpadding="0" cellspacing="0" border="0">
+                        <h:commandLink id="portlet-pref-#{status.index}" rendered="#{!empty portlet.info.preferences.keys}" action="#{portletmgr.selectPortlet}" styleClass="actionPreferences">
+                           <f:param name="id" value="#{portlet.context.id}"/>
+                           <f:param name="plugin" value="preferences"/>
+                           #{bundle.PREFERENCES}
+                        </h:commandLink>
+                     <h:commandLink id="create-instance-#{status.index}" action="#{portletmgr.selectPortlet}" styleClass="actionCreateInstance">
+                        <f:param name="id" value="#{portlet.context.id}"/>
+                        <f:param name="plugin" value="createInstance"/>
+                        #{bundle.CREATE_INSTANCE}
+                     </h:commandLink>
+                     </h:panelGrid>
+                  </td>
+               </tr>
+            </c:forEach>
+         </tbody>
+         <tfoot class="portlet-section-header">
+            <tr>
+               <th>#{bundle.PORTLET_NAME}</th>
+               <th>#{bundle.DESCRIPTION}</th>
+               <th>#{bundle.REMOTE}</th>
+               <th>#{bundle.REMOTABLE}</th>
+               <th>#{bundle.ACTIONS}</th>
+            </tr>
+         </tfoot>
+      </table>
+      <ul class="pagination property-container">
+         <c:if test="#{portletmgr.portletCount > portletmgr.paginationSize}">
+            <c:forEach begin="0" end="#{(portletmgr.portletCount - 1) / portletmgr.paginationSize}" step="1"
+                       var="index">
+               <li class="#{index == (portletmgr.selectedFrom / portletmgr.paginationSize)? 'selected' : ''}">
+                  <h:commandLink action="#{portletmgr.selectFrom}">
+                     <f:param name="from" value="#{index * portletmgr.paginationSize}"/>
+                     #{index * portletmgr.paginationSize}
+                  </h:commandLink>
+               </li>
+            </c:forEach>
+         </c:if>
+      </ul>
+   </h:form>
+</c:if>
+
+<c:if test="#{portletmgr.selectedPlugin == 'manager'}">
+   <!-- Path nav -->
+   <h:form id="man-form">
+      <ul class="objectpath">
+         <li class="pathItem">
+            <h:commandLink id="def-link" action="#{portletmgr.selectPortlet}">#{bundle.PORTLET_DEFINITIONS}</h:commandLink>
+         </li>
+         <li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+         <li class="selected">
+            <span class="objectName">#{portletmgr.selectedPortlet.name}</span> #{bundle.DETAILS}
+         </li>
+      </ul>
+   </h:form>
+   <br/>
+   <ui:include src="common/showPortletDetails.xhtml">
+      <ui:param name="portlet" value="#{portletmgr.selectedPortlet}"/>
+      <ui:param name="showDisplayNameEditor" value="false"/>
+   </ui:include>
+</c:if>
+
+<c:if test="#{portletmgr.selectedPlugin == 'preferences'}">
+   <!-- Path nav -->
+   <h:form id="pref-form">
+      <ul class="objectpath">
+         <li class="pathItem">
+            <h:commandLink id="def-link" action="#{portletmgr.selectPortlet}">#{bundle.PORTLET_DEFINITIONS}</h:commandLink>
+         </li>
+         <li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+         <li class="selected">
+            <span class="objectName">#{portletmgr.selectedPortlet.name}</span> #{bundle.PREFERENCES_NO_CAP}
+         </li>
+      </ul>
+   </h:form>
+   <br/>
+
+   <div class="property-container">
+      <ui:include src="common/editPreferences.xhtml">
+         <ui:param name="prefs" value="#{portletmgr.selectedPreferences}"/>
+      </ui:include>
+   </div>
+</c:if>
+
+<c:if test="#{portletmgr.selectedPlugin == 'createInstance'}">
+   <!-- Path nav -->
+   <h:form>
+      <ul class="objectpath">
+         <li class="pathItem">
+            <h:commandLink action="#{portletmgr.selectPortlet}">#{bundle.PORTLET_DEFINITIONS}</h:commandLink>
+         </li>
+         <li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+         <li class="selected">
+            <span class="objectName">#{portletmgr.selectedPortlet.name}</span> #{bundle.INSTANCE_CREATION}
+         </li>
+      </ul>
+   </h:form>
+   <br/>
+
+   <div class="property-container">
+      <h:form id="add_instance_form" styleClass="createObjectForm">
+         <span class="portlet-font">#{bundle.CREATE_INSTANCE_NAMED}: </span>
+         <h:inputText id="instanceId" value="#{createInstanceAction.instanceId}" styleClass="portlet-form-input-field"
+                      required="true"/>
+         <br/>
+         <h:commandButton action="#{createInstanceAction.execute}" value="#{bundle.CREATE_INSTANCE}"
+                          styleClass="portlet-form-button"/>
+         <h:message for="instanceId" errorClass="portlet-msg-error"/>
+      </h:form>
+   </div>
+</c:if>
+
+</ui:define>
+</ui:composition>
+</div>

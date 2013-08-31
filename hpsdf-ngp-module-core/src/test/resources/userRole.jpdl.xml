@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="userRole" xmlns="http://jbpm.org/4.3/jpdl">
+
+	<start g="1,125,48,48">
+		<transition to="fork1"/>
+	</start>
+	<fork g="76,125,48,48" name="fork1">
+		<transition to="roleDeveloperAction"/>
+		<transition to="roleManagerAction"/>
+		<transition to="roleTesterAction"/>
+	</fork>
+
+	<custom expr="#{roleDeveloperAction}" g="124,34,117,52" name="roleDeveloperAction">
+		<transition to="join1"/>
+	</custom>
+	<custom expr="#{roleManagerAction}" g="196,133,113,52" name="roleManagerAction">
+		<transition to="join1"/>
+	</custom>
+	<custom expr="#{roleTesterAction}" g="158,248,111,52" name="roleTesterAction">
+		<transition to="join1"/>
+	</custom>
+
+	<join g="349,128,48,48" name="join1">
+		<transition to="end"/>
+	</join>
+	<end g="438,128,48,48" name="end"/>
+</process>

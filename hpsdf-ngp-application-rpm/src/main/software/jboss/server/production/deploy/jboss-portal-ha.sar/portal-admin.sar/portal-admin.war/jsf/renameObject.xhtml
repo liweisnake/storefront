@@ -1,0 +1,23 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+   <ui:composition template="objectTemplate.xhtml">
+      <ui:param name="portalObjectScreen" value="#{bundle.RENAME}"/>
+      <ui:define name="content">
+         <h3 class="sectionTitle">#{bundle.RENAME} #{portalobjectmgr.selectedObjectType}</h3>
+         <h:form id="renameForm">
+            <p>#{bundle.RENAME_THE} <span class="objectName">#{portalobjectmgr.selectedObject.name}</span>
+               #{portalobjectmgr.selectedObjectType} #{bundle.TO}:
+               <h:inputText id="newName" value="#{renameAction.newName}"/> <h:message for="newName" errorClass="portlet-msg-error"/>
+               <h:commandButton id="rename" value="#{bundle.RENAME}" action="#{renameAction.execute}"
+                                styleClass="portlet-form-button portlet-section-buttonrow"/>
+               <h:commandButton id="cancel" value="#{bundle.COMMON_CANCEL}" action="objects"
+                                styleClass="portlet-form-button portlet-section-buttonrow"/>
+            </p>
+         </h:form>
+      </ui:define>
+   </ui:composition>
+</div>

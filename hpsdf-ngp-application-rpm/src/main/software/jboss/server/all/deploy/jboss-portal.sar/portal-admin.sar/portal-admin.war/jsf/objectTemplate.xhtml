@@ -1,0 +1,74 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="admin-ui">
+
+   <!-- Common nav -->
+   <f:loadBundle basename="Resource" var="bundle" />
+   <h:form id="admin-subtab-form">
+      <ul class="topnav">
+         <li id="currentTab">#{bundle.PORTAL_OBJECTS}</li>
+         <li>
+            <h:commandLink id="portlet-instance-link" value="#{bundle.PORTLET_INSTANCES}" action="instances"/>
+         </li>
+         <li>
+            <h:commandLink id="portlet-def-link" value="#{bundle.PORTLET_DEFINITIONS}" action="#{portletmgr.selectPortlet}"/>
+         </li>
+         <li>
+            <h:commandLink id="dashboard-link" value="#{bundle.DASHBOARDS}" action="dashboards"/>
+         </li>
+      </ul>
+   </h:form>
+   <ui:decorate template="common/tabContainer.xhtml">
+      <ui:define name="tab-container-content">
+         <!-- Path nav -->
+         <h:form id="obj-temp-form">
+            <ul class="objectpath">
+               <c:forEach items="#{portalobjectmgr.selectedObjectPath}" var="node" varStatus="status">
+                  <c:if test="#{node.type != PortalObject.TYPE_CONTEXT}">
+                     <li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+                  </c:if>
+                  <li class="#{node.id == portalobjectmgr.selectedObject.id ? 'selected' : 'pathItem'}" style="#{node.typeName == 'portal' ? 'padding-top:3px' : ''}">
+                     <c:choose>
+                        <c:when test="#{fn:startsWith(node.declaredProperties['portal.windowContentType'], 'widget/')}">
+                           <!-- If window is of contentType widget -->
+                           <h:panelGroup rendered="#{fn:startsWith(node.declaredProperties['portal.windowContentType'], 'widget/')}">
+                              <span class="objectName">#{node.name}</span> #{node.typeName}
+                           </h:panelGroup>
+                        </c:when>
+                        <c:otherwise>
+                           <h:commandLink id="object-link-#{status.index}" action="#{portalobjectmgr.selectObject}" styleClass="#{node.typeName == 'portal' ? 'actionSelectPortal' : ''}">
+                              <f:param name="id" value="#{node.id}"/>
+                              <c:choose>
+                                 <c:when test="#{node.type == PortalObject.TYPE_CONTEXT}">#{bundle.PORTALS}</c:when>
+                                 <c:otherwise>
+                                    <span class="objectName">
+                                       #{node.name} #{node.typeName}
+                                    </span>
+                                 </c:otherwise>
+                              </c:choose>
+                           </h:commandLink>
+                        </c:otherwise>
+                     </c:choose>
+                     <h:outputText value="&#160;#{portalObjectScreen}"
+                                   rendered="#{portalObjectScreen != null and node.id == portalobjectmgr.selectedObject.id}"/>
+                  </li>
+               </c:forEach>
+            </ul>
+         </h:form>
+
+         <!-- Status message -->
+         <h:message id="status" for="status" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+                    fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+         <!-- Content -->
+         <div class="property-container">
+         	<ui:insert name="content">#{bundle.WIZARD_CONTENT}</ui:insert>
+         </div>
+      </ui:define>
+   </ui:decorate>
+</div>

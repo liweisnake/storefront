@@ -1,0 +1,54 @@
+<wicket:panel>
+
+	<form wicket:id="editPlatformForm">
+
+	<div class="content">
+	<table border="0" cellpadding="0" cellspacing="0"
+		class="portal-container">
+      <tr>
+        <td class="portal-container-top-left"></td>
+        <td class="portal-container-top"></td>
+        <td class="portal-container-top-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-content-left"></td>
+        <td class="portal-container-content">
+		  <div class="contentbox">
+		  
+	<span style="color: red;" wicket:id="feedBack">error message</span>
+		  
+            <div class="content-list">
+              <ul>
+                <li><b><wicket:message key="platformName" />:</b><span>
+                  <input name="input" type="text" class="common-textfield" wicket:id="platformName" />
+                  </span></li>
+                  
+                <li><b><wicket:message key="description" />:</b><span>
+                  <input name="input" type="text" class="common-textfield" wicket:id="description" />
+                  </span></li>                  
+              </ul>
+            </div>
+          </div>
+          </td>
+        <td class="portal-container-content-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-bottom-left"></td>
+        <td class="portal-container-bottom"></td>
+        <td class="portal-container-bottom-right"></td>
+      </tr>
+
+	</table>
+	
+		<div class="contentbutton">
+			<input type="submit" wicket:id="save" wicket:message="value:save" class="button-submit" /> 
+				
+			<input type="submit" wicket:id="back" wicket:message="value:back" class="button-submit" />
+		</div>
+	</div>
+
+	</form>
+
+	<div wicket:id="promptPanel"></div>
+
+</wicket:panel>

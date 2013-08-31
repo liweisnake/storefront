@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">保存</entry>
+	<entry key="back">返回</entry>
+	<entry key="name">客户名称</entry>
+	
+	<entry key="binaryFile">二进制文件</entry>
+	<entry key="configFile">配置文件</entry>	
+	
+	<entry key="configFileName">配置文件名称</entry>		
+	<entry key="version">版本号</entry>
+	<entry key="uploadNewFile">上传新文件</entry>
+	<entry key="configFileVersion">配置文件版本</entry>
+	<entry key="updateDate">更新日期</entry>
+	
+	<entry key="handsetType">手机类型</entry>
+	<entry key="newVersionUpdate">新建版本文件</entry>	
+	<entry key="upload">上传</entry>
+	
+	<entry key="title">编辑客户应用程序</entry>
+	<entry key="title.big">客户应用程序管理</entry>
+	<entry key="promptTitle">提示</entry>
+	<entry key="confirmMsg">你想要更新商店客户端吗?</entry>
+	<entry key="successMsg">更新商店客户点成功.</entry>	
+	
+	<entry key="error.save.nofile">请选择一个文件.</entry>	
+	<entry key="error.save.failed">更新失败.</entry>	
+</properties>

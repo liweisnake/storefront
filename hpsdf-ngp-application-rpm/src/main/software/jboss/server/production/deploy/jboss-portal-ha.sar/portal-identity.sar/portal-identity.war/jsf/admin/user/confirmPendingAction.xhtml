@@ -1,0 +1,71 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+
+<ui:define name="title">
+
+	<li class="pathItem">
+		<h:commandLink id="user-mgm-link" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="pathItem">
+		<h:commandLink id="revise-link" action="revise" value="#{bundle.IDENTITY_MANAGEMENT_PENDING_REGISTRATIONS}" /> 
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_APPROVE_ALL}" rendered="#{useradministrationbean.pendingUserAction == 'approve'}" />
+		<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_REJECT_ALL}" rendered="#{useradministrationbean.pendingUserAction == 'reject'}" />
+	</li>
+</ui:define>
+<ui:define name="content">
+<h3>
+	<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_APPROVE_ALL}" rendered="#{useradministrationbean.pendingUserAction == 'approve'}" />
+	<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_REJECT_ALL}" rendered="#{useradministrationbean.pendingUserAction == 'reject'}" />
+</h3>
+<h:form id="confirm-pending-action-form">
+<h:dataTable id="confirm-pending-datatable" value="#{useradministrationbean.pendingActionList}" var="user" rowClasses="portlet-section-body,portlet-section-alternate" headerClass="portlet-section-header" styleClass="datatable" width="100%">
+	<h:column>
+		<h:selectBooleanCheckbox value="#{user.selected}" disabled="true" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_PENDING_BPM_ID}"/>
+		</f:facet>
+		<h:outputText value="#{user.processId}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_USERNAME}"/>
+		</f:facet>
+		<h:outputText value="#{user.username}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_EMAIL}"/>
+		</f:facet>
+		<h:outputText value="#{user.email}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_REGISTRATION_DATE}"/>
+		</f:facet>
+		<h:outputText value="#{user.registrationDate}">
+			<f:convertDateTime dateStyle="medium" type="both" />
+		</h:outputText>
+	</h:column>		
+</h:dataTable>
+<br/>
+	<p style="text-align: right;">  
+		<h:commandButton id="approve" value="#{bundle.IDENTITY_MANAGEMENT_APPROVE_ALL}" action="#{useradministrationbean.confirmPendingAction}" styleClass="portlet-form-button" rendered="#{useradministrationbean.pendingUserAction == 'approve'}" />
+		<h:commandButton id="reject"  value="#{bundle.IDENTITY_MANAGEMENT_REJECT_ALL}" action="#{useradministrationbean.confirmPendingAction}" styleClass="portlet-form-button" rendered="#{useradministrationbean.pendingUserAction == 'reject'}" />
+		<h:commandButton id="revise"  value="#{bundle.IDENTITY_BUTTON_CANCEL}" action="revise" styleClass="portlet-form-button"/>
+	</p> 
+</h:form>
+</ui:define>
+</ui:composition>
+</div>

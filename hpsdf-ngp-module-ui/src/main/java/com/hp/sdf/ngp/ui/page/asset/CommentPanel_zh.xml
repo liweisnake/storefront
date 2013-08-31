@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="comments">评论(至多250个字)</entry>
+<entry key="submit">提交</entry>
+<entry key="showComments">显示所有评论</entry>
+<entry key="hideComments">隐藏</entry>
+<entry key="StringValidator.maximum">您的评论不能超过250个字。</entry>
+<entry key="btn.add">发表</entry>
+</properties>

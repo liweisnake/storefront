@@ -1,0 +1,156 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:jbp="http://www.jboss.org/portal"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+<br/>
+<table width="100%">
+<tr>
+<td valign="top" width="50%">
+   <p class="portlet-area-header">#{bundle.COMMON_CONTENT_DEFINITION}</p>
+
+   <div class="portlet-area-body">
+
+      <table>
+         <tr>
+            <td colspan="2">#{bundle.COMMON_DEFINE_NAME_WINDOW}:
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <h:form id="windowForm">
+                  <label for="windowName">
+                     <span class="portlet-form-field-label admin-label">#{bundle.COMMON_WINDOW_NAME}:</span>
+                     <h:inputText id="windowName" binding="#{pageManager.windowName}"
+                                  styleClass="portlet-form-input-field id-window-name"/>
+                  </label>
+                  <h:message for="windowName" errorClass="portlet-msg-error"/>
+
+                  <hr/>
+                 #{bundle.COMMON_SELECT_TYPE_CONTENT}:
+                  <br/>
+                  <label for="instanceId" class="portlet-form-field-label-container">
+                     <span class="portlet-form-field-label admin-label">#{bundle.COMMON_CONTENT_TYPE}:</span>
+                     <h:selectOneMenu
+                        id="instanceId"
+                        value="#{pageManager.selectedContentType}"
+                        styleClass="portlet-form-field contentType"
+                        onchange="this.form.submit(); ">
+                        <f:selectItems value="#{pageManager.contentTypeItems}"/>
+                     </h:selectOneMenu>
+                  </label>
+                  <h:message for="instanceId" errorClass="portlet-msg-error"/>
+
+               <hr/>
+               #{bundle.COMMON_SELECT_CONTENT}:
+               </h:form>
+               <jbp:portlet
+                  portletId="#{pageManager.selectedEditorPortletId}"
+                  portletInvoker="#{pageManager.portletInvoker}"
+                  actionListener="#{pageManager.assignWindow}"
+                  supportedModes="edit_content"
+                  supportedWindowStates="normal"
+                  initialMode="edit_content"
+                  initialWindowState="normal"
+                  renderParameters="#{pageManager.selectedRenderParameters}"
+                  onClick="url.setParameter('windowName', document.getElementById(document.getElementById('namespaceHolder').value).value);"/>
+               <input type="hidden" value="#{pageManager.namespace}" id="namespaceHolder"/>
+            </td>
+         </tr>
+      </table>
+
+   </div>
+
+</td>
+<td valign="top" width="50%">
+
+   <p class="portlet-area-header">#{bundle.COMMON_PAGE_LAYOUT}</p>
+
+   <div class="portlet-area-body">
+
+      <h:form id="layoutForm">
+         <h:message for="layoutForm" errorClass="portlet-msg-error"/>
+         <input id="blah" type="hidden" name="blah" value=""/>
+         <table width="100%">
+            <tbody>
+               <c:forEach items="#{pageManager.regionNames}" var="regionName" varStatus="status">
+                  <tr>
+                     <td colspan="3" class="portlet-form-field-label">
+                        <hr/>
+                        #{regionName} #{bundle.COMMON_REGION}
+                     </td>
+                  </tr>
+                  <tr>
+                     <td valign="top">
+                        <h:commandButton
+                           onclick="document.getElementById('blah').value=document.getElementById('#{pageManager.namespace}').value"
+                           value="#{bundle.COMMON_ADD}" id="a_#{regionName}"
+                           actionListener="#{pageManager.assignWindows}"
+                           styleClass="portlet-form-button layout-button"/>
+                     </td>
+                     <td width="100%">
+                        <h:selectManyListbox
+                           value="#{pageManager.assignedWindows[regionName]}"
+                           id="selectMany_#{regionName}"
+                           size="7" styleClass="windowList portlet-form-field">
+                           <f:selectItems
+                              value="#{pageManager.windowItemsMap[regionName]}"/>
+                        </h:selectManyListbox>
+                     </td>
+                     <td valign="top" width="250">
+                        <h:commandButton
+                           value="#{bundle.COMMON_UP}" id="u_#{regionName}"
+                           actionListener="#{pageManager.assignWindows}"
+                           styleClass="portlet-form-button layout-button"/><br/>
+                        <h:commandButton
+                           value="#{bundle.COMMON_DOWN}" id="d_#{regionName}"
+                           actionListener="#{pageManager.assignWindows}"
+                           styleClass="portlet-form-button layout-button"/>
+                        <hr/>
+                        <h:commandButton
+                           value="#{bundle.COMMON_DELETE}" id="l_#{regionName}"
+                           actionListener="#{pageManager.assignWindows}"
+                           styleClass="portlet-form-button layout-button"/>
+                     </td>
+                  </tr>
+               </c:forEach>
+            </tbody>
+            <c:if test="#{!(empty pageManager.assignedWindows['unknown'])}">
+               <tbody>
+                  <tr>
+                     <td colspan="2" class="portlet-form-field-label"
+                         style="border-width:0px;border-top:1px dashed #d5d5d5">#{bundle.COMMON_UNASSIGNED_WINDOW}
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div style="margin-top: 1em">
+                           <h:commandButton value="#{bundle.COMMON_DELETE}"
+                                            id="l_unknown" actionListener="#{pageManager.assignWindows}"
+                                            styleClass="portlet-form-button"/>
+                        </div>
+                     </td>
+                     <td>
+                        <h:selectManyListbox id="windows-select"
+                           value="#{pageManager.assignedWindows['unknown']}"
+                           size="7" styleClass="windowList portlet-form-field">
+                           <f:selectItems
+                              value="#{pageManager.windowItemsMap['unknown']}"/>
+                        </h:selectManyListbox>
+                     </td>
+                  </tr>
+               </tbody>
+            </c:if>
+         </table>
+      </h:form>
+
+   </div>
+
+</td>
+</tr>
+</table>
+
+</div>

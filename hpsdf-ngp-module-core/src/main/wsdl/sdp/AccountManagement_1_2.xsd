@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--January 16, 2006--><xsd:schema targetNamespace="http://www.csapi.org/schema/parlayx/account_management/v2_2" xmlns:parlayx_account_management_xsd="http://www.csapi.org/schema/parlayx/account_management/v2_2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="DatedTransaction">
+    <xsd:sequence>
+      <xsd:element name="transactionDate" type="xsd:dateTime"/>
+      <xsd:element name="transactionDetails" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Balance">
+    <xsd:sequence>
+      <xsd:element name="balanceType" type="xsd:string"/>
+      <xsd:element name="amount" type="xsd:decimal"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BalanceExpireDetails">
+    <xsd:sequence>
+      <xsd:element name="balanceType" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="date" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

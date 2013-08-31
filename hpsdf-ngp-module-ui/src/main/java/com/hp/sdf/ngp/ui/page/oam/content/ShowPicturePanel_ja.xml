@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="defaultSetting">デフォルト設定</entry>
+<entry key="btn.back">戻る</entry>
+<entry key="title">画像</entry>
+<entry key="newBinaryVersion">新バイナリバージョン</entry>
+</properties>

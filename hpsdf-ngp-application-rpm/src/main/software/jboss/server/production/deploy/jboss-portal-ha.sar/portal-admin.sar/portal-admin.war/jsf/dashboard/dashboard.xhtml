@@ -1,0 +1,164 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+
+<f:loadBundle basename="Resource" var="bundle" />
+<div align="center">
+   <h:message id="error" for="error" errorClass="portlet-msg-error"/>
+</div>
+
+<table class="full-width datatable">
+<tr>
+   <th class="portlet-section-header" align="center">#{bundle.DASHBOARD_PERSONAL_EDITOR}</th>
+</tr>
+<tr>
+   <td class="portlet-section-body" align="center">
+      <table width="100%">
+         <tr>
+            <td width="250">
+               <table class="bottombuttonbar">
+                  <tr>
+                     <td align="left" valign="top"><b>#{bundle.DASHBOARD_CREATE_NEW_PAGE}:</b><br/>#{bundle.DASHBOARD_CREATE_PAGE}:&#160;
+                        <h:form style="padding:0;margin:0">
+<!--[if IE]><input type="text" style="display: none;" disabled="disabled" size="1" /><![endif]-->
+                           <h:inputText id="pageName" value="#{addDashboardPageAction.pageName}"
+                                        styleClass="portlet-form-input-field"/>
+                           <h:commandButton value="#{bundle.SAVE}"
+                                            action="#{addDashboardPageAction.execute}"
+                                            styleClass="portlet-form-button"/>
+                        </h:form>
+                     </td>
+                  </tr>
+                  <c:if test="#{dashboard.selectedPage.name != 'default'}">
+                     <tr>
+                        <td align="left" valign="top"><b>#{bundle.DASHBOARD_RENAME_THIS_PAGE}:</b><br/>#{bundle.DASHBOARD_NEW_PAGE_NAME}:&#160;
+                           <h:form id="renameForm" style="padding:0;margin:0">
+<!--[if IE]><input type="text" style="display: none;" disabled="disabled" size="1" /><![endif]-->
+                              <h:message for="newName"/>
+                              <h:inputText id="newName" value="#{renameDashboardPageAction.newName}"
+                                           styleClass="portlet-form-input-field"/>
+                              <h:commandButton value="#{bundle.RENAME}"
+                                               action="#{renameDashboardPageAction.execute}"
+                                               styleClass="portlet-form-button"/>
+                           </h:form>
+                        </td>
+                     </tr>
+                  </c:if>
+               </table>
+            </td>
+            <td align="left" valign="top">
+               #{bundle.DASHBOARD_USE_PAGE_MANAGE_CONTENT_APPEARANCE}. <br/>
+               #{bundle.DASHBOARD_YOU_CAN_CONTROL_TITLES_COLUMN_THEMES}.
+            </td>
+         </tr>
+      </table>
+   </td>
+</tr>
+<tr>
+   <td class="portlet-section-header" align="center">#{bundle.DASHBOARD_CURRENTLY_EDITING_PAGE} #{dashboard.selectedPage.name}</td>
+</tr>
+<tr>
+   <td class="portlet-section-body" align="center">
+      <h:form id="page_selector_form" style="padding:0;margin:0" styleClass="id_page_selector_form">
+         Select: <h:selectOneMenu
+         id="pageNameSelector"
+         value="#{dashboard.selectedPageName}"
+         styleClass="portlet-form-field"
+         onchange="document.getElementsByClassName('id_page_selector_form')[0].submit()">
+         <f:selectItems value="#{dashboard.pageItems}"/>
+      </h:selectOneMenu>
+      </h:form>
+      <br/>
+   </td>
+</tr>
+
+<tr>
+   <td>
+      <table width="100%">
+         <tr>
+            <td valign="top" width="250">
+               <table class="bottombuttonbar">
+                  <tr>
+                     <td valign="top">
+                        <b>#{bundle.DASHBOARD_THEME_AND_LAYOUT}</b>
+                        <br/>
+                        #{bundle.DASHBOARD_APPLY_THEME}.
+                        <hr/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <h:form id="dashboardLayoutForm">
+                           #{bundle.DASHBOARD_CHOOSE_LAYOUT}:<br/>
+                           <h:selectOneMenu
+                              id="layoutSelector"
+                              value="#{dashboard.selectedPageLayout}"
+                              styleClass="portlet-form-field">
+                              <f:selectItems value="#{applicationScope.LayoutService.layoutItems}"/>
+                           </h:selectOneMenu>
+                           <h:commandButton value="#{bundle.DASHBOARD_SELECT}" styleClass="portlet-form-button"
+                                            action="#{dashboard.updateLayout}"/>
+                        </h:form>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td height="20"></td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <h:form id="dashboardThemeForm">
+                           #{bundle.DASHBOARD_CHOOSE_THEME}:<br/>
+                           <h:selectOneMenu
+                              id="themeSelector"
+                              value="#{dashboard.selectedPageTheme}"
+                              styleClass="portlet-form-field">
+                              <f:selectItems value="#{applicationScope.ThemeService.themeItems}"/>
+                           </h:selectOneMenu>
+                           <h:commandButton value="#{bundle.DASHBOARD_SELECT}" styleClass="portlet-form-button"
+                                            action="#{dashboard.updateTheme}"/>
+                        </h:form>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td height="20"></td>
+                  </tr>
+               </table>
+            </td>
+            <td>
+               <table>
+                  <tr>
+                     <td>
+                        <div class="admin-ui">
+                           <ui:include src="/jsf/common/editPageLayout.xhtml">
+                              <ui:param name="pageManager" value="#{dashboard.pageManager}"/>
+                           </ui:include>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+   </td>
+</tr>
+</table>
+<hr/>
+<c:if test="#{dashboard.selectePageIsDefault == false}">
+   <table width="100%">
+      <tr>
+         <td align="left">
+            <h:form style="padding:0;margin:0">
+               <h:commandButton value="#{bundle.DASHBOARD_DELETE_THIS_PAGE}" styleClass="portlet-form-button"
+                                action="#{dashboard.destroyPage}"/>
+               <br/>
+               <font color="red">#{bundle.DASHBOARD_CANNOT_UNDO_ACTION}!</font>
+            </h:form>
+         </td>
+      </tr>
+   </table>
+</c:if>
+</div>

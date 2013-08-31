@@ -1,0 +1,585 @@
+<wicket:head>
+<script language="JavaScript" type="text/javascript">
+	function needEdit()
+	{
+		if (document.getElementById("providerName").disabled)
+		{
+			//document.getElementById("providerId").disabled = false;
+			document.getElementById("providerName").disabled = false;
+			document.getElementById("providerJpName").disabled = false;
+			//document.getElementById("priority").disabled = false;
+		}
+		else
+		{
+			//document.getElementById("providerId").disabled = true;
+			document.getElementById("providerName").disabled = true;
+			document.getElementById("providerJpName").disabled = true;
+			//document.getElementById("priority").disabled = true;
+		}
+	}
+	
+	function checkArea(tag, length)
+	{
+		if (tag.value.length > length) 
+			tag.value = tag.value.substr(0, length);
+	}
+</script>
+</wicket:head>
+
+<wicket:panel>
+<div id="regionA">
+	<div class="title">
+    	<h2 class="icon-title-content"><wicket:message key="title.big">Content Management</wicket:message></h2>
+  	</div>
+
+	<div class="content">
+      	<div class="column1">
+      		<form wicket:id="detailForm">
+		      	<div class="portal-box">
+				<div class="content-container">
+								<h3><wicket:message key="title.left">Content Detail</wicket:message></h3>
+	          				<div class="contentbox style-a">
+	<span style="color: red;" wicket:id="feedback">error message</span>
+	              				<div class="content-list">
+	          						<ul>
+	          							<li>
+				        					<b><h4> <wicket:message key="title.name">Title Name</wicket:message></h4></b>
+				        					<i><h4> <wicket:message key="title.value">Attribute Value</wicket:message></h4></i>
+				        					<span><h4> <wicket:message key="title.input">Input Value</wicket:message></h4></span> 
+				        				</li>
+				        				<li>
+				        					<b><wicket:message key="assetName">assetName</wicket:message> : </b>
+				        					<i><span wicket:id="label.assetName">assetName</span></i>
+				        					<span><input type="text" wicket:id="assetName" class="common-textfield" maxlength="256"/></span> 
+				        				</li>  
+				        				<li>
+								        	<b><wicket:message key="externalId">externalId</wicket:message> : </b>
+								        	<i><span wicket:id="label.externalId">externalId</span></i>
+								        	<span>
+								        		<input type="text" wicket:id="externalId" class="common-textfield" maxlength="150"/>
+								        		<span><input type="submit" wicket:id="generateId" class="button-submit-small" wicket:message="value:btn.generate"/></span>
+								        	</span>                                                                           
+							   			</li>                                                                        
+				        				<!--
+				          				<li>
+				          					<b><wicket:message key="status">status</wicket:message> : </b>
+				          					<i><span wicket:id="label.status">status</span></i>
+				          					<span><select wicket:id="status" class="common-select"></select></span>  
+				          				</li>                                                                         
+			              				<li>
+			              					<b><wicket:message key="assetId">assetId</wicket:message> * : </b>
+			              					<i><span wicket:id="label.assetId">assetId</span></i>
+			              					<span><input wicket:id="assetId" type="text" class="common-textfield" maxlength="18"/></span>                                                                           
+			            				</li>
+			              				<li>
+			              					<b><wicket:message key="parentAssetId">parentAssetId</wicket:message> : </b>
+			              					<i><span wicket:id="label.parentAssetId">parentAssetId</span></i>
+			              					<span><input wicket:id="parentAssetId" type="text" class="common-textfield" maxlength="18"/></span>                                                                           
+			            				</li>
+			              				<li>
+			              					<b><wicket:message key="fileName">fileName</wicket:message> : </b>
+			              					<i><span wicket:id="label.fileName">fileName</span></i>
+			              					<span><input wicket:id="fileName" type="text" class="common-textfield" maxlength="10"/></span>    
+			            				</li>                                                                       
+			            				-->
+			              				<li>
+			              					<b><wicket:message key="providerId">providerId</wicket:message> : </b>
+			              					<i><span wicket:id="label.providerId">providerId</span></i>
+			              					<span><input wicket:id="providerId" type="text" class="common-textfield" disabled="true" maxlength="20"/></span>                                                                           
+			             				</li>
+			             				<li>
+							            	<b><wicket:message key="editProvider">editProvider</wicket:message> : </b>
+							            	<i></i>
+							              	<span><input type="checkbox" wicket:id="editProvider" name="editProvider" onchange="needEdit();"/></span>                                                                           
+							            </li>
+			              				<li>
+			              					<b><wicket:message key="providerName">providerName</wicket:message> : </b>
+			              					<i><span wicket:id="label.providerName">providerName</span></i>
+			              					<span><input wicket:id="providerName" type="text" class="common-textfield" id="providerName" disabled="true" maxlength="256"/></span>                                                                           
+			             				</li>
+			             				<li>
+							            	<b><wicket:message key="providerJpName">providerJpName</wicket:message> : </b>
+							            	<i><span wicket:id="label.providerJpName">providerJpName</span></i>
+							              	<span><input wicket:id="providerJpName" type="text" class="common-textfield" id="providerJpName" disabled="true" maxlength="256"/></span>                                                                           
+							            </li>
+			              				<li>
+			              					<b><wicket:message key="category1">category1</wicket:message> : </b>
+							              	<i><span wicket:id="label.category1">category1</span></i>
+							              	<span></span>                                                                           
+							            </li>
+							            <li>
+							            	<b><wicket:message key="category2">category2</wicket:message> : </b>
+							              	<i><span wicket:id="label.category2">category2</span></i>
+							              	<span></span>                                                                           
+										</li>
+			            				<!--
+								        <li>
+								          	<b><wicket:message key="description">description</wicket:message> : </b>
+								          	<i><span wicket:id="label.description">description</span></i>
+								          	<span><textarea wicket:id="description" class="common-textarea"></textarea></span>                                                                           
+								        </li>
+								        -->
+								        <li>
+								        	<b><wicket:message key="brief">brief</wicket:message> : </b>
+								          	<i><span wicket:id="label.brief">brief</span></i>
+								          	<span><input type="text" wicket:id="brief" class="common-textfield" maxlength="32"/></span>                                                                           
+								        </li>                                                                       
+								        <!--
+							            <li>
+							            	<b><wicket:message key="price">price</wicket:message> : </b>
+							              	<i><span wicket:id="label.price">price</span></i>
+							              	<span><input wicket:id="price" type="text" class="common-textfield"/></span>                                                                           
+							            </li>
+								        <li>
+								        	<b><wicket:message key="createDate">createDate</wicket:message> : </b>
+								          	<i><span wicket:id="label.createDate">createDate</span></i>
+								          	<span><input type="text" wicket:id="createDate" class="textfield-date"/></span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="expireDate">expireDate</wicket:message> : </b>
+								          	<i><span wicket:id="label.expireDate">expireDate</span></i>
+								          	<span><input type="text" wicket:id="expireDate" class="textfield-date"/></span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="fileSize">fileSize</wicket:message> : </b>
+								          	<i><span wicket:id="label.fileSize">fileSize</span></i>
+								          	<span><input type="text" wicket:id="fileSize" class="common-textfield"/></span>                                                                           
+								        </li>
+								        -->
+								        <form wicket:id="tagForm">
+								        <li>
+								        	<b><wicket:message key="tag">tag</wicket:message> : </b>
+								        	<i>&nbsp;</i>
+								          	<span>
+								          		<input wicket:id="tag" type="text" class="common-textfield"/>
+								          		<span><input type="submit" wicket:id="addTag" wicket:message="value:btn.add" class="button-submit-small"/></span>
+								          	</span> 
+								        </li>
+								        
+								        <li wicket:id="tags"> 
+								        	<b>&nbsp;</b>
+								        	<i>&nbsp;</i>
+								          	<span>
+	    										<span wicket:id="tagName">tagName</span>
+	        									<a href="#" wicket:id="delTag"><img src="images/delete.png"/></a>
+								          	</span>                                                                            
+								        </li>
+								        </form>
+								        <!--
+								        <li>
+								        	<b><wicket:message key="newArrivalDueDate">newArrivalDueDate</wicket:message> : </b>
+								          	<i><span wicket:id="label.newArrivalDueDate">newArrivalDueDate</span></i>
+								          	<span><input type="text" wicket:id="newArrivalDueDate" class="textfield-date"/></span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="recommendStartDate">recommendStartDate</wicket:message> : </b>
+								          	<i><span wicket:id="label.recommendStartDate">recommendStartDate</span></i>
+								          	<span><input type="text" wicket:id="recommendStartDate" class="textfield-date"/></span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="recommendDueDate">recommendDueDate</wicket:message> : </b>
+								          	<i><span wicket:id="label.recommendDueDate">recommendDueDate</span></i>
+								          	<span><input type="text" wicket:id="recommendDueDate" class="textfield-date"/></span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="recommendOrder">recommendOrder</wicket:message> : </b>
+								          	<i><span wicket:id="label.recommendOrder">recommendOrder</span></i>
+								          	<span><input type="text" wicket:id="recommendOrder" class="common-textfield"/></span>                                                                           
+								        </li>
+								        -->
+								        <li>
+								        	<b><wicket:message key="thumbnail">thumbnail</wicket:message> : </b>
+								          	<i><a href="#" wicket:id="btn.thumbnail"><wicket:message key="view">View</wicket:message></a></i>
+								          	<span><input wicket:id="thumbnail" id="thumbnail" type="file" class="common-textfield"/></span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="thumbnailBig">thumbnailBig</wicket:message> : </b>
+								          	<i><a href="#" wicket:id="btn.thumbnailBig"><wicket:message key="view">View</wicket:message></a></i>
+								          	<span><input wicket:id="thumbnailBig" id="thumbnailBig" type="file" class="common-textfield"/></span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="screenShot1">screenShot</wicket:message> : </b>
+								          	<i> <span wicket:id="screenShot1" ></span> </i>
+								          	<span>&nbsp;</span>                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="screenShot2">screenShot</wicket:message> : </b>
+								          	<i> <span wicket:id="screenShot2" ></span> </i>
+								          	<span>&nbsp;</span>                                                                                                         
+								        </li>
+								        <li>
+								        	<b><wicket:message key="screenShot3">screenShot</wicket:message> : </b>
+								          	<i> <span wicket:id="screenShot3" ></span> </i>
+								          	<span>&nbsp;</span>                                                                                                           
+								        </li>
+								        <li>
+								        	<b><wicket:message key="screenShot4">screenShot</wicket:message> : </b>
+								          	<i> <span wicket:id="screenShot4" ></span> </i>
+								          	<span>&nbsp;</span>                                                                                                         
+								        </li>
+								        <li>
+								        	<b><wicket:message key="screenShot5">screenShot</wicket:message> : </b>
+								          	<i> <span wicket:id="screenShot5" ></span> </i>
+								          	<span>&nbsp;</span>                                                                                                         
+								        </li>
+								        <!-- 
+								        <li>
+										    <table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;" border="0">
+										    	<span wicket:id="screenShots">
+													<tr>
+														<td align="center"><span wicket:id="pictureUrl">pictureUrl</span></td>
+													</tr>
+												</span>
+										    </table>
+								        </li>
+								        
+								        <li>
+										    <table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;" border="0">
+										    	<span wicket:id="screenShots">
+													<tr>
+														<td align="center"><span wicket:id="label.upDate">label.upDate</span></td>
+													</tr>
+												</span>
+										    </table>
+								        </li>
+								         -->
+								        <li>
+								        	<b><wicket:message key="upDate">upDate</wicket:message> : </b>
+								          	<i><span wicket:id="label.upDate"></span></i>
+								          	<span>&nbsp;</span>                                                                           
+								        </li>
+								       
+									</ul>	
+								</div>						       
+								<div class="contentbutton">
+									<input type="submit" wicket:id="btn.update" class="button-submit" wicket:message="value:btn.update"/>
+								    <input type="submit" wicket:id="btn.delete" class="button-submit" wicket:message="value:btn.delete"/>
+								    <input type="submit" wicket:id="btn.back" class="button-submit" wicket:message="value:btn.back"/>
+								</div>
+							</div>
+					<div class="clear"></div>
+					</div>
+					</div> 
+			</form>
+		</div>
+		<div class="column2">
+			<form wicket:id="dynamicForm">
+				<div class="portal-box">
+				<div class="content-container">   
+          					<div class="contentbox style-a">
+          						<h3><wicket:message key="title.right">Content Additional Metadata</wicket:message></h3>                                                                      
+								<div class="content-list">
+									<ul>
+										<li>
+				        					<b><h4><wicket:message key="title.name">Title Name</wicket:message></h4></b>
+				        					<i><h4> <wicket:message key="title.value">Attribute Value</wicket:message></h4></i>
+				        					<span><h4><wicket:message key="title.input">Input Value</wicket:message></h4></span> 
+				        				</li>
+										<li>
+											<b><wicket:message key="displayorder">displayorder</wicket:message> : </b>
+					    					<i><span wicket:id="label.displayorder">&nbsp;</span></i>
+			              					<span><input type="text" wicket:id="displayorder" class="common-textfield" maxlength="10"/></span>                                                                           
+				   						</li>
+										<li>
+											<b><wicket:message key="pickup">pickup</wicket:message> : </b>
+					    					<i><span wicket:id="label.pickup">&nbsp;</span></i>
+					    					<span><input type="text" wicket:id="pickup" class="common-textfield" maxlength="1"/></span>                                                                           
+				   						</li>
+				   						<li>
+											<b><wicket:message key="japanesename">japanesename</wicket:message> : </b>
+					    					<i><span wicket:id="label.japanesename">&nbsp;</span></i>
+									    	<span><input type="text" wicket:id="japanesename" class="common-textfield" maxlength="256"/></span>                                                                           
+								   		</li>
+										<li>
+											<b><wicket:message key="titlename">titlename</wicket:message> : </b>
+					    					<i><span wicket:id="label.titlename">&nbsp;</span></i>
+									    	<span><input type="text" wicket:id="titlename" class="common-textfield" maxlength="256"/></span>                                                                           
+								   		</li>
+										<li>
+											<b><wicket:message key="titlejpname">titlejpname</wicket:message> : </b>
+					    					<i><span wicket:id="label.titlejpname">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="titlejpname" class="common-textfield" maxlength="256"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="partinfo">partinfo</wicket:message> : </b>
+					    					<i><span wicket:id="label.partinfo">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="partinfo" class="common-textfield" maxlength="3"/></span>                                                                           
+									   	</li>
+									   	<li>
+											<b><wicket:message key="licensername">licensername</wicket:message> : </b>
+					    					<i><span wicket:id="label.licensername">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="licensername" class="common-textfield" maxlength="256"/></span>                                                                           
+									   	</li>
+									   	<li>
+											<b><wicket:message key="licenserjpname">licenserjpname</wicket:message> : </b>
+					    					<i><span wicket:id="label.licenserjpname">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="licenserjpname" class="common-textfield" maxlength="256"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="musiclabel">musiclabel</wicket:message> : </b>
+					    					<i><span wicket:id="label.musiclabel">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="musiclabel" class="common-textfield" maxlength="256"/></span>                                                                           
+									   	</li>
+									   	<li>
+											<b><wicket:message key="musicjplabel">musicjplabel</wicket:message> : </b>
+					    					<i><span wicket:id="label.musicjplabel">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="musicjplabel" class="common-textfield" maxlength="256"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="artistname">artistname</wicket:message> : </b>
+					    					<i><span wicket:id="label.artistname">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="artistname" class="common-textfield" style="visibility:hidden" maxlength="256"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="artistjpname">artistjpname</wicket:message> : </b>
+					    					<i><span wicket:id="label.artistjpname">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="artistjpname" class="common-textfield" maxlength="256"/></span>                                                                           
+									   	</li>
+									   	
+									   	
+										<li>
+											<b><wicket:message key="shortdescription">shortdescription</wicket:message> : </b>
+					    					<i><span wicket:id="label.shortdescription">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="shortdescription" class="common-textfield"  style="visibility:hidden" maxlength="280"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="longdescription">longdescription</wicket:message> : </b>
+					    					<i><span wicket:id="label.longdescription">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="longdescription" class="common-textfield" style="visibility:hidden" maxlength="1000"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="copyright">copyright</wicket:message> : </b>
+					    					<i><span wicket:id="label.copyright">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="copyright" class="common-textfield" style="visibility:hidden" maxlength="200"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="otherdescription">otherdescription</wicket:message> : </b>
+					    					<i><span wicket:id="label.otherdescription">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="otherdescription" class="common-textfield" style="visibility:hidden" maxlength="1000"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="lmark">lmark</wicket:message> : </b>
+					    					<i><span wicket:id="label.lmark">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="lmark" class="common-textfield" maxlength="1"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="chargetype">chargetype</wicket:message> : </b>
+					    					<i><span wicket:id="label.chargetype">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="chargetype" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="price">price</wicket:message> : </b>
+					    					<i><span wicket:id="label.price">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="price" class="common-textfield" style="visibility:hidden" maxlength="5"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="billingcomment">billingcomment</wicket:message> : </b>
+					    					<i><span wicket:id="label.billingcomment">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="billingcomment" class="common-textfield" maxlength="32"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="saleprice">saleprice</wicket:message> : </b>
+					    					<i><span wicket:id="label.saleprice">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="saleprice" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="salecomment">salecomment</wicket:message> : </b>
+					    					<i><span wicket:id="label.salecomment">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="salecomment" class="common-textfield" maxlength="32"/></span>                                                                           
+									   	</li>
+
+										<li>
+											<b><wicket:message key="campaignstartdate">campaignstartdate</wicket:message> : </b>
+					    					<i><span wicket:id="label.campaignstartdate">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="campaignstartdate" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="campaignenddate">campaignenddate</wicket:message> : </b>
+					    					<i><span wicket:id="label.campaignenddate">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="campaignenddate" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+
+										<li>
+											<b><wicket:message key="redownloadflag">redownloadflag</wicket:message> : </b>
+					    					<i><span wicket:id="label.redownloadflag">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="redownloadflag" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="redownloaddays">redownloaddays</wicket:message> : </b>
+					    					<i><span wicket:id="label.redownloaddays">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="redownloaddays" class="common-textfield" maxlength="3"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="playduration">playduration</wicket:message> : </b>
+					    					<i><span wicket:id="label.playduration">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="playduration" class="common-textfield" maxlength="6"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="androidmarkerurl">androidmarkerurl</wicket:message> : </b>
+					    					<i><span wicket:id="label.androidmarkerurl">&nbsp;</span></i>
+					    					<!--style="background:none repeat scroll 0 0 #F1F2F2;" gray style -->
+										    <span><textarea wicket:id="androidmarkerurl" class="common-textarea" onblur="checkArea(this, 512);" onpropertychange="checkArea(this, 512);"></textarea></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="cppageurl">cppageurl</wicket:message> : </b>
+					    					<i><span wicket:id="label.cppageurl">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="cppageurl" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="sampledownloadurl">sampledownloadurl</wicket:message> : </b>
+					    					<i><span wicket:id="label.sampledownloadurl">&nbsp;</span></i>
+										    <span><textarea wicket:id="sampledownloadurl" class="common-textfield" onblur="checkArea(this, 512);" onpropertychange="checkArea(this, 512);"></textarea></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="releventsalesiteurl">releventsalesiteurl</wicket:message> : </b>
+					    					<i><span wicket:id="label.releventsalesiteurl">&nbsp;</span></i>
+										    <span><textarea wicket:id="releventsalesiteurl" class="common-textfield" onblur="checkArea(this, 512);" onpropertychange="checkArea(this, 512);"></textarea></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="filterflag">filterflag</wicket:message> : </b>
+					    					<i><span wicket:id="label.filterflag">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="filterflag" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="versioncomment">versioncomment</wicket:message> : </b>
+					    					<i><span wicket:id="label.versioncomment">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="versioncomment" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="supportname">supportname</wicket:message> : </b>
+					    					<i><span wicket:id="label.supportname">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="supportname" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="supportcontact">supportcontact</wicket:message> : </b>
+					    					<i><span wicket:id="label.supportcontact">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="supportcontact" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="supportdetail">supportdetail</wicket:message> : </b>
+					    					<i><span wicket:id="label.supportdetail">&nbsp;</span></i>
+										    <span><textarea wicket:id="supportdetail" class="common-textarea" onblur="checkArea(this, 1000);" onpropertychange="checkArea(this, 1000);"></textarea></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="officialsiteurl">officialsiteurl</wicket:message> : </b>
+					    					<i><span wicket:id="label.officialsiteurl">&nbsp;</span></i>
+										    <span><textarea wicket:id="officialsiteurl" class="common-textarea" onblur="checkArea(this, 512);" onpropertychange="checkArea(this, 512);"></textarea></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="releventsiteurl">releventsiteurl</wicket:message> : </b>
+					    					<i><span wicket:id="label.releventsiteurl">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="releventsiteurl" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="flashurl">flashurl</wicket:message> : </b>
+					    					<i><span wicket:id="label.flashurl">&nbsp;</span></i>
+										    <span><textarea wicket:id="flashurl" class="common-textarea" onblur="checkArea(this, 512);" onpropertychange="checkArea(this, 512);"></textarea></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="twitter">twitter</wicket:message> : </b>
+					    					<i><span wicket:id="label.twitter">&nbsp;</span></i>
+										    <span><textarea wicket:id="twitter" class="common-textarea" onblur="checkArea(this, 512);" onpropertychange="checkArea(this, 512);"></textarea></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="enablecommentflag">enablecommentflag</wicket:message> : </b>
+					    					<i><span wicket:id="label.enablecommentflag">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="enablecommentflag" class="common-textfield" maxlength="1"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="lid">lid</wicket:message> : </b>
+					    					<i><span wicket:id="label.lid">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="lid" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+
+										<li>
+											<b><wicket:message key="resolutionfilter">resolutionfilter</wicket:message> : </b>
+					    					<i><span wicket:id="label.resolutionfilter">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="resolutionfilter" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+									   	<li>
+											<b><wicket:message key="functionfilter">functionfilter</wicket:message> : </b>
+					    					<i><span wicket:id="label.functionfilter">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="functionfilter" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="mimetypefilter">mimetypefilter</wicket:message> : </b>
+					    					<i><span wicket:id="label.mimetypefilter">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="mimetypefilter" class="common-textfield"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="releventcontentsid1">releventcontentsid1</wicket:message> : </b>
+					    					<i><span wicket:id="label.releventcontentsid1">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="releventcontentsid1" class="common-textfield" maxlength="18"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="releventcontentsid2">releventcontentsid2</wicket:message> : </b>
+					    					<i><span wicket:id="label.releventcontentsid2">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="releventcontentsid2" class="common-textfield" maxlength="18"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="releventcontentsid3">releventcontentsid3</wicket:message> : </b>
+					    					<i><span wicket:id="label.releventcontentsid3">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="releventcontentsid3" class="common-textfield" maxlength="18"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="installupdateflg">installupdateflg</wicket:message> : </b>
+					    					<i><span wicket:id="label.installupdateflg">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="installupdateflg" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+
+										<li>
+											<b><wicket:message key="securityinfo">securityinfo</wicket:message> : </b>
+					    					<i><span wicket:id="label.securityinfo">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="securityinfo" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="saledateinfo">saledateinfo</wicket:message> : </b>
+					    					<i><span wicket:id="label.saledateinfo">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="saledateinfo" class="common-textfield"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="managementcode">managementcode</wicket:message> : </b>
+					    					<i><span wicket:id="label.managementcode">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="managementcode" class="common-textfield" maxlength="32"/></span>                                                                           
+									   	</li>
+									   	
+										<li>
+											<b><wicket:message key="publishplandate">publishplandate</wicket:message> : </b>
+					    					<i><span wicket:id="label.publishplandate">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="publishplandate" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+										<li>
+											<b><wicket:message key="commissionrate">commissionrate</wicket:message> : </b>
+					    					<i><span wicket:id="label.commissionrate">&nbsp;</span></i>
+										    <span><input type="text" wicket:id="commissionrate" class="common-textfield" style="visibility:hidden"/></span>                                                                           
+									   	</li>
+
+									</ul>
+								</div>						       
+								<div class="contentbutton">
+									<input type="submit" wicket:id="addNew" class="button-submit" value="Save"></input>
+								</div>
+				    		</div>
+						<div class="clear"></div>
+						</div>
+						</div> 
+			</form>
+		</div>
+	</div>
+	
+	<div wicket:id="promptPanel"></div>
+</div>
+</wicket:panel>
+  

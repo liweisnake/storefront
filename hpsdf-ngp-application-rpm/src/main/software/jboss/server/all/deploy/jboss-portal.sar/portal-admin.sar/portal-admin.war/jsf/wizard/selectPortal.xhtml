@@ -1,0 +1,37 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+   <f:loadBundle basename="Resource" var="bundle" />
+   <ui:composition template="newWindowTpl.xhtml">
+      <ui:define name="content">
+         <table class="full-width datatable">
+
+            <tbody class="portlet-section-header">
+               <tr>
+                  <th>#{bundle.WIZARD_PORTAL}</th>
+               </tr>
+            </tbody>
+            <tbody>
+               <h:form id="portal-wiz-form">
+                  <c:forEach items="#{newWindowWizard.portals}" var="object" varStatus="status">
+                     <tr
+                        class="#{object.id == newWindowWizard.selectedPortalId ? 'portlet-section-selected' : status.index % 2 == 0 ? 'portlet-section-body' : 'portlet-section-alternate'}">
+                        <td>
+                           <h:commandLink id="portal-link-#{status.index}" action="#{newWindowWizard.selectPortal}">
+                              <h:outputText value="#{object.name}"/>
+                              <f:param name="id" value="#{object.id}"/>
+                           </h:commandLink>
+                        </td>
+                     </tr>
+                  </c:forEach>
+               </h:form>
+            </tbody>
+
+         </table>
+      </ui:define>
+   </ui:composition>
+</div>

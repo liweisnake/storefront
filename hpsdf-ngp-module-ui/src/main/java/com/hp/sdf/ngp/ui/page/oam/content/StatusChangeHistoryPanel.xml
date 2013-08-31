@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Content Status Change History</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newBinaryVersion">New Binary Version</entry>
+
+<entry key="assetId">Asset ID</entry>
+<entry key="assetName">Asset Name</entry>
+<entry key="preStatus">Pre-status</entry>
+<entry key="afterStatus">After-status</entry>
+<entry key="updateDate">Update Date</entry>
+<entry key="operatorId">Operator ID</entry>
+<entry key="commentType">Operator Comment Type</entry>
+<entry key="comments">Operator Comments</entry>
+<entry key="notificationDate">Notification Date</entry>
+<entry key="btn.back">Back</entry>
+
+<entry key="title.big">Content Management</entry>
+
+</properties>

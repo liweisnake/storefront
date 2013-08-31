@@ -1,0 +1,1642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<table name="country">
+		<column>ID</column>
+		<column>NAME</column>
+		<row>
+			<value>1</value>
+			<value>Canada</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>China</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>France</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>India</value>
+		</row>
+	</table>
+
+
+
+	<table name="language">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>LOCALE</column>
+		<row>
+			<value>1</value>
+			<value>English</value>
+			<value>zh</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>Japanese</value>
+			<value>en</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>Chinese</value>
+			<value>ge</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>Spanish</value>
+			<value>sp</value>
+		</row>
+	</table>
+
+	<table name="userprofile">
+		<column>USERID</column>
+		<column>PASSWORD</column>
+		<column>EMAIL</column>
+		<column>LANGUAGEID</column>
+		<column>COUNTRYID</column>
+		<column>CREATEDATE</column>
+		<column>ENTITYID</column>
+		<row>
+			<value>levi</value>
+			<value>123456</value>
+			<value>wei.li20@hp.com</value>
+			<value>1</value>
+			<value>1</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>zhenyu</value>
+			<value>123456</value>
+			<value>wei.li20@hp.com</value>
+			<value>2</value>
+			<value>2</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>you</value>
+			<value>123456</value>
+			<value>wei.li20@hp.com</value>
+			<value>3</value>
+			<value>3</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>3</value>
+		</row>
+		<row>
+			<value>yulin</value>
+			<value>123456</value>
+			<value>wei.li20@hp.com</value>
+			<value>4</value>
+			<value>4</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>4</value>
+		</row>
+		<row>
+			<value>ssf</value>
+			<value>123456</value>
+			<value>wei.li20@hp.com</value>
+			<value>4</value>
+			<value>4</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>5</value>
+		</row>
+		<row>
+			<value>xl</value>
+			<value>123456</value>
+			<value>wei.li20@hp.com</value>
+			<value>4</value>
+			<value>4</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>6</value>
+		</row>
+		<row>
+			<value>admin</value>
+			<value>123456</value>
+			<value>admin@hp.com</value>
+			<value>4</value>
+			<value>4</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>7</value>
+		</row>
+	</table>
+	<table name="rolecategory">
+		<column>ID</column>
+		<column>ROLENAME</column>
+		<column>CREATEDATE</column>
+		<row>
+			<value>1</value>
+			<value>Developer</value>
+			<value>2009-07-16 12:00:00</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>Tester</value>
+			<value>2009-07-16 12:00:00</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>Subscriber</value>
+			<value>2009-07-16 12:00:00</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>Manager</value>
+			<value>2009-07-16 12:00:00</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>User</value>
+			<value>2009-07-16 12:00:00</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>Admin</value>
+			<value>2009-07-16 12:00:00</value>
+		</row>
+
+	</table>
+
+	<table name="userrolecategory">
+		<column>ID</column>
+		<column>USERID</column>
+		<column>ROLEID</column>
+		<row>
+			<value>1</value>
+			<value>levi</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>zhenyu</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>you</value>
+			<value>3</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>yulin</value>
+			<value>4</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>ssf</value>
+			<value>5</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>admin</value>
+			<value>6</value>
+		</row>
+	</table>
+
+
+
+	<table name="service">
+		<column>ID</column>
+		<column>SERVICEID</column>
+		<column>NAME</column>
+		<column>SDKURL</column>
+		<column>DESCRIPTION</column>
+		<column>DOCURL</column>
+		<column>BROKERSERVICENAME</column>
+		<column>ACCESSINTERFACE</column>
+		<column>BROKERSERVICEAUTHTYPE</column>
+		<column>BROKERSERVICEURL</column>
+		<column>TYPE</column>
+		<row>
+			<value>1</value>
+			<value>1bde219-122c45ee325-1615713278
+			</value>
+			<value>LB_WLNG_NT_SendSms</value>
+			<value></value>
+			<value>about LB_WLNG_NT_SendSms</value>
+			<value>http://www.google.cn</value>
+			<value>LB_WLNG_NT_SendSms_0_1v0_WS</value>
+			<value>webservice</value>
+			<value>BASIC</value>
+			<value>
+				http://sgfwlng4.chn.hp.com:9032/LB_WLNG_NT_SendSms_0_1v0_WS/SendSmsBinding
+			</value>
+			<value>SGF</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1c12c2f-12319b36a80-1615713278
+			</value>
+			<value>LB_WLNG_NT_ReceiveSms_getReceivedSms
+			</value>
+			<value></value>
+			<value>about LB_WLNG_NT_ReceiveSms_getReceivedSms</value>
+			<value></value>
+			<value>LB_WLNG_NT_ReceiveSms_1v0_ES_0_getReceivedSms
+			</value>
+			<value>httpService</value>
+			<value>BASIC</value>
+			<value>
+				http://usb-vm7.chn.hp.com:6090/rest/LB_WLNG_NT_ReceiveSms/1v0/ES/0/getReceivedSms
+			</value>
+			<value>SGF</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>1bde219-122c460253b-1615713278
+			</value>
+			<value>LB_WLNG_NT_TerminalLocation</value>
+			<value></value>
+			<value>about LB_WLNG_NT_TerminalLocation</value>
+			<value></value>
+			<value></value>
+			<value>webservice</value>
+			<value>BASIC</value>
+			<value>
+				http://sgfwlng4.chn.hp.com:9032/LB_WLNG_NT_TerminalLocation_0_1v0_WS/TerminalLocationBinding
+			</value>
+			<value>SGF</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value></value>
+			<value>COMMON_API</value>
+			<value></value>
+			<value>about Common_API</value>
+			<value></value>
+			<value>Common_API_0_1v0_WS</value>
+			<value>webservice</value>
+			<value>BASIC</value>
+			<value>http://www.google.cn</value>
+			<value>COMMON</value>
+		</row>
+	</table>
+
+	<table name="operation">
+		<column>ID</column>
+		<column>SERVICEID</column>
+		<column>NAME</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>operation 1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>operation 2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>1</value>
+			<value>operation 3</value>
+		</row>
+	</table>
+
+	<table name="apikey">
+		<column>ID</column>
+		<column>SGNAME</column>
+		<column>SGPASSWORD</column>
+		<column>DESCRIPTION</column>
+		<row>
+			<value>1</value>
+			<value>abc</value>
+			<value>def</value>
+			<value>122</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>abc</value>
+			<value>def</value>
+			<value>122</value>
+		</row>
+	</table>
+
+	<table name="servicesubscription">
+		<column>ID</column>
+		<column>SERVICEID</column>
+		<column>USERID</column>
+		<column>APIKEYID</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>levi</value>
+			<value>1</value>
+		</row>
+	</table>
+
+	<table name="status">
+		<column>ID</column>
+		<column>STATUS</column>
+		<row>
+			<value>1</value>
+			<value>uploaded</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>provided</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>testing</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>published</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>invalid</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>verified</value>
+		</row>
+		<row>
+			<value>7</value>
+			<value>archived</value>
+		</row>
+		<row>
+			<value>8</value>
+			<value>created</value>
+		</row>
+		<row>
+			<value>9</value>
+			<value>obsolete</value>
+		</row>
+	</table>
+
+	<table name="platform">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>DESCRIPTION</column>
+		<row>
+			<value>1</value>
+			<value>linux</value>
+			<value>This is for Linux</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>window</value>
+			<value>This is for windows</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>symbian</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>j2ee</value>
+			<value>This is for j2ee</value>
+		</row>
+	</table>
+
+
+	<table name="assetprovider">
+		<column>ID</column>
+		<column>SETTLEMENTRATE</column>
+		<column>NAME</column>
+		<column>FIRSTNAME</column>
+		<column>LASTNAME</column>
+		<column>ORGANIZATION</column>
+		<column>STATUSID</column>
+		<column>STREETADDRESS</column>
+		<column>CITY</column>
+		<column>COUNTRY</column>
+		<column>PHONE</column>
+		<column>EMAIL</column>
+		<column>COMMISSIONRATE</column>
+		<column>LOCALE</column>
+		<column>ENTITYID</column>
+		<column>PRIORITY</column>
+		<column>SOURCE</column>
+		<column>EXTERNALID</column>
+
+		<row>
+			<value>1</value>
+			<value>0</value>
+			<value>liuchao</value>
+			<value>chao</value>
+			<value>liu</value>
+			<value>hp</value>
+			<value>1</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>0</value>
+			<value>zh</value>
+			<value>1</value>
+			<value>1</value>
+			<value>test_source1</value>
+			<value>11</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>0</value>
+			<value>liuchao2</value>
+			<value>chao</value>
+			<value>liu</value>
+			<value>hp</value>
+			<value>1</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>0</value>
+			<value>zh</value>
+			<value>2</value>
+			<value>3</value>
+			<value>test_source2</value>
+			<value>22</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>0</value>
+			<value>shaoping1</value>
+			<value>ping</value>
+			<value>liu</value>
+			<value>hp</value>
+			<value>1</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>0</value>
+			<value>zh</value>
+			<value>3</value>
+			<value>2</value>
+			<value>test_source3</value>
+			<value>33</value>
+		</row>
+	</table>
+
+	<table name="restrictedtype">
+		<column>ID</column>
+		<column>TYPE</column>
+
+		<row>
+			<value>1</value>
+			<value>test</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>test2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>test3</value>
+		</row>
+	</table>
+
+	<table name="asset">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>DESCRIPTION</column>
+		<column>SOURCE</column>
+		<column>ASSETHOMEPAGE</column>
+		<column>CREATEDATE</column>
+		<column>UPDATEDATE</column>
+		<column>THUMBNAILLOCATION</column>
+		<column>THUMBNAILMIDDLELOCATION</column>
+		<column>THUMBNAILBIGLOCATION</column>
+		<column>BRIEF</column>
+		<column>CURRENTVERSION</column>
+		<column>CURRENTVERSIONID</column>
+		<column>DOCURL</column>
+		<column>STATUSID</column>
+		<column>AVERAGEUSERRATING</column>
+		<column>ENTITYID</column>
+		<column>DOWNLOADCOUNT</column>
+		<column>PROVIDERID</column>
+		<column>AUTHORID</column>
+		<column>PARENTID</column>
+		<column>EXTERNALID</column>
+		<row>
+			<value>1</value>
+			<value>APP1</value>
+			<value>null</value>
+			<value>shaoping</value>
+			<value>null</value>
+			<value>2009-07-11 12:00:00</value>
+			<value>2009-07-11 12:00:00</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>3.5</value>
+			<value>1</value>
+			<value>null</value>
+			<value>1</value>
+			<value>0</value>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+			<value>levi</value>
+			<null />
+			<value>CP01SID11000000001</value>
+		</row>
+
+		<row>
+			<value>2</value>
+			<value>APP2</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>2.0</value>
+			<value>2</value>
+			<value>null</value>
+			<value>1</value>
+			<value>1</value>
+			<value>2</value>
+			<value>1</value>
+			<value>2</value>
+			<value>levi</value>
+			<null />
+			<null />
+		</row>
+
+		<row>
+			<value>3</value>
+			<value>APP3</value>
+			<value>null</value>
+			<value>test_source</value>
+			<value>null</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>null</value>
+			<value>1</value>
+			<value>3</value>
+			<value>3</value>
+			<value>3</value>
+			<value>3</value>
+			<value>3</value>
+			<value>0</value>
+			<value>3</value>
+			<value>levi</value>
+			<null />
+			<null />
+		</row>
+	</table>
+
+	<table name="assetbinaryversion">
+		<column>ID</column>
+		<column>FILENAME</column>
+		<column>LOCATION</column>
+		<column>VERSION</column>
+		<column>ASSETID</column>
+		<column>STATUSID</column>
+		<column>CREATEDATE</column>
+		<column>UPDATEDATE</column>
+		<column>FILESIZE</column>
+		<column>ENTITYID</column>
+		<column>THUMBNAILBIGLOCATION</column>
+		<column>THUMBNAILMIDDLELOCATION</column>
+		<column>THUMBNAILLOCATION</column>
+		<column>NAME</column>
+		<column>RECOMMENDSTARTDATE</column>
+		<column>RECOMMENDDUEDATE</column>
+		<column>RECOMMENDUPDATEDATE</column>
+		<column>RECOMMENDORDER</column>
+		<column>NEWARRIVALDUEDATE</column>
+		<column>EXTERNALID</column>
+		<row>
+			<value>1</value>
+			<value>file.zip</value>
+			<value>assetcatalog/20090711/1200/1/binary/1.0/file.zip</value>
+			<value>1.0</value>
+			<value>1</value>
+			<value>3</value>
+			<value>2009-10-11 10:11:00</value>
+			<value>2009-10-11 10:11:00</value>
+			<value>0</value>
+			<value>2</value>
+			<null></null>
+			<null></null>
+			<null></null>
+			<value>shaoping1</value>
+			<value>2009-11-11 10:11:00</value>
+			<value>2009-11-12 10:11:00</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>1</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>CP01SID11000000002</value>
+		</row>
+
+		<row>
+			<value>2</value>
+			<value>file.zip</value>
+			<value>assetcatalog/20090711/1200/1/binary/2.0/file.zip</value>
+			<value>2.0</value>
+			<value>1</value>
+			<value>1</value>
+			<value>2009-10-11 11:12:00</value>
+			<value>2009-10-11 11:11:00</value>
+			<value>0</value>
+			<value>1</value>
+			<null></null>
+			<null></null>
+			<null></null>
+			<value>shaoping2</value>
+			<value>2009-11-12 10:11:00</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>2009-11-14 10:11:00</value>
+			<value>2</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>4</value>
+		</row>
+
+		<row>
+			<value>3</value>
+			<value>file.zip</value>
+			<value>assetcatalog/20091011/1111/2/binary/1.0/file.zip</value>
+			<value>2.0</value>
+			<value>3</value>
+			<value>1</value>
+			<value>2009-10-11 11:13:00</value>
+			<value>2009-10-11 11:11:00</value>
+			<value>0</value>
+			<value>3</value>
+			<null></null>
+			<null></null>
+			<null></null>
+			<value>shaoping3</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>2009-11-14 10:11:00</value>
+			<value>2009-11-15 10:11:00</value>
+			<value>3</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>5</value>
+		</row>
+
+		<row>
+			<value>4</value>
+			<value>file.zip</value>
+			<value>assetcatalog/20091011/1111/2/binary/1.0/file.zip</value>
+			<value>2.0</value>
+			<value>3</value>
+			<value>1</value>
+			<value>2009-10-11 11:13:00</value>
+			<value>2009-10-11 11:11:00</value>
+			<value>0</value>
+			<value>4</value>
+			<null></null>
+			<null></null>
+			<null></null>
+			<value>shaoping3</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>2009-11-14 10:11:00</value>
+			<value>2009-11-15 10:11:00</value>
+			<value>3</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>4</value>
+		</row>
+
+		<row>
+			<value>5</value>
+			<value>file.zip</value>
+			<value>assetcatalog/20091011/1111/2/binary/1.0/file.zip</value>
+			<value>2.0</value>
+			<value>3</value>
+			<value>1</value>
+			<value>2009-10-11 11:13:00</value>
+			<value>2009-10-11 11:11:00</value>
+			<value>0</value>
+			<value>5</value>
+			<null></null>
+			<null></null>
+			<null></null>
+			<value>shaoping3</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>2009-11-14 10:11:00</value>
+			<value>2009-11-15 10:11:00</value>
+			<value>3</value>
+			<value>2009-11-13 10:11:00</value>
+			<value>4</value>
+		</row>
+	</table>
+
+	<table name="category">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>DESCRIPTION</column>
+		<column>PARENTID</column>
+		<row>
+			<value>1</value>
+			<value>business</value>
+			<value>business</value>
+			<null />
+		</row>
+		<row>
+			<value>2</value>
+			<value>game</value>
+			<value>game</value>
+			<null />
+		</row>
+		<row>
+			<value>3</value>
+			<value>sports</value>
+			<value>sports</value>
+			<null />
+		</row>
+		<row>
+			<value>4</value>
+			<value>for test</value>
+			<value>for test</value>
+			<null />
+		</row>
+	</table>
+
+	<table name="tag">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>DESCRIPTION</column>
+		<row>
+			<value>1</value>
+			<value>java</value>
+			<value>this is for java</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>portlet</value>
+			<value>this is for portlet</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>app store</value>
+			<value>this is for app store</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>andoriod</value>
+			<value>this is for andoriod</value>
+		</row>
+	</table>
+
+	<table name="assettagrelation">
+		<column>ID</column>
+		<column>TAGID</column>
+		<column>ASSETID</column>
+		<column>VERSIONID</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>3</value>
+			<value>3</value>
+			<value>3</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>1</value>
+			<value>3</value>
+			<value>3</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>2</value>
+			<value>3</value>
+			<value>3</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>4</value>
+			<value>3</value>
+			<value>3</value>
+		</row>
+	</table>
+
+	<table name="entity">
+		<column>ENTITYID</column>
+		<column>ENTITYTYPE</column>
+		<row>
+			<value>1</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>7</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>8</value>
+			<value>1</value>
+		</row>
+	</table>
+
+	<table name="entityattribute">
+		<column>ID</column>
+		<column>ENTITYID</column>
+		<column>ATTRIBUTEVALUEID</column>
+		<column>ATTRIBUTETYPE</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>2</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>1</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>1</value>
+			<value>3</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>4</value>
+			<value>1</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>2</value>
+			<value>2</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>4</value>
+			<value>7</value>
+			<value>1</value>
+		</row>
+	</table>
+
+	<table name="attribute">
+		<column>ATTRIBUTEID</column>
+		<column>ATTRIBUTENAME</column>
+		<column>ATTRIBUTEDESC</column>
+		<column>ATTRIBUTETYPE</column>
+		<row>
+			<value>1</value>
+			<value>Category</value>
+			<value>Category of applications</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>Platform</value>
+			<value>Platform of applications</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>101</value>
+			<value>sampleAttributeNumber</value>
+			<value></value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>102</value>
+			<value>sampleAttributeChar</value>
+			<value></value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>103</value>
+			<value>sampleAttributeDate</value>
+			<value></value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>104</value>
+			<value>publishflg</value>
+			<value>Publish flag</value>
+			<value>1</value>
+		</row>
+	</table>
+
+	<table name="attributevaluedomain">
+		<column>ID</column>
+		<column>ATTRIBUTEID</column>
+		<column>ATTRIBUTEVALUEID</column>
+		<column>ISDEFAULT</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>2</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>3</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2</value>
+			<value>4</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>2</value>
+			<value>5</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>2</value>
+			<value>6</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>101</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+	</table>
+
+	<table name="attributevaluenumber">
+		<column>ATTRIBUTEVALUEID</column>
+		<column>ENTITYID</column>
+		<column>ATTRIBUTEID</column>
+		<column>value</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>101</value>
+			<value>111</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>101</value>
+			<value>222</value>
+		</row>
+	</table>
+
+	<table name="attributevaluechar">
+		<column>ATTRIBUTEVALUEID</column>
+		<column>ENTITYID</column>
+		<column>ATTRIBUTEID</column>
+		<column>value</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>102</value>
+			<value>sampleValueChar</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>1</value>
+			<value>Business</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>3</value>
+			<value>1</value>
+			<value>Sports</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>4</value>
+			<value>2</value>
+			<value>Windows</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>5</value>
+			<value>2</value>
+			<value>Linux</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>6</value>
+			<value>2</value>
+			<value>Unix</value>
+		</row>
+		<row>
+			<value>7</value>
+			<value>7</value>
+			<value>104</value>
+			<value>published</value>
+		</row>
+	</table>
+
+	<table name="attributevaluedate">
+		<column>ATTRIBUTEVALUEID</column>
+		<column>ENTITYID</column>
+		<column>ATTRIBUTEID</column>
+		<column>value</column>
+		<row>
+			<value>1</value>
+			<value>2</value>
+			<value>103</value>
+			<value>2010-04-01</value>
+		</row>
+	</table>
+
+	<table name="assetrating">
+		<column>ID</column>
+		<column>USERID</column>
+		<column>ASSETID</column>
+		<column>DESCRIPTION</column>
+		<column>CREATEDATE</column>
+		<column>RATING</column>
+
+		<row>
+			<value>1</value>
+			<value>3</value>
+			<value>1</value>
+			<value>TEST</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>4.2</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>yulin</value>
+			<value>3</value>
+			<value>TEST</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2</value>
+		</row>
+	</table>
+
+
+	<table name="assetrestrictionrelation">
+		<column>ID</column>
+		<column>RESTRICTIONID</column>
+		<column>ASSETID</column>
+		<column>VERSIONID</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+			<value>5</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>1</value>
+			<value>4</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>3</value>
+			<value>1</value>
+			<value>3</value>
+		</row>
+	</table>
+
+	<table name="assetcategoryrelation">
+		<column>ID</column>
+		<column>CTGID</column>
+		<column>ASSETID</column>
+		<column>VERSIONID</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>2</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>3</value>
+			<value>3</value>
+			<null />
+		</row>
+	</table>
+
+	<table name="userlifecycleaction">
+		<column>ID</column>
+		<column>USERID</column>
+		<column>CREATEDATE</column>
+		<column>EVENT</column>
+		<column>PROCESSSTATUS</column>
+		<column>PREROLE</column>
+		<column>POSTROLE</column>
+		<column>SUBMITTERID</column>
+		<column>OWNERID</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>test</value>
+			<value>testing</value>
+			<value>user</value>
+			<value>developer</value>
+			<value>levi</value>
+			<value>levi</value>
+		</row>
+
+		<row>
+			<value>2</value>
+			<value>3</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>test</value>
+			<value>testing</value>
+			<value>user</value>
+			<value>developer</value>
+			<value>levi</value>
+			<value>levi</value>
+		</row>
+	</table>
+
+	<table name="userlifecycleactionhistory">
+		<column>ID</column>
+		<column>RESULT</column>
+		<column>USERID</column>
+		<column>CREATEDATE</column>
+		<column>EVENT</column>
+		<column>PROCESSSTATUS</column>
+		<column>PREROLE</column>
+		<column>POSTROLE</column>
+		<column>SUBMITTERID</column>
+		<column>OWNERID</column>
+		<row>
+			<value>1</value>
+			<value>pass</value>
+			<value>1</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>test</value>
+			<value>testing</value>
+			<value>user</value>
+			<value>developer</value>
+			<value>levi</value>
+			<value>levi</value>
+		</row>
+
+		<row>
+			<value>2</value>
+			<value>pass</value>
+			<value>3</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>test</value>
+			<value>testing</value>
+			<value>user</value>
+			<value>developer</value>
+			<value>levi</value>
+			<value>levi</value>
+		</row>
+	</table>
+
+	<table name="userdownloadhistory">
+		<column>ID</column>
+		<column>USERID</column>
+		<column>DOWNLOADDATE</column>
+		<column>VERSION</column>
+		<column>ASSETID</column>
+		<column>STATUS</column>
+
+		<row>
+			<value>1</value>
+			<value>levi</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>1.0</value>
+			<value>1</value>
+			<value>finish</value>
+		</row>
+
+		<row>
+			<value>2</value>
+			<value>levi</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>1.0</value>
+			<value>1</value>
+			<value>finish</value>
+		</row>
+	</table>
+
+
+	<table name="screenshots">
+		<column>ID</column>
+		<column>STORELOCATION</column>
+		<column>MEDIATYPE</column>
+		<column>DESCRIPTION</column>
+		<column>ASSETID</column>
+		<column>VERSIONID</column>
+
+		<row>
+			<value>1</value>
+			<value>assetcatalog/20090711/1200/1/screenshots/test.zip</value>
+			<value>null</value>
+			<value>null</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+	</table>
+
+	<table name="comments">
+		<column>ID</column>
+		<column>USERID</column>
+		<column>ASSETVERSION</column>
+		<column>ASSETID</column>
+		<column>TITLE</column>
+		<column>CREATEDATE</column>
+		<column>UPDATEDATE</column>
+		<column>CONTENT</column>
+
+		<row>
+			<value>1</value>
+			<value>levi</value>
+			<value>1.0</value>
+			<value>1</value>
+			<value>cs</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>go go go</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>zhenyu</value>
+			<value>1.0</value>
+			<value>2</value>
+			<value>god</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>god is a girl</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>yulin</value>
+			<value>1.0</value>
+			<value>3</value>
+			<value>stronger</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>strong man</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>yulin</value>
+			<value>3.0</value>
+			<value>3</value>
+			<value>stronger</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>strong man</value>
+		</row>
+	</table>
+
+	<table name="assetplatformrelation">
+		<column>ID</column>
+		<column>PLATFORMID</column>
+		<column>ASSETID</column>
+
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+
+	</table>
+
+	<table name="purchasehistory">
+		<column>ID</column>
+		<column>USERID</column>
+		<column>PAIDPRICE</column>
+		<column>ASSETID</column>
+		<column>PURCHASEDATE</column>
+		<column>STATUS</column>
+		<column>TRANSACTIONID</column>
+
+		<row>
+			<value>1</value>
+			<value>levi</value>
+			<value>19.0</value>
+			<value>2</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>incart</value>
+			<value>9.0</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>levi</value>
+			<value>9.0</value>
+			<value>1</value>
+			<value>2010-03-15 12:00:00</value>
+			<value>purchased</value>
+			<value>9.0</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>you</value>
+			<value>18.0</value>
+			<value>2</value>
+			<value>2010-03-15 12:00:00</value>
+			<value>purchased</value>
+			<value>9.0</value>
+		</row>
+	</table>
+
+	<table name="assetlifecycleaction">
+		<column>ID</column>
+		<column>RESULT</column>
+		<column>ASSETID</column>
+		<column>ASSETBINARYVERSIONID</column>
+		<column>CREATEDATE</column>
+		<column>COMPLETEDATE</column>
+		<column>EVENT</column>
+		<column>PROCESSSTATUS</column>
+		<column>PRESTATUSID</column>
+		<column>POSTSTATUSID</column>
+		<column>SUBMITTERID</column>
+		<column>OWNERID</column>
+
+		<row>
+			<value>1</value>
+			<value>pass</value>
+			<value>1</value>
+			<value>1</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>test</value>
+			<value>testing</value>
+			<value>1</value>
+			<value>2</value>
+			<value>levi</value>
+			<value>levi</value>
+		</row>
+
+		<row>
+			<value>2</value>
+			<value>pass</value>
+			<value>2</value>
+			<value>1</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>test</value>
+			<value>testing</value>
+			<value>1</value>
+			<value>2</value>
+			<value>levi</value>
+			<value>levi</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>testing</value>
+			<value>1</value>
+			<value>1</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>test</value>
+			<value>testing</value>
+			<value>1</value>
+			<value>2</value>
+			<value>levi</value>
+			<value>levi</value>
+		</row>
+	</table>
+
+	<table name="assetprice">
+		<column>ID</column>
+		<column>AMOUNT</column>
+		<column>CURRENCY</column>
+		<column>ASSETID</column>
+		<column>VERSIONID</column>
+		<row>
+			<value>1</value>
+			<value>10.0</value>
+			<value>USD</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+
+		<row>
+			<value>2</value>
+			<value>9.9</value>
+			<value>USD</value>
+			<value>2</value>
+			<value>3</value>
+		</row>
+
+		<row>
+			<value>3</value>
+			<value>0.0</value>
+			<value>USD</value>
+			<value>3</value>
+			<value>3</value>
+		</row>
+	</table>
+
+	<table name="shoppingcart">
+		<column>ID</column>
+		<column>USERID</column>
+		<column>ITEMPRICE</column>
+		<column>ASSETID</column>
+		<column>CREATEDATE</column>
+		<column>STATUS</column>
+
+		<row>
+			<value>1</value>
+			<value>levi</value>
+			<value>19.0</value>
+			<value>2</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>incart</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>levi</value>
+			<value>9.0</value>
+			<value>1</value>
+			<value>2010-03-15 12:00:00</value>
+			<value>purchased</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>you</value>
+			<value>19.0</value>
+			<value>2</value>
+			<value>2010-03-15 12:00:00</value>
+			<value>purchased</value>
+		</row>
+	</table>
+
+	<table name="subscriberprofile">
+		<column>USERID</column>
+		<column>DISPLAYNAME</column>
+		<column>MSISDN</column>
+		<column>CLIENTTESTERFLAG</column>
+		<column>CLIENTOWNERPROVIDERID</column>
+		<column>OWNERTESTERUSERID</column>
+		<column>ENTITYID</column>
+
+		<row>
+			<value>tester</value>
+			<value>shaoping</value>
+			<value>tester</value>
+			<value>0</value>
+			<null></null>
+			<null></null>
+			<value>1</value>
+		</row>
+		<row>
+			<value>username</value>
+			<value>jsp</value>
+			<value>test_msisdn</value>
+			<value>1</value>
+			<null></null>
+			<null></null>
+			<value>2</value>
+		</row>
+	</table>
+
+	<table name="binaryfile">
+		<column>ID</column>
+		<column>FILELOCATION</column>
+		<column>FILEBINARY</column>
+		<row>
+			<value>1</value>
+			<value>location1</value>
+			<value>fileBinary1</value>
+		</row>
+	</table>
+
+	<table name="assetlifecyclecommenttype">
+		<column>ID</column>
+		<column>commenttype</column>
+		<column>commenttemplate</column>
+	</table>
+
+
+	<table name="commentssensorword">
+		<column>ID</column>
+		<column>SENSORWORD</column>
+		<column>UPDATEDATE</column>
+		<row>
+			<value>1</value>
+			<value>fuck</value>
+			<null></null>
+		</row>
+		<row>
+			<value>2</value>
+			<value>bitch</value>
+			<null></null>
+		</row>
+		<row>
+			<value>3</value>
+			<value>pig</value>
+			<null></null>
+		</row>
+		<row>
+			<value>4</value>
+			<value>mouse</value>
+			<null></null>
+		</row>
+	</table>
+
+	<table name="assetlifecycleactionhistory">
+		<column>ID</column>
+		<column>createDate</column>
+		<column>assetId</column>
+		<column>source</column>
+		<column>completeDate</column>
+		<column>externalId</column>
+		<column>notificationDate</column>
+		<column>preStatus</column>
+		<column>postStatus</column>
+		<row>
+			<value>1</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>3</value>
+			<value>shaoping1</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>2</value>
+			<value>2009-07-16 12:00:00</value>
+			<value>pre_status1</value>
+			<value>post_status1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2009-07-15 12:00:00</value>
+			<value>3</value>
+			<value>shaoping2</value>
+			<value>2009-07-17 12:00:00</value>
+			<value>3</value>
+			<value>2009-07-18 12:00:00</value>
+			<value>pre_status2</value>
+			<value>post_status2</value>
+		</row>
+	</table>
+
+	<table name="SystemConfig">
+		<column>ID</column>
+		<column>CONFIGKEY</column>
+		<column>VALUE</column>
+		<row>
+			<value>1</value>
+			<value>default.new.arrival.due.days</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>default.commission.rate.MCD</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>default.pid.sbm</value>
+			<value>SBM-PID</value>
+		</row>
+	</table>
+
+	<table name="contentProviderOperator">
+		<column>id</column>
+		<column>userid</column>
+		<column>assetProviderId</column>
+		<row>
+			<value>1</value>
+			<value>you</value>
+			<value>1</value>
+		</row>
+	</table>
+
+</dataset>
+    

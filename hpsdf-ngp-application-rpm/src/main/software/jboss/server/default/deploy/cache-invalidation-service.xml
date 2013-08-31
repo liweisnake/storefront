@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE server>
+<!-- $Id: cache-invalidation-service.xml 71074 2008-03-20 15:35:00Z bstansberry@jboss.com $ -->
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Cache Invalidation Service                                           -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<server>
+
+  <mbean code="org.jboss.cache.invalidation.InvalidationManager" 
+         name="jboss.cache:service=InvalidationManager">
+  </mbean>
+
+
+<!--
+	Uncomment one of the following two sets of beans if you want to 
+	activate the EJB2 entity cache invalidation mechanism across nodes 
+	using the JMS bridge.
+
+	PropagationMode can be : IN_OUT = 1, IN_ONLY = 2, OUT_ONLY = 3
+
+   You can also set the ProviderUrl attribute to another IP:port setting if you
+   must lookup your JMS information in other JMS trees i.e.
+
+      <attribute name="ProviderUrl">MyOtherNode:1099</attribute>
+
+-->
+<!-- Uncomment this pair of mbeans if you are using JBossMQ for JMS-based cache invalidation -->
+<!--
+  <mbean code="org.jboss.cache.invalidation.bridges.JMSCacheInvalidationBridge" 
+         name="jboss.cache:service=InvalidationBridge,type=JavaGroups">
+     <depends>jboss.cache:service=InvalidationManager</depends>
+     <depends>jboss.mq.destination:service=Topic,name=JMSCacheInvalidationBridge</depends>
+     <attribute name="InvalidationManager">jboss.cache:service=InvalidationManager</attribute>
+     <attribute name="ConnectionFactoryName">java:/ConnectionFactory</attribute>
+     <attribute name="TopicName">topic/JMSCacheInvalidationBridge</attribute>
+     <attribute name="PropagationMode">1</attribute> 
+  </mbean>
+  
+  <mbean code="org.jboss.mq.server.jmx.Topic"
+	 name="jboss.mq.destination:service=Topic,name=JMSCacheInvalidationBridge">
+    <depends optional-attribute-name="DestinationManager">jboss.mq:service=DestinationManager</depends>
+    <depends optional-attribute-name="SecurityManager">jboss.mq:service=SecurityManager</depends>
+  </mbean>
+-->
+<!--Uncomment this pair of mbeans if you are using JBoss Messaging for JMS-based cache invalidation -->
+<!--
+  <mbean code="org.jboss.cache.invalidation.bridges.JMSCacheInvalidationBridge" 
+         name="jboss.cache:service=InvalidationBridge,type=JavaGroups">
+     <depends>jboss.cache:service=InvalidationManager</depends>
+     <depends>jboss.messaging.destination:service=Topic,name=JMSCacheInvalidationBridge</depends>
+     <attribute name="InvalidationManager">jboss.cache:service=InvalidationManager</attribute>
+     <attribute name="ConnectionFactoryName">java:/ConnectionFactory</attribute>
+     <attribute name="TopicName">topic/JMSCacheInvalidationBridge</attribute>
+     <attribute name="PropagationMode">1</attribute> 
+  </mbean>
+  
+  <mbean code="org.jboss.jms.server.destination.TopicService"
+	 name="jboss.messaging.destination:service=Topic,name=JMSCacheInvalidationBridge"
+	 xmbean-dd="xmdesc/Topic-xmbean.xml">
+	  <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>
+      <depends>jboss.messaging:service=PostOffice</depends>
+  </mbean>
+-->
+     
+</server>

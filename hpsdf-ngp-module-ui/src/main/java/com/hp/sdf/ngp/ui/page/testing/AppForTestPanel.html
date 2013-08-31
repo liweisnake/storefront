@@ -1,0 +1,25 @@
+<wicket:panel>
+	<div class="panelBody">
+	<span wicket:id="navigator"></span>	
+	<!-- App binary list table -->
+	<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+		<thead><tr>
+			<th><wicket:message key="app.name">Application Name</wicket:message></th>
+			<th><wicket:message key="app.category">Category</wicket:message></th>
+			<th><wicket:message key="app.version">Version</wicket:message></th>
+			<th><wicket:message key="app.releasedate">Release Date</wicket:message></th>
+			<th><wicket:message key="app.action">Action</wicket:message></th>
+		</tr>
+		</thead>
+		<span wicket:id="apps">
+			<tr>
+				<td><a href="#" wicket:id="nameLink"><span wicket:id="appName" /></a></td>
+				<td><span wicket:id="category" /></td>
+				<td><span wicket:id="version" /></td>
+				<td><span wicket:id="releaseDate" /></td>
+				<td><a href="#" wicket:id="action"><wicket:message key="label.test"/></a></td>
+			</tr>
+		</span>		
+	</table>
+	</div>
+</wicket:panel>

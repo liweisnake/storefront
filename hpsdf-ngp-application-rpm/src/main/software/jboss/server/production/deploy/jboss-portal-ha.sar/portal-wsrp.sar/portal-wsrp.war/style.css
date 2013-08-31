@@ -1,0 +1,70 @@
+.wsrp-consumers-ui table, .wsrp-consumer-ui table {
+   border: 0;
+   border-collapse: separate;
+}
+
+.wsrp-consumers-ui th {
+   text-align: left;
+   border: 0;
+   border-bottom: 1px solid;
+}
+
+.wsrp-consumers-ui td {
+   border: 0;
+   padding-bottom: 2px;
+   padding-top: 2px;
+}
+
+.wsrp-consumer-ui th {
+   text-align: left;
+   border: 0;
+   vertical-align: top;
+}
+
+.wsrp-consumer-ui td {
+   border: 0;
+   padding-bottom: 2px;
+   padding-top: 2px;
+}
+
+.wsrp-consumers-ui .active, .wsrp-consumer-ui .active {
+   background-color: #C7DDB7;
+   font-weight: bold;
+}
+
+.wsrp-consumers-ui .inactive, .wsrp-consumer-ui .inactive {
+   background-color: #EBD1B8;
+}
+
+.wsrp-consumers-ui .needsRefresh, .wsrp-consumer-ui .needsRefresh {
+   font-style: italic;
+}
+
+.wsrp-consumer-ui .registration-prop-table {
+   text-align: left;
+   border: 0;
+   border-collapse: separate;
+}
+
+.wsrp-consumer-ui .portlet-form-button {
+   padding: .2em;
+   margin: 0 .3em;
+}
+
+.error {
+   font-weight: bold;
+   color: red;
+}
+
+.error:before {
+   content: "Error: "
+}
+
+.info {
+   font-weight: bold;
+   color: green;
+}
+
+.info:before {
+   content: "Info: "
+}

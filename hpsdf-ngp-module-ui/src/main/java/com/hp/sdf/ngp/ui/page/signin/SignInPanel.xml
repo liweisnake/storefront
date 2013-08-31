@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="label.username">用户 Name:</entry>
+<entry key="label.password">Password:</entry>
+<entry key="login.error">Unable to sign you in</entry>
+</properties>

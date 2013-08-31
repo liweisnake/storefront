@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">All</entry>
+<entry key="category">Category</entry>
+<entry key="platform">Platform</entry>
+<entry key="keyword">Keyword</entry>
+<entry key="binstatus">Having Binary Status</entry>
+<entry key="btn.search">Search</entry>
+</properties>

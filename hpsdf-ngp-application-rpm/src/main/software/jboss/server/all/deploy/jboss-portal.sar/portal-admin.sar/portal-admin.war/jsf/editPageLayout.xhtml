@@ -1,0 +1,17 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ct="http://www.julien.com"
+   xmlns:jbp="http://www.jboss.org/portal"
+   xmlns:c="http://java.sun.com/jstl/core">
+   <ui:composition template="objectTemplate.xhtml">
+      <ui:param name="portalObjectScreen" value="#{bundle.COMMON_LAYOUT}"/>
+      <ui:define name="content">
+         <ui:include src="common/editPageLayout.xhtml">
+            <ui:param name="pageManager" value="#{portalobjectmgr.pageManager}"/>
+         </ui:include>
+      </ui:define>
+   </ui:composition>
+</div>

@@ -1,0 +1,24 @@
+<wicket:panel>
+	<div class="panelBody">
+	<span wicket:id="navigator"></span>	
+	<!-- App binary list table -->
+	<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+	<thead>
+		<tr>
+			<th><wicket:message key="tester">Tester</wicket:message></th>
+			<th><wicket:message key="result">Test Result</wicket:message></th>
+			<th><wicket:message key="complete.date">Platform</wicket:message></th>
+			<th><wicket:message key="comments">Brief</wicket:message></th>
+		</tr>
+		</thead>
+		<span wicket:id="tests">
+			<tr>
+				<td><span wicket:id="tester" /></td>
+				<td><span wicket:id="result" /></td>
+				<td><span wicket:id="complete.date" /></td>
+				<td><span wicket:id="comments" /></td>
+			</tr>
+		</span>		
+	</table>
+	</div>
+</wicket:panel>

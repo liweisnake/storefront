@@ -1,0 +1,23 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+	<c:if test="#{portletPreferenceValue.captcha == true}">
+	<hr/>
+	<div id="captchaContainer" style="width: 200px; height: 100px">
+		<h:graphicImage id="jcaptcha" url="/jcaptcha" />
+	</div>
+	<h:panelGrid columns="2">
+		<h:outputText value="#{bundle.IDENTITY_REGISTER_VERIFY_CAPTCHA} *" />
+		<h:inputText id="validateCaptcha" value="" required="true">
+			<f:validator validatorId="CaptchaValidator" />
+		</h:inputText>
+		<h:panelGroup />
+		<h:message for="validateCaptcha" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+	</h:panelGrid>
+	</c:if>
+
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="userId">アカウント名</entry>
+<entry key="confirmMsg">アカウントを登録してよろしいでしょうか。</entry>
+<entry key="msisdn">検証用MSN</entry>
+<entry key="msg.error.save.wrongproviderID">不正なプロバイダーが入力されました。</entry>
+<entry key="successMsg">アカウントを登録しました。</entry>
+<entry key="confirmPassword">パスワード確認</entry>
+<entry key="title.big">アカウント管理</entry>
+<entry key="msg.error.save.nouser">アカウント名の入力が必須です。</entry>
+<entry key="msg.error.save.existeduser">アカウントが既に存在しています。</entry>
+<entry key="msg.error.save.passwordLength">パスワードの長さは32桁以内です。</entry>
+<entry key="providerID">プロバイダーID</entry>
+<entry key="add">追加</entry>
+<entry key="roleName">ロール</entry>
+<entry key="msg.error.save.passwordNotSame">新規パスワードが一致していません。</entry>
+<entry key="msg.error.save.noRole">ロールが存在してしません。</entry>
+<entry key="back">戻る</entry>
+<entry key="promptTitle">プロンプト</entry>
+<entry key="msg.error.save.noproviderID">プロバイダー名が存在していません。</entry>
+<entry key="newPassword">パスワード</entry>
+<entry key="save">登録</entry>
+<entry key="delete">削除</entry>
+<entry key="accountInfo">アカウント情報</entry>
+<entry key="msg.error.save.passwordEmpty">新規パスワードと新規パスワード確認の入力が必須です。</entry>
+</properties>

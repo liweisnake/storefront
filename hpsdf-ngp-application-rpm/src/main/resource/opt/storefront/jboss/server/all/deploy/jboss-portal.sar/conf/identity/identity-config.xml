@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE identity-configuration PUBLIC
+   "-//JBoss Portal//DTD JBoss Identity Configuration 1.0//EN"
+   "http://www.jboss.org/portal/dtd/identity-config_2_6.dtd">
+
+<identity-configuration>
+   <datasources/>
+   <modules>
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>User</type>
+         <implementation>DB</implementation>
+
+		 <service-name>portal:service=Module,type=User</service-name>
+		 <class>org.jboss.portal.identity.db.HibernateUserModuleImpl</class>
+
+         <config>
+			<option>
+				<name>sessionFactoryJNDIName</name>
+				<value>java:/portal/IdentitySessionFactory</value>
+			</option>
+			<option>
+				<name>jNDIName</name>
+				<value>java:/portal/UserModule</value>
+			</option>
+		 </config>
+      </module>
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>Role</type>
+         <implementation>DB</implementation>
+
+		 <service-name>portal:service=Module,type=Role</service-name>
+		 <class>org.jboss.portal.identity.db.HibernateRoleModuleImpl</class>
+
+         <config>
+			<option>
+				<name>sessionFactoryJNDIName</name>
+				<value>java:/portal/IdentitySessionFactory</value>
+			</option>
+			<option>
+				<name>jNDIName</name>
+				<value>java:/portal/RoleModule</value>
+			</option>
+		 </config>
+      </module>
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>Membership</type>
+         <implementation>DB</implementation>
+
+		 <service-name>portal:service=Module,type=Membership</service-name>
+		 <class>org.jboss.portal.identity.db.HibernateMembershipModuleImpl</class>
+
+         <config>
+			<option>
+				<name>sessionFactoryJNDIName</name>
+				<value>java:/portal/IdentitySessionFactory</value>
+			</option>
+			<option>
+				<name>jNDIName</name>
+				<value>java:/portal/MembershipModule</value>
+			</option>
+		 </config>
+      </module>
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>UserProfile</type>
+         <implementation>DELEGATING</implementation>
+
+		 <service-name>portal:service=Module,type=UserProfile</service-name>
+		 <class>org.jboss.portal.identity.DelegatingUserProfileModuleImpl</class>
+
+         <config>
+			<option>
+				<name>jNDIName</name>
+				<value>java:/portal/UserProfileModule</value>
+			</option>
+			<option>
+				<name>dbModuleJNDIName</name>
+				<value>java:/portal/DBUserProfileModule</value>
+			</option>
+			<option>
+				<name>profileConfigFile</name>
+				<value>conf/identity/profile-config.xml</value>
+			</option>
+		 </config>
+      </module>
+      <module>
+         <type>DBDelegateUserProfile</type>
+         <implementation>DB</implementation>
+         <config/>
+      </module>
+   </modules>
+   <options/>
+</identity-configuration>

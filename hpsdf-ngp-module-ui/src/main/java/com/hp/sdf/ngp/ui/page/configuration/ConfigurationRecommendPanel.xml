@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="title">Recommend Assets</entry>
+	<entry key="Order">Order</entry>
+	<entry key="selectAll">Select All</entry>
+	<entry key="Name">Name</entry>
+	<entry key="Developer">Developer</entry>
+	<entry key="Brief">Brief</entry>
+	<entry key="NewOrder">New Order</entry>
+	<entry key="changeOrder">Change Order</entry>
+	<entry key="cleanOrder">Clean Order</entry>
+</properties>

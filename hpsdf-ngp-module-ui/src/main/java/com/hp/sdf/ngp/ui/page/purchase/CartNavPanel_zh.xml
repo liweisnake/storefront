@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">购物车导航面板</entry>
+<entry key="header">成功加入购物车!</entry>
+<entry key="hint.success">应用已成功添加到购物车！</entry>
+<entry key="hint.fail">应用无法添加到购物车！</entry>
+<entry key="msg.1">购物车共</entry>
+<entry key="msg.2">种应用。</entry>
+<entry key="label.amount">合计 : </entry>
+<entry key="link.cart">去购物车</entry>
+<entry key="link.cancel">继续浏览</entry>
+</properties>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="GBK"?>
+<wsdl:definitions targetNamespace="urn:oasis:names:tc:wsrp:v1:intf" xmlns:intf="urn:oasis:names:tc:wsrp:v1:intf" xmlns:types="urn:oasis:names:tc:wsrp:v1:types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:oasis:names:tc:wsrp:v1:intf" xmlns="http://www.w3.org/2001/XMLSchema">
+
+      <import namespace="urn:oasis:names:tc:wsrp:v1:types" schemaLocation="wsrp_v1_types.xsd"/>
+
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="releaseSessionsResponse">
+    <wsdl:part name="releaseSessionsResponse" element="types:releaseSessionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="releaseSessions">
+    <wsdl:part name="releaseSessions" element="types:releaseSessions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyRegistrationResponse">
+    <wsdl:part name="modifyRegistrationResponse" element="types:modifyRegistrationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deregister">
+    <wsdl:part name="deregister" element="types:deregister">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPortletDescriptionResponse">
+    <wsdl:part name="getPortletDescriptionResponse" element="types:getPortletDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPortletDescription">
+    <wsdl:part name="getPortletDescription" element="types:getPortletDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InvalidHandle">
+    <wsdl:part name="fault" element="types:InvalidHandle">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceDescriptionResponse">
+    <wsdl:part name="getServiceDescriptionResponse" element="types:getServiceDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MissingParameters">
+    <wsdl:part name="fault" element="types:MissingParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="destroyPortlets">
+    <wsdl:part name="destroyPortlets" element="types:destroyPortlets">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OperationFailed">
+    <wsdl:part name="fault" element="types:OperationFailed">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AccessDenied">
+    <wsdl:part name="fault" element="types:AccessDenied">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InvalidUserCategory">
+    <wsdl:part name="fault" element="types:InvalidUserCategory">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="performBlockingInteraction">
+    <wsdl:part name="performBlockingInteraction" element="types:performBlockingInteraction">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="destroyPortletsResponse">
+    <wsdl:part name="destroyPortletsResponse" element="types:destroyPortletsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InvalidCookie">
+    <wsdl:part name="fault" element="types:InvalidCookie">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InconsistentParameters">
+    <wsdl:part name="fault" element="types:InconsistentParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UnsupportedLocale">
+    <wsdl:part name="fault" element="types:UnsupportedLocale">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="register">
+    <wsdl:part name="register" element="types:register">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initCookieResponse">
+    <wsdl:part name="initCookieResponse" element="types:initCookieResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyRegistration">
+    <wsdl:part name="modifyRegistration" element="types:modifyRegistration">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPortletPropertyDescriptionResponse">
+    <wsdl:part name="getPortletPropertyDescriptionResponse" element="types:getPortletPropertyDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setPortletPropertiesResponse">
+    <wsdl:part name="setPortletPropertiesResponse" element="types:setPortletPropertiesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerResponse">
+    <wsdl:part name="registerResponse" element="types:registerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UnsupportedMimeType">
+    <wsdl:part name="fault" element="types:UnsupportedMimeType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMarkup">
+    <wsdl:part name="getMarkup" element="types:getMarkup">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="performBlockingInteractionResponse">
+    <wsdl:part name="performBlockingInteractionResponse" element="types:performBlockingInteractionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PortletStateChangeRequired">
+    <wsdl:part name="fault" element="types:PortletStateChangeRequired">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initCookie">
+    <wsdl:part name="initCookie" element="types:initCookie">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clonePortlet">
+    <wsdl:part name="clonePortlet" element="types:clonePortlet">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InvalidSession">
+    <wsdl:part name="fault" element="types:InvalidSession">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clonePortletResponse">
+    <wsdl:part name="clonePortletResponse" element="types:clonePortletResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InvalidRegistration">
+    <wsdl:part name="fault" element="types:InvalidRegistration">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UnsupportedMode">
+    <wsdl:part name="fault" element="types:UnsupportedMode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deregisterResponse">
+    <wsdl:part name="deregisterResponse" element="types:deregisterResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPortletPropertiesResponse">
+    <wsdl:part name="getPortletPropertiesResponse" element="types:getPortletPropertiesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UnsupportedWindowState">
+    <wsdl:part name="fault" element="types:UnsupportedWindowState">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceDescription">
+    <wsdl:part name="getServiceDescription" element="types:getServiceDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setPortletProperties">
+    <wsdl:part name="setPortletProperties" element="types:setPortletProperties">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPortletProperties">
+    <wsdl:part name="getPortletProperties" element="types:getPortletProperties">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMarkupResponse">
+    <wsdl:part name="getMarkupResponse" element="types:getMarkupResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPortletPropertyDescription">
+    <wsdl:part name="getPortletPropertyDescription" element="types:getPortletPropertyDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WSRP_v1_Markup_PortType">
+    <wsdl:operation name="getMarkup">
+      <wsdl:input name="getMarkup" message="intf:getMarkup">
+    </wsdl:input>
+      <wsdl:output name="getMarkupResponse" message="intf:getMarkupResponse">
+    </wsdl:output>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedMimeType" message="intf:UnsupportedMimeType">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedMode" message="intf:UnsupportedMode">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedLocale" message="intf:UnsupportedLocale">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidUserCategory" message="intf:InvalidUserCategory">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidSession" message="intf:InvalidSession">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidCookie" message="intf:InvalidCookie">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidHandle" message="intf:InvalidHandle">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedWindowState" message="intf:UnsupportedWindowState">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="performBlockingInteraction">
+      <wsdl:input name="performBlockingInteraction" message="intf:performBlockingInteraction">
+    </wsdl:input>
+      <wsdl:output name="performBlockingInteractionResponse" message="intf:performBlockingInteractionResponse">
+    </wsdl:output>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedMimeType" message="intf:UnsupportedMimeType">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedMode" message="intf:UnsupportedMode">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedLocale" message="intf:UnsupportedLocale">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidUserCategory" message="intf:InvalidUserCategory">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidSession" message="intf:InvalidSession">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidCookie" message="intf:InvalidCookie">
+    </wsdl:fault>
+      <wsdl:fault name="PortletStateChangeRequired" message="intf:PortletStateChangeRequired">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidHandle" message="intf:InvalidHandle">
+    </wsdl:fault>
+      <wsdl:fault name="UnsupportedWindowState" message="intf:UnsupportedWindowState">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="releaseSessions">
+      <wsdl:input name="releaseSessions" message="intf:releaseSessions">
+    </wsdl:input>
+      <wsdl:output name="releaseSessionsResponse" message="intf:releaseSessionsResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="initCookie">
+      <wsdl:input name="initCookie" message="intf:initCookie">
+    </wsdl:input>
+      <wsdl:output name="initCookieResponse" message="intf:initCookieResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSRP_v1_ServiceDescription_PortType">
+    <wsdl:operation name="getServiceDescription">
+      <wsdl:input name="getServiceDescription" message="intf:getServiceDescription">
+    </wsdl:input>
+      <wsdl:output name="getServiceDescriptionResponse" message="intf:getServiceDescriptionResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSRP_v1_PortletManagement_PortType">
+    <wsdl:operation name="getPortletDescription">
+      <wsdl:input name="getPortletDescription" message="intf:getPortletDescription">
+    </wsdl:input>
+      <wsdl:output name="getPortletDescriptionResponse" message="intf:getPortletDescriptionResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidUserCategory" message="intf:InvalidUserCategory">
+    </wsdl:fault>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidHandle" message="intf:InvalidHandle">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="clonePortlet">
+      <wsdl:input name="clonePortlet" message="intf:clonePortlet">
+    </wsdl:input>
+      <wsdl:output name="clonePortletResponse" message="intf:clonePortletResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidUserCategory" message="intf:InvalidUserCategory">
+    </wsdl:fault>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidHandle" message="intf:InvalidHandle">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="destroyPortlets">
+      <wsdl:input name="destroyPortlets" message="intf:destroyPortlets">
+    </wsdl:input>
+      <wsdl:output name="destroyPortletsResponse" message="intf:destroyPortletsResponse">
+    </wsdl:output>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setPortletProperties">
+      <wsdl:input name="setPortletProperties" message="intf:setPortletProperties">
+    </wsdl:input>
+      <wsdl:output name="setPortletPropertiesResponse" message="intf:setPortletPropertiesResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidUserCategory" message="intf:InvalidUserCategory">
+    </wsdl:fault>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidHandle" message="intf:InvalidHandle">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPortletProperties">
+      <wsdl:input name="getPortletProperties" message="intf:getPortletProperties">
+    </wsdl:input>
+      <wsdl:output name="getPortletPropertiesResponse" message="intf:getPortletPropertiesResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidUserCategory" message="intf:InvalidUserCategory">
+    </wsdl:fault>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidHandle" message="intf:InvalidHandle">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPortletPropertyDescription">
+      <wsdl:input name="getPortletPropertyDescription" message="intf:getPortletPropertyDescription">
+    </wsdl:input>
+      <wsdl:output name="getPortletPropertyDescriptionResponse" message="intf:getPortletPropertyDescriptionResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidUserCategory" message="intf:InvalidUserCategory">
+    </wsdl:fault>
+      <wsdl:fault name="InconsistentParameters" message="intf:InconsistentParameters">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+      <wsdl:fault name="AccessDenied" message="intf:AccessDenied">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidHandle" message="intf:InvalidHandle">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSRP_v1_Registration_PortType">
+    <wsdl:operation name="register">
+      <wsdl:input name="register" message="intf:register">
+    </wsdl:input>
+      <wsdl:output name="registerResponse" message="intf:registerResponse">
+    </wsdl:output>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deregister">
+      <wsdl:input name="deregister" message="intf:deregister">
+    </wsdl:input>
+      <wsdl:output name="deregisterResponse" message="intf:deregisterResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="modifyRegistration">
+      <wsdl:input name="modifyRegistration" message="intf:modifyRegistration">
+    </wsdl:input>
+      <wsdl:output name="modifyRegistrationResponse" message="intf:modifyRegistrationResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidRegistration" message="intf:InvalidRegistration">
+    </wsdl:fault>
+      <wsdl:fault name="OperationFailed" message="intf:OperationFailed">
+    </wsdl:fault>
+      <wsdl:fault name="MissingParameters" message="intf:MissingParameters">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

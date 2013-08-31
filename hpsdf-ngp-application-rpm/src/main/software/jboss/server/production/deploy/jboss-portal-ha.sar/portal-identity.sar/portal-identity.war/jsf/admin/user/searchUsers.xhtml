@@ -1,0 +1,104 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink id="user-adm-link" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_SEARCH_USER}"/>
+	</li>
+</ui:define>
+
+<ui:define name="content">
+	<h3><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_SEARCH_USER}"/></h3>
+   <h:messages infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+              fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+   <h:form id="search-user-form">
+	<h:panelGrid columns="4">
+		<h:inputText id="searchString" value="#{useradministrationbean.searchString}" />
+		<h:commandButton id ="search" value="#{bundle.IDENTITY_MANAGEMENT_SEARCH_USER}" action="#{useradministrationbean.searchUsers}" styleClass="portlet-form-button"/>
+		
+		<h:selectOneMenu id="limit" value="#{useradministrationbean.limit}">
+			<f:selectItem id="limit1" itemValue="10" />
+			<f:selectItem id="limit2" itemValue="20" />
+			<f:selectItem id="limit5" itemValue="50" />
+			<f:selectItem id="limit10" itemValue="100" /> 
+ 		</h:selectOneMenu>
+		<h:message for="limit" />
+	</h:panelGrid>
+	</h:form>
+	<br/>
+	<h:form id="search-user-form1">
+	<h:dataTable id="userlist" value="#{useradministrationbean.userList}" var="uiUser" rendered="#{useradministrationbean.userList.rowCount > 0}" rows="#{useradministrationbean.limit}" rowClasses="portlet-section-body,portlet-section-alternate" headerClass="portlet-section-header" styleClass="datatable" width="100%">
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_USERNAME}"/>
+		</f:facet>
+		<h:outputText value="#{uiUser.username}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_EMAIL}"/>
+		</f:facet>
+		<a href="mailto:#{uiUser.attribute.email}">
+			<h:outputText value="#{uiUser.attribute.email}"/>
+		</a>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_GIVENNAME}"/>
+		</f:facet>
+		<h:outputText value="#{uiUser.attribute.givenname}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_FAMILYNAME}"/>
+		</f:facet>
+		<h:outputText value="#{uiUser.attribute.familyname}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_ENABLED}"/>
+		</f:facet>
+		<h:selectBooleanCheckbox id="enabled" value="#{uiUser.attribute.enabled}" disabled="true" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION}"/>
+		</f:facet>
+		<h:commandLink id="rename-link" action="#{editprofilemgr.adminEditProfile}" styleClass="actionRename">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION_EDIT_PROFILE}"/>
+			<f:param name="currentUser" value="#{uiUser.UTF8Username}"/>
+		</h:commandLink> | 
+		<h:commandLink id="assign-role-link" action="#{assignrolemgr.assignRoles}" styleClass="actionProperties">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION_ROLES}"/>
+			<f:param name="currentUser" value="#{uiUser.UTF8Username}"/>
+	    </h:commandLink> | 
+		<h:commandLink id="enable-user-link" action="#{useradministrationbean.enableUser}" styleClass="#{uiUser.attribute.enabled == true ? 'actionDefault' : 'actionMakeDefault'}">
+			<h:outputText value="#{uiUser.attribute.enabled == true ? bundle.IDENTITY_MANAGEMENT_DISABLE : bundle.IDENTITY_MANAGEMENT_ENABLE}" />
+			<f:param name="currentUser" value="#{uiUser.UTF8Username}"/>
+			<f:param name="enableAction" value="#{uiUser.attribute.enabled == true ? 'disable' : 'enable'}" />
+		</h:commandLink> | 
+	    <h:commandLink id="delete-user-link" action="#{useradministrationbean.deleteUser}" styleClass="actionDelete">
+	    	<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION_DELETE}"/>
+	    	<f:param name="currentUser" value="#{uiUser.UTF8Username}"/>
+	    </h:commandLink>
+	</h:column>
+	</h:dataTable>
+	<p style="text-align: center;">
+	<h:commandButton id="prev-page" value=" &#60; " action="#{useradministrationbean.prevPage}" rendered="#{useradministrationbean.page > 1}" styleClass="portlet-form-button"/>   
+	<h:commandButton id="next-page" value=" &#62; " action="#{useradministrationbean.nextPage}" rendered="#{useradministrationbean.userList.rowCount > useradministrationbean.limit}" styleClass="portlet-form-button"/>
+	</p>
+	</h:form>
+	<br/>
+</ui:define>
+</ui:composition>
+</div>

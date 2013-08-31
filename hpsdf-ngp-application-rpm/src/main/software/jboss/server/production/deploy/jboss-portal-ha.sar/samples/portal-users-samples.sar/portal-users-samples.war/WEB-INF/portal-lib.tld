@@ -1,0 +1,104 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+   <tlib-version>1.1</tlib-version>
+   <short-name>JBoss-Portal-tags</short-name>
+
+   <tag>
+      <name>if</name>
+      <tag-class>org.jboss.portal.core.servlet.jsp.taglib.IfTag</tag-class>
+      <body-content>JSP</body-content>
+      <attribute>
+         <name>ctx</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+   </tag>
+
+   <tag>
+      <name>iterate</name>
+      <tag-class>org.jboss.portal.core.servlet.jsp.taglib.IterateTag</tag-class>
+      <body-content>JSP</body-content>
+      <attribute>
+         <name>ctx</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+   </tag>
+
+   <tag>
+      <name>include</name>
+      <tag-class>org.jboss.portal.core.servlet.jsp.taglib.IncludeTag</tag-class>
+      <body-content>JSP</body-content>
+      <attribute>
+         <name>page</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+   </tag>
+
+   <tag>
+      <name>error</name>
+      <tag-class>org.jboss.portal.core.servlet.jsp.taglib.ErrorTag</tag-class>
+      <body-content>JSP</body-content>
+      <attribute>
+         <name>key</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+   </tag>
+
+   <tag>
+      <name>errors</name>
+      <tag-class>org.jboss.portal.core.servlet.jsp.taglib.ErrorsTag</tag-class>
+      <body-content>JSP</body-content>
+   </tag>
+
+   <tag>
+      <name>success</name>
+      <tag-class>org.jboss.portal.core.servlet.jsp.taglib.SuccessTag</tag-class>
+      <body-content>JSP</body-content>
+   </tag>
+   <function>
+      <name>i18n</name>
+      <function-class>org.jboss.portal.core.servlet.jsp.taglib.PortalLib</function-class>
+      <function-signature>java.lang.String getMessage(java.lang.String)</function-signature>
+   </function>
+
+   <function>
+      <name>out</name>
+      <function-class>org.jboss.portal.core.servlet.jsp.taglib.PortalLib</function-class>
+      <function-signature>java.lang.String out(java.lang.String)</function-signature>
+   </function>
+
+   <function>
+      <name>i18nout</name>
+      <function-class>org.jboss.portal.core.servlet.jsp.taglib.PortalLib</function-class>
+      <function-signature>java.lang.String i18nOut(java.lang.String)</function-signature>
+   </function>
+
+</taglib>

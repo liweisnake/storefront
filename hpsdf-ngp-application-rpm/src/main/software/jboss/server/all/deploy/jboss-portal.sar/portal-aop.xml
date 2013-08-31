@@ -1,0 +1,113 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<aop>
+   <metadata tag="transaction" class="org.jboss.portal.core.aspects.server.TransactionInterceptor">
+      <method name="invoke">
+         <trans-attribute>RequiresNew</trans-attribute>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.core.aspects.portlet.TransactionInterceptor">
+      <method name="invokeNotSupported">
+         <trans-attribute>NotSupported</trans-attribute>
+      </method>
+      <method name="invokeNever">
+         <trans-attribute>Never</trans-attribute>
+      </method>
+      <method name="invokeMandatory">
+         <trans-attribute>Mandatory</trans-attribute>
+      </method>
+      <method name="invokeSupports">
+         <trans-attribute>supports</trans-attribute>
+      </method>
+      <method name="invokeRequired">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="invokeRequiresNew">
+         <trans-attribute>RequiresNew</trans-attribute>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.core.aspects.server.UserInterceptor$UserFinalizer">
+      <method name="finalizeUser">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.jems.hibernate.SessionFactoryBinder">
+      <method name="createSchema">
+         <trans-attribute>NotSupported</trans-attribute>
+      </method>
+      <method name="destroySchema">
+         <trans-attribute>NotSupported</trans-attribute>
+      </method>
+      <method name="createSessionFactory">
+         <trans-attribute>NotSupported</trans-attribute>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.core.deployment.jboss.ObjectDeployment">
+      <method name="doStart">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer">
+      <method name="createRootIfNotExist">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.core.deployment.jboss.PortletAppDeployment">
+      <method name="handleInstance">
+         <trans-attribute>RequiresNew</trans-attribute>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.core.impl.model.instance.InstanceContainerImpl">
+      <method name="getDefinition">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="createDefinition">
+         <trans-attribute>Required</trans-attribute>
+         <application-exceptions>org.jboss.portal.core.model.instance.DuplicateInstanceException
+         </application-exceptions>
+      </method>
+      <method name="destroyDefinition">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="getDefinitions">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="invoke">
+         <trans-attribute>Required</trans-attribute>
+         <application-exceptions>org.jboss.portal.portlet.InvalidPortletIdException</application-exceptions>
+      </method>
+   </metadata>
+   <metadata tag="transaction" class="org.jboss.portal.core.impl.portlet.state.ProducerPortletInvoker">
+      <method name="createClone">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="destroyClones">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="invoke">
+         <trans-attribute>Required</trans-attribute>
+         <application-exceptions>org.jboss.portal.portlet.InvalidPortletIdException</application-exceptions>
+      </method>
+   </metadata>
+</aop>

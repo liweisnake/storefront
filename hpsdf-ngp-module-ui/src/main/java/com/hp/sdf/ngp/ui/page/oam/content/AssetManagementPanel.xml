@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Assets List</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newAsset">New Asset</entry>
+
+<entry key="title.big">Asset Management</entry>
+<entry key="title.search">Search Assets</entry>
+<entry key="title.list">Assets List</entry>
+<entry key="title.operation">Assets Operation</entry>
+
+<entry key="providerId">Provider ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="assetId">Asset ID</entry>
+<entry key="externalId">External ID</entry>
+<entry key="assetName">Asset Name</entry>
+<entry key="targetPublishDate">Target Publish Date</entry>
+<entry key="publishDate">Publish Date</entry>
+<entry key="category1">Category</entry>
+<entry key="category2">Genre</entry>
+<entry key="status">Status</entry>
+<entry key="newArrivalDueDate">New Arrival Due Date</entry>
+<entry key="recommendStartDate">Recommend Start Date</entry>
+<entry key="recommendDueDate">Recommend Due Date</entry>
+<entry key="recommendOrder">Recommend Order</entry>
+<entry key="commissionRate">Commission Rate</entry>
+<entry key="binaryName">Binary Version Name</entry>
+<entry key="binaryVersion">Binary Version</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="commissionSymbol">%</entry>
+
+<entry key="update.title">Batch Update</entry>
+
+<entry key="update.status">Status</entry>
+<entry key="update.comments">Operator Comments</entry>
+<entry key="update.commentType">Status Change Comment Type</entry>
+
+<entry key="update.commissionRate">Commission Rate</entry>
+
+<entry key="update.recommendStartDate">Recommend Start Date</entry>
+<entry key="update.recommendDueDate">Recommend Due Date</entry>
+
+<entry key="update.newArrivalDueDate">New Arrival Due Date</entry>
+
+<entry key="btn.update.update">Update</entry>
+<entry key="btn.update.reset">Reset</entry>
+<entry key="btn.download">Download</entry>
+
+<entry key="title.prompt">Prompt</entry>
+<entry key="msg.download">Do you want to download the csv file?</entry>
+<entry key="msg.update">Do you want to batch update the selected asset?</entry>
+<entry key="msg.error.download">Search result row number exceeds the maximum in excel!</entry>
+<entry key="msg.update.result">You successfully batch update the selected assets!</entry>
+<entry key="msg.delete.result">You successfully delete the assets!</entry>
+<entry key="error.select.no.asset">Please select some assets!</entry>
+<entry key="msg.error.delete">This asset is not exist!</entry>
+<entry key="msg.error.batch.delete"> is not exist!</entry>
+
+<entry key="download.file.name">Asset.csv</entry>
+
+</properties>

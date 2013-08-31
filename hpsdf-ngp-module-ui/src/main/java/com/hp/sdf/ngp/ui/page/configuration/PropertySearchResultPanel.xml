@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="name">Name</entry>
+	<entry key="type">Type</entry>
+	<entry key="defaultValue">Default Value</entry>
+	<entry key="value">Value</entry>
+	<entry key="description">Description</entry>
+</properties>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+	<portlet>
+		<description>storefront_banner_provision</description>
+		<portlet-name>storefront_banner_provision</portlet-name>
+		<display-name>storefront_banner_provision</display-name>
+		<portlet-class>com.hp.sdf.ngp.ais.ui.portlet.ShareEventPortlet</portlet-class>
+		<init-param>
+			<name>wicketFilterPath</name>
+			<value>/portlet/bannerprovision</value>
+		</init-param>
+		<!--
+		<init-param>
+			<name>viewPage</name>
+			<value>/portlet/bannerprovision/view</value>
+		</init-param>
+		<init-param>
+			<name>editPage</name>
+			<value>/portlet/bannerprovision/edit</value>
+		</init-param>
+		-->
+		<supports>
+			<mime-type>*/*</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+	    <supported-locale>fr</supported-locale>
+        <supported-locale>en</supported-locale>
+        <supported-locale>it</supported-locale>
+        <supported-locale>ru</supported-locale>
+        <supported-locale>zh</supported-locale>
+        <resource-bundle>BannerProvisionResource</resource-bundle>
+		<portlet-info>
+			<title>Banner_Provision</title>
+			<keywords>storefront</keywords>
+		</portlet-info>
+		<supported-publishing-event>
+			<qname>com.hp.sdf.ngp.ui.ShareEvent</qname>
+		</supported-publishing-event>
+	</portlet>
+	
+	<portlet>
+		<description>storefront_banner_view</description>
+		<portlet-name>storefront_banner_view</portlet-name>
+		<display-name>storefront_banner_view</display-name>
+		<portlet-class>com.hp.sdf.ngp.ais.ui.portlet.ShareEventPortlet</portlet-class>
+		<init-param>
+			<name>wicketFilterPath</name>
+			<value>/portlet/bannerview</value>
+		</init-param>
+
+		<supports>
+			<mime-type>*/*</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+			<portlet-mode>EDIT</portlet-mode>
+		</supports>
+	    <supported-locale>fr</supported-locale>
+        <supported-locale>en</supported-locale>
+        <supported-locale>it</supported-locale>
+        <supported-locale>ru</supported-locale>
+        <supported-locale>zh</supported-locale>
+        <resource-bundle>BannerViewResource</resource-bundle>
+		<portlet-info>
+			<title>Banner_View</title>
+			<keywords>storefront</keywords>
+		</portlet-info>
+	</portlet>
+	
+	<portlet>
+		<description>storefront_banner_preview</description>
+		<portlet-name>storefront_banner_preview</portlet-name>
+		<display-name>storefront_banner_preview</display-name>
+		<portlet-class>com.hp.sdf.ngp.ais.ui.portlet.ShareEventPortlet</portlet-class>
+		<init-param>
+			<name>wicketFilterPath</name>
+			<value>/portlet/bannerpreview</value>
+		</init-param>
+
+		<supports>
+			<mime-type>*/*</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+	    <supported-locale>fr</supported-locale>
+        <supported-locale>en</supported-locale>
+        <supported-locale>it</supported-locale>
+        <supported-locale>ru</supported-locale>
+        <supported-locale>zh</supported-locale>
+        <resource-bundle>BannerPreviewResource</resource-bundle>
+		<portlet-info>
+			<title>Banner_Preview</title>
+			<keywords>storefront</keywords>
+		</portlet-info>
+		<supported-processing-event>
+			<qname>com.hp.sdf.ngp.ui.ShareEvent</qname>
+		</supported-processing-event>
+	</portlet>
+	
+	<!-- Event definition -->
+	<event-definition>
+		<name>com.hp.sdf.ngp.ui.ShareEvent</name>
+		<value-type>com.hp.sdf.ngp.ui.ShareEvent</value-type>
+	</event-definition>
+</portlet-app>

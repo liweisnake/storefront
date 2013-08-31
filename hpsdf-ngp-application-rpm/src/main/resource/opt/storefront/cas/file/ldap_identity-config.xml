@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--<!DOCTYPE identity-configuration PUBLIC
+"-//JBoss Portal//DTD JBoss Identity Configuration 1.0//EN"
+"http://www.jboss.org/portal/dtd/identity-config_1_0.dtd">-->
+
+
+<!-- This file overrides settings from standardidentity-config.xml.
+     Check default option values that are used there -->
+
+<identity-configuration>
+   <datasources>
+      <datasource>
+         <name>LDAP</name>
+         <config>
+            <option>
+               <name>host</name>
+               <value>localhost</value>
+            </option>
+            <option>
+               <name>port</name>
+               <value>10389</value>
+            </option>
+            <option>
+               <name>adminDN</name>
+               <value>cn=Directory Manager</value>
+            </option>
+            <option>
+               <name>adminPassword</name>
+               <value>password</value>
+            </option>
+            <!--<option>
+               <name>protocol</name>
+               <value>ssl</value>
+            </option>-->
+         </config>
+      </datasource>
+   </datasources>
+   <modules>
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>User</type>
+         <implementation>LDAP</implementation>
+         <!--Use this implementation for more flexible user retrieval-->
+         <!--<class>
+            org.jboss.portal.identity.ldap.LDAPExtUserModuleImpl
+         </class>-->
+         <config/>
+      </module>
+      <module>
+         <type>Role</type>
+         <implementation>LDAP</implementation>
+         <!--Use this implementation for more flexible user retrieval-->
+         <!--<class>
+            org.jboss.portal.identity.ldap.LDAPExtRoleModuleImpl
+         </class>-->
+         <config/>
+      </module>
+      <module>
+         <type>Membership</type>
+         <implementation>LDAP</implementation>
+         <config/>
+      </module>
+      <module>
+         <type>UserProfile</type>
+         <implementation>DELEGATING</implementation>
+         <config>
+            <option>
+               <name>ldapModuleJNDIName</name>
+               <value>java:/portal/LDAPUserProfileModule</value>
+            </option>
+         </config>
+      </module>
+      <module>
+         <type>DBDelegateUserProfile</type>
+         <implementation>DB</implementation>
+         <config>
+            <option>
+               <name>randomSynchronizePassword</name>
+               <value>true</value>
+            </option>
+         </config>
+      </module>
+      <module>
+         <type>LDAPDelegateUserProfile</type>
+         <implementation>LDAP</implementation>
+         <config/>
+      </module>
+   </modules>
+
+   <options>
+      <option-group>
+         <group-name>common</group-name>
+         <option>
+            <name>userCtxDN</name>
+            <value>ou=People,o=test,dc=portal,dc=example,dc=com</value>
+         </option>
+         <!--Uncomment to use with LDAPExtUserModuleImpl-->
+         <!--<option>
+            <name>userSearchFilter</name>
+            <value><![CDATA[(&((uid={0})(objectClass=person)))]]></value>
+         </option>-->
+         <option>
+            <name>roleCtxDN</name>
+            <value>ou=Roles,o=test,dc=portal,dc=example,dc=com</value>
+         </option>
+         <!--Uncomment to use with LDAPExtRoleModuleImpl-->
+         <!--<option>
+            <name>roleSearchFilter</name>
+            <value><![CDATA[(&((cn={0})(objectClass=groupOfNames)))]]></value>
+         </option>-->
+      </option-group>
+   </options>
+
+</identity-configuration>

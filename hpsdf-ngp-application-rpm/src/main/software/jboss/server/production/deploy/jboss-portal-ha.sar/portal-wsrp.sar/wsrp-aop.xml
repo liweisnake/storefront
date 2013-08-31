@@ -1,0 +1,79 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<aop>
+   <metadata tag="transaction" class="org.jboss.portal.wsrp.consumer.ConsumerRegistryService">
+      <method name="startService">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="persistConsumer">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="activateConsumerWith">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="updateProducerInfo">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="createConsumer">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+      <method name="destroyConsumer">
+         <trans-attribute>Required</trans-attribute>
+      </method>
+   </metadata>
+
+   <!-- TRANSACTIONS -->
+   <interceptor class="org.jboss.aspects.tx.TxPropagationInterceptor" scope="PER_VM"/>
+   <interceptor factory="org.jboss.aspects.tx.TxInterceptorFactory" scope="PER_CLASS_JOINPOINT"/>
+
+   <bind pointcut="all(@transaction)">
+      <interceptor-ref name="org.jboss.aspects.tx.TxInterceptorFactory"/>
+   </bind>
+
+   <interceptor name="class-txsynchronized" factory="org.jboss.aspects.txlock.TxLockInterceptorFactory"
+                scope="PER_CLASS"/>
+   <interceptor name="instance-txsynchronized" factory="org.jboss.aspects.txlock.TxLockInterceptorFactory"
+                scope="PER_INSTANCE"/>
+
+   <bind pointcut="execution(static * *->@TxSynchronized(..)) OR execution(*->@TxSynchronized(..))">
+      <interceptor-ref name="class-txsynchronized"/>
+   </bind>
+
+   <bind pointcut="execution(!static * *->@TxSynchronized(..))">
+      <interceptor-ref name="instance-txsynchronized"/>
+   </bind>
+
+   <bind pointcut="all(@org.jboss.aspects.tx.Tx)">
+      <interceptor-ref name="org.jboss.aspects.tx.TxInterceptorFactory"/>
+   </bind>
+
+   <bind
+      pointcut="execution(static * *->@org.jboss.aspects.txlock.TxSynchronized(..)) OR execution(*->@org.jboss.aspects.txlock.TxSynchronized(..))">
+      <interceptor-ref name="class-txsynchronized"/>
+   </bind>
+
+   <bind pointcut="execution(!static * *->@org.jboss.aspects.txlock.TxSynchronized(..))">
+      <interceptor-ref name="instance-txsynchronized"/>
+   </bind>
+</aop>

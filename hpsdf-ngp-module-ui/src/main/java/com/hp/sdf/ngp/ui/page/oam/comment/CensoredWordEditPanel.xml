@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">Save</entry>
+	<entry key="back">Back</entry>	
+	
+	<entry key="title">Edit Censored Word</entry>	
+	<entry key="commentsManagement">Comments Management</entry>	
+	
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to update the censored word?</entry>
+	<entry key="successMsg">Update the censored word successfully.</entry>	
+	
+	<entry key="checkPanel.confirmMsg">Censored Word Existed,Save anyway?</entry>	
+	
+	<entry key="error.emptyword">Empty censored word.</entry>	
+	
+</properties>

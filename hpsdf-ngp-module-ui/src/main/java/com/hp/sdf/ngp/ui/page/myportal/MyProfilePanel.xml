@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="myProfile.username">User name:</entry>
+<entry key="myProfile.email">Email:</entry>
+<entry key="myProfile.idcard">Idcard:</entry>
+<entry key="myProfile.gender">Gender:</entry>
+<entry key="myProfile.cellphone">Cellphone:</entry>
+<entry key="myProfile.company">Company:</entry>
+<entry key="myProfile.address">Address:</entry>
+<entry key="myProfile.zip">Zip:</entry>
+<entry key="myProfile.birthday">Birthday:</entry>
+<entry key="myProfile.lastname">Last name:</entry>
+<entry key="myProfile.firstname">First name:</entry>
+<entry key="myProfile.country">Country:</entry>
+<entry key="myProfile.language">Language:</entry>
+<entry key="myProfile.role">Role:</entry>
+<entry key="myProfile.update">Update</entry>
+<entry key="myProfile.applyRole">Apply role</entry>
+</properties>

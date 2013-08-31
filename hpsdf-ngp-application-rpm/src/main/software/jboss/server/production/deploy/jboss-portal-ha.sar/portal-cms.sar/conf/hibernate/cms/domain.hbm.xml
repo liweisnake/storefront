@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="org.jboss.portal.cms.hibernate.state.VersionBinVal" table="jbp_cms_version_binval" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="id"
+         column="BINVAL_ID"
+         type="string"
+         length="255"/>
+      <property
+         name="data"
+         column="BINVAL_DATA"
+         type="blob"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.state.VersionNode" table="jbp_cms_version_node" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="nodeId"
+         column="NODE_ID"
+         type="string"
+         length="36"/>
+      <property
+         name="data"
+         column="NODE_DATA"
+         type="binary"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.state.VersionProp" table="jbp_cms_version_prop" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="propId"
+         column="PROP_ID"
+         type="string"
+         length="255"/>
+      <property
+         name="data"
+         column="PROP_DATA"
+         type="binary"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.state.VersionRefs" table="jbp_cms_version_refs" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="refId"
+         column="NODE_ID"
+         type="string"
+         length="36"/>
+      <property
+         name="data"
+         column="REFS_DATA"
+         type="binary"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.state.WSPBinVal" table="jbp_cms_wsp_binval" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="id"
+         column="BINVAL_ID"
+         type="string"
+         length="255"/>
+      <property
+         name="data"
+         column="BINVAL_DATA"
+         type="blob"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.state.WSPNode" table="jbp_cms_wsp_node" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="nodeId"
+         column="NODE_ID"
+         type="string"
+         length="36"/>
+      <property
+         name="data"
+         column="NODE_DATA"
+         type="binary"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.state.WSPProp" table="jbp_cms_wsp_prop" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="propId"
+         column="PROP_ID"
+         type="string"
+         length="255"/>
+      <property
+         name="data"
+         column="PROP_DATA"
+         type="binary"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.state.WSPRefs" table="jbp_cms_wsp_refs" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="refId"
+         column="NODE_ID"
+         type="string"
+         length="36"/>
+      <property
+         name="data"
+         column="REFS_DATA"
+         type="binary"
+         length="100000000"
+         not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.CMSEntry" table="jbp_cms_cmsentry" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="name"
+         column="FSENTRY_NAME"
+         type="string"
+         length="255"
+         not-null="false"/>
+      <property name="path"
+                column="FSENTRY_PATH"
+                type="string"
+                not-null="true"
+                length="245"/>
+      <property name="data"
+                column="FSENTRY_DATA"
+                type="blob"
+                length="100000000"
+                not-null="false"/>
+      <property name="lastmod"
+                column="FSENTRY_LASTMOD"
+                type="long"
+                not-null="true"/>
+      <property name="length"
+                column="FSENTRY_LENGTH"
+                type="long"
+                not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.RepositoryEntry" table="jbp_cms_repositoryentry" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="name"
+         column="FSENTRY_NAME"
+         type="string"
+         length="255"
+         not-null="false"/>
+      <property name="path"
+                column="FSENTRY_PATH"
+                type="string"
+                not-null="true"
+                length="245"/>
+      <property name="data"
+                column="FSENTRY_DATA"
+                type="blob"
+                length="100000000"
+                not-null="false"/>
+      <property name="lastmod"
+                column="FSENTRY_LASTMOD"
+                type="long"
+                not-null="true"/>
+      <property name="length"
+                column="FSENTRY_LENGTH"
+                type="long"
+                not-null="true"/>
+   </class>
+   <class name="org.jboss.portal.cms.hibernate.VersionEntry" table="jbp_cms_versionentry" lazy="true">
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Integer">
+         <generator class="native"/>
+      </id>
+      <property
+         name="name"
+         column="FSENTRY_NAME"
+         type="string"
+         length="255"
+         not-null="false"/>
+      <property name="path"
+                column="FSENTRY_PATH"
+                type="string"
+                not-null="true"
+                length="245"/>
+      <property name="data"
+                column="FSENTRY_DATA"
+                type="blob"
+                length="100000000"
+                not-null="false"/>
+      <property name="lastmod"
+                column="FSENTRY_LASTMOD"
+                type="long"
+                not-null="true"/>
+      <property name="length"
+                column="FSENTRY_LENGTH"
+                type="long"
+                not-null="true"/>
+   </class>
+
+   <!--  mapping to persist CMS Fine Grained Security related objects -->
+   <class name="org.jboss.portal.cms.security.PermRoleAssoc" table="jbp_cms_perm_role">
+   		<cache usage="transactional"/> 
+   		<id
+            name="id"
+            column="ID"
+            type="java.lang.Long">
+         <generator class="native"/>
+        </id>
+        <property
+           name="roleId"
+           column="ROLE_ID"
+           type="string"
+           not-null="true"
+           />
+   </class>
+   <class name="org.jboss.portal.cms.security.PermUserAssoc" table="jbp_cms_perm_user">
+        <cache usage="transactional"/> 
+   		<id
+            name="id"
+            column="ID"
+            type="java.lang.Long">
+         <generator class="native"/>
+        </id>
+        <property
+           name="userId"
+           column="USER_ID"
+           type="string"
+           not-null="true"
+           />
+   </class>
+   <class name="org.jboss.portal.cms.security.Criteria" table="jbp_cms_perm_criteria">
+        <cache usage="transactional"/> 
+   		<id
+            name="id"
+            column="ID"
+            type="java.lang.Long">
+         <generator class="native"/>
+        </id>
+        <property
+           name="name"
+           column="NAME"
+           type="string"
+           not-null="true"
+           />
+        <property
+           name="value"
+           column="VALUE"
+           type="string"
+           not-null="true"
+           />
+   </class>
+   <class name="org.jboss.portal.cms.security.Permission" table="jbp_cms_perm">
+        <cache usage="transactional"/> 
+   		<id
+            name="id"
+            column="ID"
+            type="java.lang.Long">
+         <generator class="native"/>
+        </id>
+      <!-- one-to-many association with the criteria object -->
+      <set name="criteria" lazy="false" table="jbp_cms_perm_criteria" cascade="all-delete-orphan">
+            <cache usage="transactional"/> 
+        	<key column="CMS_PERM_ID"/>
+        	<one-to-many class="org.jboss.portal.cms.security.Criteria"/>
+        </set>
+      <!-- many-to-many association with the role object -->
+      <set name="roleAssoc" lazy="false" cascade="all-delete-orphan">
+            <cache usage="transactional"/> 
+        	<key column="CMS_PERM_ID"/>
+        	<one-to-many class="org.jboss.portal.cms.security.PermRoleAssoc"/>
+        </set>
+      <!-- many-to-many association with the user object -->
+      <set name="userAssoc" lazy="false" cascade="all-delete-orphan">
+            <cache usage="transactional"/> 
+        	<key column="CMS_PERM_ID"/>
+        	<one-to-many class="org.jboss.portal.cms.security.PermUserAssoc"/>
+        </set>
+        <property
+           name="service"
+           column="NAME"
+           type="string"
+           not-null="true"
+           />
+        <property
+           name="action"
+           column="ACTION"
+           type="string"
+           not-null="true"
+           />
+        <property
+           name="negated"
+           column="NEGATED"
+           type="boolean"
+           not-null="true"
+           />
+   </class>
+</hibernate-mapping>
+

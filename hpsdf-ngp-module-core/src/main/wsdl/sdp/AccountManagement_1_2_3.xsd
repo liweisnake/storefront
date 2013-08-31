@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--edited with XMLSpy v2008 sp1 (http://www.altova.com) by hamsa (hp)--><xsd:schema targetNamespace="http://www.hp.com/sgf/schema/acc_mgmt/v1_0/" xmlns:account_management_xsd="http://www.hp.com/sgf/schema/acc_mgmt/v1_0/" xmlns:parlayx_account_management_xsd="http://www.csapi.org/schema/parlayx/account_management/v2_2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://www.csapi.org/schema/parlayx/account_management/v2_2" schemaLocation="AccountManagement_1_2.xsd"/>
+  <xsd:complexType name="Account">
+    <xsd:sequence>
+      <xsd:element name="Partner" type="account_management_xsd:Partner"/>
+      <xsd:element name="validFrom" type="xsd:dateTime"/>
+      <xsd:element name="BalanceExpireDetails" type="parlayx_account_management_xsd:BalanceExpireDetails"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="DatedTransaction" type="parlayx_account_management_xsd:DatedTransaction"/>
+      <xsd:element name="Balance" type="parlayx_account_management_xsd:Balance"/>
+      <xsd:element name="updatedBy" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="lastUpdated" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Partner">
+    <xsd:sequence>
+      <xsd:element name="partnerId" type="xsd:string"/>
+      <xsd:element name="partnerName" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="handmarkUploadTitle">Handmark products import</entry>
+	<entry key="handmarkMasterUpload.file">Handmark master_feed File</entry>
+	<entry key="handmarkDeviceUpload.file">Handmark device_feed File</entry>
+	<entry key="handmarkUpload.upload">Upload</entry>
+	
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to upload the handmark master and device feed file?</entry>
+	<entry key="successMsg">We are uploading the handmark products. Please check the log to judge whether have finished the importing.</entry>	
+</properties>

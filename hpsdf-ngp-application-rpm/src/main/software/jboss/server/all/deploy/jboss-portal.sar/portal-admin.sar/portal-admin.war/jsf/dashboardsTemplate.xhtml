@@ -1,0 +1,36 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="admin-ui">
+
+   <!-- Common nav -->
+   <f:loadBundle basename="Resource" var="bundle" />
+   <h:form id="dashboard-temp-form">
+      <ul class="topnav">
+         <li>
+            <h:commandLink id="obj-link" value="#{bundle.PORTAL_OBJECTS}" action="objects"
+                           actionListener="#{portalobjectmgr.selectRootObject}"/>
+         </li>
+         <li>
+            <h:commandLink id="instance-link" value="#{bundle.PORTLET_INSTANCES}" action="instances"/>
+         </li>
+         <li>
+            <h:commandLink id="def-link" value="#{bundle.PORTLET_DEFINITIONS}" action="#{portletmgr.selectPortlet}"/>
+         </li>
+         <li id="currentTab">#{bundle.DASHBOARDS}</li>
+      </ul>
+   </h:form>
+   <ui:decorate template="common/tabContainer.xhtml">
+      <ui:define name="tab-container-content">
+         <!-- Status message -->
+         <h:message id="status" for="status" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+                    fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+         <!-- Content -->
+         <ui:insert name="content">#{bundle.WIZARD_CONTENT}</ui:insert>
+      </ui:define>
+   </ui:decorate>
+</div>

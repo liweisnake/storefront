@@ -1,0 +1,842 @@
+/* Redefine spacing for tables. */
+
+@import url( basestyles.css );
+
+a {
+   color: #446688;
+   text-decoration: none;
+}
+
+a:hover {
+   color: #5078aa;
+   text-decoration: underline;
+}
+
+div.admin-ui div.tab-container {
+   border-bottom: 1px solid #B3C0C7;
+   border-right: 1px solid #B3C0C7;
+   border-left: 1px solid #B3C0C7;
+   padding: 15px 0 10px 0;
+}
+
+.admin-ui table {
+   border: 0;
+   border-collapse: collapse;
+}
+
+.admin-ui table.datatable {
+   border-right: 1px solid #B3C0C7;
+   border-left: 1px solid #B3C0C7;
+   border-bottom: 1px solid #B3C0C7;
+}
+
+.admin-ui table tbody {
+
+}
+
+.admin-ui th {
+   text-align: left;
+   padding-bottom: 2px;
+   padding-top: 2px;
+   font-size: 11px; /*border-bottom: 1px solid #B3C0C7;*/
+   background-color: #fafafa; /*border-top: 1px solid #B3C0C7;*/
+}
+
+/*.admin-ui thead tr th {
+   text-align: left;
+   padding-bottom: 2px;
+   padding-top: 2px;
+   font-size: 11px;
+   background-color:
+}*/
+
+.admin-ui td {
+   padding: 4px;
+}
+
+.admin-ui dl {
+
+}
+
+.admin-ui dt {
+
+}
+
+.admin-ui dd {
+   margin: 0;
+}
+
+.admin-ui .panelGrid-basic {
+   width: 100%;
+}
+
+.admin-ui .panelGrid-basic td {
+   padding: 8px;
+}
+
+/* Pagination. */
+
+.admin-ui ul.pagination {
+   margin: 0 auto 0 auto;
+   width: 98%;
+   padding: .2em;
+}
+
+.admin-ui ul.pagination li {
+   text-align: center;
+   list-style-type: none;
+   display: inline;
+   margin-right: 2px;
+}
+
+.admin-ui ul.pagination li.selected {
+   font-weight: bold;
+   background-color: #eef;
+   border-bottom: 2px solid #656565;
+}
+
+.pagination a, .pagination a:visited, .pagination a:hover {
+   text-decoration: none;
+}
+
+/* Top nav. */
+
+.admin-ui ul.topnav {
+   padding: 4px 0px 3px;
+   border-bottom: 1px solid #b3c0c7;
+   margin: 0;
+}
+
+.admin-ui ul.topnav li {
+   list-style-type: none;
+   display: inline;
+   margin: 0;
+   padding: 3px 0.5em;
+   margin-left: 5px;
+   border: 1px solid #b3c0c7;
+   border-bottom: none;
+   background-color: #f2f4f5;
+}
+
+.admin-ui ul.topnav li:hover {
+   background-color: #fff;
+}
+
+.admin-ui ul.topnav li#currentTab {
+   background-color: white;
+   border-bottom: 1px solid white;
+}
+
+.admin-ui ul.topnav li#currentTab a:hover {
+}
+
+/* Object path. */
+
+.admin-ui ul.objectpath {
+   list-style-type: none;
+   font-size: 11px;
+   border: solid 1px #bbb;
+   border-left: solid 1px #eee;
+   border-right: solid 1px #eee;
+   background-color: #d5d5d5;
+   background-image: url( ../img/pathBackground.png );
+   background-position: left;
+   background-repeat: repeat-x;
+   height: 21px;
+   margin: 0px;
+   padding: 0px;
+   padding-left: 2px;
+}
+
+.admin-ui ul.objectpath li {
+   list-style-type: none;
+   display: block;
+   float: left;
+}
+
+.admin-ui ul li.pathItem {
+   padding-top: 4px;
+   padding-left: 3px;
+   padding-right: 2px;
+}
+
+/*
+.admin-ui ul.li.pathSeparator {
+   background-image: url(img/pathSeparator.png);
+   background-position: center center;
+   background-repeat: no-repeat;
+   width: 7px;
+}
+*/
+
+.admin-ui ul.objectpath li.selected {
+   font-weight: bold;
+   padding-top: 4px;
+   padding-left: 3px;
+   padding-right: 2px;
+}
+
+.admin-ui ul.objectpath a {
+   color: #333333;
+   text-decoration: none;
+}
+
+.admin-ui ul.objectpath a:hover {
+   color: #5078aa;
+   text-decoration: none;
+}
+
+/* Resize combo lists */
+.admin-ui select {
+   padding: 2px 4px 2px 1px;
+}
+
+.admin-ui select.contentType {
+   width: 8em;
+}
+
+.admin-ui select.instanceList {
+   width: 11em;
+}
+
+.admin-ui select.windowList {
+   width: 95%;
+   overflow: auto;
+}
+
+/* Style a table for form layout */
+.admin-ui table form {
+   margin: 0;
+}
+
+.admin-ui table form td.label {
+   text-align: right;
+   vertical-align: top;
+   padding-top: 0.4em;
+}
+
+.admin-ui table form td.widget {
+   text-align: left;
+}
+
+/* Area header. */
+
+.admin-ui .portlet-area-header,
+   .sectionTitle-blue {
+   font-weight: bold;
+   color: #5e5e5e;
+   font-size: 13px; 
+   background-image: url( ../img/section-header-bg.gif );
+   background-position: left top;
+   background-repeat: repeat-x;
+   padding: 2px 2px 2px 4px;
+   margin: 0 0 5px 0;
+   border: 1px solid #dbdbdb;
+}
+
+.admin-ui .portlet-area-body {
+   border-top: 0px;
+   padding: 0;
+   margin: 0;
+}
+
+.admin-ui .property-body {
+   border-right: 1px solid #B3C0C7;
+}
+
+/* Styles updated and enhanced from the main portal css */
+
+.admin-ui th.portlet-section-title,
+   .admin-ui h3.sectionTitle {
+   font-weight: bold;
+   color: #315896;
+   font-size: 11px;
+   padding: 3px 0 3px 3px;
+   background-image: url( ../img/section-subHeader-bg.gif );
+   background-position: left top;
+   background-repeat: repeat-x;
+   border: 1px solid #b9c6d7;
+}
+
+.admin-ui .portlet-section-header {
+   background-image: url( ../img/pathBackground.png );
+   background-position: left;
+   background-repeat: repeat-x;
+   font-weight: bold;
+   color: #656565;
+   font-size: 10px;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #999;
+   padding-left: 4px;
+}
+
+.admin-ui .portlet-section-header th {
+   background-image: url( ../img/pathBackground.png );
+   background-position: left;
+   background-repeat: repeat-x;
+   font-weight: bold;
+   color: #656565;
+   font-size: 10px;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #999;
+   padding-left: 4px;
+}
+
+.admin-ui .portlet-section-body {
+   color: #656565; /*border: 1px solid #d5d5d5;*/
+   border-top: 0px;
+}
+
+.admin-ui .portlet-section-alternate {
+   background-color: #F2F2F2;
+   border: 1px solid #d5d5d5;
+}
+
+.admin-ui .portlet-section-alternate-blue {
+   background-color: #EEF3F5;
+   border: 1px solid #d5d5d5;
+}
+
+.admin-ui .actionDetails {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/settings.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionLayout {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/layout.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionSecurity {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/security.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionProperties {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/settings.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionTheme {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/theme.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionRename {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/rename.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionDelete {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/delete2.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionMakeDefault {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/make_default.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 22px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionDefault {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/default.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 22px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionPreferences {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/settings.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionCreateInstance {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/window_add.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 21px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionDeleteInstance {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/window_remove.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 21px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionDisplayNames {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/display_names.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 23px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionCoordination {
+   padding: 5px;
+   background-image: url( ../img/jbp-icon-set/coordination.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 18px;
+   padding-left: 20px;
+   white-space: nowrap;
+}
+
+.admin-ui .actionSelectPortal {
+   background-image: url( ../img/jbp-icon-set/generic_icon.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   height: 18px;
+   padding-left: 25px;
+   white-space: nowrap;
+   display:block;
+   float:left;
+}
+
+.admin-ui .portlet-content-center {
+   padding: 0;
+   margin: 0;
+}
+
+.admin-ui .portlet-body {
+   padding: 0;
+   margin: 0;
+}
+
+.admin-ui .portlet-content-right {
+   padding: 0;
+   margin: 0;
+}
+
+.admin-ui .portlet-footer-left {
+   padding: 0;
+   margin: 0;
+}
+
+.admin-ui .portlet-table-header {
+   background-color: #eef;
+}
+
+.admin-ui .portlet-section-buttonrow {
+   margin-top: 6px;
+   margin-bottom: 6px;
+   float: right;
+}
+
+/* Change dashed line to solid. */
+
+.admin-ui hr {
+   border-top-style: solid;
+}
+
+div.admin-ui div.wizard-tab-container {
+   border-bottom: 1px solid #B3C0C7;
+   border-right: 1px solid #B3C0C7;
+   border-left: 1px solid #B3C0C7;
+   padding: 0 0 10px 0;
+   margin: 10px 0 0 0;
+}
+
+.admin-ui .wizardStepBox {
+   display: inline;
+   float: left;
+   border: 1px solid #98B7C6;
+   height: 7em;
+   width: 9em;
+   background-color: #DFE8ED;
+   margin: .5em;
+}
+
+.admin-ui .wizardButtonBox {
+   margin: 1em;
+}
+
+.admin-ui .wizardContent {
+   clear: both;
+}
+
+.admin-ui form {
+   padding: 0;
+   margin: 0;
+}
+
+.admin-ui #selected.wizardStepBox {
+   background-color: #C8DCC4;
+   border: 1px solid black;
+   border-bottom: 5px solid black;
+}
+
+.admin-ui .stepNumber {
+   font-size: 2em;
+   text-align: center;
+   margin-top: 5px;
+   margin-bottom: 0;
+}
+
+.admin-ui .stepText {
+   text-align: center;
+}
+
+.admin-ui .layout-button {
+   margin: 2px;
+   padding: 2px;
+}
+
+.admin-ui .createObjectForm {
+   display: block;
+   padding: 1em 0 0 0;
+}
+
+.admin-ui .objectList {
+   width: 100%;
+}
+
+.admin-ui .objectList .objectNameColumn {
+   width: 25%;
+}
+
+.admin-ui .objectList .objectActionColumn {
+   width: 75%;
+}
+
+.admin-ui .portlet-msg {
+   border: 1px solid #bbb;
+   margin: 2em auto;
+   padding: 1em;
+   width: 60%;
+}
+
+.admin-ui .portlet-msg-body {
+   position: relative;
+   top: -3em;
+   left: 3em;
+   width: 95%;
+}
+
+.admin-label {
+   padding: 0 4px 3px 0;
+   display: inline-block;
+   vertical-align: middle;
+}
+
+.admin-ui .objectList img.windowStateIcon {
+   margin: 0 5px 0 0;
+}
+
+.property-container,
+   .portlet-def-table {
+   width: 98%;
+   margin: 0 auto 0 auto;
+}
+
+.cms-tab-container th {
+   background: none;
+}
+
+
+/*--------------------------- Instance Meta Data*/
+
+.details-header * {
+   margin: 0;
+   padding: 0;
+}
+
+.details-header {
+   background-image: url( "/portal-admin/img/instance-header-bg.gif" );
+   background-repeat: repeat-x;
+
+}
+
+.details-header .main-header {
+
+   height: 62px;
+}
+
+.details-header .sub-header1 {
+   background-color: #eef3f5;
+   font-size: 12px;
+   padding: 3px 0 3px 0;
+   margin: 0 0 1px 0;
+}
+
+.details-header .sub-header2 {
+   background-color: #dce3ed;
+   font-size: 12px;
+   padding: 3px 0 3px 0;
+}
+
+.details-header ul li {
+   float: left;
+   list-style: none;
+   height: 16px;
+   padding: 0 0 0 3px;
+}
+
+.details-container {
+   margin: 0 15px 15px 15px;
+   border: 2px solid #d0d0d0;
+}
+
+.details-container p {
+   font-size: 12px;
+   margin: 0;
+   padding: 0;
+}
+
+.details-container h3 {
+   margin: 0;
+   padding: 0 0 3px 0;
+   font-size: 1.0em;
+}
+
+.details-left-col dd label,
+   .details-header .sub-header2 label,
+   .details-header .sub-header1 label {
+   font-weight: bold;
+   color: #000;
+}
+
+.details-left-col h3 {
+   padding: 0 0 0 5px;
+}
+
+.details-left-col,
+.details-right-col {
+   /*padding: 5px;*/
+}
+
+.details-body dl {
+   padding: 0 5px 0 5px;
+   margin:0;
+}
+
+.details-body dl dt {
+   margin: 0;
+   padding: 3px 0 0 0;
+   border-bottom: 1px solid #999999;
+}
+
+.details-body dl dd {
+   margin: 0;
+   padding: 3px;
+}
+
+.details-body .meta-container-odd {
+   margin: 5px;
+   padding: 5px;
+   vertical-align: top;
+}
+
+.details-body .meta-container-even {
+   background-color: #f0f0f0;
+   margin: 5px;
+   padding: 5px;
+   vertical-align: top;
+}
+
+.details-body {
+   padding: 15px 0 0 0;
+}
+/*--------------------------- Instance Meta Data end*/
+
+
+/*--------------------------- Coordination admin */
+
+div.coordination-section {
+   border: 1px solid #ccc;
+   padding: 0 3px 3px 3px; 
+}
+
+ul.bindingList {
+   margin: 0;
+   padding: 0;
+}
+
+ul.bindingList li {
+   list-style-image: url( "/portal-admin/img/binding-arrow.gif" );
+   list-style-type: none;
+   list-style-position: inside;
+}
+
+div.bindingList-header {
+   font-weight: bold;
+   font-size: 1em;
+   border-bottom: 1px solid #ececec;
+}
+
+div.bindingListContainer {
+   padding: 3px;
+}
+
+.aliasBinding-step2 {
+   border-left: 2px solid #ececec;
+   padding: 0 0 0 10px;
+}
+
+.paramBinding-step2 {
+   border-left: 2px solid #ececec;
+   padding: 0 0 0 10px;
+}
+
+
+ul.coord-nav {
+   padding: 0;
+   margin: 0;
+}
+
+ul.coord-nav li {
+   list-style: none;
+   display: inline;
+   padding: 0 10px 0 0;
+}
+
+ul.coord-nav li a{
+   font-size: 1em;
+   font-weight: bold;
+}
+
+ul.paramList {
+   margin: 0;
+   padding: 0;
+}
+
+ul.paramList li {
+   list-style-image: url( "../img/jbp-icon-set/window_param.gif" );
+   list-style-type: none;
+   list-style-position: inside;
+   padding: 3px 0 0 5px;
+}
+
+div.paramList-header {
+   font-weight: bold;
+   font-size: 1em;
+   border-bottom: 1px solid #ececec;
+   background-image: url("../img/jbp-icon-set/window.gif");
+   background-repeat: no-repeat;
+   background-position: top left;
+   padding: 0 0 0 22px;
+   margin: 4px 0 0 0;
+}
+
+ul.sourceWindowList,
+ul.sourceEventList,
+ul.destEventList,
+ul.destWindowList {
+   margin: 0;
+   padding: 0;
+}
+
+ul.sourceWindowList li {
+   list-style-image: url( "../img/jbp-icon-set/event_source_window.gif" );
+   list-style-type: none;
+   list-style-position: inside;
+   padding: 3px 0 0 5px;
+}
+
+ul.sourceEventList li {
+   list-style-image: url( "../img/jbp-icon-set/event_source.gif" );
+   list-style-type: none;
+   list-style-position: inside;
+   padding: 3px 0 0 5px;
+}
+
+ul.destEventList li {
+   list-style-image: url( "../img/jbp-icon-set/event_dest.gif" );
+   list-style-type: none;
+   list-style-position: inside;
+   padding: 3px 0 0 5px;
+}
+
+ul.destWindowList li {
+   list-style-image: url( "../img/jbp-icon-set/event_dest_window.gif" );
+   list-style-type: none;
+   list-style-position: inside;
+   padding: 3px 0 0 5px;
+}
+
+div.event-wiring-preview {
+   text-align: left;
+   padding: 15px 0 0 10px;
+   border-left: 1px solid #ececec;
+}
+
+div.event-wiring-preview p.source-event-text {
+   background-image: url( "../img/jbp-icon-set/event_source.gif" );
+   padding: 0 0 0 23px;
+   background-repeat: no-repeat;
+}
+
+div.event-wiring-preview div.createwiring-box {
+   background-color: #fff3c4;
+   border: 2px solid #e1d39c;
+   padding: 0;
+   margin: 15px 0 0 0;
+}
+
+/*--------------------------- Coordination admin end */
+h3.blue {
+   padding: 2px 2px 2px 5px;
+   margin: 0 0 3px 0;
+   color: #003399;
+}
+
+h4 {
+   padding-top: 0
+}
+
+

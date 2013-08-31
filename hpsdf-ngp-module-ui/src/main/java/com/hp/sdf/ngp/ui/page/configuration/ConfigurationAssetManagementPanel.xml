@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="assetName">Asset Name</entry>
+	<entry key="assetAuthor">Author</entry>
+	<entry key="averageRating">Average Rating</entry>
+	<entry key="createDate">Create Date</entry>
+	<entry key="updateDate">Update Date</entry>
+	<entry key="brief">Bried Introduction</entry>
+	<entry key="category">Category</entry>
+	<entry key="status">Status</entry>
+	<entry key="tags">Tags</entry>
+	<entry key="userDefinedMetadata1">User Defined Metadata1</entry>
+	<entry key="userDefinedMetadata2">User Defined Metadata2</entry>
+	<entry key="description">Asset Description</entry>
+	<entry key="update">Update</entry>
+	<entry key="comments">Comments</entry>
+	<entry key="selectAll">Select All</entry>
+	<entry key="delete">Delete</entry>
+</properties>

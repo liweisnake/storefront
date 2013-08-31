@@ -1,0 +1,40 @@
+<div class="portlet-font">
+The coordination samples show how events can be wired and how public parameters can be bound.<br>
+To understand the samples of any of a subpage you will need to have a look at the corresponding
+portlet.xml and the default-object.xml for this sample application.<br>
+On this page you can see one usage of shared parameters aliasing. Say you bought a portlet that displays the weather forecast
+for a location, and found on the web another portlet that displays the map for a zipcode.<br>
+Here we supposed that the two portlets are installed on the server without any change to their code or descriptors.
+The first portlet could define a public render parameter like:
+<pre>
+   &lt;public-render-parameter&gt;
+      &lt;identifier>your_zipcode&lt;/identifier&gt;
+      &lt;name>zipcode&lt;/name&gt;
+   &lt;/public-render-parameter&gt;
+</pre>
+The second portlet could have defined it like that:
+<pre>
+   &lt;public-render-parameter&gt;
+      &lt;identifier&gt;my_zipcode&lt;/identifier&gt;
+      &lt;qname xmlns:coor="urn:jboss:portal:samples:coor"&gt;coor:zipcode&lt;/qname&gt;
+   &lt;/public-render-parameter&gt;
+</pre>
+
+We would like to alias those render parameters to a page parameter, so that without any change to the code we can pass a URL parameter by adding "?zip=20878" to define the
+zipcode to use for both portlets.<br>
+
+To do so we can either use the admin portlet or in our default-object.xml descriptor add the following:
+<pre>
+   &lt;coordination&gt;
+      &lt;bindings&gt;
+         &lt;alias-binding&gt;
+            &lt;id&gt;zip&lt;/id&gt;
+            &lt;qname&gt;zipcode&lt;/qname&gt;
+            &lt;qname&gt;{urn:jboss:portal:samples:coor}zipcode&lt;/qname&gt;
+         &lt;/alias-binding&gt;
+      &lt;/bindings&gt;
+   &lt;/coordination&gt;
+</pre>
+
+Now try to add "?zip=20878" to your URL  to see it in action. Alternatively, you can also fill-in the form on the other portlet to define the page parameter.
+</div>

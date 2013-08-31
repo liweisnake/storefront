@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">保存</entry>
+	<entry key="back">返回</entry>
+	
+	<entry key="title">新建敏感词</entry>		
+	<entry key="commentsManagement">评论管理</entry>		
+	
+	<entry key="promptTitle">提示</entry>
+	<entry key="confirmMsg">你确定想要创建一个敏感词吗?</entry>
+	<entry key="successMsg">敏感词创建成功.</entry>	
+	
+	
+	<entry key="error.dpword">敏感词重复.</entry>	
+	<entry key="error.emptyword">敏感词为空.</entry>	
+</properties>

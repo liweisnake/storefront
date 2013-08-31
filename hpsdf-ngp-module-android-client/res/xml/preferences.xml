@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<!--
+		This is a primitive example showing the different types of preferences
+		available.
+	-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory android:title="@string/networkConnection">
+
+		<EditTextPreference android:key="storefrontServerAddress"
+			android:title="@string/storefrontServerAddressPreference"
+			android:summary="@string/storefrontServerAddressSummary"
+			android:dialogTitle="@string/storefrontServerAddressTitle" />
+
+		<EditTextPreference android:key="storefrontServerPort"
+			android:title="@string/storefrontServerPortPreference"
+			android:summary="@string/storefrontServerPortSummary"
+			android:dialogTitle="@string/storefrontServerPortTitle" />
+
+		<EditTextPreference android:key="proxyHost"
+			android:title="@string/proxyHostPreference" android:summary="@string/proxyHostSummary"
+			android:dialogTitle="@string/proxyHostTitle" />
+
+		<EditTextPreference android:key="proxyPort"
+			android:title="@string/proxyPortPreference" android:summary="@string/proxyPortSummary"
+			android:dialogTitle="@string/proxyPortTitle" />
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/systemConfig">
+
+		<EditTextPreference android:key="itemsPerPage"
+			android:title="@string/itemsPerPagePreference" android:summary="@string/itemsPerPageSummary"
+			android:dialogTitle="@string/itemsPerPageTitle" />
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

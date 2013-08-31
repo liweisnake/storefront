@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<entry key="null">All</entry>
+
+<entry key="title">Search Recommended Binary Versions</entry>
+<entry key="providerId">Provider External ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="assetExternalId">Asset External ID</entry>
+<entry key="binaryVersionExternalId">BinaryVersion ExternalID</entry>
+<entry key="assetId">Asset ID</entry>
+<entry key="assetName">Contents Name</entry>
+<entry key="category1">Genre1</entry>
+<entry key="category2">Genre2</entry>
+<entry key="commissionRate">Commission Rate</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="contentStatus">Contents Status</entry>
+<entry key="recommended">Recommended</entry>
+<entry key="btn.search">Search</entry>
+<entry key="btn.all">All</entry>
+<entry key="btn.reset">Reset</entry>
+
+<entry key="title.search">Search Recommended Contents</entry>
+
+<entry key="newArrival">New Arrival</entry>
+</properties>

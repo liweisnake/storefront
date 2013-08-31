@@ -1,0 +1,45 @@
+<wicket:panel>
+    <div id="appEdit">   
+      <!-- report -->                      			                     
+      <h2><span><wicket:message key="title">Application Test Report</wicket:message></span></h2>
+      <div wicket:id="feedback">[[ feedback ]]</div>
+      <form wicket:id="testReportForm">                                                         
+	      <table  border="0" cellspacing="0" cellpadding="0" class="formTableSet">                                                                           
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="name">name</wicket:message> : </td>
+	          <td><span wicket:id="name" /></td>                                                                           
+	        </tr>                                                                           
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="version">brief</wicket:message> : </td>
+	          <td><span wicket:id="version" /></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="platform">platform</wicket:message> : </td>
+	          <td><span wicket:id="platform" /></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="label.result">test result</wicket:message> : </td>
+	          <td>
+				<span valign="top" wicket:id="resultChoice" id="resultChoice">
+                  <input type="radio">foo</input>
+                  <input type="radio">bar</input>
+                </span>
+			  </td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="comments">comments</wicket:message> : </td>
+	          <td><textarea wicket:id="comments" ></textarea></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right">&nbsp;</td>
+	          <td>
+	            <input type="submit" wicket:message="value:btn.submit" />&nbsp;
+	          	<input type="reset" wicket:message="value:btn.reset" />
+	          </td>                                                                           
+	        </tr>
+	      </table>
+      </form>                                                                                                                         
+    </div>         
+    <!-- End of report --> 
+</wicket:panel>
+  

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">应用程序接口</entry>
+<entry key="criteria.all">所有</entry>
+<entry key="service.type.sgf">SGF应用程序接口</entry>
+<entry key="service.type.common">通用应用程序接口</entry>
+<entry key="criteria.keyword">关键字</entry>
+<entry key="service.name">应用程序接口名字</entry>
+<entry key="access.interface">访问接口</entry>
+<entry key="authentication.type">权限类型</entry>
+<entry key="service.url">应用程序接口地址</entry>
+<entry key="service.description">描述</entry>
+<entry key="operation.subscription">我的应用程序接口</entry>
+<entry key="details">详细信息...</entry>
+<entry key="update">更新</entry>
+<entry key="metadata">元数据</entry>
+</properties>

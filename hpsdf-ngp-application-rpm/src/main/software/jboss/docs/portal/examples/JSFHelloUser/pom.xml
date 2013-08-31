@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.jboss.portal.example</groupId>
+   <artifactId>JSFHelloUser</artifactId>
+   <packaging>war</packaging>
+   <name />
+   <version>0.0.5</version>
+   <description />
+
+
+   <build>
+      <finalName>JSFHelloUser</finalName>
+
+      <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+              <source>1.5</source>
+              <target>1.5</target>
+          </configuration>
+      </plugin>
+      </plugins>
+
+   </build>
+
+   <dependencies>
+
+      <dependency>
+         <groupId>javax.portlet</groupId>
+         <artifactId>portlet-api</artifactId>
+         <version>2.0</version>
+         <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.jboss.portletbridge</groupId>
+         <artifactId>portletbridge-api</artifactId>
+         <version>1.0.0.CR1</version>
+      </dependency>
+      
+      <dependency>
+         <groupId>org.jboss.portletbridge</groupId>
+         <artifactId>portletbridge-impl</artifactId>
+         <version>1.0.0.CR1</version>
+         <exclusions>
+            <exclusion>
+               <groupId>org.richfaces.ui</groupId>
+               <artifactId>richfaces-ui</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+
+   </dependencies>
+
+   <repositories>
+      <repository>
+        <id>JBoss repository</id>
+        <url>http://repository.jboss.com/maven2</url>
+        <releases>
+           <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>        
+     </repository>
+   
+   </repositories>
+
+</project>

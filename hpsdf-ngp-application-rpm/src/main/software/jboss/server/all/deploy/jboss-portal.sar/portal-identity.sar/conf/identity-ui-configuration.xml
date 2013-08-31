@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<identity-ui-configuration>
+	<!-- 
+		subscription mode - defines the workflow used for registering users
+		available default options:
+			- automatic: No email validation, No admin approval
+			- jbp_identity_validation_workflow: Email verification, No admin approval
+			- jbp_identity_validation_approval_workflow: Email verification, Admin approval
+	 -->
+	<subscription-mode>automatic</subscription-mode>
+	<!-- 
+		overwrite-workflow: overwrites existing process definitions 
+	 -->
+	<overwrite-workflow>false</overwrite-workflow>
+	<!-- 
+		email-domain: used in the email template sent for email verification
+	 -->
+	<email-domain>jboss.org</email-domain>
+	<!-- 
+		email-from: sender address
+	 -->
+	<email-from>do-no-reply@jboss.com</email-from>
+	<!-- 
+		password-generation-characters: characters used for generating a random password
+	 -->
+	<password-generation-characters>0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWyYzZ*#!+-/"</password-generation-characters>
+	<!-- 
+		default-roles: roles set on user registration
+	 -->
+	<default-roles>
+		<role>User</role>
+	</default-roles>
+
+	<!-- user interface components -->
+	<ui-components>
+		<ui-component name="givenname">
+			<property-ref>user.name.given</property-ref>
+		</ui-component>
+		<ui-component name="familyname">
+			<property-ref>user.name.family</property-ref>
+		</ui-component>
+		<ui-component name="location">
+			<property-ref>portal.user.location</property-ref>
+		</ui-component>
+		<ui-component name="occupation">
+			<property-ref>portal.user.occupation</property-ref>
+		</ui-component>
+		<ui-component name="extra">
+			<property-ref>portal.user.extra</property-ref>
+		</ui-component>
+		<ui-component name="signature">
+			<property-ref>portal.user.signature</property-ref>
+		</ui-component>
+		<ui-component name="interests">
+			<property-ref>portal.user.interests</property-ref>
+		</ui-component>
+		<ui-component name="icq">
+			<property-ref>portal.user.im.icq</property-ref>
+		</ui-component>
+		<ui-component name="aim">
+			<property-ref>portal.user.im.aim</property-ref>
+		</ui-component>
+		<ui-component name="msnm">
+			<property-ref>portal.user.im.msnm</property-ref>
+		</ui-component>
+		<ui-component name="yim">
+			<property-ref>portal.user.im.yim</property-ref>
+		</ui-component>
+		<ui-component name="skype">
+			<property-ref>portal.user.im.skype</property-ref>
+		</ui-component>
+		<ui-component name="xmmp">
+			<property-ref>portal.user.im.xmmp</property-ref>
+		</ui-component>
+		<ui-component name="homepage">
+			<property-ref>portal.user.homepage</property-ref>
+		</ui-component>
+		<ui-component name="securityquestion">
+			<property-ref>portal.user.security.question</property-ref>
+		</ui-component>
+		<ui-component name="securityanswer">
+			<property-ref>portal.user.security.answer</property-ref>
+		</ui-component>
+		<ui-component name="timezone">
+			<property-ref>portal.user.time-zone-offset</property-ref>
+			<values>
+				<value key="org.jboss.portal.core.identity.timezone" />
+			</values>
+		</ui-component>
+		<ui-component name="theme">
+			<property-ref>portal.user.theme</property-ref>
+			<values>
+				<value key="org.jboss.portal.core.identity.theme" />
+			</values>
+		</ui-component>
+		<ui-component name="locale">
+			<property-ref>portal.user.locale</property-ref>
+			<values>
+				<value key="org.jboss.portal.core.identity.locale" />
+			</values>
+		</ui-component>		
+		<ui-component name="email">
+			<property-ref>user.business-info.online.email</property-ref>
+			<validators>
+				<validator>EmailValidator</validator>
+			</validators>
+			<required>true</required>
+		</ui-component>
+		<ui-component name="registrationdate">
+			<property-ref>portal.user.registration-date</property-ref>
+		</ui-component>
+		<ui-component name="enabled">
+			<property-ref>portal.user.enabled</property-ref>
+		</ui-component>
+		<ui-component name="lastlogin">
+			<property-ref>portal.user.last-login-date</property-ref>
+		</ui-component>
+		<ui-component name="nickname">
+			<property-ref>user.name.nickName</property-ref>
+			<required>true</required>
+		</ui-component>
+	</ui-components>
+</identity-ui-configuration>

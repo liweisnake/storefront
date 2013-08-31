@@ -1,0 +1,100 @@
+<wicket:head>
+    <script type="text/javascript">
+function submitCategory() {
+	var categoryBox = document.getElementById("category");
+	document.getElementById('categoryId').value = categoryBox.value;
+	var categoryForm = document.getElementById("categoryForm");
+	categoryForm.submit();
+}
+function resetCategory() {
+    var categoryBox = document.getElementById("category");
+	categoryBox.value = document.getElementById('categoryId').value;
+	var categoryForm = document.getElementById("categoryForm");
+	categoryForm.reset();
+}
+    </script>
+</wicket:head>
+<wicket:panel>
+    <div class="appDetail">                                        
+      <!-- Application Picture and Information -->                      			                     
+      <img wicket:id="thumbnail" class="bigThumbnail left" />                                                 
+      <div class="detailInfo">        <h2><span wicket:id="name">Application Name</span></h2>                                                         
+        <table width="98%" border="0" cellspacing="0" cellpadding="0">                                                                           
+          <tr><td width="25%"><b><wicket:message key="label.rating"/>:</b></td>
+              <td>
+              	<table>
+              	<tr>
+                  <td><span wicket:id="rating"></span></td>
+                </tr></table>
+              </td>                                                                           
+          </tr>
+
+          <tr>
+            <td><b><wicket:message key="label.auther"/>:</b></td>
+            <td wicket:id="auther">auther</td>
+          </tr>
+          <tr>
+            <td><b><wicket:message key="label.intro"/>:</b></td>
+            <td wicket:id="brief">brief</td>
+          </tr>
+          <tr>
+            <td><b><wicket:message key="label.category"/>:</b></td>
+            <td>
+              <span wicket:id="catext"></span>
+		    </td>
+		  </tr>
+          <tr>
+            <td><b><wicket:message key="label.platform"/>:</b></td>
+            <td wicket:id="platform">platform</td>
+          </tr>
+          <tr>
+  			<td><b><wicket:message key="tags">Tags</wicket:message></b></td>
+ 			<td>
+    			<span wicket:id="tags">
+	    			<a href="#" wicket:id="tagLink">
+	      			  <span wicket:id="tagName">tag</span>
+	      			</a>
+			    </span>
+  			</td>
+		  </tr>
+          <tr>
+            <td><b><wicket:message key="label.version"/>:</b></td>
+            <td wicket:id="version">version</td>
+          </tr>
+          <tr>
+            <td><b><wicket:message key="label.update"/>:</b></td>
+            <td wicket:id="updatetime">09/07/2009</td>
+          </tr>
+          <tr>
+            <td><b><wicket:message key="label.price"/>:</b></td>
+            <td wicket:id="price">price</td>
+          </tr>
+        </table>
+        <div wicket:id="subscriptionPanel"/>                 
+      </div>                                                 
+      <!-- End Application Picture and Information -->
+      <!-- Application Description and Preview-->                                             
+      <div class="appDescription">                            	
+        <b><wicket:message key="description.title" /></b>                                                  
+        <div class="previewImg">                     
+          <img wicket:id="preview" />                 
+        </div>                                                  
+        <span wicket:id="description"/>                                           
+      </div>                                          
+      <!-- End Application Description and Preview -->    
+      
+      <table width="50%" border="0" cellspacing="0" cellpadding="0">   
+             <tr>
+            	<td><b><wicket:message key="label.myrating"/>:</b> </td>
+            	<td><span wicket:id="myrating"></span></td>
+          	</tr>
+      </table>
+      
+          
+      <!-- Application Comments -->                                           
+	  <div wicket:id="commentsPanel"/>                        
+      <!-- End Application Comments -->                                                                              
+    </div>         
+    <!-- End appDetail --> 
+</wicket:panel>
+  

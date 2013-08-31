@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+
+<entry key="displaying">显示</entry>
+<entry key="symbol">-</entry>
+<entry key="of">的</entry>
+<entry key="btn.go">进行</entry>
+
+</properties>

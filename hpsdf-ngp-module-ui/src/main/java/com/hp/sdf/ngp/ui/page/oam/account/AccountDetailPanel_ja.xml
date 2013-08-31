@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="msg.error.save.noProviderID">プロバイダーIDが存在していません。</entry>
+<entry key="userId">アカウント名</entry>
+<entry key="confirmMsg">アカウントを更新してよろしいでしょうか。</entry>
+<entry key="msisdn">検証用MSN</entry>
+<entry key="msg.error.save.oldPasswordProng">変更前パスワードがただしいではありません。</entry>
+<entry key="successMsg">アカウントを更新しました。</entry>
+<entry key="confirmPassword">新規パスワード確認</entry>
+<entry key="title.big">アカウント管理</entry>
+<entry key="msg.error.save.passwordLength">パスワードの長さは32桁以内です。</entry>
+<entry key="providerID">プロバイダーID</entry>
+<entry key="add">追加</entry>
+<entry key="roleName">ロール</entry>
+<entry key="msg.error.save.passwordNotSame">新規パスワードが一致していません。</entry>
+<entry key="oldPassword">パスワード</entry>
+<entry key="msg.error.save.wrongProviderID">不正なプロバイダーIDが入力されました。</entry>
+<entry key="back">戻る</entry>
+<entry key="promptTitle">プロンプト</entry>
+<entry key="newPassword">新規パスワード</entry>
+<entry key="save">更新</entry>
+<entry key="delete">削除</entry>
+<entry key="accountInfo">アカウント情報</entry>
+<entry key="msg.error.save.nullUserID">アカウント名の入力が必須です。</entry>
+<entry key="msg.error.save.passwordEmpty">新規パスワードと新規パスワード確認が入力必須です。</entry>
+</properties>

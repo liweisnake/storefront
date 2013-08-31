@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Application Test Report</entry>
+<entry key="name">Application Name</entry>
+<entry key="brief">Brief</entry>
+<entry key="version">Version</entry>
+<entry key="platform">Platform</entry>
+<entry key="comments">Comments</entry>
+<entry key="category">Category</entry>
+<entry key="label.result">Test Result</entry>
+<entry key="label.pass">Pass</entry>
+<entry key="label.fail">Fail</entry>
+<entry key="btn.submit">Submit</entry>
+<entry key="btn.reset">Reset</entry>
+</properties>

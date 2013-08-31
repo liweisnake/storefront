@@ -1,0 +1,60 @@
+<wicket:panel>
+
+  <div id="regionA">
+  
+   <div class="title">
+    <h2 class="icon-title-comment"><wicket:message key="commentsManagement" /></h2>
+   </div>
+
+	<form wicket:id="censoredWordEditForm">
+
+	<div class="content">
+	<table border="0" cellpadding="0" cellspacing="0"
+		class="portal-container">
+      <tr>
+        <td class="portal-container-top-left"></td>
+        <td class="portal-container-top"></td>
+        <td class="portal-container-top-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-content-left"></td>
+        <td class="portal-container-content">
+		  <h3><wicket:message key="title" /></h3>
+		  <div class="contentbox">
+		  
+	<span style="color: red;" wicket:id="feedBack">error message</span>
+		  
+		  
+            <div class="content-list">
+              <ul>
+                <li><span>
+                  <input name="input" type="text" class="common-textfield" wicket:id="newCensoredWord" />
+                  </span></li>
+              </ul>
+            </div>
+          </div>
+          </td>
+        <td class="portal-container-content-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-bottom-left"></td>
+        <td class="portal-container-bottom"></td>
+        <td class="portal-container-bottom-right"></td>
+      </tr>
+
+	</table>
+	
+		<div class="contentbutton">
+			<div wicket:id="checkPanel"></div>
+			<div wicket:id="checkPanel2"></div>
+			<input type="submit" wicket:id="save" wicket:message="value:save" class="button-submit" /> 
+				
+			<input type="submit" wicket:id="back" wicket:message="value:back" class="button-submit" />
+		</div>
+	</div>
+
+	</form>
+
+	<div wicket:id="promptPanel"></div>
+</div>
+</wicket:panel>

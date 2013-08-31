@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<entry key="tabbedBanner">Tabbed Banner:</entry>
+<entry key="bannerName">Name:</entry>
+<entry key="bannerType">Banner Type:</entry>
+<entry key="content">Content:</entry>
+<entry key="contentName">Content Name:</entry>
+<entry key="contentType">Content Type:</entry>
+<entry key="contentTableName">Name</entry>
+<entry key="contentTableType">Type</entry>
+<entry key="operation">Operation</entry>
+<entry key="editBtn">Edit</entry>
+<entry key="deleteBtn">Delete</entry>
+<entry key="addContentBtn">Add Content</entry>
+<entry key="submitBtn">Submit</entry>
+<entry key="previewBtn">Preview</entry>
+<entry key="cancelBtn">Cancel</entry>
+<entry key="saveBtn">Save</entry>
+<entry key="uploadFile">Upload File:</entry>
+<entry key="clickLink">Clickable Link:</entry>
+<entry key="contentTypeImage">image</entry>
+<entry key="contentTypeHtml">html</entry>
+<entry key="uploadZip">Upload Zip Package:</entry>
+<entry key="contentNameNeed">Content Name is needed.</entry>
+<entry key="contentNameLong">Content Name is too long.</entry>
+<entry key="urlLong">The URL for Clickable Link is shorter than 100.</entry>
+<entry key="ImageNeed">For Image type, the File for uploading is needed.</entry>
+<entry key="selectImage">Please select a image.</entry>
+<entry key="htmlNeed">For Html type, the File for uploading is needed.</entry>
+<entry key="selectZip">Please select a zip file.</entry>
+<entry key="bannerNameNeed">Banner Name is needed.</entry>
+<entry key="bannerNameLong">Banner Name is too long.</entry>
+<entry key="contentNeed">At least one Content Set is needed.</entry>
+<entry key="bannerNameExist">Banner Name exists.</entry>
+<entry key="rotationCheck">Auto Rotation</entry>
+<entry key="roatationInterval">Auto Rotation Interval</entry>
+<entry key="rotationIntervalNeed">Interval Rotation couldn't be empty!</entry>
+<entry key="staticBanner">Static Banner</entry>
+<entry key="rotatingBanner">Rotating Banner</entry>
+<entry key="tabbedBanner">Tabbed Banner</entry>
+<entry key="image">Image</entry>
+<entry key="html">Html</entry>
+</properties>

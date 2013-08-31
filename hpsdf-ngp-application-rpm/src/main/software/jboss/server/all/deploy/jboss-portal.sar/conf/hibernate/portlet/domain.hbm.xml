@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+   <class
+      name="org.jboss.portal.core.impl.portlet.state.PersistentPortletState"
+      table="JBP_PORTLET_STATE">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         access="field">
+         <generator class="native">
+            <param name="sequence">portlet_seq</param>
+         </generator>
+      </id>
+      <property
+         name="portletId"
+         column="PORTLET_ID"
+         not-null="true"
+         unique="false"/>
+      <many-to-one
+         name="relatedRegistration"
+         column="REGISTRATION_ID"
+         class="org.jboss.portal.core.impl.portlet.state.PersistentRegistration"
+         not-null="false"/>
+      <property
+         name="creationTime"
+         column="REGISTRATION_TIME"
+         not-null="false"
+         unique="false"/>
+      <property
+         name="terminationTime"
+         column="TERMINATION_TIME"
+         not-null="false"
+         unique="false"/>
+      <map
+         name="entries"
+         sort="unsorted"
+         inverse="false"
+         cascade="all-delete-orphan"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="ENTRY_KEY"/>
+         <index
+            column="NAME"
+            type="java.lang.String"/>
+         <one-to-many class="org.jboss.portal.core.impl.portlet.state.PersistentPortletStateEntry"/>
+      </map>
+      <set
+         name="children"
+         inverse="true"
+         cascade="save-update"
+         fetch="select"
+         lazy="extra">
+         <cache usage="transactional"/>
+         <key column="PARENT_PK"/>
+         <one-to-many class="org.jboss.portal.core.impl.portlet.state.PersistentPortletState"/>
+      </set>
+      <many-to-one
+         name="parent"
+         column="PARENT_PK"
+         class="org.jboss.portal.core.impl.portlet.state.PersistentPortletState"
+         cascade="none"
+         fetch="select"/>
+   </class>
+
+   <class
+      name="org.jboss.portal.core.impl.portlet.state.PersistentPortletStateEntry"
+      table="JBP_PORTLET_STATE_ENTRY">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">portlet_seq</param>
+         </generator>
+      </id>
+      <array
+         name="strings"
+         table="JBP_PORTLET_STATE_ENTRY_VALUE"
+         cascade="all"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="PK"/>
+         <index column="IDX"/>
+         <element
+            column="jbp_value"
+            type="java.lang.String"
+            not-null="false"
+            unique="false"/>
+      </array>
+      <property
+         name="name"
+         column="NAME"
+         type="java.lang.String"
+         update="false"
+         insert="true"
+         not-null="false"/>
+      <property
+         name="type"
+         column="TYPE"
+         type="int"
+         not-null="true"
+         unique="false"/>
+      <property
+         name="readOnly"
+         column="READ_ONLY"
+         type="boolean"
+         not-null="true"
+         unique="false"/>
+   </class>
+
+   <class
+      name="org.jboss.portal.core.impl.portlet.state.PersistentConsumerGroup"
+      table="JBP_PORTLET_GROUP">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">portlet_seq</param>
+         </generator>
+      </id>
+      <property
+         name="persistentName"
+         column="ID"
+         type="java.lang.String"
+         not-null="true"
+         unique="true"/>
+      <property
+         name="persistentStatus"
+         column="STATUS"
+         type="org.jboss.portal.core.impl.portlet.state.RegistrationStatusUserType"/>
+      <map
+         name="relatedConsumers"
+         inverse="true">
+         <cache usage="transactional"/>
+         <key column="GROUP_PK"/>
+         <map-key
+            type="string"
+            column="ID"/>
+         <one-to-many class="org.jboss.portal.core.impl.portlet.state.PersistentConsumer"/>
+      </map>
+   </class>
+   <class
+      name="org.jboss.portal.core.impl.portlet.state.PersistentConsumer"
+      table="JBP_PORTLET_CONSUMER">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">portlet_seq</param>
+         </generator>
+      </id>
+      <property
+         name="persistentId"
+         column="ID"
+         type="java.lang.String"
+         not-null="true"
+         unique="true"/>
+      <property
+         name="persistentName"
+         column="NAME"
+         type="java.lang.String"/>
+      <property
+         name="persistentAgent"
+         column="AGENT"
+         type="java.lang.String"/>
+      <property
+         name="persistentStatus"
+         column="STATUS"
+         type="org.jboss.portal.core.impl.portlet.state.RegistrationStatusUserType"/>
+      <many-to-one
+         name="relatedGroup"
+         column="GROUP_PK"
+         class="org.jboss.portal.core.impl.portlet.state.PersistentConsumerGroup"/>
+      <set
+         name="relatedRegistrations"
+         inverse="true">
+         <cache usage="transactional"/>
+         <key column="CONSUMER_PK"/>
+         <one-to-many class="org.jboss.portal.core.impl.portlet.state.PersistentRegistration"/>
+      </set>
+   </class>
+   <class
+      name="org.jboss.portal.core.impl.portlet.state.PersistentRegistration"
+      table="JBP_PORTLET_REG">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">portlet_seq</param>
+         </generator>
+      </id>
+      <map
+         name="persistentProperties"
+         table="JBP_PORTLET_REG_PROPERTIES"
+         sort="unsorted"
+         inverse="false"
+         cascade="all-delete-orphan"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="REGISTRATION_PK"/>
+         <map-key
+            type="org.jboss.portal.jems.hibernate.QNameUserType"
+            column="QNAME"/>
+         <element
+            type="string"
+            column="VALUE"/>
+      </map>
+      <property
+         name="persistentHandle"
+         column="HANDLE"
+         type="java.lang.String"/>
+      <property
+         name="persistentStatus"
+         column="STATUS"
+         type="org.jboss.portal.core.impl.portlet.state.RegistrationStatusUserType"/>
+      <many-to-one
+         name="relatedConsumer"
+         column="CONSUMER_PK"
+         class="org.jboss.portal.core.impl.portlet.state.PersistentConsumer"
+         not-null="true"
+         update="false"/>
+      <set
+         name="relatedPortletStates"
+         inverse="true"
+         cascade="save-update"
+         fetch="select"
+         lazy="extra">
+         <cache usage="transactional"/>
+         <key column="REGISTRATION_ID"/>
+         <one-to-many class="org.jboss.portal.core.impl.portlet.state.PersistentPortletState"/>
+      </set>
+   </class>
+</hibernate-mapping>

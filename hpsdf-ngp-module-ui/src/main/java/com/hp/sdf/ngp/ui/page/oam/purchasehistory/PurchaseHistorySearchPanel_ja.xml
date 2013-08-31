@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="title.big">購入履歴</entry>
+<entry key="search">検索</entry>
+<entry key="completeEndDate">To</entry>
+<entry key="completeStartDate">購入期間指定 終了日</entry>
+<entry key="paidEndDate">To</entry>
+<entry key="msisdn">お客様番号</entry>
+<entry key="title">購入履歴検索</entry>
+<entry key="paidStartDate">購入期間指定 開始日</entry>
+</properties>

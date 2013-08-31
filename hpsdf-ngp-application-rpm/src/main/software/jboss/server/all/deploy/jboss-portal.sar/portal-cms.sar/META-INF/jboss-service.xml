@@ -1,0 +1,675 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<server>
+
+   <!--  Management MBean -->
+   <!-- Unused, the bean doesn't bring any interesting value -->
+   <!--
+   <mbean
+      code="org.jboss.portal.cms.management.CMSImpl"
+      name="portal.management:service=Management,type=CMS,name=Default"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <depends
+         optional-attribute-name="CMS"
+         proxy-type="attribute">portal:service=CMS</depends>
+      <xmbean/>
+   </mbean>
+   -->
+
+   <mbean
+      code="org.jboss.portal.jems.hibernate.SessionFactoryBinder"
+      name="portal:service=Hibernate,type=CMS"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="ConfigLocation">conf/hibernate/cms/hibernate.cfg.xml</attribute>
+      <attribute name="JNDIName">java:/portal/cms/CMSSessionFactory</attribute>
+   </mbean>  
+   
+   <mbean
+      code="org.jboss.portal.cms.impl.jcr.ha.HAJCRCMS"
+      name="portal:service=CMS"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <!-- The datasource hibernate depends on, it can be commented when the file store is used -->
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>
+      <depends>portal:service=JAASLoginModule</depends>
+      <depends>portal:service=Hibernate,type=CMS</depends>
+      <depends>cms.pm.cache:service=TreeCache</depends>
+      <depends optional-attribute-name="AuthorizationManager" proxy-type="attribute">portal:service=AuthorizationManager,type=cms</depends>
+      <!-- Add this to activate publish/approval workflow integration -->
+      <!--
+      <depends optional-attribute-name="ApprovePublishWorkflow" proxy-type="attribute">portal:service=ApprovePublish,type=Workflow</depends>
+      -->
+      <depends optional-attribute-name="StackFactory" proxy-type="attribute">portal:service=InterceptorStackFactory,type=Cms</depends>
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="DefaultContentLocation">portal/cms/conf/default-content/default/</attribute>
+      <attribute name="DefaultLocale">en</attribute>
+      <attribute name="RepositoryName">PortalRepository</attribute>
+      <attribute name="HomeDir">${jboss.server.data.dir}${/}portal${/}cms${/}conf</attribute>
+      <attribute name="CmsSessionFactory">java:/portal/cms/CMSSessionFactory</attribute>      
+      <attribute name="Config">
+         <Repository>
+            <!--
+               | virtual file system where the repository stores global state (e.g. registered namespaces, custom node types, etc.)
+               | Configure to use FS or RDBMS.
+               -->
+
+            <!-- HibernateStore: uses RDBMS + Hibernate for storage -->
+            <FileSystem class="org.jboss.portal.cms.hibernate.HibernateStore">
+               <param name="schemaObjectPrefix" value="RepositoryEntry"/>
+               <param name="JNDIName" value="java:/portal/cms/CMSSessionFactory"/>
+            </FileSystem>
+
+            <!-- LocalFileSystem: uses FileSystem for storage. -->
+            <!--
+            <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+               <param name="path" value="${rep.home}/repository"/>
+            </FileSystem>
+            -->
+            <Security appName="Jackrabbit">
+               <AccessManager class="org.apache.jackrabbit.core.security.SimpleAccessManager"/>
+               <LoginModule class="org.apache.jackrabbit.core.security.SimpleLoginModule">
+                  <!-- anonymous user name ('anonymous' is the default value) -->
+                  <param name="anonid" value="anonymous"/>
+               </LoginModule>
+            </Security>
+            <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default"/>
+            <Workspace name="${wsp.name}">
+               <!-- Virtual file system of the workspace:  Configure to use FS or RDBMS. -->
+
+               <!-- HibernateStore: uses RDBMS + Hibernate for storage -->
+               <FileSystem class="org.jboss.portal.cms.hibernate.HibernateStore">
+                  <param name="schemaObjectPrefix" value="CMSEntry"/>
+                  <param name="JNDIName" value="java:/portal/cms/CMSSessionFactory"/>
+               </FileSystem>
+               <!-- LocalFileSystem: uses FileSystem for storage. -->
+               <!--<FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+               <param name="path" value="${wsp.home}"/>
+               </FileSystem>-->
+
+               <!--
+                   persistence manager of the workspace.
+                   Use XMLPersistenceManager for LocalFileSystem Store and JBossCachePersistenceManager .
+               -->
+
+               <!-- HibernatePersistentManager: uses RDBMS + Hibernate for storage -->
+               <PersistenceManager class="org.jboss.portal.cms.hibernate.state.JBossCachePersistenceManager">
+                  <param name="schemaObjectPrefix" value="WSP"/>
+                  <param name="JNDIName" value="java:/portal/cms/CMSSessionFactory"/>
+                  <param name="externalBLOBs" value="false"/>
+               </PersistenceManager>
+
+               <!-- XMLPersistenceManager: uses FileSystem for storage -->
+               <!--<PersistenceManager class="org.apache.jackrabbit.core.state.xml.XMLPersistenceManager"/>-->
+
+               <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+	      		<param name="path" value="${wsp.home}/index"/>
+	      		<param name="textFilterClasses" value="org.apache.jackrabbit.extractor.HTMLTextExtractor"/>
+	      		<param name="useCompoundFile" value="true"/>
+	      		<param name="minMergeDocs" value="100"/>
+	      		<param name="volatileIdleTime" value="3"/>
+	      		<param name="maxMergeDocs" value="100000"/>
+	      		<param name="mergeFactor" value="10"/>
+	      		<param name="bufferSize" value="10"/>
+	      		<param name="cacheSize" value="1000"/>
+	      		<param name="forceConsistencyCheck" value="false"/>
+	      		<param name="autoRepair" value="true"/>
+       		   </SearchIndex>
+            </Workspace>
+            <Versioning rootPath="${rep.home}/versions">
+               <!--
+                   Configures the filesystem to use for versioning for the respective persistence manager
+                   Configure to use FS or RDBMS.
+               -->
+
+               <!-- HibernateStore: uses RDBMS + Hibernate for storage -->
+               <FileSystem class="org.jboss.portal.cms.hibernate.HibernateStore">
+                  <param name="schemaObjectPrefix" value="VersionEntry"/>
+                  <param name="JNDIName" value="java:/portal/cms/CMSSessionFactory"/>
+               </FileSystem>
+
+               <!-- LocalFileSystem: uses FileSystem for storage. -->
+               <!--
+               <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+                <param name="path" value="${rep.home}/versions"/>
+               </FileSystem>
+               -->
+
+               <!--
+                   Configures the persistence manager to be used for persisting version state.
+                   Use XMLPersistenceManager for LocalFileSystem Store and JBossCachePersistenceManager for HibernateStore.
+               -->
+
+               <!-- HibernatePersistentManager: uses RDBMS + Hibernate for storage -->
+               <PersistenceManager class="org.jboss.portal.cms.hibernate.state.JBossCachePersistenceManager">
+                  <param name="schemaObjectPrefix" value="Version"/>
+                  <param name="JNDIName" value="java:/portal/cms/CMSSessionFactory"/>
+                  <param name="externalBLOBs" value="false"/>
+               </PersistenceManager>
+
+               <!-- XMLPersistenceManager: uses FileSystem for storage -->
+               <!--<PersistenceManager class="org.apache.jackrabbit.core.state.xml.XMLPersistenceManager"/>-->
+            </Versioning>
+         </Repository>
+      </attribute>
+      <attribute name="JNDIName">java:portal/CMS</attribute>
+   </mbean>
+
+   <!--
+   	| Uncomment in clustered mode : Provides an HA-singleton based clustering architecture. 
+   -->
+   <mbean
+      code="org.jboss.invocation.jrmp.server.JRMPProxyFactory"
+      name="portal:service=ProxyFactory,type=CMS">
+      <depends optional-attribute-name="InvokerName">jboss:service=invoker,type=jrmp</depends>
+      <attribute name="TargetName">portal:service=CMS</attribute>
+      <attribute name="ExportedInterfaces">org.jboss.portal.jems.ha.HASingletonInvokerMBean$Proxy</attribute>
+      <attribute name="InvokeTargetMethod">true</attribute>
+      <attribute name="ClientInterceptors">
+        <interceptors>
+          <interceptor>org.jboss.proxy.ClientMethodInterceptor</interceptor>
+          <interceptor>org.jboss.invocation.InvokerInterceptor</interceptor>
+        </interceptors>
+      </attribute>
+   </mbean>
+
+   <mbean
+      code="org.jboss.portal.jems.ha.HASingletonInvoker"
+      name="portal:service=HASingletonInvoker,type=CMS">
+      <depends>jboss:service=${jboss.partition.name:DefaultPartition}</depends>
+      <attribute name="RetryWaitingTimeMS">2000</attribute>
+      <attribute name="MaxRetries">1</attribute>
+      <attribute name="JNDIName">MyServiceInvokeTarget</attribute>
+      <attribute name="JNDIProperties">
+         java.naming.factory.initial=org.jnp.interfaces.NamingContextFactory
+         java.naming.factory.url.pkgs=org.jboss.naming:org.jnp.interfaces
+         java.naming.provider.url=${jboss.bind.address:localhost}:1100
+         jnp.disableDiscovery=false
+         jnp.partitionName=${jboss.partition.name:DefaultPartition}
+         jnp.discoveryGroup=${jboss.partition.udpGroup:230.0.0.4}
+         jnp.discoveryPort=1102
+         jnp.discoveryTTL=16
+         jnp.discoveryTimeout=5000
+         jnp.maxRetries=1
+      </attribute>
+      <depends optional-attribute-name="Callback" proxy-type="attribute">portal:service=CMS</depends>
+      <depends optional-attribute-name="ProxyFactory">portal:service=ProxyFactory,type=CMS</depends>
+   </mbean>
+   <!--
+   -->
+
+   <mbean
+      code="org.jboss.portal.core.cms.CMSObjectCommandFactoryService"
+      name="portal:commandFactory=CMSObject"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="TargetWindowRef">default.default.CMSWindow</attribute>
+      <depends
+         optional-attribute-name="CMSService"
+         proxy-type="attribute">portal:service=CMS</depends>
+      <depends
+         optional-attribute-name="ServerConfig"
+         proxy-type="attribute">portal:service=ServerConfig</depends>
+   </mbean>
+   <mbean
+      code="org.jboss.portal.core.controller.command.mapper.CommandFactoryDelegate"
+      name="portal:commandFactory=Delegate,path=content"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/content</attribute>
+      <depends
+         optional-attribute-name="DelegatingFactory"
+         proxy-type="attribute">portal:commandFactory=Delegating</depends>
+      <depends
+         optional-attribute-name="DelegateFactory"
+         proxy-type="attribute">portal:commandFactory=CMSObject</depends>
+   </mbean>
+
+   <mbean
+      code="org.jboss.portal.core.cms.CMSObjectURLFactory"
+      name="portal:urlFactory=CMSObject"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/content</attribute>
+      <depends optional-attribute-name="Factory" proxy-type="attribute">portal:urlFactory=Delegating</depends>
+   </mbean>
+
+   <!-- TreeCache configuration used to cache CMS data -->
+   <mbean code="org.jboss.cache.TreeCache"
+          name="cms.pm.cache:service=TreeCache">   
+           <depends>jboss:service=Naming</depends>
+           <depends>jboss:service=TransactionManager</depends>
+           <depends>portal:service=Hibernate,type=CMS</depends>
+      <!--
+      Configure the TransactionManager
+      -->
+      <attribute name="TransactionManagerLookupClass">org.jboss.cache.GenericTransactionManagerLookup</attribute>
+
+      <!--
+        Node locking scheme:
+        OPTIMISTIC
+        PESSIMISTIC (default)
+        using the OPTIMISTIC scheme, the ISOLATION_LEVEL value is ignored
+        -->
+      <!--attribute name="NodeLockingScheme">OPTIMISTIC</attribute-->
+
+      <!--
+          Isolation level : SERIALIZABLE
+                            REPEATABLE_READ (default)
+                            READ_COMMITTED
+                            READ_UNCOMMITTED
+                            NONE
+      -->
+      <attribute name="IsolationLevel">REPEATABLE_READ</attribute>
+
+
+      <!--
+           Valid modes are LOCAL
+                           REPL_ASYNC
+                           REPL_SYNC
+                           INVALIDATION_ASYNC
+                           INVALIDATION_SYNC
+      -->
+      <!-- in a non-HA environment with the Jackrabbit cluster is activated -->
+      <!--attribute name="CacheMode">INVALIDATION_ASYNC</attribute-->
+      <!-- in a HA environment since there is only a singleton node for CMS, this can be local -->
+      <attribute name="CacheMode">LOCAL</attribute>
+
+      <!--
+      Just used for async repl: use a replication queue
+      -->
+      <attribute name="UseReplQueue">false</attribute>
+
+      <!--
+          Replication interval for replication queue (in ms)
+      -->
+      <attribute name="ReplQueueInterval">0</attribute>
+
+      <!--
+          Max number of elements which trigger replication
+      -->
+      <attribute name="ReplQueueMaxElements">0</attribute>
+
+      <!-- Name of cluster. Needs to be the same for all clusters, in order
+           to find each other
+      -->
+      <attribute name="ClusterName">JCRPMCache</attribute>
+
+      <!-- JGroups protocol stack properties. Can also be a URL,
+           e.g. file:/home/bela/default.xml
+         <attribute name="ClusterProperties"></attribute>
+      -->
+
+      <attribute name="ClusterConfig">
+               <config>
+                   <!-- UDP: if you have a multihomed machine,
+                   set the bind_addr attribute to the appropriate NIC IP address -->
+                  <!-- UDP: On Windows machines, because of the media sense feature
+            being broken with multicast (even after disabling media sense)
+            set the loopback attribute to true -->
+                  <UDP mcast_addr="228.1.2.3" mcast_port="48866"
+                       ip_ttl="64" ip_mcast="true"
+                       receive_on_all_interfaces="true"
+                       mcast_send_buf_size="150000" mcast_recv_buf_size="80000"
+                       ucast_send_buf_size="150000" ucast_recv_buf_size="80000"
+                       loopback="false"/>
+                   <PING timeout="2000" num_initial_members="3"
+                         up_thread="false" down_thread="false"/>
+                   <MERGE2 min_interval="10000" max_interval="20000"/>
+                  <!--        <FD shun="true" up_thread="true" down_thread="true" />-->
+                  <FD_SOCK/>
+                   <VERIFY_SUSPECT timeout="1500"
+                                   up_thread="false" down_thread="false"/>
+                   <pbcast.NAKACK gc_lag="50" retransmit_timeout="600,1200,2400,4800"
+                                  max_xmit_size="8192" up_thread="false" down_thread="false"/>
+                   <UNICAST timeout="600,1200,2400" window_size="100" min_threshold="10"
+                            down_thread="false"/>
+                   <pbcast.STABLE desired_avg_gossip="20000"
+                                  up_thread="false" down_thread="false"/>
+                   <FRAG frag_size="8192"
+                         down_thread="false" up_thread="false"/>
+                   <pbcast.GMS join_timeout="5000" join_retry_timeout="2000"
+                               shun="true" print_local_addr="true"/>
+                   <pbcast.STATE_TRANSFER up_thread="true" down_thread="true"/>
+               </config>
+           </attribute>
+
+      <!--
+       Whether or not to fetch state on joining a cluster
+       NOTE this used to be called FetchStateOnStartup and has been renamed to be more descriptive.
+
+       Not supported in version 1.2.4SP2 which is what ships by default in 4.0.4GA
+      -->
+      <!--attribute name="FetchInMemoryState">false</attribute-->
+
+      <!--
+          The max amount of time (in milliseconds) we wait until the
+          initial state (ie. the contents of the cache) are retrieved from
+          existing members in a clustered environment
+      -->
+      <attribute name="InitialStateRetrievalTimeout">20000</attribute>
+
+      <!--
+          Number of milliseconds to wait until all responses for a
+          synchronous call have been received.
+      -->
+      <attribute name="SyncReplTimeout">20000</attribute>
+
+      <!-- Max number of milliseconds to wait for a lock acquisition -->
+      <attribute name="LockAcquisitionTimeout">15000</attribute>
+
+
+      <!-- Name of the eviction policy class. -->
+      <attribute name="EvictionPolicyClass"></attribute>
+
+      <!--
+         Indicate whether to use region based marshalling or not. Set this to true if you are running under a scoped
+         class loader, e.g., inside an application server. Default is "false".
+
+         Not supported in version 1.2.4SP2 which is what ships by default in 4.0.4GA
+      -->
+      <!--attribute name="UseRegionBasedMarshalling">false</attribute-->
+
+      <!--
+            Configuring the PortalCMSCacheLoader
+
+            CacheLoader configuratoon for 1.4.0
+      -->
+      <attribute name="CacheLoaderConfiguration">
+               <config>                
+                   <passivation>false</passivation>
+                   <preload></preload>
+                   <shared>false</shared>
+                   <cacheloader>
+                       <class>org.jboss.portal.cms.hibernate.state.PortalCMSCacheLoader</class>
+                       <properties>
+                       	cmsSessionFactory=java:/portal/cms/CMSSessionFactory
+                       </properties>
+                       <async>false</async>
+                       <fetchPersistentState>false</fetchPersistentState>
+                       <ignoreModifications>false</ignoreModifications>
+                   </cacheloader>
+               </config>
+           </attribute>
+      <!--
+            Configuring the PortalCMSCacheLoader
+
+            CacheLoader configuratoon for 1.2.4SP2
+      -->
+      <!--attribute name="CacheLoaderClass">org.jboss.portal.cms.hibernate.state.PortalCMSCacheLoader</attribute>
+     <attribute name="CacheLoaderConfig" replace="false"></attribute>
+     <attribute name="CacheLoaderPassivation">false</attribute>
+     <attribute name="CacheLoaderPreload"></attribute>
+     <attribute name="CacheLoaderShared">false</attribute>
+     <attribute name="CacheLoaderFetchTransientState">false</attribute>
+     <attribute name="CacheLoaderFetchPersistentState">false</attribute>
+     <attribute name="CacheLoaderAsynchronous">false</attribute-->
+    </mbean>
+
+   <!--  interceptor factory where all cms interceptors are registered -->
+   <mbean
+      code="org.jboss.portal.server.impl.invocation.JBossInterceptorStackFactory"
+      name="portal:service=InterceptorStackFactory,type=Cms"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends-list optional-attribute-name="InterceptorNames">
+         <depends-list-element>portal:service=Interceptor,type=Cms,name=ACL</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Cms,name=ApprovalWorkflow</depends-list-element>
+      </depends-list>
+   </mbean>
+
+   <!-- CMS Authorization Security Service -->
+   <mbean
+      code="org.jboss.portal.cms.security.AuthorizationManagerImpl"
+      name="portal:service=AuthorizationManager,type=cms"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="JNDIName">java:portal/cms/AuthorizationManager</attribute>  
+      <depends optional-attribute-name="Provider" proxy-type="attribute">
+      	portal:service=AuthorizationProvider,type=cms
+      </depends>         
+   </mbean>   
+   <mbean
+      code="org.jboss.portal.cms.security.AuthorizationProviderImpl"
+      name="portal:service=AuthorizationProvider,type=cms"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/> 
+      <!--
+      	NOTE: cmsRootUserName denotes a single Portal user that has access to everything in the CMS. Denote this user
+      	carefully and should be synonymous to the 'root' user in a Unix system. By default: this value is the built-in
+      	'admin' user account. This can be changed to any other user account registered in your Portal
+      -->
+      <attribute name="CmsRootUserName">admin</attribute> 
+      <attribute name="CmsSessionFactory">java:/portal/cms/CMSSessionFactory</attribute> 
+      <depends optional-attribute-name="IdentityServiceController" proxy-type="attribute">portal:service=Module,type=IdentityServiceController</depends>
+   </mbean>
+
+   <!-- ACL Security Interceptor -->
+   <mbean
+      code="org.jboss.portal.cms.impl.interceptors.ACLInterceptor"
+      name="portal:service=Interceptor,type=Cms,name=ACL"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="JNDIName">java:/portal/cms/ACLInterceptor</attribute>
+      <attribute name="CmsSessionFactory">java:/portal/cms/CMSSessionFactory</attribute>
+      <attribute name="IdentitySessionFactory">java:/portal/IdentitySessionFactory</attribute>
+      <attribute name="DefaultPolicy">
+      	<![CDATA[
+      	<policy>
+      			<!-- permissions on the root cms node -->      			
+      			<criteria name="path" value="/">
+      				<permission name="cms" action="read">
+      					<role name="Anonymous"/>
+      				</permission>
+      				<permission name="cms" action="write">
+      					<role name="User"/>
+      				</permission>
+      				<permission name="cms" action="manage">
+      					<role name="Admin"/>
+      				</permission>
+      			</criteria>
+      			<!-- permissions on the default cms node -->      			
+      			<criteria name="path" value="/default">
+      				<permission name="cms" action="read">
+      					<role name="Anonymous"/>
+      				</permission>
+      				<permission name="cms" action="write">
+      					<role name="User"/>
+      				</permission>
+      				<permission name="cms" action="manage">
+      					<role name="Admin"/>
+      				</permission>
+      			</criteria>      			
+      			<!-- permissions on the private/protected node -->
+      			<criteria name="path" value="/default/private">
+      				<permission name="cms" action="manage">
+      					<role name="Admin"/>
+      				</permission>
+      			</criteria>
+      	</policy>
+      	]]>
+      </attribute>
+      <depends optional-attribute-name="AuthorizationManager" proxy-type="attribute">
+      	portal:service=AuthorizationManager,type=cms
+      </depends>            
+      <depends>portal:service=Hibernate,type=CMS</depends>
+      <depends>portal:service=Module,type=IdentityServiceController</depends>      
+   </mbean>
+
+   <!-- Approval Workflow Interceptor -->
+   <mbean
+      code="org.jboss.portal.cms.impl.interceptors.ApprovalWorkflowInterceptor"
+      name="portal:service=Interceptor,type=Cms,name=ApprovalWorkflow"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>    
+      <attribute name="JNDIName">java:/portal/cms/ApprovalWorkflowInterceptor</attribute>              
+      <depends>portal:service=Hibernate,type=CMS</depends>      
+   </mbean>
+   
+   <mbean
+      code="org.jboss.portal.core.cms.aspect.IdentityBindingInterceptor"
+      name="portal:service=Interceptor,type=Server,name=CMSIdentityBinding"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <mbean
+      code="org.jboss.portal.server.impl.invocation.JBossInterceptorRegistration"
+      name="portal:service=InterceptorRegistration,type=Server,name=CMSIdentityBinding"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends
+         optional-attribute-name="InterceptorName">portal:service=Interceptor,type=Server,name=CMSIdentityBinding</depends>
+      <depends
+         optional-attribute-name="StackFactory">portal:service=InterceptorStackFactory,type=Server</depends>
+   </mbean>
+
+   <!-- Content renderer integration -->
+   <mbean
+      code="org.jboss.portal.core.cms.content.InternalCMSContentProvider"
+      name="portal:service=ContentRenderer,type=cms"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="ContentType">cms</attribute>
+      <attribute name="DecorateContent">false</attribute>
+      <attribute name="PortletInstanceName">CMSPortletInstance</attribute>
+      <depends
+         optional-attribute-name="Registry"
+         proxy-type="attribute">portal:service=ContentProviderRegistry</depends>
+      <depends
+         optional-attribute-name="CommandFactory"
+         proxy-type="attribute">portal:commandFactory=CMSObject</depends>
+      <depends
+         optional-attribute-name="PortalAuthorizationManagerFactory"
+         proxy-type="attribute">portal:service=PortalAuthorizationManagerFactory</depends>
+      <depends
+         optional-attribute-name="InstanceContainer"
+         proxy-type="attribute">portal:container=Instance</depends>
+   </mbean>
+
+   <!-- ApprovePublish workflow service -->
+   <mbean
+      code="org.jboss.portal.cms.workflow.ApprovePublishImpl"
+      name="portal:service=ApprovePublish,type=Workflow"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="WorkflowService" proxy-type="attribute">
+      	portal:service=Workflow,type=WorkflowService
+      </depends>
+      <depends optional-attribute-name="IdentityServiceController" proxy-type="attribute">
+      	portal:service=Module,type=IdentityServiceController
+      </depends>
+      <!-- JBPM process definition -->
+      <attribute name="Process">
+      	<![CDATA[      	     
+  	         <!-- cms approval workflow -->
+  	   		 <process-definition name="approval_workflow">
+		      <start-state>
+		      	<transition to="request_approval"/>			      		
+		        </start-state>
+		        <task-node name="request_approval" signal="first">
+		          <task name="approve_publish">
+		            <assignment class="org.jboss.portal.cms.workflow.PublishAssignmentHandler"/>
+		            <event type="task-start">
+		            	<action class="org.jboss.portal.cms.workflow.FinalizePublish"/>	
+		            </event>
+		            <exception-handler>
+		            	<action class="org.jboss.portal.cms.workflow.TaskExceptionHandler"/>	
+		            </exception-handler>
+		          </task>		          
+		          <transition name="approval" to="end"/>		          		      	  
+	              <transition name="rejection" to="end"/>	                       
+		        </task-node>			      
+		        <end-state name="end"/>		          
+		     </process-definition>		      		      			      
+      	]]>
+      </attribute>
+      <!-- 
+      		  overwrite = false creates the process first time if does not exist, for
+      	      subsequent server restarts, this process definition remains in tact
+      	          
+  	          overwrite = true creates the process first time if does not exist,
+  	          for subsequent server restarts, it creates a new version of the process definition
+  	          which will be used for processes created from then onwards. Old processes created
+  	          for an older version of the definition remain in tact and use their corresponding
+  	          process definition.
+  	          
+  	          Typically use overwrite=false and overwrite=true only when a new process definition
+  	          related to this workflow needs to be deployed
+      -->
+      <attribute name="Overwrite">false</attribute>
+      <!-- 
+      		a comma separated list of portal roles that are designated
+      		to act as workflow managers. They are allowed to 
+      		approve/reject content publish requests       		      		
+      -->
+      <attribute name="ManagerRoles">Admin</attribute>
+      <attribute name="JNDIName">java:portal/ApprovePublishWorkflow</attribute>
+
+      <!-- Now that a manager GUI is integrated..no need for email based manager screen -->
+      <!--
+            <attribute name="From">do-not-reply@jboss.com</attribute>
+            <attribute name="Subject">Content Approval Requested</attribute>
+            <attribute name="Body">
+               <![CDATA[
+                    Approval is needed to publish the following Content:
+
+                    Content Location : {0}
+
+                    Content Type : {1}
+
+                    Content Size : {2}
+
+                    Creation Date : {3}
+
+                    User : {4}
+
+
+                    <a href="http://localhost/workflow/approve?pId={5}&manager={6}">Approve</a>
+
+
+                    <a href="http://localhost/workflow/reject?pId={7}&manager={8}">Reject</a>
+               ]]>
+            </attribute>
+      -->
+   </mbean>     
+   
+</server>

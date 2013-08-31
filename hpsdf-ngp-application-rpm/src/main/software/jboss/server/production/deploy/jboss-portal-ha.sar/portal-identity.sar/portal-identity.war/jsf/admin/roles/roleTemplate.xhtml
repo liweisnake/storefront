@@ -1,0 +1,40 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+	<f:loadBundle var="bundle" basename="conf.bundles.Identity" />
+<c:choose>
+	<c:when test="#{configurationbean.validConfiguration}">	
+	<h:form id="role-temp-form">
+      <ul class="topnav">
+		<li>
+            <h:commandLink id="manage-users" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}"/>
+         </li>
+         <li id="currentTab"><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE_MANAGEMENT}"/></li>
+      </ul>
+   </h:form>
+
+<ui:decorate template="/jsf/common/tabContainer.xhtml">
+
+	<ui:define name="tab-object-path"><!-- Title -->
+	<h:form id="role-temp-form1">
+	<ul class="objectpath">
+		<ui:insert name="title">Title</ui:insert>
+	</ul>
+	</h:form>
+   </ui:define>
+   <ui:define name="tab-container-content">
+	<br/>
+   <!-- Content -->
+   <ui:insert name="content">Content</ui:insert>
+	</ui:define>
+</ui:decorate>
+	</c:when>
+	<c:otherwise>
+		<span class="portlet-msg-error"><h:outputText value="#{bundle.IDENTITY_APPLICATION_NOT_AVAILABLE}" /></span>
+   	</c:otherwise>
+</c:choose>
+</div>

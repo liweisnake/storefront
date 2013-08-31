@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Binary Versions List</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newBinaryVersion">New Content</entry>
+
+<entry key="title.big">Content Management</entry>
+<entry key="title.search">Search Contents</entry>
+<entry key="title.list">Contents List</entry>
+<entry key="title.operation">Contents Operation</entry>
+
+<entry key="providerId">Provider External ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="assetId">Asset ID</entry>
+<entry key="externalId">Asset External ID</entry>
+<entry key="binaryVersionExternalId">BinaryVersion External ID</entry>
+
+<entry key="assetName">Name</entry>
+<entry key="targetPublishDate">Target Publish Date</entry>
+<entry key="publishDate">Publish Date</entry>
+<entry key="category1">Category</entry>
+<entry key="category2">Genre</entry>
+<entry key="status">Status</entry>
+<entry key="newArrivalDueDate">New Arrival Due Date</entry>
+<entry key="recommendStartDate">Recommend Start Date</entry>
+<entry key="recommendDueDate">Recommend Due Date</entry>
+<entry key="recommendOrder">Recommend Order</entry>
+<entry key="commissionRate">Commission Rate</entry>
+<entry key="binaryName">Binary Version Name</entry>
+<entry key="binaryVersion">Binary Version</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="commissionSymbol">%</entry>
+
+<entry key="update.title">Batch Update</entry>
+
+<entry key="updateStatus">Update Status</entry>
+<entry key="update.status">Status</entry>
+<entry key="update.comments">Operator Comments</entry>
+<entry key="update.commentType">Comment Type</entry>
+
+<entry key="updateCommissionRate">Update Commission Rate</entry>
+<entry key="update.commissionRate">Commission Rate</entry>
+
+<entry key="updateRecommend">Recommend</entry>
+<entry key="update.recommendStartDate">Recommended Start Date</entry>
+<entry key="update.recommendDueDate">Recommended Due Date</entry>
+
+<entry key="updateNewArrival">New Arrival</entry>
+<entry key="update.newArrivalDueDate">New Arrival Due Date</entry>
+
+<entry key="btn.update.update">Update</entry>
+<entry key="btn.update.delete">Delete</entry>
+<entry key="btn.update.reset">Reset</entry>
+<entry key="btn.download">Download Results</entry>
+
+<entry key="title.prompt">Prompt</entry>
+<entry key="msg.warn.download">Do you want to download the csv file?</entry>
+<entry key="msg.warn.update">Do you want to batch update the selected asset binary versions?</entry>
+<entry key="msg.warn.delete">Do you want to batch delete the selected asset binary versions?</entry>
+<entry key="msg.error.download">Search result row number exceeds the maximum in excel!</entry>
+<entry key="msg.result.update.success">You successfully batch update the selected asset binary versions!</entry>
+<entry key="msg.result.delete.success">You successfully batch delete the selected asset binary versions!</entry>
+<entry key="msg.error.nobinaryselect">Please select some asset binary versions!</entry>
+<entry key="msg.error.link.notexist">This asset binary version is not exist!</entry>
+<entry key="msg.error.batch.notexist"> is not exist!</entry>
+<entry key="msg.error.can.not.delete"> can not be permited to delete!</entry>
+<entry key="msg.error.statuschange.condition">Can not conform to the condition of status change!</entry>
+
+<entry key="need.insert.status">Field 'Status' is required.</entry>
+<entry key="need.insert.operatorComments">Field 'Operator Comments' is required.</entry>
+<entry key="need.insert.commentTypeOption">Field 'Status Change Comment Type' is required.</entry>
+<entry key="need.insert.commissionRate">Field 'commission Rate' is required.</entry>
+<entry key="need.insert.recommendStartDate">Field 'Recommend Start Date' is required.</entry>
+<entry key="need.insert.recommendDueDate">Field 'Recommend Due Date' is required.</entry>
+<entry key="need.insert.newArrivalDueDate">Field 'New Arrival Due Date' is required.</entry>
+
+<entry key="download.file.name">BinaryVersion.csv</entry>
+
+<entry key="selectAll">Select All</entry>
+</properties>

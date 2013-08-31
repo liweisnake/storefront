@@ -1,0 +1,69 @@
+<wicket:panel>
+<form wicket:id="bannerSelectForm" name="bannerSelectForm">
+	<table>
+		<tr>
+			<td>
+				<wicket:message key="bannerHeight" />:
+			</td>
+			<td>
+				<input type="text" size="5" wicket:id="height" /><wicket:message key="px" /> &nbsp;&nbsp;<wicket:message key="selfAdjust" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<wicket:message key="bannerLocation" />:
+			</td>
+			<td>
+				<input type="text" wicket:id="location" />
+			</td>
+		</tr>
+	</table>
+	<a class="btnBlueShort" wicket:id="bnRefresh"><wicket:message key="refresh" /></a>
+	<br>
+	<input type="hidden" name="storePreference" value="true">
+	<input type="hidden" id="bannerId" name="bannerId">
+	<input type="hidden" id="bannerName" name="bannerName">
+
+	<div class="panelBody">
+		<div class="panelContent">
+			<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+				<thead>
+					<tr>
+						<th scope="col"><wicket:message key="name" /></th>
+						<th scope="col"><wicket:message key="type" /></th>
+						<th scope="col"><wicket:message key="operation" /></th>
+					</tr>
+				</thead>
+				<tbody>
+					<span wicket:id="listBanner">
+					<tr>
+						<td>
+						<div wicket:id="name" />
+						</td>
+						<td>
+						<div wicket:id="type" />
+						</td>
+						<td align="center">
+							<!--  <a href="#" wicket:id="linkSelect"> <span wicket:id="select" /></a>-->
+							<input type="button" wicket:id="bnSelect">
+						</td>
+					</tr>
+					</span>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+<script>
+
+	function onSelect(id,name){
+		document.getElementById("bannerId").value = id;
+		document.getElementById("bannerName").value = name;
+		document.forms["bannerSelectForm"].submit();
+	}
+
+</script>
+	
+</form>
+
+</wicket:panel>

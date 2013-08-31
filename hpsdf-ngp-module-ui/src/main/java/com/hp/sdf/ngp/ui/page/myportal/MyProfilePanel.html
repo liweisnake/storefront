@@ -1,0 +1,107 @@
+<wicket:panel>
+	<div class="mainPanel" >	
+	<div class="panelBody">
+	<div class="panelContent">
+	<span style="color: red;"
+		wicket:id="feedBack">error message</span>
+	<form wicket:id="myProfileForm">
+
+	<table border="0" cellspacing="0" cellpadding="0" id="myProfileTable">
+		<tr align="left" valign="top">
+			<td height="40"><font class="text1"><wicket:message
+				key="myProfile.username">User Name:</wicket:message></font></td>
+			<td><input type="text" wicket:id="userName" readonly="true" /></td>
+		</tr>
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.email">Email:</wicket:message></font></td>
+			<td><input type="text" wicket:id="email" /></td>
+		</tr>
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.idcard">Idcard:</wicket:message></font></td>
+			<td><input type="text" wicket:id="idCard" /></td>
+		</tr>
+
+
+		<tr align="left" valign="top">
+			<td height="60"><font class="texto1"><wicket:message
+				key="myProfile.gender">Gender:</wicket:message></font></td>
+			<td><span valign="top" wicket:id="gender"></span></td>
+		</tr>
+
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.cellphone">Cellphone:</wicket:message></font></td>
+			<td><input type="text" wicket:id="cellphone" /></td>
+		</tr>
+
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.company">Company:</wicket:message></font></td>
+			<td><input type="text" wicket:id="company" /></td>
+		</tr>
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.address">Address:</wicket:message></font></td>
+			<td><input type="text" wicket:id="address" /></td>
+		</tr>
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.zip">Zip:</wicket:message></font></td>
+			<td><input type="text" wicket:id="zip" /></td>
+		</tr>
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.birthday">Birthday:</wicket:message></font></td>
+			<td><input type="text" wicket:id="birthday" /></td>
+		</tr>
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.lastname">Last name:</wicket:message></font></td>
+			<td><input type="text" wicket:id="lastName" /></td>
+		</tr>
+
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.firstname">First name:</wicket:message></font></td>
+			<td><input type="text" wicket:id="firstName" /></td>
+		</tr>
+
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.country">Country:</wicket:message></font></td>
+			<td><select wicket:id="country" /></td>
+		</tr>
+
+		<tr align="left" valign="top">
+			<td height="40"><font class="texto1"><wicket:message
+				key="myProfile.language">Language:</wicket:message></font></td>
+			<td><select wicket:id="language" /></td>
+		</tr>
+
+		<tr>
+			<td colspan="2" height="40"><input class="button" wicket:id="update"
+				type="submit" value="Apply role"
+				wicket:message="value:myProfile.update" /></td>
+		</tr>
+	</table>
+	</form>
+	</div>
+	<div class="clear"></div>
+	<div class="panelBottom">
+	<div class="panelFoot"></div>
+	</div>
+	</div>
+</div>
+</wicket:panel>

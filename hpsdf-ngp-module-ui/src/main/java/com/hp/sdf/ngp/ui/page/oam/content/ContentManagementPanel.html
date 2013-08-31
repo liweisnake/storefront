@@ -1,0 +1,172 @@
+<wicket:head>
+	<script language="JavaScript" type="text/javascript">
+	function selectAllCheckBox() {
+		var select = document.getElementById("selectAll");
+	   	//support IE and Firefox
+	   	var tagArray = document.getElementsByTagName("*");
+
+	   	if (select.checked) {
+			for (var i = 0; i < tagArray.length; i++) {   
+		    	if (typeof(tagArray[i].name) != "undefined" && tagArray[i].name != "recommended" && tagArray[i].name != "newArrival") {
+		        	if ("checkbox" == tagArray[i].type) {
+		          		tagArray[i].checked = true;
+		        	}
+		  		}
+			}
+	   	}
+	   	else {
+			for (var i = 0; i < tagArray.length; i++) {  
+		    	if (typeof(tagArray[i].name) != "undefined" && tagArray[i].name != "recommended" && tagArray[i].name != "newArrival") {
+		        	if ("checkbox" == tagArray[i].type) {
+		          		tagArray[i].checked = false;
+		          	}
+		        }			    
+		  	}
+	   	}
+	}
+</script>
+</wicket:head>
+
+<wicket:panel>
+	<div id="regionA">
+	<div class="title">
+	<h2 class="icon-title-content"><wicket:message key="title.big">Content Management</wicket:message></h2>
+	<div class="title-button"><a href="#" wicket:id="defaultSetting"
+		class="link-submit"><wicket:message key="defaultSetting">Default Setting</wicket:message></a>
+	<a href="#" wicket:id="newBinaryVersion" class="link-submit"><wicket:message
+		key="newBinaryVersion">New Content</wicket:message></a></div>
+	</div>
+
+	<div wicket:id="searchPanel"></div>
+
+	<div class="content">
+	<div class="portal-box">
+	<div class="content-container">
+	<form wicket:id="updateForm">
+	<div class="contentbox">
+	<h3>
+		<wicket:message key="title.list">Contents List</wicket:message>
+		<a wicket:id="downLink" class="button-submit"><wicket:message key="btn.download">Download Results</wicket:message></a>
+	</h3>
+		
+	<div class="overflow">
+	<div class="table-box">
+	<table border="0" cellpadding="0" cellspacing="0"
+		class="table-styles-a">
+		<tr>
+			<th width="5%" align="center"><input type="checkbox"
+				wicket:id="selectAll" onclick="selectAllCheckBox();" /><wicket:message key="selectAll">selectAll</wicket:message></th>
+			<th width="6%"><wicket:message key="providerId">providerId</wicket:message></th>
+			<th width="6%"><wicket:message key="providerName">providerName</wicket:message></th>
+			<th width="6%"><wicket:message key="parentAssetId">parentAssetId</wicket:message></th>
+			<th width="6%"><wicket:message key="assetId">assetId</wicket:message></th>
+			<th width="6%"><wicket:message key="binaryVersionExternalId">BinaryVersion External ID</wicket:message></th>
+			<th width="6%"><wicket:message key="externalId">Asset externalId</wicket:message></th>
+			<th width="5%"><wicket:message key="assetName">Name</wicket:message></th>
+			<th width="6%"><wicket:message key="targetPublishDate">targetPublishDate</wicket:message></th>
+			<th width="6%"><wicket:message key="publishDate">publishDate</wicket:message></th>
+			<th width="6%"><wicket:message key="category1">genre1</wicket:message></th>
+			<th width="6%"><wicket:message key="category2">genre2</wicket:message></th>
+			<th width="6%"><wicket:message key="status">status</wicket:message></th>
+			<th width="6%"><wicket:message key="newArrivalDueDate">newArrivalDueDate</wicket:message></th>
+			<th width="6%"><wicket:message key="recommendStartDate">recommendStartDate</wicket:message></th>
+			<th width="6%"><wicket:message key="recommendDueDate">recommendDueDate</wicket:message></th>
+			<th width="6%"><wicket:message key="commissionRate">commissionRate</wicket:message><wicket:message
+			key="commissionRateSymbol">%</wicket:message></th>
+			<th width="6%"><wicket:message key="recommendOrder">recommendOrder</wicket:message></th>
+		</tr>
+
+		<span wicket:id="binaryVersions">
+		<tr>
+			<td width="5%" align="center"><input type="checkbox"
+				wicket:id="select" /></td>
+			<td width="6%"><span wicket:id="providerId">providerId</span></td>
+			<td width="6%"><span wicket:id="providerName">providerName</span></td>
+			<td width="6%"><span wicket:id="parentAssetId">parentAssetId</span></td>
+			<td width="6%"><span wicket:id="assetId">assetId</span></td>
+			<td width="6%"><span wicket:id="binaryVersionExternalId">binaryVersionExternalId</span></td>
+			<td width="6%"><span wicket:id="externalId">externalId</span></td>
+			<td width="5%"><span wicket:id="assetNameHidden">assetName</span><a
+				href="#" wicket:id="assetNameLink"><span wicket:id="assetName">assetName</span></a></td>
+			<td width="6%"><span wicket:id="targetPublishDate">targetPublishDate</span></td>
+			<td width="6%"><span wicket:id="publishDate">publishDate</span></td>
+			<td width="6%"><span wicket:id="category1">genre1</span></td>
+			<td width="6%"><span wicket:id="category2">genre2</span></td>
+			<td width="6%"><span wicket:id="statusHidden">status</span><a
+				href="#" wicket:id="statusLink"><span wicket:id="status">status</span></a></td>
+			<td width="6%"><span wicket:id="newArrivalDueDate">newArrivalDueDate</span></td>
+			<td width="6%"><span wicket:id="recommendStartDate">recommendStartDate</span></td>
+			<td width="6%"><span wicket:id="recommendDueDate">recommendDueDate</span></td>
+			<td width="6%"><span wicket:id="commissionRate">commissionRate</span></td>
+			<td width="6%"><span wicket:id="recommendOrder">recommendOrder</span></td>
+		</tr>
+		</span>
+
+	</table>
+	</div>
+	</div>
+	<div>
+		<span wicket:id="navigator"></span>
+	</div>
+	</div>
+
+	<div class="contentbox">
+	<h3><wicket:message key="title.operation">Contents Operation</wicket:message></h3>
+
+	<div wicket:id="updateFeedback">feedback</div>
+
+	<div class="content-list"><span wicket:id="radioGroup">
+	<ul>
+		<!-- 1 -->
+		<li><input type="radio" wicket:id="radio1" /><wicket:message key="updateStatus">Update Status</wicket:message></li>
+		<li><b> <wicket:message key="update.status">Status</wicket:message>
+		: </b> <span> <select wicket:id="update.status"
+			class="common-select"></select> </span></li>
+		<li><b> <wicket:message key="update.commentType">Comment Type</wicket:message>
+		: </b> <span> <select wicket:id="update.commentType"
+			class="common-select"></select> </span></li>
+		<li><b> <wicket:message key="update.comments">comments</wicket:message>
+		: </b> <span> <textarea wicket:id="update.comments"
+			class="common-textarea"></textarea> </span></li>
+
+		<!-- 2 -->
+		<li class="line-1xp"><input type="radio" wicket:id="radio2" /><wicket:message key="updateCommissionRate">Update Commission Rate</wicket:message></li>
+		<li><b> <wicket:message key="update.commissionRate">commissionRate</wicket:message> : </b> <span> <input
+			type="text" wicket:id="update.commissionRate"
+			class="common-textfield" /> <wicket:message key="commissionSymbol">%</wicket:message></span></li>
+
+		<!-- 3 -->
+		<li class="line-1xp"><input type="radio" wicket:id="radio3" /><wicket:message key="updateRecommend">Recommend</wicket:message></li>
+		<li><b> <wicket:message key="update.recommendStartDate">recommendStartDate</wicket:message>
+		: </b> <span> <input type="text"
+			wicket:id="update.recommendStartDate" class="textfield-date" /> </span></li>
+		<li><b> <wicket:message key="update.recommendDueDate">recommendDueDate</wicket:message>
+		: </b> <span> <input type="text"
+			wicket:id="update.recommendDueDate" class="textfield-date" /> </span></li>
+
+		<!-- 4 -->
+		<li class="line-1xp"><input type="radio" wicket:id="radio4" /><wicket:message key="updateNewArrival">New Arrival</wicket:message></li>
+		<li><b> <wicket:message key="update.newArrivalDueDate">newArrivalDueDate</wicket:message>
+		: </b> <span> <input type="text"
+			wicket:id="update.newArrivalDueDate" class="textfield-date" /> </span></li>
+	</ul>
+	</span></div>
+	</div>
+	<div class="contentbutton"><input type="submit"
+		wicket:id="updateSubmit" id="updateSubmit" class="button-submit"
+		wicket:message="value:btn.update.update" /> <input type="button"
+		wicket:id="deleteSubmit" id="deleteSubmit" class="button-submit"
+		wicket:message="value:btn.update.delete" /> <input type="hidden"
+		wicket:id="hidden" id="hidden" />
+		<div wicket:id="checkPanel"></div>
+								    <div wicket:id="checkPanel1"></div></div>
+	</form>
+	<div class="clear"></div>
+	</div>
+	</div>
+
+	</div>
+
+	<div wicket:id="promptPanel"></div>
+	</div>
+</wicket:panel>

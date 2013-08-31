@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<storefront>
+	<userCategories>
+		<category>
+			<name>User</name>
+			<display>a registered user</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<value>viewshoppingcart</value>
+                <value>viewmysubscription</value>
+			</privileges>			
+		</category>
+		<category>
+			<name>Developer</name>
+			<display>Developer User</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<value>viewmyewallet</value>
+				<value>apisubscribe</value>
+				<value>viewmyapplication</value>
+			</privileges>			
+		</category>
+		<category>
+			<name>Tester</name>
+			<display>the tester</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<value>viewmytesting</value>
+			</privileges>			
+		</category>
+		<category>
+			<name>Manager</name>
+			<display>the manager</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<value>viewmyappapproval</value>
+				<value>viewmypromotionapproval</value>
+				<value>searchbinstatus</value>
+				<value>manageapp</value>
+			</privileges>
+		</category>
+		<category>
+			<name>Admin</name>
+			<display>the super administrator</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<value>viewmyappapproval</value>
+				<value>viewmypromotionapproval</value>
+			</privileges>
+		</category>
+	</userCategories>
+	<applicationLifeCycles>
+		<applifecycle>
+			<name>uploaded</name>
+			<display>the default status</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>view</operation>
+					<allowed>
+						<value>Manager</value>
+						<value>Tester</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>manage_binary</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Manager</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>comment</operation>
+				</access>
+				<access>
+					<operation>rating</operation>
+				</access>
+				<access>
+					<operation>tag</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Manager</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>category</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Manager</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>status</operation>
+					<allowed>
+						<value>Manager</value>
+					</allowed>
+				</access>
+			</accesses>
+		</applifecycle>
+		<applifecycle>
+			<name>published</name>
+			<display>the published status</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+			    <access>
+					<operation>manage_binary</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Manager</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>comment</operation>
+					<allowed>
+						<value>User</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>rating</operation>
+					<allowed>
+						<value>User</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>tag</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Manager</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>category</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Manager</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>status</operation>
+					<allowed>
+						<value>Manager</value>
+					</allowed>
+				</access>
+			</accesses>
+		</applifecycle>
+	</applicationLifeCycles>
+	<applicationBinaryLifeCycles>
+		<binarylifecycle>
+			<name>uploaded</name>
+			<display>uploaded</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>download</operation>
+					<allowed>
+						<value>owner</value>
+					</allowed>
+				</access>
+			</accesses>			
+		</binarylifecycle>
+		<binarylifecycle>
+			<name>provided</name>
+			<display>provided</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>download</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Tester</value>
+					</allowed>
+				</access>
+			</accesses>			
+		</binarylifecycle>
+		<binarylifecycle>
+			<name>testing</name>
+			<display>testing</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>download</operation>
+					<allowed>
+						<value>owner</value>
+						<value>Tester</value>
+					</allowed>
+				</access>
+			</accesses>			
+		</binarylifecycle>
+		<binarylifecycle>
+			<name>verified</name>
+			<display>verified</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>download</operation>
+					<allowed>
+						<value>User</value>
+						<value>owner</value>
+					</allowed>
+				</access>
+			</accesses>		
+		</binarylifecycle>
+		<binarylifecycle>
+			<name>invalid</name>
+			<display>invalid</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>download</operation>
+					<allowed>
+						<value>owner</value>
+					</allowed>
+				</access>
+			</accesses>
+		</binarylifecycle>
+		<binarylifecycle>
+			<name>published</name>
+			<display>published</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>download</operation>
+					<allowed>
+						<value>User</value>
+						<value>owner</value>
+					</allowed>
+				</access>
+			</accesses>
+		</binarylifecycle>
+		<binarylifecycle>
+			<name>obsolete</name>
+			<display>obsolete</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>download</operation>
+				</access>
+			</accesses>
+		</binarylifecycle>		
+	</applicationBinaryLifeCycles>
+</storefront>

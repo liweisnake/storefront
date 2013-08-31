@@ -1,0 +1,65 @@
+<wicket:panel>
+
+ <div id="regionA">
+	<form wicket:id="editCategoryForm">
+	<div class="title">
+    	<h2 class="icon-title-content"><wicket:message key="title.big">Content Management</wicket:message></h2>
+  	</div>
+	<div class="content">
+	<table border="0" cellpadding="0" cellspacing="0"
+		class="portal-container">
+      <tr>
+        <td class="portal-container-top-left"></td>
+        <td class="portal-container-top"></td>
+        <td class="portal-container-top-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-content-left"></td>
+        <td class="portal-container-content">
+           <h3><wicket:message key="title" /></h3>
+		  <div class="contentbox">
+			<span style="color: red;" wicket:id="feedBack">error message</span>
+            <div class="content-list">
+              <ul>
+                <li><b><wicket:message key="externalId" /><img src="images/icon_reddot.png" />:</b><span>
+                  <input name="input" type="text" class="common-textfield" MAXLENGTH="3" wicket:id="externalId" />
+                  </span></li>
+                  
+                <li><b><wicket:message key="parentExternalId" /><img src="images/icon_reddot.png" />:</b><span>
+                  <input name="input" type="text" class="common-textfield" MAXLENGTH="4" wicket:id="parentExternalId" />
+                  </span></li>  
+                  
+                <li><b><wicket:message key="name" />:</b><span>
+                  <input name="input" type="text" class="common-textfield" MAXLENGTH="100" wicket:id="name" />
+                  </span></li>
+                  
+                <li><b><wicket:message key="displayName" /><img src="images/icon_reddot.png" />:</b><span>
+                  <input name="input" type="text" class="common-textfield" MAXLENGTH="255" wicket:id="displayName" />
+                  </span></li>    
+              </ul>
+            </div>
+          </div>
+          </td>
+        <td class="portal-container-content-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-bottom-left"></td>
+        <td class="portal-container-bottom"></td>
+        <td class="portal-container-bottom-right"></td>
+      </tr>
+
+	</table>
+	
+		<div class="contentbutton">
+			<div wicket:id="checkPanel"></div>
+			<div wicket:id="checkPanel2"></div>
+			<input type="submit" wicket:id="save" wicket:message="value:save" class="button-submit" /> 
+			<input type="submit" wicket:id="back" wicket:message="value:back" class="button-submit" />
+		</div>
+	</div>
+
+	</form>
+</div>
+	<div wicket:id="promptPanel"></div>
+
+</wicket:panel>

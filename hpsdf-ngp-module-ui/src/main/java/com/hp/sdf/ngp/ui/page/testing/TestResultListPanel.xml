@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Test Results</entry>
+<entry key="tester">Tester</entry>
+<entry key="result">Test Result</entry>
+<entry key="complete.date">Complete Date</entry>
+<entry key="comments">Comments</entry>
+</properties>

@@ -1,0 +1,646 @@
+//**********************************************************************
+// Common Criteria Evaluated Configuration Java2 Security Manager Policy
+// Author: Anil Saldhana 
+//**********************************************************************
+
+//**********************************************************
+//
+//   Section 1: JBOSS code with codebase references in time 
+//              of JBOSS startup
+//   (Permissions are given fully)
+//   Do not modify this section.
+//
+//**********************************************************
+grant codeBase "file:${user.dir}/run.jar" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${user.dir}/../lib/*" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${user.dir}/../server/production/lib/-" {
+  permission java.security.AllPermission;
+};
+
+//******************* End of Section 1 **********************
+
+//**********************************************************
+//
+//   Section 2:  Java JDK Core Code
+//               Trusted core Java code
+//   (Permissions are given fully)
+//   Do not modify this section.
+//
+//**********************************************************
+grant codeBase "file:${java.home}/lib/ext/-" {
+   permission java.security.AllPermission;
+};
+grant codeBase "file:${java.home}/lib/*" {
+   permission java.security.AllPermission;
+};
+// For java.home pointing to the JDK jre directory
+grant codeBase "file:${java.home}/../lib/*" {
+   permission java.security.AllPermission;
+};
+
+//******************* End of Section 2 **********************
+
+
+//**********************************************************
+//
+//   Section 3:  Permissions assigned to JBoss Core Codebase
+//               Trusted JBoss code
+//
+//   Do not modify this section.
+//
+//**********************************************************
+grant codeBase "file:${jboss.home.dir}/bin/-" {
+   permission java.security.AllPermission;
+};
+
+// Trust all the jars in the server lib that JBoss has shipped
+grant codeBase "file:${jboss.home.dir}/lib/-" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/work/-" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/activation.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/antlr.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/asm-attrs.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/asm.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/autonumber-plugin.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/avalon-framework.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/bcel.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/bindingservice-plugin.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/bsf.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/bsh-deployer.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/bsh.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/cglib.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/commons-codec.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/commons-collections.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/commons-httpclient.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/commons-logging.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/dom4j.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/ejb3-persistence.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/el-api.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/hibernate3.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/hibernate-annotations.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/hibernate-commons-annotations.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/hibernate-entitymanager.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/hibernate-validator.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/hsqldb.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/hsqldb-plugin.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jacorb.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/javassist.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jaxen.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-cache-jdk50.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-common-jdbc-wrapper.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-ejb3x.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossha.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-hibernate.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-iiop.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-j2ee.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-jaxrpc.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-jaxws.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-jca.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-jsr77.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-jsr88.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossjta-integration.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossjta.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-management.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-messaging-client.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-messaging.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-monitoring.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-remoting-int.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-remoting.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-saaj.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-serialization.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-srp.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbosssx.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-transaction.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossts-common.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jboss-vfs.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossws-common.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossws-framework.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossws-jboss42.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jbossws-spi.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jgroups.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jmx-adaptor-plugin.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jnpserver.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/joesnmp.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/jsp-api.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/log4j.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/log4j-snmp-appender.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/mail.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/mail-plugin.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/properties-plugin.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/quartz-all.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/scheduler-plugin-example.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/scheduler-plugin.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/servlet-api.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/lib/xmlentitymgr.jar" {
+   permission java.security.AllPermission;
+};
+
+// DEPLOY DIR
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-ha-local-jdbc.rar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-ha-xa-jdbc.rar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-local-jdbc.rar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-xa-jdbc.rar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jms-ra.rar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/quartz-ra.rar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/httpha-invoker.sar/-" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-web-cluster.sar/jboss-web-cluster.aop" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jaxb-api.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jaxb-impl.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jboss-jaxb-intros.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jboss-jaxrpc.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jboss-jaxws.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jboss-saaj.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jbossws-core.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/jbossws-native.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/policy.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/stax-api.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/wsdl4j.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/wstx.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jbossws.sar/xmlsec.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/juddi-service.sar/juddi.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/juddi-service.sar/juddi-saaj.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/juddi-service.sar/juddi-service.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/juddi-service.sar/juddi.war" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/juddi-service.sar/scout.jar" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/uuid-key-generator.sar/*" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/ejb3.deployer/-" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-aop-jdk50.deployer/-" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-bean.deployer/-" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-web.deployer/*" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jboss-web.deployer/jsf-libs/*" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/management/-" {
+   permission java.security.AllPermission;
+};
+
+grant codeBase "file:${jboss.server.home.dir}/deploy/jmx-console.war/-" {
+   permission java.security.AllPermission;
+};
+
+
+grant codeBase "file:${jboss.server.home.dir}/tmp/-" {
+   
+   permission java.io.FilePermission "${jboss.server.home.dir}/-", "read,write,delete";
+   permission java.io.FilePermission "${java.io.tmpdir}", "read,write,delete";
+   
+   permission java.io.FilePermission "<<ALL FILES>>", "read";
+  
+   // MBean permissions
+   permission javax.management.MBeanTrustPermission "*";
+   permission javax.management.MBeanServerPermission "findMBeanServer";
+   permission javax.management.MBeanPermission "*", "*";
+
+   permission java.lang.RuntimePermission "setContextClassLoader";
+   permission java.lang.RuntimePermission "accessDeclaredMembers";
+   permission java.lang.RuntimePermission "createClassLoader";
+   permission java.lang.RuntimePermission "org.jboss.security.SecurityAssociation.setPrincipalInfo";
+   permission java.lang.RuntimePermission "org.jboss.security.SecurityAssociation.getPrincipalInfo";
+   permission java.lang.RuntimePermission "org.jboss.security.SecurityAssociation.setServer";
+   permission java.lang.RuntimePermission "org.jboss.security.SecurityAssociation.setRunAsRole";
+   permission java.lang.RuntimePermission "loadLibrary.tcnative-1";
+   permission java.lang.RuntimePermission "loadLibrary.libtcnative-1";
+ 
+   permission java.net.NetPermission "specifyStreamHandler";
+   
+   permission java.util.PropertyPermission "*", "read,write";
+   permission java.security.SecurityPermission "getProperty.package.definition";
+   permission java.security.SecurityPermission "setProperty.package.definition";
+   permission java.security.SecurityPermission "getProperty.package.access";
+   permission java.security.SecurityPermission "setProperty.package.access";
+   permission java.security.SecurityPermission "setPolicy";
+   permission java.security.SecurityPermission "putProviderProperty.JBossSX";
+   permission java.security.SecurityPermission "insertProvider.JBossSX";
+   
+   permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+   
+   permission java.net.SocketPermission "*:1024-", "accept,listen";
+   permission java.util.logging.LoggingPermission "control";
+   
+   permission javax.security.auth.AuthPermission "doAsPrivileged";
+   permission javax.security.auth.AuthPermission "modifyPrincipals";
+   
+   permission javax.security.auth.PrivateCredentialPermission "javax.resource.spi.security.PasswordCredential * \"*\"", "read";
+   permission javax.security.auth.PrivateCredentialPermission "javax.crypto.spec.SecretKeySpec * \"*\"", "read";
+   permission javax.security.auth.PrivateCredentialPermission "org.jboss.security.srp.SRPParameters * \"*\"", "read";
+
+   permission java.security.SecurityPermission "getPolicy";
+   permission java.lang.RuntimePermission "accessClassInPackage.*";
+   permission java.lang.RuntimePermission "getClassLoader";
+   permission java.lang.RuntimePermission "getProtectionDomain";
+   permission java.lang.RuntimePermission "org.jboss.security.SecurityAssociation.getSubject";
+
+   permission javax.security.auth.AuthPermission "createLoginContext.*";
+   permission javax.security.auth.AuthPermission "getLoginConfiguration";
+   
+   permission java.net.SocketPermission "*", "connect,accept,resolve";
+   permission org.jboss.naming.JndiPermission "JAXR", "bind,rebind,unbind,lookup,list,listBindings,createSubcontext";
+};
+
+//******************* End of Section 3 **********************
+
+//**********************************************************
+//
+//   Section 4: JBoss EAP Testsuite Permissions
+//              
+//   This section is just for test suite purpose and can 
+//   safely removed.
+//   General recomendation: This section should be deleted or 
+//   commented out in production. 
+//**********************************************************
+
+// Testing configuration lib directory permissions
+grant codeBase "file:${user.dir}/../server/cc/lib/-" {
+  permission java.security.AllPermission;
+};
+
+// Permissions for the WarPermissionsUnitTestCase
+// Permissions for crypto tests (putProvider)
+grant codeBase "file:${jboss.test.deploy.dir}/-" {
+   permission java.util.PropertyPermission "*", "read";
+   permission java.io.FilePermission "<<ALL FILES>>", "read,write,delete";
+   permission java.security.SecurityPermission "putProviderProperty.JBossSX";
+   permission org.jboss.naming.JndiPermission "<<ALL BINDINGS>>", "bind,rebind,unbind,lookup,list,listBindings,createSubcontext";
+};
+
+// Following JDBC driver is included just for CC test purpose. 
+// When you test with different JDBC driver than Oracle DB you have to create your own entries.
+grant codeBase "file:${jboss.server.home.dir}/lib/ojdbc14.jar" {
+   // change host name and port to one where your database resides.
+   permission java.net.SocketPermission "dev68.qa.atl2.redhat.com:1521", "connect";
+
+   permission java.util.PropertyPermission "oracle.net.wallet_location", "read";
+   permission java.util.PropertyPermission "oracle.jdbc.TcpNoDelay", "read";
+   permission java.util.PropertyPermission "oracle.jdbc.defaultNChar", "read";
+   permission java.util.PropertyPermission "oracle.jdbc.useFetchSizeWithLongColumn", "read";
+   permission java.util.PropertyPermission "oracle.jdbc.convertNcharLiterals", "read";
+   permission java.util.PropertyPermission "oracle.jdbc.V8Compatible", "read";
+   permission java.util.PropertyPermission "oracle.jdbc.J2EE13Compliant", "read";
+   permission java.util.PropertyPermission "oracle.jdbc.FastConnectionFailover", "read";   
+   permission java.util.PropertyPermission "oracle.net.tns_admin", "read";
+   permission java.util.PropertyPermission "line.separator", "read";
+   permission java.util.PropertyPermission "user.name", "read";
+   permission java.util.PropertyPermission "java.version", "read";
+
+   permission java.lang.RuntimePermission "accessClassInPackage.sun.jdbc.odbc";
+   permission java.net.SocketPermission "*", "resolve";
+
+};
+
+//******************* End of Section 4 **********************
+
+
+//**************************************************************
+//
+// Section 5: User Applications Permissions
+//
+// This sections is for user application permissions.
+// Can be modified with care and attention to previously
+// entered permissions.
+//**************************************************************
+
+//  Following lines are here as template for creating JDBC driver permissions entry
+//  specific for your database. If using Oracle, one can copy JDBC driver permissions 
+//  from Section 4.
+//grant codeBase "file:${jboss.server.home.dir}/lib/<your JDBC driver>.jar" {
+//   <grant necessary permissions>
+//};
+
+// Minimal permissions are allowed to everyone else
+grant {
+   permission java.lang.RuntimePermission "queuePrintJob";
+};
+
+//******************* End of Section 5 **********************

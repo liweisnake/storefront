@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">请选择</entry>
+<entry key="title">新应用</entry>
+<entry key="name">应用名</entry>
+<entry key="brief">简介</entry>
+<entry key="price">价格</entry>
+<entry key="preview">预览图</entry>
+<entry key="thumbnail">标签图</entry>
+<entry key="description">描述</entry>
+<entry key="category">分类</entry>
+<entry key="platform">操作系统</entry>
+<entry key="doc">描述文档</entry>
+<entry key="btn.submit">提交</entry>
+</properties>

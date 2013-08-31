@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="submit">Submit</entry>
+	<entry key="cancel">Cancel</entry>
+		
+	<entry key="userId">User Name</entry>
+	<entry key="email">Email</entry>	
+	<entry key="newPassword">Password</entry>
+	<entry key="confirmPassword">Confirm Password</entry>	
+	<entry key="verifyCaptcha">Verify captcha</entry>	
+	
+	<entry key="changeImage">Can not see clearly, change the image</entry>	
+	<entry key="userInfo">Basic User Information</entry>	
+	<entry key="indicate">* indicates a required field.</entry>	
+	<entry key="registerSuccess">Your account has been successfully created. You may want to login now</entry>	
+	
+</properties>

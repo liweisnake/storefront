@@ -1,0 +1,113 @@
+<wicket:head>
+	<script type="text/javascript">
+
+	function selectAll() {
+	   	var groupselector = document.getElementById("groupselector");
+	   	//support IE and Firefox
+	   	var tagArray = document.getElementsByTagName("*");
+
+	   	if(groupselector.checked) {
+			for (var i = 0; i < tagArray.length; i++) {   
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = true;
+		        	}
+		  		}
+			}
+	   	}
+	   	else {
+			for (var i = 0; i < tagArray.length; i++) {  
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = false;
+		          	}
+		        }			    
+		  	}
+	   	}
+		
+	}
+</script>
+</wicket:head>
+
+<wicket:panel>
+	<div class="mainPanel">
+	<div class="panelBody"><span style="color: red;" wicket:id="feedBack">error message</span>
+
+	<form wicket:id="configurationAssetSearchResultForm"><span wicket:id="navigator"></span><br></br>
+
+	<input type="checkbox" wicket:id="groupselector" onclick="selectAll()"><wicket:message key="selectAll" /></input>
+	<table class="tableSet">
+	<thead>
+		<tr>
+			<th><wicket:message key="select" /></th>
+			<th><wicket:message key="assetName" /></th>
+			<th><wicket:message key="recommendOrder" /></th>
+			<th><wicket:message key="category" /></th>
+			<th><wicket:message key="status" /></th>
+			<th><wicket:message key="tag" /></th>
+			<th><wicket:message key="action" /></th>
+			<th><wicket:message key="go" /></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr wicket:id="listview">
+			<td><input wicket:id="select" type="checkbox"></input></td>
+			<td><span wicket:id="assetName"></span></td>
+			<td><span wicket:id="order"></span></td>
+			<td><span wicket:id="category"></span></td>
+			<td><span wicket:id="status"></span></td>
+			<td><span wicket:id="tag"></span></td>
+			<td><select wicket:id="action"></select></td>
+			<td><a wicket:id="go"><wicket:message key="go" /></a></td>
+		</tr>
+		</tbody>
+	</table>
+
+	<table class="operateTableSet">
+		<tr>
+			<td><span wicket:id="radioGroup">
+			<table>
+				<tr wicket:id="batch">
+					<td><input type="radio" wicket:id="radio" /></td>
+					<td><span wicket:id="name">[this is where name will be]</span></td>
+				</tr>
+			</table>
+			</span></td>
+			<td>
+			<table >
+				<tr>
+					<td><select wicket:id="categoryOperator"></select></td>
+				</tr>
+				<tr>
+					<td><select wicket:id="statusOperator"></select></td>
+				</tr>
+				<tr>
+					<td><input wicket:id="addTagOperator" type="text"></input></td>
+				</tr>
+				<tr>
+					<td><input wicket:id="deleteTagOperator" type="text"></input></td>
+				</tr>
+				<tr>
+					<td>&nbsp</td>
+				</tr>
+				<tr>
+					<td>&nbsp</td>
+				</tr>
+				<tr>
+					<td>&nbsp</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" wicket:id="submit" value="Submit" wicket:message="value:submit"></input></td>
+		</tr>
+	</table>
+
+	</form>
+	<div wicket:id="promptPanel"></div>
+	<div class="clear"></div>
+	<div class="panelFoot"></div>
+	</div>
+	</div>
+</wicket:panel>

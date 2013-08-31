@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">下载应用</entry>
+<entry key="download">下载测试</entry>
+<entry key="error">请选择一个版本</entry>
+<entry key="null">请选择</entry>
+</properties>

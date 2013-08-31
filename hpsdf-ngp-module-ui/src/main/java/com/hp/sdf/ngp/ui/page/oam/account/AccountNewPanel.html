@@ -1,0 +1,111 @@
+<wicket:panel>
+
+<div id="regionA">
+
+	<div class="title">
+    	<h2 class="icon-title-content"><wicket:message key="title.big"></wicket:message></h2>
+  	</div>
+
+  <div class="content">
+	<form wicket:id="accountNewForm">
+    <div class="column1">
+      <table border="0" cellpadding="0" cellspacing="0" class="portal-container">
+        <tr>
+          <td class="portal-container-top-left"></td>
+          <td class="portal-container-top"></td>
+          <td class="portal-container-top-right"></td>
+        </tr>
+        
+        <tr>
+          <td class="portal-container-content-left"></td>
+          <td class="portal-container-content">
+              <h3><wicket:message key="accountInfo" /></h3>
+			<div class="contentbox">
+<span style="color: red;" wicket:id="feedBack">error message</span>
+              
+              <div class="content-list">
+                <ul>
+                  <li><b><wicket:message key="userId" /><img src="images/icon_reddot.png" />:</b><span>
+                   <input type="text" wicket:id="userId" class="common-textfield" MAXLENGTH="32" />
+                  </span></li>
+                  
+                  <li><b><wicket:message key="roleName" /><img src="images/icon_reddot.png" />:</b><span>
+						<select wicket:id="roleName" class="common-select"></select>
+                    </span></li>
+                    
+                  <li><b><wicket:message key="providerID" />:</b><span>
+                   <input type="text" wicket:id="providerIDInput" class="common-textfield" MAXLENGTH="20" />
+                  </span></li>     
+                  
+                  <li><b><wicket:message key="newPassword" /><img src="images/icon_reddot.png" />:</b><span>
+                   <input type="password" wicket:id="newPasswordInput" class="common-textfield" MAXLENGTH="32" />
+                  </span></li> 
+                  
+                  <li><b><wicket:message key="confirmPassword" /><img src="images/icon_reddot.png" />:</b><span>
+                   <input type="password" wicket:id="confirmPassword" class="common-textfield" MAXLENGTH="32" />
+                  </span></li> 
+
+                  <li><b></b><span></span></li>
+                </ul>
+              </div>
+            </div>
+            </td>
+          <td class="portal-container-content-right"></td>
+        </tr>
+        
+        <tr>
+          <td class="portal-container-bottom-left"></td>
+          <td class="portal-container-bottom"></td>
+          <td class="portal-container-bottom-right"></td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="column2">
+      <table border="0" cellpadding="0" cellspacing="0" class="portal-container">
+        <tr>
+          <td class="portal-container-top-left"></td>
+          <td class="portal-container-top"></td>
+          <td class="portal-container-top-right"></td>
+        </tr>
+        <tr>
+          <td class="portal-container-content-left"></td>
+          <td class="portal-container-content"><!--Begin MSN-->
+              <h3><wicket:message key="msisdn" /></h3>
+          <div class="contentbox">
+              <div class="content-list">
+                <ul>
+                  <li><span>
+                    <input type="text" class="common-textfield"  wicket:id="newMSISDN" />
+                  	<input wicket:id="add" type="submit" wicket:message="value:add" class="button-submit-small"  MAXLENGTH="11" /></span>
+                  </li>
+                  <li><span>
+					<select wicket:id="originals" size="7" style="width: 79%; height: 100px;"></select>
+                  	<input wicket:id="delete" type="submit" wicket:message="value:delete" class="button-submit-small"/></span>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div><!--End MSN--></td>
+          <td class="portal-container-content-right"></td>
+        </tr>
+        <tr>
+          <td class="portal-container-bottom-left"></td>
+          <td class="portal-container-bottom"></td>
+          <td class="portal-container-bottom-right"></td>
+        </tr>
+      </table>
+    </div>
+		<div class="contentbutton">
+			<div wicket:id="checkPanel"></div>
+			<input type="submit" wicket:id="save" wicket:message="value:save" class="button-submit" /> 
+			<input type="submit" wicket:id="back" wicket:message="value:back" class="button-submit" />
+		</div>
+    
+    </form>
+  </div>
+ </div>
+
+ <div wicket:id="promptPanel"></div>
+
+</wicket:panel>

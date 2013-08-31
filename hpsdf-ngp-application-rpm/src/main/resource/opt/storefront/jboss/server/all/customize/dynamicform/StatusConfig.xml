@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<status>
+	<!--for test 
+	<item>
+		<old>testing</old>
+		<new>
+			<value>uploaded</value>
+		</new>
+	</item>
+	<item>
+		<old>uploaded</old>
+		<new>
+			<value>testing</value>
+		</new>
+	</item>
+	 -->
+	<item>
+		<old>published</old>
+		<new>
+			<value>revoked</value>	
+			<value>abeyance</value>
+			<value>kill_switch</value>
+		</new>
+	</item>
+	
+	<item>
+		<old>revoked</old>
+		<new>
+			<value>kill_switch</value>
+		</new>
+	</item>
+	
+	<item>
+		<old>abeyance</old>
+		<new>
+			<value>published</value>
+			<value>kill_switch</value>
+			<value>revoked</value>
+		</new>
+	</item>
+	
+	<item>
+		<old>sbm_wait</old>
+		<new>
+			<value>sbm_wait</value>
+			<value>test_wait</value>
+			<value>prepublic</value>
+			<value>declined</value>
+		</new>
+	</item>
+		
+	<item>
+		<old>test_wait</old>
+		<new>
+			<value>test_wait</value>
+			<value>submit_wait</value>
+			<value>prepublic</value>
+			<value>declined</value>
+		</new>
+	</item>
+		
+	<item>
+		<old>submit_wait</old>
+		<new>
+			<value>submit_wait</value>
+			<value>declined</value>
+			<value>prepublic</value>
+		</new>
+	</item>
+
+</status>

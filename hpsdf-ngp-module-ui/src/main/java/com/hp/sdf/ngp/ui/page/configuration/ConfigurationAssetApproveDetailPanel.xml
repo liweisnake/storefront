@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="title">Asset Approve Detail</entry>
+	<entry key="assetName">Asset Name</entry>
+	<entry key="Binary">Binary</entry>
+	<entry key="Version">Version</entry>
+	<entry key="Platform">Platform</entry>
+	<entry key="Approver">Approver</entry>
+	<entry key="ApprovalDate">Approval Date</entry>
+	<entry key="Comments">Comments</entry>
+</properties>

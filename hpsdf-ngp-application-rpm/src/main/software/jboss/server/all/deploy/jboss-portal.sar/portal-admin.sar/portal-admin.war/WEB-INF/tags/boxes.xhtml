@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+   <div class="#{class == null ? 'greyRounded' : class}">
+      <div class="box-header">
+         <!--<img src="/portal-core/images/corners/7px/corner-left-top-grey.gif" alt="" class="img-top-left"/>-->
+         <div class="box-header-content">
+         </div>
+         <!--<img src="/portal-core/images/corners/7px/corner-right-top-grey.gif" alt="" class="img-top-right"/>-->
+      </div>
+      <div class="box-content">
+         <ui:insert/>
+      </div>
+      <div class="box-footer">
+         <!--<img src="/portal-core/images/corners/7px/corner-left-bottom-white.gif" alt="" class="img-bottom-left"/>-->
+         <div class="box-footer-content">
+         </div>
+         <!--<img src="/portal-core/images/corners/7px/corner-right-bottom-white.gif" alt="" class="img-bottom-right"/>-->
+      </div>
+   </div>
+
+</ui:composition>

@@ -1,0 +1,18 @@
+<ui:decorate template="../common/template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:c="http://java.sun.com/jstl/core">
+
+   <ui:define name="topnav">
+      <h:form id="management-temp-link">
+         <ul class="topnav">
+            <li><h:commandLink id="consumers" action="consumers" value="#{i18n.nav_tabs_consumers}"/></li>
+            <li><h:commandLink id="producer"  action="producer" value="#{i18n.nav_tabs_producer_config}"/></li>
+            <li id="currentTab">#{i18n.nav_tabs_producer_management}</li>
+         </ul>
+      </h:form>
+   </ui:define>
+
+   <ui:define name="objectpath"/>
+</ui:decorate>

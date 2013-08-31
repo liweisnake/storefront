@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Applications</entry>
+<entry key="criteria.all">ALL</entry>
+<entry key="criteria.keyword">KEYWORD</entry>
+</properties>

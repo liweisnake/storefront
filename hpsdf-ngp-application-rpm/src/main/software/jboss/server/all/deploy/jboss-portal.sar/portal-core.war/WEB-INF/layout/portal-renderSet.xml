@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<portal-renderSet>
+   <renderSet name="divRenderer">
+      <set content-type="text/html">
+         <ajax-enabled>true</ajax-enabled>
+         <region-renderer>org.jboss.portal.theme.impl.render.div.DivRegionRenderer</region-renderer>
+         <window-renderer>org.jboss.portal.theme.impl.render.div.DivWindowRenderer</window-renderer>
+         <portlet-renderer>org.jboss.portal.theme.impl.render.div.DivPortletRenderer</portlet-renderer>
+         <decoration-renderer>org.jboss.portal.theme.impl.render.div.DivDecorationRenderer</decoration-renderer>
+      </set>
+   </renderSet>
+   <renderSet name="emptyRenderer">
+      <set content-type="text/html">
+         <ajax-enabled>true</ajax-enabled>
+         <region-renderer>org.jboss.portal.theme.impl.render.empty.EmptyRegionRenderer</region-renderer>
+         <window-renderer>org.jboss.portal.theme.impl.render.empty.EmptyWindowRenderer</window-renderer>
+         <portlet-renderer>org.jboss.portal.theme.impl.render.empty.EmptyPortletRenderer</portlet-renderer>
+         <decoration-renderer>org.jboss.portal.theme.impl.render.empty.EmptyDecorationRenderer</decoration-renderer>
+      </set>
+   </renderSet>
+   <renderSet name="divRendererNoAjax">
+      <set content-type="text/html">
+         <ajax-enabled>false</ajax-enabled>
+         <region-renderer>org.jboss.portal.theme.impl.render.div.DivRegionRenderer</region-renderer>
+         <window-renderer>org.jboss.portal.theme.impl.render.div.DivWindowRenderer</window-renderer>
+         <portlet-renderer>org.jboss.portal.theme.impl.render.div.DivPortletRenderer</portlet-renderer>
+         <decoration-renderer>org.jboss.portal.theme.impl.render.div.DivDecorationRenderer</decoration-renderer>
+      </set>
+   </renderSet>
+   <renderSet name="emptyRendererNoAjax">
+      <set content-type="text/html">
+         <ajax-enabled>false</ajax-enabled>
+         <region-renderer>org.jboss.portal.theme.impl.render.empty.EmptyRegionRenderer</region-renderer>
+         <window-renderer>org.jboss.portal.theme.impl.render.empty.EmptyWindowRenderer</window-renderer>
+         <portlet-renderer>org.jboss.portal.theme.impl.render.empty.EmptyPortletRenderer</portlet-renderer>
+         <decoration-renderer>org.jboss.portal.theme.impl.render.empty.EmptyDecorationRenderer</decoration-renderer>
+      </set>
+   </renderSet>
+</portal-renderSet>

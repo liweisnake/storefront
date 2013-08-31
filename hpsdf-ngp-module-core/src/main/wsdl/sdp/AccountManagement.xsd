@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" jaxb:version="2.0" targetNamespace="calendar-schemalet" version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:appinfo>
+      <jxb:globalBindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb">
+        <jxb:javaType name="java.util.Date" parseMethod="org.apache.cxf.tools.common.DataTypeAdapter.parseDateTime" printMethod="org.apache.cxf.tools.common.DataTypeAdapter.printDateTime" xmlType="xs:dateTime"/>
+      </jxb:globalBindings>
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

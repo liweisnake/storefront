@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.hp.com/sgf/wsdl/sgf_api/servicegroup_mgmtEx/v1_0/service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.hp.com/sgf/wsdl/sgf_api/servicegroup_mgmtEx/v1_0/service" xmlns:intf="http://www.hp.com/sgf/wsdl/sgf_api/servicegroup_mgmtEx/v1_0/service" xmlns:tns1="http://www.hp.com/sgf/schema/sgf_api/servicegroup_mgmt/v1_0/" xmlns:tns2="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/servicegroup_mgmt/v1_0/"/>
+      <complexType name="LoginCredentials">
+        <sequence>
+          <element name="username" type="xsd:string"/>
+          <element name="password" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="Transport">
+        <restriction base="xsd:string">
+          <enumeration value="HTTP"/>
+          <enumeration value="HTTPS"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ExceptionType">
+        <restriction base="xsd:string">
+          <enumeration value="SERVICEGROUP_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_MODIFY_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="PARTNER_REGISTER_EXCEPTION"/>
+          <enumeration value="PARTNER_MODIFY_EXCEPTION"/>
+          <enumeration value="PARTNER_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICE_APPROVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICE_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="COS_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="FLEXREPORTS_EXCEPTION"/>
+          <enumeration value="EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="GET_REST_FOR_WS_EXCEPTION"/>
+          <enumeration value="GET_METADATA_EXCEPTION"/>
+          <enumeration value="DOMAIN_RETRIEVAL_EXCEPTION "/>
+          <enumeration value="REGISTER_WS_EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="REGISTER_METADATA_EXCEPTION"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Status">
+        <sequence>
+          <element name="code" type="xsd:string"/>
+          <element name="text" type="tns2:ExceptionType"/>
+          <element name="details" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SGFException">
+        <sequence>
+          <element name="sgfVersion" type="xsd:string"/>
+          <element name="status" type="tns2:Status"/>
+        </sequence>
+      </complexType>
+      <element name="SGFException" type="tns2:SGFException"/>
+    </schema>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/servicegroup_mgmt/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/"/>
+      <complexType name="Duration">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SourceIPAddresses">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="ip" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="Mode">
+        <restriction base="xsd:string">
+          <enumeration value="None"/>
+          <enumeration value="Testing Mode"/>
+          <enumeration value="Deployment Mode"/>
+        </restriction>
+      </simpleType>
+      <complexType name="MSISDNs">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="msisdn" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="WhiteOrBlackList">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="mode" type="tns1:Mode"/>
+          <element maxOccurs="1" minOccurs="0" name="msisdns" type="tns1:MSISDNs"/>
+        </sequence>
+      </complexType>
+      <simpleType name="InboundValue">
+        <restriction base="xsd:string">
+          <enumeration value="BASIC"/>
+          <enumeration value="SSL_BASIC"/>
+          <enumeration value="SSL_CERT"/>
+        </restriction>
+      </simpleType>
+      <complexType name="InboundSecurity">
+        <sequence>
+          <element name="value" type="tns1:InboundValue"/>
+        </sequence>
+      </complexType>
+      <complexType name="Basic">
+        <sequence>
+          <element name="userName" type="xsd:string"/>
+          <element name="password" type="xsd:string"/>
+          <element name="confirmPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="Authentication">
+        <sequence>
+          <element name="basic" type="tns1:Basic"/>
+        </sequence>
+      </complexType>
+      <complexType name="OutboundSecurity">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="authentication" type="tns1:Authentication"/>
+          <element maxOccurs="1" minOccurs="0" name="transport" type="tns2:Transport"/>
+        </sequence>
+      </complexType>
+      <complexType name="GENERIC">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="applicationURL" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="outboundSecurity" type="tns1:OutboundSecurity"/>
+        </sequence>
+      </complexType>
+      <complexType name="MMS">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="mmsCredentials" type="tns1:GENERIC"/>
+          <element maxOccurs="1" minOccurs="0" name="shortCode" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="keyword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="vaspId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="vasId" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SMS">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="smsCredentials" type="tns1:GENERIC"/>
+          <element maxOccurs="1" minOccurs="0" name="shortCode" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="address" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="keyword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="VXML">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="vxmlCredentials" type="tns1:GENERIC"/>
+          <element maxOccurs="1" minOccurs="0" name="dialNumber" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ServiceIndicationDetails">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="mms" type="tns1:MMS"/>
+          <element maxOccurs="1" minOccurs="0" name="sms" type="tns1:SMS"/>
+          <element maxOccurs="1" minOccurs="0" name="vxml" type="tns1:VXML"/>
+          <element maxOccurs="1" minOccurs="0" name="generic" type="tns1:GENERIC"/>
+        </sequence>
+      </complexType>
+      <complexType name="Service">
+        <sequence>
+          <element name="id" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="inboundSecurity" type="tns1:InboundSecurity"/>
+          <element maxOccurs="1" minOccurs="0" name="serviceIndicationDetails" type="tns1:ServiceIndicationDetails"/>
+        </sequence>
+      </complexType>
+      <complexType name="Services">
+        <sequence>
+          <element maxOccurs="unbounded" name="service" type="tns1:Service"/>
+        </sequence>
+      </complexType>
+      <simpleType name="AccessMode">
+        <restriction base="xsd:string">
+          <enumeration value="Commercial"/>
+          <enumeration value="Neither"/>
+          <enumeration value="Test"/>
+          <enumeration value="Both"/>
+        </restriction>
+      </simpleType>
+      <complexType name="WLNG">
+        <sequence>
+          <element name="applicationType" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="shortCode" type="xsd:string"/>
+          <element name="loginCredentials" type="tns2:LoginCredentials"/>
+          <element maxOccurs="1" minOccurs="0" name="prefix" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="mailboxId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="mailboxPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ServiceGroup">
+        <sequence>
+          <element name="newName" type="xsd:string"/>
+          <element name="oldName" type="xsd:string"/>
+          <element name="partner" type="xsd:string"/>
+          <element name="loginInfo" type="tns2:LoginCredentials"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="duration" type="tns1:Duration"/>
+          <element maxOccurs="1" minOccurs="0" name="sourceIPAddresses" type="tns1:SourceIPAddresses"/>
+          <element maxOccurs="1" minOccurs="0" name="whiteOrBlackList" type="tns1:WhiteOrBlackList"/>
+          <element name="services" type="tns1:Services"/>
+          <element maxOccurs="1" minOccurs="0" name="coSCategory" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accessMode" type="tns1:AccessMode"/>
+          <element maxOccurs="1" minOccurs="0" name="wlngDetails" type="tns1:WLNG"/>
+        </sequence>
+      </complexType>
+      <complexType name="RegisterServiceGroup">
+        <sequence>
+          <element name="serviceGroup" type="tns1:ServiceGroup"/>
+        </sequence>
+      </complexType>
+      <element name="registerServiceGroup" type="tns1:RegisterServiceGroup"/>
+      <complexType name="RegisterServiceGroupResponse">
+        <sequence>
+          <element name="result" type="xsd:anyType"/>
+        </sequence>
+      </complexType>
+      <element name="registerServiceGroupResponse" type="tns1:RegisterServiceGroupResponse"/>
+      <complexType name="ModifyServiceGroup">
+        <sequence>
+          <element name="serviceGroup" type="tns1:ServiceGroup"/>
+        </sequence>
+      </complexType>
+      <element name="modifyServiceGroup" type="tns1:ModifyServiceGroup"/>
+      <complexType name="ModifyServiceGroupResponse">
+        <sequence>
+          <element name="result" type="xsd:anyType"/>
+        </sequence>
+      </complexType>
+      <element name="modifyServiceGroupResponse" type="tns1:ModifyServiceGroupResponse"/>
+      <complexType name="DeleteServiceGroup">
+        <sequence>
+          <element name="serviceGroupName" type="xsd:string"/>
+          <element name="username" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="reason" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="deleteServiceGroup" type="tns1:DeleteServiceGroup"/>
+      <complexType name="DeleteServiceGroupResponse">
+        <sequence>
+          <element name="result" type="xsd:anyType"/>
+        </sequence>
+      </complexType>
+      <element name="deleteServiceGroupResponse" type="tns1:DeleteServiceGroupResponse"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="registerServiceGroupRequest">
+    <wsdl:part element="tns1:registerServiceGroup" name="registerServiceGroup"/>
+  </wsdl:message>
+  <wsdl:message name="modifyServiceGroupResponse">
+    <wsdl:part element="tns1:modifyServiceGroupResponse" name="modifyServiceGroupResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SGFException">
+    <wsdl:part element="tns2:SGFException" name="SGFException"/>
+  </wsdl:message>
+  <wsdl:message name="modifyServiceGroupRequest">
+    <wsdl:part element="tns1:modifyServiceGroup" name="modifyServiceGroup"/>
+  </wsdl:message>
+  <wsdl:message name="deleteServiceGroupResponse">
+    <wsdl:part element="tns1:deleteServiceGroupResponse" name="deleteServiceGroupResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteServiceGroupRequest">
+    <wsdl:part element="tns1:deleteServiceGroup" name="deleteServiceGroup"/>
+  </wsdl:message>
+  <wsdl:message name="registerServiceGroupResponse">
+    <wsdl:part element="tns1:registerServiceGroupResponse" name="registerServiceGroupResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceGroupEx">
+    <wsdl:operation name="registerServiceGroup" parameterOrder="registerServiceGroup">
+      <wsdl:input message="impl:registerServiceGroupRequest" name="registerServiceGroupRequest"/>
+      <wsdl:output message="impl:registerServiceGroupResponse" name="registerServiceGroupResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceGroup" parameterOrder="modifyServiceGroup">
+      <wsdl:input message="impl:modifyServiceGroupRequest" name="modifyServiceGroupRequest"/>
+      <wsdl:output message="impl:modifyServiceGroupResponse" name="modifyServiceGroupResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteServiceGroup" parameterOrder="deleteServiceGroup">
+      <wsdl:input message="impl:deleteServiceGroupRequest" name="deleteServiceGroupRequest"/>
+      <wsdl:output message="impl:deleteServiceGroupResponse" name="deleteServiceGroupResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceGroupExSoapBinding" type="impl:ServiceGroupEx">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="registerServiceGroup">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="registerServiceGroupRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerServiceGroupResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceGroup">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="modifyServiceGroupRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="modifyServiceGroupResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteServiceGroup">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="deleteServiceGroupRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteServiceGroupResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceGroupServiceEx">
+    <wsdl:port binding="impl:ServiceGroupExSoapBinding" name="ServiceGroupEx">
+      <wsdlsoap:address location="http://16.157.132.78:6001/AdminWebApp/webservices/ServiceGroupEx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

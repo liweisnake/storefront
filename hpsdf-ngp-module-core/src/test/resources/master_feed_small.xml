@@ -1,0 +1,681 @@
+<?xml version="1.0" ?>
+<data xmlns="http://www.handmark.com/master_browse_response" xmlns:dt="http://www.handmark.com/DataTypes">
+<catalog>
+<catalog_id>63</catalog_id>
+<catalog_name>Demo User Catalog</catalog_name>
+<categories>
+    <category>
+        <category_id>261</category_id>
+        <display_name>
+            <dt:language><![CDATA[eng]]></dt:language>
+            <dt:value><![CDATA[Applications]]></dt:value>
+        </display_name>
+        <sub_categories>
+            <category>
+                <category_id>256</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Utilities]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>255</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Travel]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>270</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Reference]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>253</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Multimedia]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>254</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Productivity]]></dt:value>
+                </display_name>
+            </category>
+        </sub_categories>
+    </category>
+    <category>
+        <category_id>260</category_id>
+        <display_name>
+            <dt:language><![CDATA[eng]]></dt:language>
+            <dt:value><![CDATA[Games]]></dt:value>
+        </display_name>
+        <sub_categories>
+            <category>
+                <category_id>271</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Astraware]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>251</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Sports]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>247</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Puzzle & Board]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>249</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Card & Casino]]></dt:value>
+                </display_name>
+            </category>
+            <category>
+                <category_id>250</category_id>
+                <display_name>
+                    <dt:language><![CDATA[eng]]></dt:language>
+                    <dt:value><![CDATA[Action & Strategy]]></dt:value>
+                </display_name>
+            </category>
+        </sub_categories>
+    </category>
+</categories>
+</catalog>
+<products>
+                    <product>
+                        <product_id><![CDATA[135593]]></product_id>
+                        <image><![CDATA[http://www.handmark.com/images/products/135593/product135593-t.jpg]]></image>
+                        <primary_image><![CDATA[http://www.handmark.com/images/products/135593/product135593-p.jpg]]></primary_image>
+                        <display_name>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[ Advanced Blocker for Symbian Series 60]]></dt:value>
+                        </display_name>
+                        <description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[You no longer need to turn off your phone just to avoid interruptions ]]></dt:value>
+                        </description>
+                        <full_description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Advanced Blocker is all-in-one solution to help you filter unwanted voice calls, video calls, text messages, MMS and WAP Push messages.
+Product Features:
+-Silent instant reject of all blacklisted numbers, number patterns and text rules
+-Auto-start mode - option to automatically start-up Advanced Blocker after phone restart
+-Discreet activity indicator on the phone&#39;s stand-by screen
+-Blocked history log for detailed history of filtered events
+-Visual indicators providing instant overview of all new blocked events in the blacklist rules main screen]]></dt:value>
+                        </full_description>
+                        <prices>
+                            <dt:currency><![CDATA[USD]]></dt:currency>
+                            <dt:prod_price><![CDATA[39.99]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[GBP]]></dt:currency>
+                            <dt:prod_price><![CDATA[15.0000]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[EUR]]></dt:currency>
+                            <dt:prod_price><![CDATA[15.0000]]></dt:prod_price>
+                        </prices>
+                        <developer><![CDATA[Melon Mobile (Webgate)]]></developer>
+                        <version><![CDATA[2.12]]></version>
+                        <version_last_updated><![CDATA[2009-09-08T15:34:20]]></version_last_updated>
+                        <rating><![CDATA[0]]></rating>
+                        <requires_email><![CDATA[false]]></requires_email>
+                        <devices>
+                            <dt:device>601</dt:device>
+                            <dt:device>602</dt:device>
+                            <dt:device>603</dt:device>
+                            <dt:device>625</dt:device>
+                            <dt:device>679</dt:device>
+                            <dt:device>680</dt:device>
+                            <dt:device>681</dt:device>
+                            <dt:device>682</dt:device>
+                            <dt:device>683</dt:device>
+                            <dt:device>749</dt:device>
+                            <dt:device>750</dt:device>
+                            <dt:device>814</dt:device>
+                            <dt:device>815</dt:device>
+                            <dt:device>816</dt:device>
+                            <dt:device>857</dt:device>
+                            <dt:device>858</dt:device>
+                            <dt:device>950</dt:device>
+                            <dt:device>1008</dt:device>
+                            <dt:device>1009</dt:device>
+                            <dt:device>1010</dt:device>
+                            <dt:device>1080</dt:device>
+                            <dt:device>1083</dt:device>
+                            <dt:device>1085</dt:device>
+                            <dt:device>1086</dt:device>
+                            <dt:device>1087</dt:device>
+                            <dt:device>1088</dt:device>
+                            <dt:device>1089</dt:device>
+                            <dt:device>1101</dt:device>
+                            <dt:device>1123</dt:device>
+                            <dt:device>1125</dt:device>
+                            <dt:device>1127</dt:device>
+                            <dt:device>1258</dt:device>
+                            <dt:device>1259</dt:device>
+                        </devices>
+                        <countries>
+                            <dt:country>USA</dt:country>
+                        </countries>
+                        <categories>
+                            <dt:category><![CDATA[256]]></dt:category>
+                        </categories>
+                    </product>
+                    <product>
+                        <product_id><![CDATA[651]]></product_id>
+                        <image><![CDATA[http://www.handmark.com/images/products/651/product651-t.jpg]]></image>
+                        <primary_image><![CDATA[http://www.handmark.com/images/products/651/product651-p.jpg]]></primary_image>
+                        <display_name>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[1-Calc]]></dt:value>
+                        </display_name>
+                        <display_name>
+                            <dt:language><![CDATA[fre]]></dt:language>
+                            <dt:value><![CDATA[1-Calc pour PC de poche Windows Mobile]]></dt:value>
+                        </display_name>
+                        <description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[A revolutionary, easy-to-use calculator with full scientific, unit converter, auto-update currency converter and base converter capabilities. Completely customizable.]]></dt:value>
+                        </description>
+                        <description>
+                            <dt:language><![CDATA[fre]]></dt:language>
+                            <dt:value><![CDATA[Une calculatrice r?volutionnaire facile ? utiliser avec fonctions scientifiques, convertisseur d&#39;unit?s, convertisseur de devises ? mise ? jour automatique et convertisseur de bases. Est enti?rement personnalisable.]]></dt:value>
+                        </description>
+                        <full_description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[ A revolutionary, new calculator for the Pocket PC.  It features large buttons you can easily hit with your finger. The buttons provide clear audible and visual feedback of being pressed. 
+While 1-Calc was designed to be your "everyday" calculator, it also can perform advanced calculations. By using the up/down buttons on your Pocket PC or the green option button, you can display the following functions:
+
+Basic Functions: The most common calculator functions at your fingertips: +, -, x, +/-, 1/x, %, full memory functions, x^y, !, Exp, 10^x, e^x. Also supports Algebraic, RPN and DAL calculator modes.
+To edit mistakes, press the backspace button. Brackets will correctly frame your expressions.
+
+Currency Converter: 1-Calc grabs the latest currency rates from the Internet. Wherever you are, you&#39;ll always have the latest rates with you!Quickly convert among all major currencies. With Battery Pack Pro installed, you can tap on the currency rate in Power Time. Then, you&#39;ll immediately be taken to 1-Calc.
+
+Unit Converter: A full unit converter that not only helps for the everyday conversions (e.g. km/miles, Fahrenheit/Celsius), but also for the unexpected (what&#39;s my shoe size in Europe?!?).
+
+Financial & Statistical Functions: 1-Calc features popular financial functions like Time Value Money, Percentage Change, Interest Rate Conversions, Depreciation, Profit Margin and Break Even. Also solve statistics regression problems and convert between dates.
+
+Graphing Calculator: Get all the functionality of a $150 graphing calculator on your Pocket PC. See the paths of as many as four equations plotted on a graph. Also calculate quadratic equations.
+
+Scientific Functions: Features sin, cos, tan, deg/rad/grad, PI, sin-1, cos-1, tan-1, sinh, cosh, tanh, log, ln, sinh-1, cosh-1, tanh-1, Dec->Deg, Deg->Dec, XY->R, R->X, XY->, R?->Y, Random, nPr, nCr and Last Answer.
+Useful constants for scientific calculations are also available as a group of buttons. You don&#39;t need to keep constants on a scrap of paper any more!
+
+Tip Calculator: Finally work out who should pay when you&#39;re out with friends!
+
+Memory Banks: 1-Calc features five memory banks to store your previous calculations. Most calculators only feature one memory bank. Plus, you can copy/paste information from programs like Excel and Word.
+
+Base Converter: Quickly convert among binary, decimal, hexadecimal and octal numbers.
+
+Customization:Want to display all your buttons at the same time? No problem! 1-Calc can display 40 smaller buttons on one page, and a quick tap of the up/down button can display 80 more.
+1-Calc also allows button groups to be customized. That means you can display just the buttons important to your everyday calculations.
+
+Skinning: Skinning (changing how the calculator looks) is an integral feature of 1-Calc. With 1-Calc, you can choose from a variety of designs!]]></dt:value>
+                        </full_description>
+                        <full_description>
+                            <dt:language><![CDATA[fre]]></dt:language>
+                            <dt:value><![CDATA[Une calculatrice r?volutionnaire facile ? utiliser avec fonctions scientifiques, convertisseur d?unit?s, convertisseur de devises ? mise ? jour automatique et convertisseur de bases. Est enti?rement personnalisable.]]></dt:value>
+                        </full_description>
+                        <prices>
+                            <dt:currency><![CDATA[USD]]></dt:currency>
+                            <dt:prod_price><![CDATA[29.99]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[GBP]]></dt:currency>
+                            <dt:prod_price><![CDATA[10.0000]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[EUR]]></dt:currency>
+                            <dt:prod_price><![CDATA[15.0000]]></dt:prod_price>
+                        </prices>
+                        <developer><![CDATA[Omega One]]></developer>
+                        <version><![CDATA[3.2.3]]></version>
+                        <version_last_updated><![CDATA[2010-03-09T20:14:43]]></version_last_updated>
+                        <rating><![CDATA[0]]></rating>
+                        <requires_email><![CDATA[false]]></requires_email>
+                        <devices>
+                            <dt:device>623</dt:device>
+                            <dt:device>642</dt:device>
+                            <dt:device>643</dt:device>
+                            <dt:device>651</dt:device>
+                            <dt:device>652</dt:device>
+                            <dt:device>667</dt:device>
+                            <dt:device>671</dt:device>
+                            <dt:device>695</dt:device>
+                            <dt:device>697</dt:device>
+                            <dt:device>727</dt:device>
+                            <dt:device>732</dt:device>
+                            <dt:device>769</dt:device>
+                            <dt:device>813</dt:device>
+                            <dt:device>835</dt:device>
+                            <dt:device>907</dt:device>
+                            <dt:device>912</dt:device>
+                            <dt:device>928</dt:device>
+                            <dt:device>929</dt:device>
+                            <dt:device>932</dt:device>
+                            <dt:device>944</dt:device>
+                            <dt:device>964</dt:device>
+                            <dt:device>972</dt:device>
+                            <dt:device>973</dt:device>
+                            <dt:device>974</dt:device>
+                            <dt:device>976</dt:device>
+                            <dt:device>992</dt:device>
+                            <dt:device>993</dt:device>
+                            <dt:device>997</dt:device>
+                            <dt:device>1002</dt:device>
+                            <dt:device>1055</dt:device>
+                            <dt:device>1057</dt:device>
+                            <dt:device>1060</dt:device>
+                            <dt:device>1065</dt:device>
+                            <dt:device>1070</dt:device>
+                            <dt:device>1071</dt:device>
+                            <dt:device>1075</dt:device>
+                            <dt:device>1140</dt:device>
+                            <dt:device>1141</dt:device>
+                            <dt:device>1161</dt:device>
+                            <dt:device>1183</dt:device>
+                            <dt:device>1188</dt:device>
+                        </devices>
+                        <countries>
+                            <dt:country>USA</dt:country>
+                        </countries>
+                        <categories>
+                            <dt:category><![CDATA[256]]></dt:category>
+                        </categories>
+                    </product>
+                    <product>
+                        <product_id><![CDATA[822]]></product_id>
+                        <image><![CDATA[http://www.handmark.com/images/products/822/product822-t.gif]]></image>
+                        <primary_image><![CDATA[http://www.handmark.com/images/products/822/product822-p.gif]]></primary_image>
+                        <display_name>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[1-HomeEdit]]></dt:value>
+                        </display_name>
+                        <display_name>
+                            <dt:language><![CDATA[fre]]></dt:language>
+                            <dt:value><![CDATA[1-HomeEdit pour téléphone intelligent Windows Mobile]]></dt:value>
+                        </display_name>
+                        <description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[A Home Screen Editor for your Smartphone! Change the background image to any image on your Smartphone. Add or remove the elements (Plug-ins) on the Home Screen. Change the exact color of all aspects of your Smartphone to create new color themes. Choose from 20 new color schemes. Save and load your edited Home Screens. Supports all Smartphone screen sizes.]]></dt:value>
+                        </description>
+                        <description>
+                            <dt:language><![CDATA[fre]]></dt:language>
+                            <dt:value><![CDATA[A Home Screen Editor for your Smartphone! Change the background image to any image on your Smartphone. Add or remove the elements (Plug-ins) on the Home Screen. Change the exact color of all aspects of your Smartphone to create new color themes. Choose from 20 new color schemes. Save and load your edited Home Screens. Supports all Smartphone screen sizes.]]></dt:value>
+                        </description>
+                        <full_description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[The ultimate home screen editor for Smartphone.
+
+Have you ever wanted to adjust your Smartphone&#39;s home screen to look exactly how you wish?
+
+ With 1-HomeEdit, you can:  
+Swap the background image to any image on your Smartphone (including images from your camera).
+
+Add or remove the elements (plug-ins) on the home screen. Adjust the properties of the plug-ins to your exact requirements.
+
+Change the exact color of all aspects of your Smartphone to create new color themes.
+
+ Background Image:  1-HomeEdit allows the user to select any image stored on the Smartphone. Use an image taken with the camera, edit and copy an image from your PC to the phone or use an image already stored on the phone.
+ 
+ Plug-ins: Plug-ins are the elements that make up the Smartphone&#39;s home screen. Using patent pending technology, 1-HomeEdit displays all the available plug-ins on the system (including any new ones you may have installed from third parties). Select which should be displayed, and in what order they should appear. 1-HomeEdit displays helpful information about each plug-in, and allows the properties of some plug-ins to be adjusted. 
+
+ Color Schemes:  The Smartphone allows all the colors to be edited. 1-HomeEdit comes with 20 great color schemes to start your editing from, or to use as is. Create color schemes to match your mood! 
+
+ Preview:  Use the preview feature to see what your changes will look like. 
+
+ Load and Save:  After editing the home screen, you can store your changes.
+
+New features: 
+More customization of home screen plug-ins! Background images can be resized and rotated.
+
+Supports multiple fonts and 20 all-new color themes.
+
+Faster loading.
+
+When loading themes, the plug-ins and background images don&#39;t change.
+
+Preview a color theme before loading it.
+
+Help fully updated. More detailed help for editing plug-ins. Tutorial for first-time users.
+]]></dt:value>
+                        </full_description>
+                        <full_description>
+                            <dt:language><![CDATA[fre]]></dt:language>
+                            <dt:value><![CDATA[L’éditeur d’écran d’accueil supréme pour téléphone intelligent.]]></dt:value>
+                        </full_description>
+                        <prices>
+                            <dt:currency><![CDATA[USD]]></dt:currency>
+                            <dt:prod_price><![CDATA[19.99]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[GBP]]></dt:currency>
+                            <dt:prod_price><![CDATA[10.0000]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[EUR]]></dt:currency>
+                            <dt:prod_price><![CDATA[10.0000]]></dt:prod_price>
+                        </prices>
+                        <developer><![CDATA[Omega One]]></developer>
+                        <version><![CDATA[1.4.1]]></version>
+                        <version_last_updated><![CDATA[2007-09-25T19:55:49]]></version_last_updated>
+                        <rating><![CDATA[0]]></rating>
+                        <requires_email><![CDATA[false]]></requires_email>
+                        <devices>
+                            <dt:device>638</dt:device>
+                            <dt:device>724</dt:device>
+                            <dt:device>731</dt:device>
+                            <dt:device>737</dt:device>
+                            <dt:device>794</dt:device>
+                            <dt:device>799</dt:device>
+                            <dt:device>826</dt:device>
+                            <dt:device>844</dt:device>
+                            <dt:device>846</dt:device>
+                            <dt:device>925</dt:device>
+                            <dt:device>927</dt:device>
+                            <dt:device>933</dt:device>
+                            <dt:device>934</dt:device>
+                            <dt:device>935</dt:device>
+                            <dt:device>951</dt:device>
+                            <dt:device>952</dt:device>
+                            <dt:device>954</dt:device>
+                            <dt:device>991</dt:device>
+                            <dt:device>1000</dt:device>
+                            <dt:device>1059</dt:device>
+                            <dt:device>1072</dt:device>
+                            <dt:device>1073</dt:device>
+                            <dt:device>1077</dt:device>
+                            <dt:device>1157</dt:device>
+                            <dt:device>1160</dt:device>
+                        </devices>
+                        <countries>
+                            <dt:country>USA</dt:country>
+                        </countries>
+                        <categories>
+                            <dt:category><![CDATA[256]]></dt:category>
+                            <dt:category><![CDATA[255]]></dt:category>
+                        </categories>
+                    </product>
+                    <product>
+                        <product_id><![CDATA[121360]]></product_id>
+                        <image><![CDATA[http://www.handmark.com/images/products/121360/product121360-t.jpg]]></image>
+                        <primary_image><![CDATA[http://www.handmark.com/images/products/121360/product121360-p.jpg]]></primary_image>
+                        <display_name>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Advanced Call Manager]]></dt:value>
+                        </display_name>
+                        <description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Take control of your incoming calls. Advanced Call Manager sets different actions for groups you have defined - you can accept calls, reject calls, send personalized SMS or mute the ringer. ]]></dt:value>
+                        </description>
+                        <full_description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Take control of your time!
+
+Are you busy? Constantly in important meetings and discussions? Is your phone always ringing at a bad time? Take control with Advanced Call Manager! It will handle incoming calls for you - play an instant busy tone, drop the call, send a kind SMS or mute the ringer.
+
+Advanced Call Manager handles your incoming calls with a personalized approach to different callers. You can easily save different profiles and schedule them according to time or location.
+
+Take your time with Advanced Call Manager! Organize your phone book into custom lists like Black list (people you don&#39;t want to disturb you), White list (important people who are "allowed" to call you) or any other custom list (a very special group could be your family to which you may wish to send a personal SMS if they call during a business meeting).
+Advanced Call Manager lets you adjust your phone to several modes:
+-Accept all calls (inactive)
+-Reject all calls
+-Accept Phonebook only
+-Reject from black list (you have to define the list in advance)
+-Accept from white list (you have to define the list in advance)
+-Reject all + custom action (e.g. send SMS to your wife or girlfriend if she calls)
+Supported Reject Actions:
+- Send busy tone/drop
+- Reply by SMS
+- Mute the ringer
+
+How Advanced is the Advanced Call Manager? Always a step ahead of the competition, it seamlessly integrates with your phone and secures flawless call capturing and handling - allowing you to enjoy your time and privacy.
+Product Features:
+- Ultra-fast recognition and capturing of incoming calls, leaving the caller unaware of your current un/availability
+- Profiles support to save frequently used scenarios and settings
+- Handling of hidden callers to help you avoid people whose numbers cannot be retrieved
+- Integration with the contacts from the phone book
+- Automatic profiles activation based on your location or time of day
+- Effectively handles any situation and all incoming call traffic
+- Auto-run at power-on
+
+]]></dt:value>
+                        </full_description>
+                        <prices>
+                            <dt:currency><![CDATA[USD]]></dt:currency>
+                            <dt:prod_price><![CDATA[25.99]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[GBP]]></dt:currency>
+                            <dt:prod_price><![CDATA[10.0000]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[EUR]]></dt:currency>
+                            <dt:prod_price><![CDATA[15.0000]]></dt:prod_price>
+                        </prices>
+                        <developer><![CDATA[Melon Mobile (Webgate)]]></developer>
+                        <version><![CDATA[2.60]]></version>
+                        <version_last_updated><![CDATA[2009-05-20T06:51:57]]></version_last_updated>
+                        <rating><![CDATA[5]]></rating>
+                        <requires_email><![CDATA[false]]></requires_email>
+                        <devices>
+                            <dt:device>620</dt:device>
+                            <dt:device>654</dt:device>
+                            <dt:device>668</dt:device>
+                            <dt:device>726</dt:device>
+                            <dt:device>736</dt:device>
+                            <dt:device>765</dt:device>
+                            <dt:device>775</dt:device>
+                            <dt:device>820</dt:device>
+                            <dt:device>821</dt:device>
+                            <dt:device>852</dt:device>
+                            <dt:device>947</dt:device>
+                            <dt:device>948</dt:device>
+                            <dt:device>955</dt:device>
+                            <dt:device>981</dt:device>
+                            <dt:device>986</dt:device>
+                            <dt:device>989</dt:device>
+                            <dt:device>990</dt:device>
+                            <dt:device>1052</dt:device>
+                            <dt:device>1063</dt:device>
+                            <dt:device>1122</dt:device>
+                            <dt:device>1124</dt:device>
+                            <dt:device>1126</dt:device>
+                            <dt:device>1128</dt:device>
+                            <dt:device>1138</dt:device>
+                        </devices>
+                        <countries>
+                            <dt:country>USA</dt:country>
+                        </countries>
+                        <categories>
+                            <dt:category><![CDATA[256]]></dt:category>
+                        </categories>
+                    </product>
+                    <product>
+                        <product_id><![CDATA[2143]]></product_id>
+                        <image><![CDATA[http://www.handmark.com/images/products/2143/product2143-t.jpg]]></image>
+                        <primary_image><![CDATA[http://www.handmark.com/images/products/2143/product2143-p.jpg]]></primary_image>
+                        <display_name>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Advanced Call Manager ]]></dt:value>
+                        </display_name>
+                        <description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Take control of your incoming calls. ACM enables you to set different actions for the groups you have defined - you can accept, reject, divert calls, send personalized SMS, etc.]]></dt:value>
+                        </description>
+                        <full_description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[If you are busy and constantly in important meetings, is your mobile always ringing at a bad time? If so, you can manage those calls with Advanced Call Manager. 
+
+Advanced Call Manager will handle incoming calls for you and personalize your approach to the callers. For instance, you can answer with a busy tone/drop, send a kind SMS, divert calls, mute the ringer or play a personal greeting. 
+
+Important Advantage: The Advanced Call Manager&#39;s unique feature is the ultra-fast recognition of remote callers. This allows personalized replies (SMS, mute, reject, accept, greet, divert) to be attributed to calls. This functionality makes it a very convenient tool for any manager, because it saves time by taking over the management of your incoming calls.
+
+Functionality: With Advanced Call Manager, you can organize your phone book into custom lists like Black (people you don&#39;t want to disturb you), White List (important people who are "allowed" to call you) or any other custom lists. The application enables you to set different actions for the groups you have defined. You can accept, reject, divert calls, send personalized SMS, play a personalized greeting or mute the ringer. In SMS templates, you can set special messages for each group very easily. You can do the same with the personalized greetings.
+
+Additional Features:
+
+Ultra fast searching algorithm recognizes the remote caller in less than 1 second 
+Convenient management of all incoming calls 
+Auto run at power-on feature
+Status indicator of the program activity 
+Tight integration with the contacts from the phone book 
+Profiles Management: save your current ACM configuration
+Profile Schedule: Schedule your custom configuration
+Profiles localization: Localize your custom configuration according to your current cell ID
+
+]]></dt:value>
+                        </full_description>
+                        <prices>
+                            <dt:currency><![CDATA[USD]]></dt:currency>
+                            <dt:prod_price><![CDATA[25.99]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[GBP]]></dt:currency>
+                            <dt:prod_price><![CDATA[5.0000]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[EUR]]></dt:currency>
+                            <dt:prod_price><![CDATA[10.0000]]></dt:prod_price>
+                        </prices>
+                        <developer><![CDATA[Melon Mobile (Webgate)]]></developer>
+                        <version><![CDATA[2.72]]></version>
+                        <version_last_updated><![CDATA[2009-04-01T08:13:17]]></version_last_updated>
+                        <rating><![CDATA[0]]></rating>
+                        <requires_email><![CDATA[false]]></requires_email>
+                        <devices>
+                            <dt:device>601</dt:device>
+                            <dt:device>602</dt:device>
+                            <dt:device>603</dt:device>
+                            <dt:device>625</dt:device>
+                            <dt:device>679</dt:device>
+                            <dt:device>680</dt:device>
+                            <dt:device>681</dt:device>
+                            <dt:device>682</dt:device>
+                            <dt:device>683</dt:device>
+                            <dt:device>749</dt:device>
+                            <dt:device>750</dt:device>
+                            <dt:device>814</dt:device>
+                            <dt:device>815</dt:device>
+                            <dt:device>816</dt:device>
+                            <dt:device>857</dt:device>
+                            <dt:device>858</dt:device>
+                            <dt:device>950</dt:device>
+                            <dt:device>1008</dt:device>
+                            <dt:device>1009</dt:device>
+                            <dt:device>1010</dt:device>
+                            <dt:device>1080</dt:device>
+                            <dt:device>1083</dt:device>
+                            <dt:device>1085</dt:device>
+                            <dt:device>1086</dt:device>
+                            <dt:device>1087</dt:device>
+                            <dt:device>1088</dt:device>
+                            <dt:device>1089</dt:device>
+                            <dt:device>1101</dt:device>
+                            <dt:device>1123</dt:device>
+                            <dt:device>1125</dt:device>
+                            <dt:device>1127</dt:device>
+                            <dt:device>1258</dt:device>
+                            <dt:device>1259</dt:device>
+                        </devices>
+                        <countries>
+                            <dt:country>USA</dt:country>
+                        </countries>
+                        <categories>
+                            <dt:category><![CDATA[256]]></dt:category>
+                            <dt:category><![CDATA[254]]></dt:category>
+                        </categories>
+                    </product>
+                    <product>
+                        <product_id><![CDATA[142781]]></product_id>
+                        <image><![CDATA[http://www.handmark.com/images/products/142781/product142781-t.jpg]]></image>
+                        <primary_image><![CDATA[http://www.handmark.com/images/products/142781/product142781-p.jpg]]></primary_image>
+                        <display_name>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Advanced Device Locks]]></dt:value>
+                        </display_name>
+                        <description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Advanced Device Locks is a BlackBerry application that locks your entire phone or selected applications , such as Messages, Pictures, Contacts or Video.]]></dt:value>
+                        </description>
+                        <full_description>
+                            <dt:language><![CDATA[eng]]></dt:language>
+                            <dt:value><![CDATA[Do you need to protect important information and personal data on your phone? Do you need to restrict the access to certain applications? Do you need to stay confident that your phone applications will not be accessible even if the phone is lost or stolen?
+
+Advanced Device Locks (ADL) allows you to lock your phone or selected applications to prevent them from unsolicited access. With ADL you can secure your phone by locking it with a code and stay confident that your phone will not be accessed to other people even if the phone is lost or stolen.
+
+Advanced Device Locks can be configured to automatically lock your phone at one of the following options or combination of many:
+-At power on - each time the phone is turned on.
+-Automatic lock - after a specified period of inactivity.
+-Protect applications - if someone tries to access the protected applications.
+
+With Advanced Device Locks you have the unique option to choose whether to lock the phone itself, to lock selected applications or to combine these two options and lock both the phone and the applications on it. This option allows you to choose your own level of security - from full phone lock to protection selected secret and sensitive applications that give access to certain services or data on the phone.
+]]></dt:value>
+                        </full_description>
+                        <prices>
+                            <dt:currency><![CDATA[USD]]></dt:currency>
+                            <dt:prod_price><![CDATA[15.99]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[GBP]]></dt:currency>
+                            <dt:prod_price><![CDATA[7.0000]]></dt:prod_price>
+                        </prices>
+                        <prices>
+                            <dt:currency><![CDATA[EUR]]></dt:currency>
+                            <dt:prod_price><![CDATA[10.0000]]></dt:prod_price>
+                        </prices>
+                        <developer><![CDATA[Melon Mobile (Webgate)]]></developer>
+                        <version><![CDATA[1.01]]></version>
+                        <version_last_updated><![CDATA[2009-10-16T16:15:27]]></version_last_updated>
+                        <rating><![CDATA[5]]></rating>
+                        <requires_email><![CDATA[false]]></requires_email>
+                        <devices>
+                            <dt:device>620</dt:device>
+                            <dt:device>654</dt:device>
+                            <dt:device>668</dt:device>
+                            <dt:device>726</dt:device>
+                            <dt:device>736</dt:device>
+                            <dt:device>765</dt:device>
+                            <dt:device>775</dt:device>
+                            <dt:device>820</dt:device>
+                            <dt:device>821</dt:device>
+                            <dt:device>852</dt:device>
+                            <dt:device>947</dt:device>
+                            <dt:device>948</dt:device>
+                            <dt:device>955</dt:device>
+                            <dt:device>981</dt:device>
+                            <dt:device>986</dt:device>
+                            <dt:device>989</dt:device>
+                            <dt:device>990</dt:device>
+                            <dt:device>1052</dt:device>
+                            <dt:device>1063</dt:device>
+                            <dt:device>1122</dt:device>
+                            <dt:device>1124</dt:device>
+                            <dt:device>1126</dt:device>
+                            <dt:device>1128</dt:device>
+                            <dt:device>1138</dt:device>
+                        </devices>
+                        <countries>
+                            <dt:country>USA</dt:country>
+                        </countries>
+                        <categories>
+                            <dt:category><![CDATA[256]]></dt:category>
+                        </categories>
+                    </product>
+                    </products>
+                    </data>
+                    

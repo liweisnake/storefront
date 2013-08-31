@@ -1,0 +1,358 @@
+<wicket:panel>
+<!--  -->
+<span wicket:id="feedback"></span>
+<input type="hidden" wicket:id="urlPrefix">
+<input type="hidden" wicket:id="bannerId">
+
+<input type="hidden" wicket:id="contentNameNeed">
+<input type="hidden" wicket:id="contentNameLong">
+<input type="hidden" wicket:id="urlLong">
+<input type="hidden" wicket:id="urlFormat">
+<input type="hidden" wicket:id="ImageNeed">
+<input type="hidden" wicket:id="selectImage">
+<input type="hidden" wicket:id="htmlNeed">
+<input type="hidden" wicket:id="selectZip">
+<input type="hidden" wicket:id="bannerNameNeed">
+<input type="hidden" wicket:id="bannerNameLong">
+<input type="hidden" wicket:id="contentNeed">
+<input type="hidden" wicket:id="bannerNameExist">
+
+<form wicket:id="staticBannerPanelForm" name="staticBannerPanelForm">
+<input type="hidden" wicket:id="bannerStatus">
+<div wicket:id="mainPanel">
+<span><wicket:message key="staticBanner"/></span>
+<br/>
+<span><wicket:message key="bannerName"/></span>
+<br/>
+<span><input type="text" wicket:id="bannerName" name="bannerName"></input></span>
+<br/>
+<span><wicket:message key="bannerType"/></span>
+<br/>
+<span wicket:id="bannerType">
+</span>
+<br/>
+<div>
+<span><wicket:message key="content"/></span>
+<br/>
+<span wicket:id="contentTable">
+<table border="1">
+<tr>
+	<th>
+		<span><wicket:message key="contentTableName"/></span>
+	</th>
+	<th>
+		<span><wicket:message key="contentTableType"/></span>
+	</th>
+	<th>
+		<span><wicket:message key="operation"/></span>
+	</th>
+</tr>
+<tr wicket:id="contentListView" name="contentListView">
+	<td>
+		<span wicket:id="name"></span>
+	</td>
+	<td>
+		<span wicket:id="type"></span>
+	</td>
+	<td>
+
+	<input type="submit" wicket:id="editBtn"/>
+
+	<input type="submit" wicket:id="delBtn"/>
+	</td>
+</tr>
+</table>
+<br/>
+</span>
+</div>
+
+</div>
+<input type="submit" wicket:id="addContentBtn"/>
+
+
+
+<span wicket:id = "submitPanel">
+<br/>
+<br/>
+<input wicket:id="submitBtn" type="button" name="submitBanner" onclick="submitBanner('submit')"></input>&nbsp;
+<input wicket:id="previewBtn" type="button"  onclick="submitBanner('preview')">&nbsp;
+</span>
+<input wicket:id="cancelBtn" type="submit"/>
+<br/>
+</form>
+
+<div>
+<form wicket:id="contentListForm" name="contentListForm">
+<span><wicket:message key="contentName"/></span>
+<br/>
+<span><input type="text" wicket:id="contentName" name="contentName"></input></span>
+<br/>
+<span><wicket:message key="contentType"/></span>
+<br/>
+<span wicket:id="contentType" name="contentType"></span>
+<br/>
+
+<div>
+<span wicket:id="imagePanel">
+<span><wicket:message key="uploadFile"/></span>
+<br/>
+<input type="file" wicket:id="image"></input>
+<br/>
+<span><wicket:message key="clickLink"/></span>
+<br/>
+<input type="text" wicket:id="href" name="href"></input>
+<br/>
+</span> 
+</div>
+
+<div>
+<span wicket:id="htmlPanel">
+<span><wicket:message key="uploadZip"/></span>
+<br/>
+<input type="file" wicket:id="html"></input>
+<br/>
+</span> 
+</div>
+
+<input type="button" wicket:id="save" onclick="saveContent()"></input>
+<input type="submit" wicket:id="cancel"></input>
+</form>
+</div>
+<script>
+
+function saveContent(){
+	//alert("call saveContent()");
+	var contentName = document.getElementsByName('contentName')[0];
+	var contentType_image = document.getElementsByName('contentType')[0];
+	var contentType_html = document.getElementsByName('contentType')[1];
+	var href = document.getElementsByName('imagePanel:href')[0];
+	var fileImage = document.getElementsByName('imagePanel:image')[0];
+	var fileHtml = document.getElementsByName('htmlPanel:html')[0];
+	var strRegex = "/< (.*)>.*|< (.*) />/";
+	var re=new RegExp(strRegex);
+	if(contentName.value == ""){
+		alert(document.getElementsByName('StaticBannerPanel:contentNameNeed')[0].value);
+		return;
+	}
+	if(contentName.value.length > 100){
+		alert(document.getElementsByName('StaticBannerPanel:contentNameLong')[0].value);
+		return;
+	}
+	if(contentType_image.checked){
+		if(href.value!="" && href.value.length>100){
+			alert(document.getElementsByName('StaticBannerPanel:urlLong')[0].value);
+			return;
+		}
+//		if(href.value!="" && !re.test(href.value)){
+//			alert(document.getElementsByName('StaticBannerPanel:urlFormat')[0].value);
+//			return;
+//		}
+		if(fileImage.value==""){
+			alert(document.getElementsByName('StaticBannerPanel:ImageNeed')[0].value);
+			return;
+		}
+		var file = fileImage.value;
+		if(file.substr(file.length-4,4) != '.JPG' 
+			&& file.substr(file.length-4,4) != '.jpg'
+			&& file.substr(file.length-4,4) != '.png'
+			&& file.substr(file.length-4,4) != '.PNG'
+			&& file.substr(file.length-4,4) != 'JPEG'
+			&& file.substr(file.length-4,4) != 'jpeg'){
+				alert(document.getElementsByName('StaticBannerPanel:selectImage')[0].value);
+				return;
+		}
+	} 
+	if (contentType_html.checked){
+		if(fileHtml.value==""){
+			alert(document.getElementsByName('StaticBannerPanel:htmlNeed')[0].value);
+			return;
+		}
+		var file = fileHtml.value;
+		if(file.substr(file.length-4,4) != '.zip' 
+			&& file.substr(file.length-4,4) != '.ZIP'){
+				alert(document.getElementsByName('StaticBannerPanel:selectZip')[0].value);
+				return;
+		}
+	}
+	document.forms[1].submit();
+	//document.getElementsByName('contentListForm').submit();
+}
+
+function submitBanner(status){
+	//alert("call submitBanner()");
+	var bannerStatus = document.getElementsByName('bannerStatus')[0];
+	//alert(bannerStatus.value);
+	//alert(status);
+	bannerStatus.value = status;
+	//alert(bannerStatus.value);
+	
+	var bannerName = document.getElementsByName('mainPanel:bannerName')[0];
+	var contentListView = document.getElementsByName('mainPanel:contentTable:contentListView:0:editBtn')[0];
+	if(bannerName.value == ""){
+		alert(document.getElementsByName('StaticBannerPanel:bannerNameNeed')[0].value);
+		return;
+	}
+	if(bannerName.value.lenght > 100){
+		alert(document.getElementsByName('StaticBannerPanel:bannerNameLong')[0].value);
+		return;
+	}
+	if(contentListView == null){
+		alert(document.getElementsByName('StaticBannerPanel:contentNeed')[0].value);
+		return;
+	}
+
+	try{ 
+		xmlHttp = new XMLHttpRequest(); 
+	}catch(e){ 
+		try{ 
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP"); 
+		}catch(e){ 
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); 
+		} 
+	}
+	if(xmlHttp == null)
+		return;
+	var url= document.getElementsByName('StaticBannerPanel:urlPrefix')[0].value + "/checkbanner/?bannerName=" + bannerName.value; 
+	var bannerId = document.getElementsByName('StaticBannerPanel:bannerId')[0].value;
+	if(bannerId != "-1")
+		url = url + "&bannerId=" + bannerId;
+	xmlHttp.onreadystatechange = checkBannerNameResult;
+	xmlHttp.open("GET",url,false); 
+	xmlHttp.send(); 
+}
+
+function checkBannerNameResult(){
+	var result;
+	if(xmlHttp.readystate == 4 || xmlHttp.readystate == undefined)
+		result = xmlHttp.responseText;
+	if(result == "true"){
+		alert(document.getElementsByName('StaticBannerPanel:bannerNameExist')[0].value);
+		return;
+	}else if(result == "false"){
+		document.forms[0].submit();
+		var submitBtn = document.getElementsByName('submitPanel:submitBtn')[0];
+		submitBtn.disabled=true;
+		//document.getElementsByName('staticBannerPanelForm').submit();
+	}
+}
+
+function test1(){
+	alert("test()");
+	var start = ["9:00","18:00"];
+	var end = ["13:30","20:00"];
+	var dowstr = ["1111000","0100111"];
+	var week = [0,1440,1440*2,1440*3,1440*4,1440*5,1440*6];
+	var nowStart ="19:00";
+	var nowEnd = "23:00";
+	var nowDowstr = "0100000";
+	var timeStart = new Array();
+	var timeEnd = new Array();
+	
+	for(var j=0; j<7; j++){
+		alert(j);
+		if(nowDowstr.substr(j,1)=="0"){
+			continue;
+		}
+		var nSArr = nowStart.split(":");
+		nStart = Number(nowDowstr.substr(j,1))*(Number(nSArr[0])*60 + Number(nSArr[1]));
+		alert("nStart="+nStart);
+		var nEArr = nowEnd.split(":");
+		nEnd = Number(nowDowstr.substr(j,1))*(Number(nEArr[0])*60 + Number(nEArr[1]));
+		alert("nEnd="+nEnd);
+		for(var i=0; i<start.length; i++){
+			var sArr = start[i].split(":");
+			alert("start["+i+"]="+start[i]);
+			timeStart[i] = Number(dowstr[i].substr(j,1))*(Number(sArr[0])*60 + Number(sArr[1]));
+			var eArr = end[i].split(":");
+			alert("end["+i+"]="+end[i]);
+			timeEnd[i] = Number(dowstr[i].substr(j,1))*(Number(eArr[0])*60 + Number(eArr[1]));
+		}
+		for(var k=0; k<timeStart.length;k++){
+			alert(timeStart[k]);
+			alert(timeEnd[k]);
+			if(timeStart[k]==0 && timeEnd[k]==0){
+				continue;
+			}
+			if(nStart<=timeStart[k]){
+				if(nEnd>timeStart[k]){
+					alert("END by Type I");
+					return;
+				}	
+			}else{
+				if(nStart<timeEnd[k]){
+					alert("END by Type II");
+					return;
+				}	
+			}
+		}	
+	}
+}
+
+function test(){
+	var nowStart = "10:00";
+	var nowEnd = "15:00";
+	var nowDowstr = "0100000";
+	var start = ["9:00","18:00",nowStart];
+	var end = ["13:30","20:00",nowEnd];
+	var dowstr = ["1111000","0100111",nowDowstr];
+	validScheduleConfliction(start, end, dowstr);
+}
+
+function validScheduleConfliction(startArr, endArr, dowstrArr){
+	//return false = no confliction
+	//return true = confliction
+	var nowStart = startArr[startArr.length-1];
+	var nowEnd = endArr[endArr.length-1];
+	var nowDowstr = dowstrArr[dowstrArr.length-1];
+	startArr.splice(startArr.length-1,1);
+	var start = startArr;
+	endArr.splice(endArr.length-1,1);
+	var end = endArr;
+	dowstrArr.splice(dowstrArr.length-1,1);
+	var dowstr = dowstrArr;
+	
+	var timeStart = new Array();
+	var timeEnd = new Array();
+	
+	for(var j=0; j<7; j++){
+		//alert(j);
+		if(nowDowstr.substr(j,1)=="0"){
+			continue;
+		}
+		var nSArr = nowStart.split(":");
+		nStart = Number(nowDowstr.substr(j,1))*(Number(nSArr[0])*60 + Number(nSArr[1]));
+		//alert("nStart="+nStart);
+		var nEArr = nowEnd.split(":");
+		nEnd = Number(nowDowstr.substr(j,1))*(Number(nEArr[0])*60 + Number(nEArr[1]));
+		//alert("nEnd="+nEnd);
+		for(var i=0; i<start.length; i++){
+			var sArr = start[i].split(":");
+			//alert("start["+i+"]="+start[i]);
+			timeStart[i] = Number(dowstr[i].substr(j,1))*(Number(sArr[0])*60 + Number(sArr[1]));
+			var eArr = end[i].split(":");
+			//alert("end["+i+"]="+end[i]);
+			timeEnd[i] = Number(dowstr[i].substr(j,1))*(Number(eArr[0])*60 + Number(eArr[1]));
+		}
+		for(var k=0; k<timeStart.length;k++){
+			//alert(timeStart[k]);
+			//alert(timeEnd[k]);
+			if(timeStart[k]==0 && timeEnd[k]==0){
+				continue;
+			}
+			if(nStart<=timeStart[k]){
+				if(nEnd>timeStart[k]){
+					//alert("END by Type I");
+					return true;
+				}	
+			}else{
+				if(nStart<timeEnd[k]){
+					//alert("END by Type II");
+					return true;
+				}	
+			}
+		}	
+	}
+	return false;	
+}
+</script>
+</wicket:panel>

@@ -1,0 +1,323 @@
+<wicket:head>
+<style type="text/css" media="all">
+	#left {
+		width: 55%;
+		float: left;
+		clear: left;
+	}
+            
+	#right {
+		width: 45%;
+		float: right;
+		clear: right;
+	}
+	
+	input {
+		width: 100px;
+	}
+	
+	select {
+		width: 102px!important;
+		width: 104px;
+	}
+	
+	.height {
+		height: 60px;
+	}
+            
+	textarea {
+		width: 98px;
+	}
+	
+	.file {
+		width: 155px;
+	}
+</style>
+</wicket:head>
+
+<wicket:panel>
+	<div wicket:id="promptPanel"></div>
+	<div id="contentDetail">  
+		<div><a href="#" wicket:id="defaultSetting"><wicket:message key="defaultSetting">Default Setting</wicket:message></a></div>
+	    <div><a href="#" wicket:id="newBinaryVersion"><wicket:message key="newBinaryVersion">New Binary Version</wicket:message></a></div> 
+    	<div wicket:id="feedback">feedback</div>
+      	<div id="left"> 
+      		<form wicket:id="detailForm">   
+		      	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTableSet">                                                                           
+		       		<tr>
+			        	<td width="30%" align="right"><wicket:message key="assetName">assetName</wicket:message> * : </td>
+			        	<td width="35%" align="left"><span wicket:id="label.assetName">assetName</span></td>
+			        	<td width="35%" align="left"><input type="text" wicket:id="assetName"/></td>                                                                           
+			        </tr> 
+			        <!--
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="status">status</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.status">status</span></td>
+			          	<td width="35%" align="left"><select wicket:id="status"></select></td>                                                                           
+			        </tr>
+			        <tr>
+		              	<td width="30%" align="right"><wicket:message key="assetId">assetId</wicket:message> * : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.assetId">assetId</span></td>
+		              	<td width="35%" align="left"><input wicket:id="assetId" type="text"/></td>                                                                           
+		            </tr>
+		            <tr>
+		              	<td width="30%" align="right"><wicket:message key="parentAssetId">parentAssetId</wicket:message> : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.parentAssetId">parentAssetId</span></td>
+		              	<td width="35%" align="left"><input wicket:id="parentAssetId" type="text"/></td>                                                                           
+		            </tr>
+		            <tr>
+		              	<td width="30%" align="right"><wicket:message key="fileName">fileName</wicket:message> : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.fileName">fileName</span></td>
+		              	<td width="35%" align="left"><input wicket:id="fileName" type="text"/></td>                                                                           
+		            </tr>
+		            -->
+		            <tr>
+		              	<td width="30%" align="right"><wicket:message key="providerId">providerId</wicket:message> : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.providerId">providerId</span></td>
+		              	<td width="35%" align="left"><input wicket:id="providerId" type="text"/></td>                                                                           
+		            </tr>
+		            <tr>
+		              	<td width="30%" align="right"><wicket:message key="providerName">providerName</wicket:message> : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.providerName">providerName</span></td>
+		              	<td width="35%" align="left"><input wicket:id="providerName" type="text"/></td>                                                                           
+		            </tr>
+		            <!--
+		            <tr>
+		              	<td width="30%" align="right"><wicket:message key="category1">category1</wicket:message> : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.category1">category1</span></td>
+		              	<td width="35%" align="left"><input wicket:id="category1" type="text"/></td>                                                                           
+		            </tr>
+		            <tr>
+		              	<td width="30%" align="right"><wicket:message key="category2">category2</wicket:message> : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.category2">category2</span></td>
+		              	<td width="35%" align="left"><input wicket:id="category2" type="text"/></td>                                                                           
+		            </tr>
+		            <tr>
+			          	<td width="30%" align="right"><wicket:message key="description">description</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.description">description</span></td>
+			          	<td width="35%" align="left"><textarea wicket:id="description" class="height"></textarea></td>                                                                           
+			        </tr>
+			        -->
+		            <tr>
+			          	<td width="30%" align="right"><wicket:message key="brief">brief</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.brief">brief</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="brief"/></td>                                                                           
+			        </tr>                                                                        
+			        <!--
+			        <tr>
+		              	<td width="30%" align="right"><wicket:message key="price">price</wicket:message> : </td>
+		              	<td width="35%" align="left"><span wicket:id="label.price">price</span></td>
+		              	<td width="35%" align="left"><input wicket:id="price" type="text"/></td>                                                                           
+		            </tr>
+		            <tr>
+			          	<td width="30%" align="right"><wicket:message key="createDate">createDate</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.createDate">createDate</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="createDate"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="expireDate">expireDate</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.expireDate">expireDate</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="expireDate"/></td>                                                                           
+			        </tr>
+		            <tr>
+			          	<td width="30%" align="right"><wicket:message key="fileSize">fileSize</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.fileSize">fileSize</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="fileSize"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="tag">tag</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.tag">tag</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="tag"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="newArrivalDueDate">newArrivalDueDate</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.newArrivalDueDate">newArrivalDueDate</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="newArrivalDueDate"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="recommendStartDate">recommendStartDate</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.recommendStartDate">recommendStartDate</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="recommendStartDate"/></td>                                                                           
+			        </tr>
+		            <tr>
+			          	<td width="30%" align="right"><wicket:message key="recommendDueDate">recommendDueDate</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.recommendDueDate">recommendDueDate</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="recommendDueDate"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="recommendOrder">recommendOrder</wicket:message> : </td>
+			          	<td width="35%" align="left"><span wicket:id="label.recommendOrder">recommendOrder</span></td>
+			          	<td width="35%" align="left"><input type="text" wicket:id="recommendOrder"/></td>                                                                           
+			        </tr>
+			        -->
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="thumbnailBig">thumbnailBig</wicket:message> : </td>
+			          	<td width="35%" align="left"><a href="#" wicket:id="btn.thumbnailBig"><wicket:message key="view">View</wicket:message></a></td>
+			          	<td width="35%" align="left"><input wicket:id="thumbnailBig" id="thumbnailBig" type="file" class="file"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="thumbnailMed">thumbnailMed</wicket:message> : </td>
+			          	<td width="35%" align="left"><a href="#" wicket:id="btn.thumbnailMed"><wicket:message key="view">View</wicket:message></a></td>
+			          	<td width="35%" align="left"><input wicket:id="thumbnailMed" id="thumbnailMed" type="file" class="file"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="thumbnail">thumbnail</wicket:message> : </td>
+			          	<td width="35%" align="left"><a href="#" wicket:id="btn.thumbnail"><wicket:message key="view">View</wicket:message></a></td>
+			          	<td width="35%" align="left"><input wicket:id="thumbnail" id="thumbnail" type="file" class="file"/></td>                                                                           
+			        </tr>
+			        <tr>
+			          	<td width="30%" align="right"><wicket:message key="screenShot">screenShot</wicket:message> : </td>
+			          	<td width="35%" align="left"></td>
+			          	<td width="35%" align="left"><input wicket:id="screenShot" id="screenShot" type="file" class="file"/></td>                                                                           
+			        </tr>
+			        <tr>
+			        	<td width="100%" colspan="3">
+					    	<table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;" border="0">
+					    		<span wicket:id="screenShots">
+								<tr>
+									<td align="center"><span wicket:id="pictureUrl">pictureUrl</span></td>
+								</tr>
+								</span>
+					    	</table>
+			        	</td>
+			        </tr>
+			        <tr>
+			          	<td width="100%" align="center" colspan="3">
+			          		<input type="submit" wicket:id="btn.update" class="button" wicket:message="value:btn.update"/>
+			          		<input type="submit" wicket:id="btn.delete" class="button" wicket:message="value:btn.delete"/>
+			          		<input type="submit" wicket:id="btn.back" class="button" wicket:message="value:btn.back"/>
+			          	</td>                                                                           
+			        </tr>
+				</table>
+			</form>
+		</div>
+		<div id="right">
+			<form wicket:id="dynamicForm">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTableSet">                                                                           
+		       		<tr>
+						<td width="30%" align="right"><wicket:message key="displayorder">displayorder</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="displayorder"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="pickup">pickup</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="pickup"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="titlename">titlename</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="titlename"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="titlejpname">titlejpname</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="titlejpname"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="partinfo">partinfo</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="partinfo"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="musiclabel">musiclabel</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="musiclabel"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="artistjpname">artistjpname</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="artistjpname"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="lmark">lmark</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="lmark"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="billingcomment">billingcomment</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="billingcomment"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="salecomment">salecomment</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="salecomment"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="redownloadflag">redownloadflag</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="redownloadflag"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="redownloaddays">redownloaddays</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="redownloaddays"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="playduration">playduration</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="playduration"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="androidmarkerurl">androidmarkerurl</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="androidmarkerurl"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="sampledownloadurl">sampledownloadurl</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="sampledownloadurl"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="releventsalesiteurl">releventsalesiteurl</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="releventsalesiteurl"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="supportdetail">supportdetail</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="supportdetail"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="officialsiteurl">officialsiteurl</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="officialsiteurl"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="flashurl">flashurl</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="flashurl"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="twitter">twitter</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="twitter"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="enablecommentflag">enablecommentflag</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="enablecommentflag"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="lid">lid</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="lid"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="mimetypefilter">mimetypefilter</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="mimetypefilter"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="releventcontentsid1">releventcontentsid1</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="releventcontentsid1"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="releventcontentsid2">releventcontentsid2</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="releventcontentsid2"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="releventcontentsid3">releventcontentsid3</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="releventcontentsid3"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="installupdateflg">installupdateflg</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="installupdateflg"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="saledateinfo">saledateinfo</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="saledateinfo"/></td>                                                                           
+				   	</tr>
+					<tr>
+						<td width="30%" align="right"><wicket:message key="managementcode">managementcode</wicket:message> : </td>
+					    <td width="35%" align="left"><input type="text" wicket:id="managementcode"/></td>                                                                           
+				   	</tr>
+				   	<tr>
+						<td width="100%" align="center" colspan="3">
+							<input type="submit" wicket:id="addNew" class="button" value="Save"></input>
+						</td>
+				   	</tr>
+				</table>	
+			</form>
+		</div>
+	</div>         
+</wicket:panel>
+  

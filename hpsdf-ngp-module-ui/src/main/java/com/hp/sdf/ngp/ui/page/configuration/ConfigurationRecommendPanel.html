@@ -1,0 +1,80 @@
+<wicket:head>
+	<script type="text/javascript">
+
+	function selectAll() {
+	   var groupselector = document.getElementById("groupselector");
+	   
+	   //support IE and Firefox
+	   	var tagArray = document.getElementsByTagName("*");
+
+	   if(groupselector.checked){
+		  for(var i=0; i<tagArray.length; i++){   
+		          if(typeof(tagArray[i].name)!="undefined") {
+		          		if(tagArray[i].type=="checkbox"){
+		          			tagArray[i].checked = true;
+		          		}
+		          }
+		  }
+	   }else{
+			  for(var i=0; i<tagArray.length; i++){  
+		          if(typeof(tagArray[i].name)!="undefined") {
+		          		if(tagArray[i].type=="checkbox"){
+		          			tagArray[i].checked = false;
+		          		}
+		          }			    
+		  }
+	   }
+		
+	}
+</script>
+
+</wicket:head>
+
+<wicket:panel>
+	<div class="mainPanel">
+	<div class="panelBody"><span style="color: red;" wicket:id="feedBack">error message</span>
+
+	<form wicket:id="configurationRecommendForm">
+	<table   cellpadding="0" cellspacing="0" class="tableSet">
+		<thead>
+		<tr>
+			<th align="center" width="5%"><wicket:message key="Order" /></th>
+			<th align="center" width="5%"><input type="checkbox" id="groupselector" wicket:id="groupselector" onclick="selectAll()" /><wicket:message key="selectAll" /></th>
+			<th align="center" width="5%"><wicket:message key="Name" /></th>
+			<th align="center" width="5%"><wicket:message key="Developer" /></th>
+			<th align="center" width="5%"><wicket:message key="Brief" /></th>
+			<th align="center" width="10%"><wicket:message key="NewOrder" /></th>
+		</tr>
+</thead>
+<tbody>
+		<tr wicket:id="appList">
+
+			<td align="center" width="5%"><span wicket:id="recommendOrder"></span></td>
+
+			<td align="center" width="5%"><input type="checkbox" id="appCheck" wicket:id="checkbox" /></td>
+
+			<td align="center" width="5%"><span wicket:id="name"></span></td>
+
+			<td align="center" width="5%"><span wicket:id="userId"></span></td>
+
+			<td align="center" width="5%"><span wicket:id="brief"></span></td>
+
+			<td align="center" width="10%"><input type="text" wicket:id="newOrder" /></td>
+		</tr>
+		</tbody>
+	</table>
+
+	<span wicket:id="navigator"></span> <br></br>
+
+	<table>
+		<tr>
+			<td><input type="submit" wicket:id="change" value="ChangeOrder" wicket:message="value:changeOrder" /></td>
+			<td><input type="submit" wicket:id="clean" value="CleanOrder" wicket:message="value:cleanOrder" /></td>
+		</tr>
+	</table>
+
+	</form>
+
+	</div>
+	</div>
+</wicket:panel>

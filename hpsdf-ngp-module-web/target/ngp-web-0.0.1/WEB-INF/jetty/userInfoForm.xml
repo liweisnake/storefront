@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dyDataModel>
+	<dataFields>
+		<dataField>
+			<name>idcard</name>
+			<modelType>domain</modelType>
+			<dataType>String</dataType>
+			<compnentType>TextField</compnentType>
+		</dataField>
+	</dataFields>
+</dyDataModel>

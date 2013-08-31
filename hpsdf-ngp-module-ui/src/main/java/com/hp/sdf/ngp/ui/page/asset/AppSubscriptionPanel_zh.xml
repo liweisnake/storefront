@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="platform">平台 : </entry>
+<entry key="version">版本 : </entry>
+<entry key="bin.status">状态 : </entry>
+<entry key="download">下载</entry>
+<entry key="error">请选则平台和版本。</entry>
+<entry key="msg.noprivilege">您所在的用户组无权下载当前状态的应用文件。</entry>
+<entry key="bin.nostatus"></entry>
+<entry key="bin.noprice"></entry>
+<entry key="bin.free">免费</entry>
+<entry key="bin.price">价格 : </entry>
+<entry key="link.buy">购买</entry>
+<entry key="link.gift">赠送</entry>
+<entry key="link.cart.buy">加入购物车</entry>
+<entry key="link.cart.gift">作为礼物加入购物车</entry>
+</properties>

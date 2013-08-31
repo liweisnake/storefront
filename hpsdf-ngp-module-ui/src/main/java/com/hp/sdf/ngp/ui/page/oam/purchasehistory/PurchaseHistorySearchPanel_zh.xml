@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="msisdn">中文</entry>
+	<entry key="paidStartDate">临时支付时间表</entry>
+	<entry key="paidEndDate">到</entry>
+	<entry key="completeStartDate">完成支付时间表</entry>
+	<entry key="completeEndDate">到</entry>
+	<entry key="search">搜索</entry>
+	
+	<entry key="title">搜索购买历史</entry>
+	<entry key="title.big">购买历史</entry>			
+</properties>

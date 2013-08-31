@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="providerId">プロバイダーID</entry>
+<entry key="commissionSymbol">%</entry>
+<entry key="recommendOrder">オススメ度</entry>
+<entry key="btn.download">ダウンロード</entry>
+<entry key="newArrivalDueDate">新着期間完了日</entry>
+<entry key="commissionRate">手数料率</entry>
+<entry key="msg.download">Do you want to download the csv file?</entry>
+<entry key="title.list">Assets List</entry>
+<entry key="assetName">商品名</entry>
+<entry key="targetPublishDate">公開予定日</entry>
+<entry key="newAsset">New Asset</entry>
+<entry key="error.select.no.asset">Please select some assets!</entry>
+<entry key="update.status">ステータス</entry>
+<entry key="title.big">Asset Management</entry>
+<entry key="recommendStartDate">オススメ期間開始日</entry>
+<entry key="title.prompt">プロンプト</entry>
+<entry key="assetId">子ID</entry>
+<entry key="binaryVersion">Binary Version</entry>
+<entry key="publishDate">公開日</entry>
+<entry key="category2">ジャンル</entry>
+<entry key="category1">カテゴリ</entry>
+<entry key="msg.error.delete">This asset is not exist!</entry>
+<entry key="title.operation">Assets Operation</entry>
+<entry key="title.search">Search Assets</entry>
+<entry key="msg.error.download">Search result row number exceeds the maximum in excel!</entry>
+<entry key="msg.update">Do you want to batch update the selected asset?</entry>
+<entry key="msg.delete.result">You successfully delete the assets!</entry>
+<entry key="btn.update.reset">リセット</entry>
+<entry key="defaultSetting">デフォルト設定</entry>
+<entry key="update.commentType">通知用定型文</entry>
+<entry key="update.newArrivalDueDate">新着期間完了日</entry>
+<entry key="status">ステータス</entry>
+<entry key="externalId">External ID</entry>
+<entry key="title">Assets List</entry>
+<entry key="parentAssetId">親ID</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="update.title">一括更新</entry>
+<entry key="msg.error.batch.delete">is not exist!</entry>
+<entry key="download.file.name">Asset.csv</entry>
+<entry key="btn.update.update">更新</entry>
+<entry key="binaryName">Binary Version Name</entry>
+<entry key="update.commissionRate">手数料率</entry>
+<entry key="update.recommendDueDate">オススメ期間終了日</entry>
+<entry key="update.comments">コメント記入</entry>
+<entry key="msg.update.result">You successfully batch update the selected assets!</entry>
+<entry key="providerName">プロバイダー名</entry>
+<entry key="recommendDueDate">オススメ期間終了日</entry>
+<entry key="update.recommendStartDate">オススメ期間開始日</entry>
+</properties>

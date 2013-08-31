@@ -1,0 +1,42 @@
+
+<wicket:panel>
+
+	<div >
+	<div  style="display: block;">
+	<div >
+	<div >Login</div>
+	<span wicket:id="feedback"/>
+	<form wicket:id="signInForm">
+	<table >
+		<tr>
+			<td>&nbsp;</td>
+			<td ><wicket:message key="label.username">User Name</wicket:message></td>
+			<td><input style="width:300px" wicket:id="username" type="text" value="foo@goo.moo"
+				size="30" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Password:</td>
+			<td><input style="width:300px" wicket:id="password" type="password" value="password"
+				size="30" /></td>
+		</tr>
+		<tr wicket:id="rememberMeRow">
+			<td>&nbsp;</td>
+			<td></td>
+			<td><input wicket:id="rememberMe" type="checkbox" /> Remember
+			Me</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td></td>
+			<td><input type="submit" name="submit" value="Sign In" /> <input
+				type="reset" value="Reset" /></td>
+		</tr>
+	</table>
+	</form>
+	</div>
+	</div>
+	</div>
+	
+</wicket:panel>
+

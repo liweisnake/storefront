@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="userPromotion" xmlns="http://jbpm.org/4.3/jpdl">
+	<!--
+		<on event="end"> <event-listener expr="#{userPromotionEndListener}">
+		<field name="msg"><string value="start on process
+		definition"/></field> </event-listener> </on>
+	-->
+	<start g="42,281,48,48">
+		<transition to="roleCheck"/>
+	</start>
+	
+	<decision expr="#{request.targetRole}" g="135,280,48,48" name="roleCheck">
+		<transition g="-12,-10" name="Tester" to="testerApplyComment"/>
+		<transition g="-30,-12" name="Developer" to="collectDeveloperInfo"/>
+		<transition g="-30,-12" name="GoldenDeveloper" to="goldenDeveloperApplyComment"/>
+	</decision>
+
+	<!-- tester apply flow part -->
+	<custom expr="#{applyFormAction}" g="210,168,133,52" name="testerApplyComment">
+		<transition to="testerApplyFinished"/>
+	</custom>
+
+	<custom expr="#{userLifecylceUpdateAction}" g="407,168,114,52" name="testerApplyFinished">
+		<field name="processStatus">
+			<string value="applyFinshed" />
+		</field>
+		<transition to="teserApplySuccNotify"/>
+	</custom>
+
+	<custom expr="#{subSuccNotiAction}" g="570,172,156,52" name="teserApplySuccNotify">
+		<transition to="managerApproveTester"/>
+	</custom>
+
+	<custom expr="#{managerApproveAction}" g="757,173,153,52" name="managerApproveTester">
+		<transition to="grantPrivilegeTeser"/>
+	</custom>
+
+	<custom expr="#{grantPrivilegeAction}" g="939,174,143,52" name="grantPrivilegeTeser">
+		<transition to="end"/>
+	</custom>
+
+	<!-- developer apply flow part -->
+	<custom expr="#{collectUserInfoAction}" g="196,397,127,52" name="collectDeveloperInfo">
+		<transition to="developerApplyFinished"/>
+	</custom>
+
+	<custom expr="#{userLifecylceUpdateAction}" g="361,399,132,52" name="developerApplyFinished">
+		<field name="processStatus">
+			<string value="applyFinshed" />
+		</field>
+		<transition to="developerApplySuccNotify"/>
+	</custom>
+
+	<custom expr="#{subSuccNotiAction}" g="523,405,143,52" name="developerApplySuccNotify">
+		<transition to="createSGFAccount"/>
+	</custom>
+
+	<custom expr="#{createSGFAccountAction}" g="734,412,136,52" name="createSGFAccount">
+		<transition to="grantPrivilegeDeveloper"/>
+	</custom>
+
+	<custom expr="#{grantPrivilegeAction}" g="962,413,145,52" name="grantPrivilegeDeveloper">
+		<transition to="end"/>
+	</custom>
+	<!-- goldenDeveloper apply flow part -->
+	<custom expr="#{applyFormAction}" g="80,68,173,52" name="goldenDeveloperApplyComment">
+		<transition to="goldenDeveloperApplyFinished"/>
+	</custom>
+
+	<custom expr="#{userLifecylceUpdateAction}" g="347,68,164,52" name="goldenDeveloperApplyFinished">
+		<field name="processStatus">
+			<string value="applyFinshed" />
+		</field>
+		<transition to="goldenDeveloperApplySuccNotify"/>
+	</custom>
+
+	<custom expr="#{subSuccNotiAction}" g="550,72,176,52" name="goldenDeveloperApplySuccNotify">
+		<transition to="managerApproveGoldenDeveloper"/>
+	</custom>
+
+	<custom expr="#{managerApproveAction}" g="777,73,183,52" name="managerApproveGoldenDeveloper">
+		<transition to="grantPrivilegeGoldenDeveloper"/>
+	</custom>
+
+	<custom expr="#{grantPrivilegeAction}" g="1039,74,163,52" name="grantPrivilegeGoldenDeveloper">
+		<transition to="end"/>
+	</custom>
+
+	<end g="1134,296,48,48" name="end"/>
+</process>

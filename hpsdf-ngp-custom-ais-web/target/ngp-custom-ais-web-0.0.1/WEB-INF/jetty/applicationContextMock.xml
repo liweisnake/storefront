@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+ http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--  HSQLDB start-->
+	<!-- If you don't use HSQLDB, please comment it --> 
+	<!-- Load the data file if use HSQLDB as backend database -->
+	<!-- the data file must be put under hpsdf-ngp-module-core\src\main\resources\-->	
+	
+
+	<bean id="hSQLDBLoader" class="com.hp.sdf.ngp.common.mock.HSQLDBLoader">
+	<property name="fileName" value="/data_ais_init.xml" />
+	</bean> 
+	
+	<!--  HSQLDB end-->
+	 
+	<!-- Service Mock Start -->
+	<!-- If you don't use Service Mock, please comment it --> 
+	<!-- Use Service Mock instead of backend database-->
+	<!--
+		MUST use the exact class name of the real class as the bean id so as
+		to override the '@Component' annotation used in real class
+	-->
+	
+	 <!-- Service Mock end -->
+	
+</beans>

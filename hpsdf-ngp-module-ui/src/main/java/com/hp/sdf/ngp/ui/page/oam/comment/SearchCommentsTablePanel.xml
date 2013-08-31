@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll">Select All</entry>
+	<entry key="providerID">Provider ID</entry>
+	<entry key="providerName">Provider Name</entry>
+	<entry key="assetId">Asset ID</entry>
+	<entry key="assetName">Asset Name</entry>
+	<entry key="version">Version</entry>
+	<entry key="commentTitle">Comment Title</entry>	
+	<entry key="comment">Comments</entry>
+	<entry key="updateTime">Update Time</entry>
+	<entry key="view">View</entry>	
+	<entry key="detail">Details</entry>
+	<entry key="delete">Delete</entry>
+	<entry key="commentsList">Comments List</entry>	
+	
+	<entry key="confirmMsg">Do you want to delete the selected comments?</entry>
+	
+	
+	<entry key="msg.error.del.nocomments">Comment does not exist!</entry>
+	<entry key="msg.error.select.noselect">Please select one comment at least!</entry>
+	
+	<entry key="promptTitle">Prompt</entry>
+</properties>

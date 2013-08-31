@@ -1,0 +1,79 @@
+<wicket:head>
+<style type="text/css" media="all">
+	.height {
+		height: 60px;
+	}
+</style>
+</wicket:head>
+
+<wicket:panel>
+    <div class="appDetail">                                        
+      <!-- Application Picture and Information -->                      			                     
+      <img wicket:id="thumbnail" class="bigThumbnail left" />                                                 
+      <div class="detailInfo">        
+      	<h2><span wicket:id="name">Application Name</span></h2>                                                         
+        <table width="98%" border="0" cellspacing="0" cellpadding="0">                                                                           
+          <tr><td width="25%"><b><wicket:message key="label.rating"/>:</b></td>
+              <td>
+              	<table><tr>
+                  <td><span wicket:id="rating"></span></td>
+                  <!--  
+                  <td><span wicket:id="avgrating"></span>/<wicket:message key="label.rate.range"/></td>
+                  -->
+                </tr></table>
+              </td>                                                                           
+          </tr>
+          <tr>
+            <td><b><wicket:message key="label.auther"/>:</b></td>
+            <td wicket:id="auther">auther</td>
+          </tr>                                                                           
+          <tr>
+            <td><b><wicket:message key="label.update"/>:</b></td>
+            <td wicket:id="updatetime">09/07/2009</td>
+          </tr>
+          <tr>
+            <td><b><wicket:message key="label.intro"/>:</b></td>
+            <td wicket:id="brief">brief</td>
+          </tr>
+          <tr>
+            <td><b><wicket:message key="label.category"/>:</b></td>
+            <td>
+              <wicket:enclosure>
+                <span wicket:id="catext"></span>
+              </wicket:enclosure>
+              	  <form wicket:id="categoryForm">
+			      <select id="category" wicket:id="category" multiple="multiple" class="height" size="5"></select>
+	   	          <input type="submit" wicket:id="updateLink" class="button" wicket:message="value:btn.update"/>
+	   	          </form>
+		    </td>
+		  </tr>
+          <wicket:container wicket:id="tagDetailPanel"></wicket:container>                                                       
+        </table>
+        <div wicket:id="downloadPanel"/>                 
+      </div>                                                 
+      <!-- End Application Picture and Information -->
+      <!-- App Binary Management -->
+      <div>
+      	<a wicket:id="binControlLink"><wicket:message key="link.manage.bin"/></a>
+      </div>                                     
+      <!-- End of Binary Management -->
+      <!-- Application Description and Preview-->                                             
+      <div class="appDescription">                            	
+        <b><wicket:message key="description.title" /></b>                                                  
+        <div class="previewImg">                     
+          <img wicket:id="preview" />                 
+        </div>                                                  
+        <span wicket:id="description"/>                                           
+      </div>                                          
+      <!-- End Application Description and Preview -->        
+      <!-- App Management -->
+	  <div wicket:id="appControlPanel">
+	  </div>    
+      <!-- End of App  Management -->
+      <!-- Application Comments -->                                           
+	  <div wicket:id="commentsPanel"/>                        
+      <!-- End Application Comments -->                                                                              
+    </div>         
+    <!-- End appDetail --> 
+</wicket:panel>
+  

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="title.big">コンテンツ管理</entry>
+<entry key="afterStatus">遷移後ステータス</entry>
+<entry key="defaultSetting">デフォルト設定</entry>
+<entry key="btn.back">戻る</entry>
+<entry key="newBinaryVersion">新バイナリバージョン</entry>
+<entry key="preStatus">遷移前ステータス</entry>
+<entry key="updateDate">更新日時</entry>
+<entry key="comments">運用者コメント</entry>
+<entry key="commentType">通知定型文</entry>
+<entry key="operatorId">操作アカウントID</entry>
+<entry key="title">コンテンツステータス履歴一覧</entry>
+<entry key="notificationDate">JIL-WH通知日時</entry>
+<entry key="assetName">商品名</entry>
+<entry key="assetId">identifierID</entry>
+</properties>

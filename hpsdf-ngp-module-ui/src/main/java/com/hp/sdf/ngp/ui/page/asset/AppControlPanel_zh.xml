@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">请选择</entry>
+<entry key="label.app.status">应用状态</entry>
+<entry key="btn.del.app">删除应用</entry>
+<entry key="btn.status.app">更新</entry>
+</properties>

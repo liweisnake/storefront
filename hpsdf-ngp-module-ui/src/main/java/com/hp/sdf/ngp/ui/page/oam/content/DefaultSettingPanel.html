@@ -1,0 +1,95 @@
+<wicket:panel>
+	<div id="regionA">
+	<div class="title">
+	<h2 class="icon-title-content"><wicket:message key="title.big">Content Management</wicket:message></h2>
+	</div>
+
+	<div class="content">
+	<div wicket:id="feedback">feedback</div>
+	<div class="portal-box">
+	<div class="content-container">
+	<div class="contentbox">
+	<form wicket:id="form">
+	<h3><wicket:message key="title.left.big">Default Setting</wicket:message></h3>
+	<div class="content-default-setdate"><wicket:message key="days">New Arrival Duration</wicket:message>
+	: <input type="text" wicket:id="days" class="input-pagego" /> <wicket:message
+		key="daysSymbol">days</wicket:message> <input type="submit"
+		wicket:id="saveDays" class="button-submit-b" wicket:message="value:save" /><div wicket:id="saveDaysPanel"></div>
+	</div>
+	<div class="content-default-leftwidth">
+	<h4><wicket:message key="defaultRate">Default Rate</wicket:message><input
+		type="submit" wicket:id="saveButton" class="button-submit-b"
+		wicket:message="value:save" /><div wicket:id="savePanel"></div></h4>
+	<div class="table-box">
+	<table border="0" cellpadding="0" cellspacing="0"
+		class="table-styles-a">
+		<tr>
+			<th width="50%"><wicket:message key="content">Content Source</wicket:message></th>
+			<th width="50%"><wicket:message key="rate">Rate</wicket:message></th>
+		</tr>
+
+		<span wicket:id="provider">
+		<tr>
+			<td width="50%"><span wicket:id="content">content source</span></td>
+			<td width="50%" align="center"><input type="text"
+				wicket:id="rate" class="input-pagego" />&nbsp;<span wicket:id="rateSymbol">%</span></td>
+		</tr>
+		</span>
+
+		<tr>
+			<td colspan="2"><span wicket:id="navigator"></span></td>
+		</tr>
+	</table>
+	</div>
+	</div>
+	</form>
+
+	<div class="content-default-rightwidth">
+	<h4><wicket:message key="title.right.big">Provider/Developer Rate</wicket:message>
+	:</h4>
+	<div class="contentbox">
+	<div wicket:id="searchPanel"></div>
+	</div>
+	<div class="contentbox">
+	<form wicket:id="update.form">
+	<h3>
+	<div style="display:inline;"><wicket:message key="update.provider">Provider/Developer</wicket:message></div>
+	<div style="display:inline;"><input type="submit" wicket:id="update.save" class="button-submit-b"  wicket:message="value:update.save" /><div wicket:id="update.savePanel"></div></div> 
+	</h3>
+	<div class="table-box">
+	<table border="0" cellpadding="0" cellspacing="0"
+		class="table-styles-a">
+		<tr>
+			<th width="20%"><wicket:message key="update.pid">Provider External ID</wicket:message></th>
+			<th width="40%"><wicket:message key="update.provider">Provider/Developer Name</wicket:message></th>
+			<th width="40%"><wicket:message key="update.rate">Rate</wicket:message></th>
+		</tr>
+		<span wicket:id="update.provider">
+		<tr>
+			<td width="20%"><span wicket:id="update.pid">pid</span></td>
+			<td width="40%"><span wicket:id="update.provider">provider/developer</span></td>
+			<td width="40%" align="center"><input type="text"
+				wicket:id="update.rate"  class="input-pagego" />&nbsp;<span wicket:id="rateSymbolUpdate">%</span></td>
+		</tr>
+		</span>
+		<tr>
+			<td colspan="3"><span wicket:id="update.navigator"></span></td>
+		</tr>
+	</table>
+
+	<div class="contentbutton"><input type="submit"
+		wicket:id="update.back" class="button-submit"
+		wicket:message="value:update.back" /></div>
+	</div>
+	</form>
+	</div>
+	</div>
+	</div>
+	<div class="clear"></div>
+	</div>
+	</div>
+	</div>
+
+	<div wicket:id="promptPanel"></div>
+	</div>
+</wicket:panel>

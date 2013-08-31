@@ -1,0 +1,11 @@
+.portlet-editor-content {
+   height:300px;
+   width:500px;
+   overflow: auto;
+   overflow-x: hidden;
+   border: 1px solid #333;
+}
+
+.editor-icon {
+   margin: 0 4px 0 0;
+}

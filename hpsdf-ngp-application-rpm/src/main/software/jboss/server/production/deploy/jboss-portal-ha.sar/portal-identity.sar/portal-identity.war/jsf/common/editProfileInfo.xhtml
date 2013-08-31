@@ -1,0 +1,257 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<!-- User Profile -->
+<h:panelGrid columns="2" cellpadding="3">
+<h:panelGroup/>
+<h:panelGroup>
+   <ul class="topnav">
+      <li id="currentTab">
+         <h:outputText value="#{bundle.IDENTITY_CATEGORY_GENERAL}"/>
+      </li>
+   </ul>
+</h:panelGroup>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_TIMEZONE}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.timezone.required}"/>
+</h:panelGroup>
+<h:selectOneMenu id="timezone" value="#{manager.uiUser.attribute.timezone}"
+                 required="#{metadataservice.timezone.required}">
+   <f:selectItems value="#{metadataservice.timezone.values}"/>
+</h:selectOneMenu>
+<h:panelGroup/>
+<h:message for="timezone" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_THEME}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.theme.required}"/>
+</h:panelGroup>
+<h:selectOneMenu id="theme" value="#{manager.uiUser.attribute.theme}" required="#{metadataservice.theme.required}">
+   <f:selectItems value="#{metadataservice.theme.values}"/>
+</h:selectOneMenu>
+<h:panelGroup/>
+<h:message for="theme" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_LOCALE}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.locale.required}"/>
+</h:panelGroup>
+<h:selectOneMenu id="locale" value="#{manager.uiUser.attribute.locale}"
+                 required="#{metadataservice.locale.required}">
+   <f:selectItems value="#{metadataservice.locale.values}"/>
+</h:selectOneMenu>
+<h:panelGroup/>
+<h:message for="locale" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+<h:panelGroup/>
+<h:panelGroup>
+   <ul class="topnav">
+      <li id="currentTab">
+         <h:outputText value="#{bundle.IDENTITY_CATEGORY_PERSONAL}"/>
+      </li>
+   </ul>
+</h:panelGroup>
+
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_GIVENNAME}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.givenname.required}"/>
+</h:panelGroup>
+<h:inputText id="givenname" value="#{manager.uiUser.attribute.givenname}"
+             required="#{metadataservice.givenname.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="givenname" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_FAMILYNAME}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.familyname.required}"/>
+</h:panelGroup>
+<h:inputText id="familyname" value="#{manager.uiUser.attribute.familyname}"
+             required="#{metadataservice.familyname.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="familyname" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_LOCATION}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.location.required}"/>
+</h:panelGroup>
+<h:inputText id="location" value="#{manager.uiUser.attribute.location}" required="#{metadataservice.location.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="location" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+<h:panelGroup/>
+<h:panelGroup>
+   <ul class="topnav">
+      <li id="currentTab">
+         <h:outputText value="#{bundle.IDENTITY_CATEGORY_INSTANT}"/>
+      </li>
+   </ul>
+</h:panelGroup>
+
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_SKYPE}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.skype.required}"/>
+</h:panelGroup>
+<h:inputText id="skype" value="#{manager.uiUser.attribute.skype}" required="#{metadataservice.skype.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="skype" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_ICQ}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.icq.required}"/>
+</h:panelGroup>
+<h:inputText id="icq" value="#{manager.uiUser.attribute.icq}" required="#{metadataservice.icq.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="icq" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_AIM}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.aim.required}"/>
+</h:panelGroup>
+<h:inputText id="aim" value="#{manager.uiUser.attribute.aim}" required="#{metadataservice.aim.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="aim" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_MSNM}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.msnm.required}"/>
+</h:panelGroup>
+<h:inputText id="msnm" value="#{manager.uiUser.attribute.msnm}" required="#{metadataservice.msnm.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="msnm" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_YIM}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.yim.required}"/>
+</h:panelGroup>
+<h:inputText id="yim" value="#{manager.uiUser.attribute.yim}" required="#{metadataservice.yim.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="yim" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_XMMP}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.xmmp.required}"/>
+</h:panelGroup>
+<h:inputText id="xmmp" value="#{manager.uiUser.attribute.xmmp}" required="#{metadataservice.xmmp.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="xmmp" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+<h:panelGroup/>
+<h:panelGroup>
+   <ul class="topnav">
+      <li id="currentTab">
+         <h:outputText value="#{bundle.IDENTITY_CATEGORY_ADDITIONAL}"/>
+      </li>
+   </ul>
+</h:panelGroup>
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_HOMEPAGE}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.homepage.required}"/>
+</h:panelGroup>
+<h:inputText id="homepage" value="#{manager.uiUser.attribute.homepage}"
+             required="#{metadataservice.homepage.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="homepage" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_OCCUPATION}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.occupation.required}"/>
+</h:panelGroup>
+<h:inputText id="occupation" value="#{manager.uiUser.attribute.occupation}"
+             required="#{metadataservice.occupation.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="occupation" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_INTERESTS}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.interests.required}"/>
+</h:panelGroup>
+<h:inputText id="interests" value="#{manager.uiUser.attribute.interests}"
+             required="#{metadataservice.interests.required}">
+   <f:validator validatorId="AttributeValidator"/>
+</h:inputText>
+<h:panelGroup/>
+<h:message for="interests" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_SIGNATURE}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.signature.required}"/>
+</h:panelGroup>
+<h:panelGroup>
+   <h:inputTextarea id="signature" value="#{manager.uiUser.attribute.signature}" cols="50" rows="5"
+                    required="#{metadataservice.signature.required}">
+      <f:validator validatorId="AttributeValidator"/>
+   </h:inputTextarea><br/>
+   <h:outputText value="#{bundle.IDENTITY_CATEGORY_ADDITIONAL_SIGNATURE}"/>
+</h:panelGroup>
+<h:panelGroup/>
+<h:message for="signature" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+           fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+
+<h:panelGroup>
+   <h:outputText value="#{bundle.IDENTITY_EXTRA}"/>
+   <h:outputText value=" *" rendered="#{metadataservice.extra.required}"/>
+</h:panelGroup>
+<h:panelGroup>
+   <h:inputTextarea id="extra" value="#{manager.uiUser.attribute.extra}" cols="50" rows="5"
+                    required="#{metadataservice.extra.required}">
+      <f:validator validatorId="AttributeValidator"/>
+   </h:inputTextarea><br/>
+   <h:outputText value="#{bundle.IDENTITY_CATEGORY_ADDITIONAL_EXTRA}"/>
+</h:panelGroup>
+<h:panelGroup/>
+<h:message for="extra" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error"
+           warnClass="portlet-msg-alert"/>
+
+</h:panelGrid>
+
+</div>

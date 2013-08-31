@@ -1,0 +1,15 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html">
+   <ui:composition template="objectTemplate.xhtml">
+      <ui:param name="portalObjectScreen" value="#{bundle.SECURITY}"/>
+      <ui:define name="content">
+         <br/>
+         <p class="portlet-area-header">#{bundle.SET_PERMISSIONS_FOR} <span class="objectName">#{portalobjectmgr.selectedObject.name}</span>
+            #{bundle.WINDOW_NO_CAP}</p>
+         <ui:include src="common/editSecurity.xhtml"/>
+      </ui:define>
+   </ui:composition>
+</div>

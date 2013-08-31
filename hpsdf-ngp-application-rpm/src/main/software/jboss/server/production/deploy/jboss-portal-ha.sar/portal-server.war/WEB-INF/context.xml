@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Context>
+
+
+
+   <!--
+     | Uncomment to enable CAS server based SSO authentication.
+   -->
+
+   <!--
+   <Valve className="org.jboss.portal.identity.sso.cas.CASAuthenticationValve"
+   	casLogin="https://localhost/cas/login"
+   	casLogout="https://localhost/cas/logout"
+   	casValidate="https://localhost/cas/serviceValidate"
+   	casServerName="localhost"
+   	authType="FORM"
+   />
+    -->
+
+   <!--
+     | Uncomment to enable JOSSO server based SSO authentication.
+   -->
+
+   <!--
+   <Valve className="org.jboss.portal.identity.sso.josso.JOSSOLogoutValve"/>
+   -->
+
+   <!--
+     | Uncomment to enable OpenSSO server based SSO authentication.
+   -->
+
+   <!--
+   <Valve className="org.jboss.portal.identity.sso.opensso.OpenSSOAuthenticationValve"
+   	loginURL="http://www.domain.com/opensso"
+   	logoutURL="http://www.domain.com/opensso/UI/Logout"
+   	appendLoginGoto="true"
+   	appendLogoutGoto="true"
+   	authType="FORM"
+   />
+   -->
+   
+</Context>

@@ -1,0 +1,138 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+<!--<p class="portlet-area-header">#{bundle.COMMON_ERROR_HANDLING}</p>-->
+
+<div class="portlet-area-body">
+<!-- defines error handeling section -->
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+   <th class="portlet-section-title">#{bundle.COMMON_CONFIGURE_ERRORS}.</th>
+</tr>
+<tr>
+<td valign="top" class="portlet-section-body">
+<h:form id="common-edit-page-error-form">
+<table class="datatable full-width">
+<thead class="portlet-section-header">
+   <tr>
+      <th>#{bundle.COMMON_CASE}</th>
+      <th>#{bundle.COMMON_INHERITANCE}</th>
+      <th>#{bundle.COMMON_ACTION}</th>
+   </tr>
+</thead>
+<tbody>
+<tr class="portlet-section-body">
+   <td>
+      <h:outputText value="#{properties.pageControlAccessDenied.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="page-access-check" disabled="#{!properties.pageControlAccessDenied.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.pageControlAccessDenied.inherit}"
+                               value="#{properties.pageControlAccessDenied.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="page-access-select" value="#{properties.pageControlAccessDenied.value}"
+                       disabled="#{properties.pageControlAccessDenied.inherited}" onchange="submit();">
+         <f:selectItems value="#{properties.pageSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-alternate">
+   <td>
+      <h:outputText value="#{properties.pageControlUnavailable.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="page-control-check" disabled="#{!properties.pageControlUnavailable.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.pageControlUnavailable.inherit}"
+                               value="#{properties.pageControlUnavailable.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="page-control-select" value="#{properties.pageControlUnavailable.value}"
+                       disabled="#{properties.pageControlUnavailable.inherited}" onchange="submit();">
+         <f:selectItems value="#{properties.pageSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-body">
+   <td>
+      <h:outputText value="#{properties.pageControlError.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="page-error-check" disabled="#{!properties.pageControlError.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.pageControlError.inherit}"
+                               value="#{properties.pageControlError.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="page-error-select" value="#{properties.pageControlError.value}"
+                       disabled="#{properties.pageControlError.inherited}" onchange="submit();">
+         <f:selectItems value="#{properties.pageSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-alternate">
+   <td>
+      <h:outputText value="#{properties.pageControlInternalError.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="page-internal-check" disabled="#{!properties.pageControlInternalError.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.pageControlInternalError.inherit}"
+                               value="#{properties.pageControlInternalError.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="page-internal-select" value="#{properties.pageControlInternalError.value}"
+                       disabled="#{properties.pageControlInternalError.inherited}" onchange="submit();">
+         <f:selectItems value="#{properties.pageSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-body">
+   <td>
+      <h:outputText value="#{properties.pageControlNotFound.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="page-not-found-check" disabled="#{!properties.pageControlNotFound.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.pageControlNotFound.inherit}"
+                               value="#{properties.pageControlNotFound.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="page-not-found-select" value="#{properties.pageControlNotFound.value}"
+                       disabled="#{properties.pageControlNotFound.inherited}" onchange="submit();">
+         <f:selectItems value="#{properties.pageSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-alternate">
+   <td>
+      <h:outputText value="#{properties.pageControlResourceURI.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="page-res-check" disabled="#{!properties.pageControlResourceURI.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.pageControlResourceURI.inherit}"
+                               value="#{properties.pageControlResourceURI.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:inputText id="page-res-select" value="#{properties.pageControlResourceURI.value}" size="60"
+                   disabled="#{properties.pageControlResourceURI.inherited}"/>
+   </td>
+</tr>
+</tbody>
+</table>
+<h:commandButton id="update" value="#{bundle.COMMON_UPDATE}" styleClass="portlet-form-button portlet-section-buttonrow"/>
+</h:form>
+
+
+</td>
+</tr>
+</table>
+
+</div>
+</ui:composition>

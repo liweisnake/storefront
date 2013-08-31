@@ -1,0 +1,66 @@
+<wicket:panel>
+
+
+  <div class="showListPanel">
+      <span wicket:id="apiSgfDataView">
+      
+
+      
+        <div class="showList">
+          <div class="showListTop">
+            <div class="showListHeader">
+            </div>
+          </div>
+          <div class="showListMain appLib">
+            <div class="showListContent">
+              <input type="checkbox" wicket:id="checkBox" class="checkBox left" style="border:0" />
+              <div class="appInfo left" >
+                <h4>
+                  <wicket:message key="service.name" />:&nbsp;
+                  <span wicket:id="serviceName" />
+                </h4>
+                <em>
+                  <div>
+                  <wicket:message key="access.interface" />:&nbsp;
+                  <span wicket:id="accessInterface" />
+                  &nbsp;&nbsp;
+                  <wicket:enclosure>
+                  	<a wicket:id="lnMeta"><wicket:message key="metadata" /></a>
+                  </wicket:enclosure>
+                  </div>
+                </em>
+                <div>
+                  <wicket:message key="authentication.type" />:&nbsp;
+                  <span wicket:id="authenticationType" />
+                </div>
+                <wicket:message key="service.url" />:
+                <div wicket:id="serviceUrl" />
+                <wicket:message key="service.description" />:
+                <div wicket:id="serviceDescription" />
+                <div>
+                <wicket:enclosure>
+                	<a wicket:id="details" ></a>
+                </wicket:enclosure>
+                </div>
+                <div>
+                <wicket:enclosure>
+                  <span wicket:id="txtMeta" ></span>
+			      <script type="text/javascript">
+			      	showmeta();
+			      </script>
+                </wicket:enclosure>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showListBottom">
+            <div class="showListFoot" />
+          </div>
+        </div>
+      </span>
+      <span wicket:id="navigator" />
+  </div>
+
+</wicket:panel>
+
+

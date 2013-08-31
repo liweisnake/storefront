@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll">Select All</entry>
+	
+	<entry key="title">Category List</entry>	
+
+	<entry key="externalId">Category External ID</entry>
+	<entry key="parentExternalId">Parent Category External ID</entry>
+	<entry key="name">Name</entry>
+	<entry key="displayName">Display Name</entry>
+
+	<entry key="detail">Edit</entry>
+	<entry key="newEntry">New Category</entry>
+	<entry key="delete">Delete</entry>
+
+	<entry key="title.big">Category Management</entry>	
+	<entry key="confirmMsg">Do you want to delete the selected categories?</entry>
+	
+	<entry key="msg.error.save.nocategory">Category does not exist!</entry>
+	<entry key="msg.error.del.noselect">Please select one Category at least!</entry>
+	
+	<!-- do not need to translate root to JP -->
+	<entry key="cateRoot">root</entry>
+	
+	<entry key="promptTitle">Prompt</entry>
+</properties>

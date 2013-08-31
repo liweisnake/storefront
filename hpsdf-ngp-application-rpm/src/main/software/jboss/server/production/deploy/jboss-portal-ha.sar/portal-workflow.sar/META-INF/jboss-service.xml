@@ -1,0 +1,72 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<server>
+   <!-- Hibernate service -->
+   <mbean code="org.jboss.portal.jems.hibernate.SessionFactoryBinder"
+          name="portal:service=Hibernate,type=Workflow"
+          xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="ConfigLocation">conf/hibernate/workflow/hibernate.cfg.xml</attribute>
+      <attribute name="JNDIName">java:/portal/workflow/WorkFlowSessionFactory</attribute>
+   </mbean>
+
+   <mbean code="org.jboss.portal.workflow.service.JbpmThreadService"
+          name="portal:service=Thread,type=WorkflowService">
+      <depends optional-attribute-name="WorkflowService" proxy-type="attribute">
+         portal:service=Workflow,type=WorkflowService
+      </depends>
+   </mbean>
+ 
+   <!-- Workflow service -->
+   <mbean code="org.jboss.portal.workflow.service.WorkflowServiceImpl"
+          name="portal:service=Workflow,type=WorkflowService"
+          xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>portal:service=Hibernate,type=Workflow</depends>
+      <attribute name="JbpmConfigurationXml">
+         <![CDATA[
+         <jbpm-configuration>
+            <jbpm-context>
+               <service name="persistence" factory="org.jbpm.persistence.db.DbPersistenceServiceFactory" />
+               <service name="scheduler" factory="org.jbpm.scheduler.db.DbSchedulerServiceFactory" />
+               <service name="message" factory="org.jbpm.msg.db.DbMessageServiceFactory" />
+               <service name="tx" factory="org.jbpm.tx.TxServiceFactory"/>
+            </jbpm-context>
+            <string name="resource.hibernate.cfg.xml" value="conf/hibernate/workflow/hibernate.cfg.xml"/>
+            <string name="resource.business.calendar" value="org/jbpm/calendar/jbpm.business.calendar.properties"/>
+            <string name="resource.default.modules" value="org/jbpm/graph/def/jbpm.default.modules.properties"/>
+            <string name="resource.converter" value="org/jbpm/db/hibernate/jbpm.converter.properties"/>
+            <string name="resource.action.types" value="org/jbpm/graph/action/action.types.xml"/>
+            <string name="resource.node.types" value="org/jbpm/graph/node/node.types.xml"/>
+            <string name="resource.varmapping" value="org/jbpm/context/exe/jbpm.varmapping.xml"/>
+         </jbpm-configuration>
+         ]]>
+      </attribute>
+      <attribute name="JNDIName">java:/portal/WorkflowService</attribute>
+   </mbean>
+</server>

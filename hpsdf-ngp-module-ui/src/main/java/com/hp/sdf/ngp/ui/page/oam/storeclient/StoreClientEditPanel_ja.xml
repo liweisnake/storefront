@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="updateDate">アプリケーション更新日時</entry>
+<entry key="version">バージョン</entry>
+<entry key="confirmMsg">クライアントアプリを更新してよろしいでしょうか？</entry>
+<entry key="successMsg">クライアントアプリを更新しました。</entry>
+<entry key="title.big">クライアントアプリ管理</entry>
+<entry key="newVersionUpdate">ファイルパス</entry>
+<entry key="handsetType">機種</entry>
+<entry key="binaryFile">Binary File</entry>
+<entry key="uploadNewFile">データ種別</entry>
+<entry key="back">戻る</entry>
+<entry key="promptTitle">プロンプト</entry>
+<entry key="error.save.nofile">ファイルパスの選択が必須です。</entry>
+<entry key="configFile">Config File</entry>
+<entry key="error.save.failed">アップロードが失敗しました。</entry>
+<entry key="save">更新</entry>
+<entry key="configFileVersion">定義ファイルバージョン</entry>
+<entry key="configFileName">定義ファイル</entry>
+<entry key="upload">参照</entry>
+<entry key="title">クライアントアプリ更新</entry>
+<entry key="name">アプリケーション名</entry>
+</properties>

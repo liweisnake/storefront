@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Default Setting</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newBinaryVersion">New Content</entry>
+<entry key="days">New Arrival Duration</entry>
+<entry key="daysSymbol"> days</entry>
+<entry key="content">Content Source</entry>
+<entry key="rate">Rate(%)</entry>
+<entry key="save">Save</entry>
+<entry key="update.pid">Provider External ID</entry>
+<entry key="update.provider">Provider/Developer</entry>
+<entry key="update.rate">Rate(%)</entry>
+<entry key="update.save">Save</entry>
+<entry key="update.back">Back</entry>
+<entry key="rateSymbol">%</entry>
+
+<entry key="defaultRate">Default rate</entry>
+
+<entry key="title.big">Content Management</entry>
+<entry key="title.left.big">Default Setting</entry>
+<entry key="title.right.big">Provider/Developer rate</entry>
+
+<entry key="title.prompt">Prompt</entry>
+
+<entry key="msg.warn.update">Do you want to edit the default setting?</entry>
+<entry key="msg.warn.update.provider">Do you want to batch update the rate of the providers?</entry>
+<entry key="msg.result.update.success">You successfully edit the default setting!</entry>
+<entry key="msg.result.update.provider.success">You successfully batch update the rate of the providers!</entry>
+<entry key="msg.warn.update.days">Do you want to edit the New Promotion Due Date?</entry>
+<entry key="msg.result.update.days.success">You successfully edit the New Promotion Due Date!</entry>
+
+<entry key="msg.error.empty.default.rate">Please input the default rate!</entry>
+<entry key="msg.error.error.default.rate">Default rate should be input float number between 0 and 100!</entry>
+<entry key="msg.error.range.default.rate">Default rate should be between 0 and 100!</entry>
+<entry key="msg.error.empty.commission.rate">Please input the commission rate!</entry>
+<entry key="msg.error.range.commission.rate">Commission rate should be between 0 and 100!</entry>
+
+<entry key="msg.error.update.days">value invalid!</entry>
+
+</properties>

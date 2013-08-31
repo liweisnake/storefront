@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class
+      name="org.jboss.portal.core.impl.model.portal.ObjectNode"
+      table="JBP_OBJECT_NODE">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">portal_seq</param>
+         </generator>
+      </id>
+      <natural-id>
+         <property
+            name="path"
+            column="`PATH`"
+            type="org.jboss.portal.core.impl.model.portal.PortalObjectIdUserType"
+            not-null="false"
+            unique="false"/>
+      </natural-id>
+      <property
+         name="name"
+         column="NAME"
+         not-null="false"/>
+      <map
+         name="children"
+         inverse="true"
+         cascade="none"
+         fetch="subselect"
+         lazy="true">
+         <cache usage="transactional"/>
+         <key column="PARENT_KEY"/>
+         <map-key
+            type="org.jboss.portal.jems.hibernate.MagicString"
+            column="NAME"/>
+         <one-to-many class="org.jboss.portal.core.impl.model.portal.ObjectNode"/>
+      </map>      
+      <many-to-one
+         name="parent"
+         column="PARENT_KEY"
+         not-null="false"
+         cascade="none"
+         fetch="select"/>
+      <one-to-one
+         name="object"
+         class="org.jboss.portal.core.impl.model.portal.PortalObjectImpl"
+         cascade="none"
+         fetch="join"
+         constrained="false"
+         lazy="false">
+      </one-to-one>
+      <map
+         name="securityConstraints"
+         inverse="true"
+         cascade="all-delete-orphan"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="NODE_KEY"/>
+		   <index
+            column="`ROLE`"
+            type="string"/>
+		   <one-to-many class="org.jboss.portal.core.impl.model.portal.ObjectNodeSecurityConstraint"/>
+      </map>
+   </class>
+   <class
+      name="org.jboss.portal.core.impl.model.portal.PortalObjectImpl"
+      table="JBP_PORTAL_OBJECT">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Long">
+         <generator class="foreign">
+            <param name="property">objectNode</param>
+         </generator>
+      </id>
+      <property
+         name="listener"
+         column="LISTENER"/>
+      <map
+         name="displayNames"
+         cascade="none"
+         fetch="select"
+         lazy="true"
+         table="JBP_PORTAL_OBJECT_DNAMES">
+         <cache usage="transactional"/>
+         <key column="INSTANCE_PK"/>
+         <map-key type="locale" column="LOCALE"/>
+                 <element type="string" column="TEXT"/>
+      </map>
+      
+      <map
+         name="declaredPropertyMap"
+         cascade="all-delete-orphan"
+         table="JBP_PORTAL_OBJECT_PROPS"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="OBJECT_KEY"/>
+         <map-key
+            type="string"
+            column="NAME"/>
+         <element
+            type="org.jboss.portal.jems.hibernate.OracleStringUserType"
+            column="jbp_VALUE"
+            not-null="false"/>
+      </map>
+      <one-to-one
+         name="objectNode"
+         class="org.jboss.portal.core.impl.model.portal.ObjectNode"
+         cascade="none"
+         constrained="true"
+         fetch="select"/>
+      <joined-subclass
+         name="org.jboss.portal.core.impl.model.portal.ContextImpl"
+         table="JBP_CONTEXT">
+         <key column="PK"/>
+      </joined-subclass>
+      <joined-subclass
+         name="org.jboss.portal.core.impl.model.portal.PortalImpl"
+         table="JBP_PORTAL">
+         <key column="PK"/>
+         <set
+            name="modes"
+            table="JBP_PORTAL_MODE"
+            cascade="all-delete-orphan"
+            fetch="join">
+            <cache usage="transactional"/>
+            <key column="PK"/>
+            <element
+               column="name"
+               type="org.jboss.portal.core.hibernate.ModeUserType"/>
+         </set>
+         <set
+            name="windowStates"
+            table="JBP_PORTAL_WINDOW_STATE"
+            cascade="all-delete-orphan"
+            fetch="join">
+            <cache usage="transactional"/>
+            <key column="PK"/>
+            <element
+               column="name"
+               type="org.jboss.portal.core.hibernate.WindowStateUserType"/>
+         </set>
+      </joined-subclass>
+      <joined-subclass
+         name="org.jboss.portal.core.impl.model.portal.PageImpl"
+         table="JBP_PAGE">
+         <key column="PK"/>
+      </joined-subclass>
+      <joined-subclass
+         name="org.jboss.portal.core.impl.model.portal.WindowImpl"
+         table="JBP_WINDOW">
+         <key column="PK"/>
+         <property
+            name="URI"
+            column="INSTANCE_REF"/>
+      </joined-subclass>
+   </class>
+	
+   <class
+      name="org.jboss.portal.core.impl.model.portal.ObjectNodeSecurityConstraint"
+      table="JBP_OBJECT_NODE_SEC">
+      <cache usage="transactional"/> 
+	   <id
+         name="key"
+         column="PK">
+         <generator class="native">
+            <param name="sequence">sec_seq</param>
+         </generator>
+      </id>
+      <property
+         name="role"
+         column="`ROLE`"
+         not-null="true"
+         unique="false"/>
+	   <set
+         name="actions"
+         table="JBP_OBJECT_NODE_SEC_ACTIONS"
+         cascade="all-delete-orphan"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="PK"/>
+         <element column="ACTIONS" type="string"/>
+      </set>
+      <many-to-one
+         name="objectNode"
+         column="NODE_KEY"
+         class="org.jboss.portal.core.impl.model.portal.ObjectNode"
+         cascade="none"
+         fetch="select"/>
+   </class>
+</hibernate-mapping>

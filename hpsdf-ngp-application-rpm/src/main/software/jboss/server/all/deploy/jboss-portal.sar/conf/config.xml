@@ -1,0 +1,39 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<properties>
+   <!-- When a window has restrictedaccess : show or hide values are permitted -->
+   <entry key="core.render.window_access_denied">show</entry>
+   <!-- When a window is unavailable : show or hide values are permitted -->
+   <entry key="core.render.window_unavailable">show</entry>
+   <!-- When a window produces an error : show, hide or message_only values are permitted -->
+   <entry key="core.render.window_error">message_only</entry>
+   <!-- When a window produces an internal error : show, hide are permitted -->
+   <entry key="core.render.window_internal_error">show</entry>
+   <!-- When a window is not found : show or hide values are permitted -->
+   <entry key="core.render.window_not_found">show</entry>
+   <!-- Namespace to use when logging-in, use "dashboard" to directly log-in the dashboard otherwise use "default" -->
+   <entry key="core.login.namespace">default</entry>
+   <!-- true if the server should switch to HTTPS for logging-in. Secured layer must be properly set before -->
+   <entry key="core.login.secured">false</entry>
+</properties>

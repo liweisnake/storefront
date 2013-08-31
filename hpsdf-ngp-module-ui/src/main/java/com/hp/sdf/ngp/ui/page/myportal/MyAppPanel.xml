@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="myportal.createApp">Create app</entry>
+<entry key="myportal.name">Name</entry>
+<entry key="myportal.createDate">Create Date</entry>
+<entry key="myportal.brief">Brief</entry>
+
+</properties>

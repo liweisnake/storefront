@@ -1,0 +1,40 @@
+<wicket:panel>
+<tr>
+  <td><b><wicket:message key="tags">Tags</wicket:message></b></td>
+  <td>
+    <span wicket:id="tags">
+	    <a href="#" wicket:id="tagLink">
+	      <span wicket:id="tagName">tag</span>
+	    </a>
+	    <wicket:enclosure>
+	        <a href="#" wicket:id="delLink"><img src="images/delete.png"/></a>
+	    </wicket:enclosure>
+    </span>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>
+    <div id="tagsInput">
+      <form id="addTagsForm" wicket:id="addTagsForm">
+      <table>
+        <tr>
+          <td>&nbsp;</td>
+          <td>
+            <div wicket:id="tagFeedback">[[ feedback ]]</div>
+          </td>  
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><wicket:message key="newTags">New Tags :</wicket:message></td>
+          <td>
+            <input wicket:id="newTags" type="text" style="width:300px;"/>
+          </td>  
+          <td><input type="submit" wicket:message="value:btn.add" /></td>
+        </tr>  
+      </table>
+      </form>
+    </div>  
+  </td>
+</tr>  
+</wicket:panel>

@@ -1,0 +1,87 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--
+A DTD for the configuration of Portal's WSRP producer.
+
+author: <a href="mailto:chris.laprun@jboss.com">Chris Laprun</a>
+version: 1.0 (Portal 2.6)
+revision: $Revision: 8784 $
+-->
+
+<!-- Root element for the producer configuration. Contains a single registration-configuration as of Portal 2.6 -->
+<!ELEMENT producer-configuration ( registration-configuration? )>
+
+
+<!-- Allows configuration of whether the producer requires registration or not and how to deal with registrations. -->
+<!ELEMENT registration-configuration ( (registration-property-validator | registration-policy)?, registration-property-description* )>
+
+<!--
+Specifies whether the producer will send a complete service description (that is one including offered portlets) or not
+to unregistered consumers.
+-->
+<!ATTLIST registration-configuration fullServiceDescriptionRequiresRegistration (true | false) "false">
+
+<!--
+A fully-qualified class name for a class implementing the RegistrationPropertyValidator interface. Only makes sense when
+using the default RegistrationPolicy.
+-->
+<!ELEMENT registration-property-validator ( #PCDATA )>
+
+<!--
+A fully-qualified class name for an implementation of the RegistrationPolicy interface, allowing users to customize
+the behavior of the producer when handling registration attempts.
+ -->
+<!ELEMENT registration-policy ( #PCDATA )>
+
+<!--
+The description for a registration property for which the producer will require consumers to provide a value.
+Example:
+<registration-property-description>
+   <name>name1</name>
+   <type>xsd:string</type>
+   <label xml:lang="en" resourceName="resource.label1">label1</label>
+   <hint xml:lang="en" resourceName="resource.hint1">hint1</hint>
+</registration-property-description>
+-->
+<!ELEMENT registration-property-description ( name, type, label, hint? )>
+
+<!-- The name of the registration property -->
+<!ELEMENT name ( #PCDATA )>
+
+<!-- The qualified name of the type of the registration property. As of Portal 2.6, only xsd:string is supported. -->
+<!ELEMENT type ( #PCDATA )>
+
+<!-- A description of the registration property and its usage targeted at end users. -->
+<!ELEMENT hint ( #PCDATA )>
+<!-- The language in which the hint is written. -->
+<!ATTLIST hint xml:lang CDATA #REQUIRED>
+<!-- A resource name identifying the hint in localization bundles (currently unsupported in Portal 2.6). -->
+<!ATTLIST hint resourceName CDATA #IMPLIED>
+
+<!-- A short, human readable name for the property, intended for consumer-generated administration interface. -->
+<!ELEMENT label ( #PCDATA )>
+<!-- The language in which the label is written. -->
+<!ATTLIST label xml:lang CDATA #REQUIRED>
+<!-- A resource name identifying the label in localization bundles (currently unsupported in Portal 2.6). -->
+<!ATTLIST label resourceName CDATA #IMPLIED>

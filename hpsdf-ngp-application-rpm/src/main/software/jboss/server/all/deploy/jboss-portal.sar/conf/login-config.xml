@@ -1,0 +1,120 @@
+<?xml version='1.0'?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE policy PUBLIC
+   "-//JBoss//DTD JBOSS Security Config 3.0//EN"
+   "http://www.jboss.org/j2ee/dtd/security_config.dtd">
+<policy>
+   <!-- For the JCR CMS -->
+   <application-policy name="cms">
+      <authentication>
+         <login-module code="org.apache.jackrabbit.core.security.SimpleLoginModule" flag="required"/>
+      </authentication>
+   </application-policy>
+   
+   <application-policy name="portal">
+      <authentication>
+
+         <!--To configure LDAP support with IdentityLoginModule please check documentation on how to
+         configure portal identity modules for this-->
+         <login-module code="org.jboss.portal.identity.auth.IdentityLoginModule" flag="required">
+            <module-option name="unauthenticatedIdentity">guest</module-option>
+            <module-option name="userModuleJNDIName">java:/portal/UserModule</module-option>
+            <module-option name="roleModuleJNDIName">java:/portal/RoleModule</module-option>
+            <module-option name="userProfileModuleJNDIName">java:/portal/UserProfileModule</module-option>
+            <module-option name="membershipModuleJNDIName">java:/portal/MembershipModule</module-option>
+            <module-option name="validateUserNameCase">true</module-option>
+            <module-option name="additionalRole">Authenticated</module-option>
+         </login-module>
+
+         <!--Use can use this module instead of IdentityLoginModule to bind to LDAP. It simply extends JBossSX LdapExtLoginModule so
+          all configuration that can be applied to LdapExtLoginModule also can be applied here. For user that
+          was authenticated successfully it will try to take identity modules from portal, check if such user (and roles it belongs to)
+          is present, and if not it will try to create them. Then for all roles assigned to this authenticated principal it will
+          try to check and create them using identity modules. This behaviour can be disabled using "synchronizeRoles". You can also
+          define one "defaultAssignRole" that will be always assigned to synchronized user.
+          It is also possible to set option "synchronizeIdentity" to "false" so this module will act exactly like LdapExtLoginModule
+          but it will inject role defined in "additionalRole".  For obvious reasons
+          this is designed to use with portal identity modules configured with DB and not LDAP-->
+         <!--There is also SynchronizingLDAPLoginModule which provide the same set of options on top of JBossSX LdapLoginModule-->
+         <!--<login-module code="org.jboss.portal.identity.auth.SynchronizingLDAPExtLoginModule" flag="required">
+            <module-option name="synchronizeIdentity">true</module-option>
+            <module-option name="synchronizeRoles">true</module-option>
+            <module-option name="preserveRoles">true</module-option>
+            <module-option name="additionalRole">Authenticated</module-option>
+            <module-option name="defaultAssignedRole">User</module-option>
+            <module-option name="userModuleJNDIName">java:/portal/UserModule</module-option>
+            <module-option name="roleModuleJNDIName">java:/portal/RoleModule</module-option>
+            <module-option name="membershipModuleJNDIName">java:/portal/MembershipModule</module-option>
+            <module-option name="userProfileModuleJNDIName">java:/portal/UserProfileModule</module-option>
+            <module-option name="java.naming.factory.initial">com.sun.jndi.ldap.LdapCtxFactory</module-option>
+            <module-option name="java.naming.provider.url">ldap://example.com:10389/</module-option>
+            <module-option name="java.naming.security.authentication">simple</module-option>
+            <module-option name="bindDN">cn=Directory Manager</module-option>
+            <module-option name="bindCredential">lolo</module-option>
+            <module-option name="baseCtxDN">ou=People,o=test,dc=portal,dc=qa,dc=atl,dc=jboss,dc=com</module-option>
+            <module-option name="baseFilter">(uid={0})</module-option>
+            <module-option name="rolesCtxDN">ou=Roles,o=test,dc=portal,dc=qa,dc=atl,dc=jboss,dc=com</module-option>
+            <module-option name="roleFilter">(member={1})</module-option>
+            <module-option name="roleAttributeID">cn</module-option>
+            <module-option name="roleRecursion">-1</module-option>
+            <module-option name="searchTimeLimit">10000</module-option>
+            <module-option name="searchScope">SUBTREE_SCOPE</module-option>
+            <module-option name="allowEmptyPasswords">false</module-option>
+         </login-module>-->
+
+         <!--This login module should be placed at the end of authentication stack. It always returns
+         true in login() method so it should be always "optional" and exists after other "required" module in the stack.
+         It will try to synchronize authenticated user into portal store using portal identity modules. Each subject principal assigned
+         by previous modules will be tried to synchronize into portal as a role.  -->
+         <!--<login-module code="org.jboss.portal.identity.auth.SynchronizingLoginModule" flag="optional">
+            <module-option name="synchronizeIdentity">true</module-option>
+            <module-option name="synchronizeRoles">true</module-option>
+            <module-option name="preserveRoles">true</module-option>
+            <module-option name="additionalRole">Authenticated</module-option>
+            <module-option name="defaultAssignedRole">User</module-option>
+            <module-option name="userModuleJNDIName">java:/portal/UserModule</module-option>
+            <module-option name="roleModuleJNDIName">java:/portal/RoleModule</module-option>
+            <module-option name="membershipModuleJNDIName">java:/portal/MembershipModule</module-option>
+            <module-option name="userProfileModuleJNDIName">java:/portal/UserProfileModule</module-option>
+         </login-module>-->
+
+         <!--Uncomment this if you want to fall down to users kept in DB if LDAP authentication fails
+             This may be usefull if you want to use Admin user provided with portal database schema-->
+         <!--Note that this may lead to the security risk - with LDAP  when storing user profile information
+             that are not mapped as attribute you may have LDAP user synchronized into DB with no password set.
+             Please see HibernateUserProfileImpl module options "synchronizeNonExistingUsers", "acceptOtherImplementations"
+             "defaultSynchronizePassword" or "randomSynchronizePassword" to manage this behaviour-->
+         <!--<login-module code = "org.jboss.portal.identity.auth.DBIdentityLoginModule" flag="sufficient">
+            <module-option name="dsJndiName">java:/PortalDS</module-option>
+            <module-option name="principalsQuery">SELECT jbp_password FROM jbp_users WHERE jbp_uname=?</module-option>
+            <module-option name="rolesQuery">SELECT jbp_roles.jbp_name, 'Roles' FROM  jbp_role_membership INNER JOIN jbp_roles ON jbp_role_membership.jbp_rid = jbp_roles.jbp_rid INNER JOIN jbp_users ON jbp_role_membership.jbp_uid = jbp_users.jbp_uid WHERE jbp_users.jbp_uname=?</module-option>
+            <module-option name="hashAlgorithm">MD5</module-option>
+            <module-option name="hashEncoding">HEX</module-option>
+            <module-option name="additionalRole">Authenticated</module-option>
+         </login-module>-->
+         
+      </authentication>
+   </application-policy>
+</policy>

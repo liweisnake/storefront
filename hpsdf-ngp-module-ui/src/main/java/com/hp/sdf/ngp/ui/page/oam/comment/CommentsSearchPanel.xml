@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="keyword">Key Word</entry>
+	<entry key="pid">Provider External ID</entry>
+	<entry key="providerName">Provider Name</entry>
+	<entry key="assetID">BinaryVersion External ID</entry>
+	<entry key="assetName">Asset Name</entry>
+	<entry key="subscriberName">Display Name</entry>
+	<entry key="search">Search</entry>
+	
+	<entry key="title">Search Comments</entry>
+	<entry key="commentsManagement">Comments Management</entry>		
+</properties>

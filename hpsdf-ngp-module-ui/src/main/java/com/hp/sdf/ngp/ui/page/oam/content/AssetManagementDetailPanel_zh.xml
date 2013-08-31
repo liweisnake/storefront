@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="defaultSetting">默认设置</entry>
+<entry key="newAsset">新建资产</entry>
+
+<entry key="title">资产详细信息</entry>
+
+<entry key="title.big">资产管理</entry>
+<entry key="title.left">资产详细信息</entry>
+
+<entry key="assetName">资产名称</entry>
+<entry key="status">状态</entry>
+<entry key="parentAssetId">父资产编号</entry>
+<entry key="fileName">商品名称</entry>
+<entry key="providerId">供应商编号</entry>
+<entry key="providerName">供应商</entry>
+<entry key="category1">类别</entry>
+<entry key="category2">子类别</entry>
+<entry key="description">描述</entry>
+<entry key="brief">概述</entry>
+<entry key="price">价格</entry>
+<entry key="createDate">开始时间</entry>
+<entry key="expireDate">有效期</entry>
+<entry key="fileSize">文件大小</entry>
+<entry key="tag">标签</entry>
+
+<entry key="newArrivalDueDate">新品上市到期时间</entry>
+<entry key="recommendStartDate">推荐商品开始时间</entry>
+<entry key="recommendDueDate">推荐到期时间</entry>
+<entry key="recommendOrder">推荐顺序</entry>
+
+<entry key="thumbnailBig">缩略大图</entry>
+<entry key="thumbnailMed">缩略中图</entry>
+<entry key="thumbnail">缩略图</entry>
+<entry key="screenShot">屏幕截图</entry>
+
+<entry key="view">查看</entry>
+
+<entry key="msg.update">你确定想要更新该资产吗?</entry>
+<entry key="msg.delete">你确定想要删除该资产吗?</entry>
+<entry key="msg.update.result">更新资产成功!</entry>
+<entry key="msg.delete.result">删除该资产成功!</entry>
+<entry key="msg.error.delete">该资产不存在!</entry>
+<entry key="msg.error.fileupload">请输入一个有效的文件路径!</entry>
+<entry key="title.prompt">提示</entry>
+
+<entry key="btn.update">保存</entry>
+<entry key="btn.delete">删除</entry>
+<entry key="btn.back">返回</entry>
+
+</properties>

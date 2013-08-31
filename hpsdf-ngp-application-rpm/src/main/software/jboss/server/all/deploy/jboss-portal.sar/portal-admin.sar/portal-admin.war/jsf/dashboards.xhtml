@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jstl/core"
+                template="dashboardsTemplate.xhtml">
+
+   <ui:define name="content">
+
+      <!--  -->
+      <div class="property-container">
+      <ui:include src="common/editProperties.xhtml">
+         <ui:param name="properties" value="#{dashboardmgr.selectedProperties}"/>
+      </ui:include>
+      </div>
+
+      <!--  -->
+      <br/>
+      <div class="property-container">
+      <ui:include src="common/editPortalErrorHandling.xhtml">
+         <ui:param name="properties" value="#{dashboardmgr.controlProperties}"/>
+      </ui:include>
+      </div>
+
+      <!--  -->
+      <br/>
+      <div class="property-container">
+      <ui:include src="common/editPageErrorHandling.xhtml">
+         <ui:param name="properties" value="#{dashboardmgr.controlProperties}"/>
+      </ui:include>
+      </div>
+
+      <!-- Separation -->
+      <br/>
+
+      <div class="property-container">
+         <p class="portlet-area-header">#{bundle.DASHBOARD_THEME_PROPERTIES}</p>
+
+         <div class="portlet-area-body">
+            <table cellpadding="0" cellspacing="0" width="100%">
+               <tr>
+                  <th class="portlet-section-title">#{bundle.CONFIGURE_DASHBOARD_SETTINGS}.</th>
+               </tr>
+               <tr>
+                  <td valign="top" class="portlet-section-body">
+                     <ui:decorate template="common/editTheme.xhtml">
+                        <ui:param name="theme" value="#{dashboardmgr.theme}"/>
+                        <ui:define name="form_submit">
+                           <h:commandButton value="#{bundle.COMMON_UPDATE}" actionListener="#{dashboardmgr.theme.execute}"
+                                            styleClass="portlet-form-button portlet-section-buttonrow"/>
+                        </ui:define>
+                     </ui:decorate>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </ui:define>
+
+
+</ui:composition>

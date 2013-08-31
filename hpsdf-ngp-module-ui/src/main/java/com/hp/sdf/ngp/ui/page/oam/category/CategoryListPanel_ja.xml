@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="title.big">カテゴリ管理</entry>
+<entry key="name">JIL-WH取得ジャンルName</entry>
+<entry key="newEntry">新規登録</entry>
+<entry key="selectAll">全て選択</entry>
+<entry key="parentExternalId">親ジャンルID</entry>
+<entry key="externalId">MCD取得ジャンルID</entry>
+<entry key="confirmMsg">選択されたカテゴリを削除してよろしいでしょうか。</entry>
+<entry key="detail">編集</entry>
+<entry key="msg.error.del.noselect">カテゴリを選択してください。</entry>
+<entry key="msg.error.save.nocategory">カテゴリが存在していません。</entry>
+<entry key="displayName">端末表示名</entry>
+<entry key="title">カテゴリ一覧</entry>
+<entry key="cateRoot">親カテゴリ</entry>
+<entry key="delete">削除</entry>
+</properties>

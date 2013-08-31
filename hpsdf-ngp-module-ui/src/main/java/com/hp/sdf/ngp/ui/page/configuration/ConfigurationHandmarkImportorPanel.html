@@ -1,0 +1,30 @@
+<wicket:panel>
+
+<div class="mainPanel" >
+	<span style="color: red;" wicket:id="feedBack">error message</span>
+	
+	<form wicket:id="ajaxUpload">
+     <fieldset>
+      <h3><wicket:message key="handmarkUploadTitle" /></h3>
+      
+        <p>
+        <label for="uploadMaster"><b><wicket:message key="handmarkMasterUpload.file" /> :</b></label>
+        <input wicket:id="masterfeedFileInput" id="uploadMaster" type="file"/>
+        </p>
+        
+        <p>
+        <label for="uploadDevice"><b><wicket:message key="handmarkDeviceUpload.file" /> :</b></label>
+        <input wicket:id="devicefeedFileInput" id="uploadDevice" type="file"/>
+        </p>    
+        
+        <input type="submit" wicket:id="upload" wicket:message="value:handmarkUpload.upload" class="button-submit"/>
+        <span wicket:id="progress">[[ajax upload progressbar]]</span>
+     </fieldset>
+    </form>
+        
+    <div wicket:id="promptPanel"></div>
+</div>    
+
+</wicket:panel>
+
+  

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">应用</entry>
+<entry key="criteria.all">全部</entry>
+<entry key="criteria.keyword">关键词</entry>
+<entry key="criteria.ASSETCATEGORYRELATION_CATEGORY_ID">分类</entry>
+<entry key="criteria.PLATFORM_ID">平台</entry>
+<entry key="criteria.STATUS_ID">存在文件状态</entry>
+<entry key="criteria.ASSETTAGRELATION_TAG_ID">标签</entry>
+<entry key="label.sortby">排序: </entry>
+<entry key="lnk.name">应用名</entry>
+<entry key="lnk.date">日期</entry>
+<entry key="lnk.rate">评分</entry>
+</properties>

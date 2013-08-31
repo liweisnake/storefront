@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="defaultSetting">默认设置</entry>
+<entry key="newBinaryVersion">新建内容</entry>
+
+<entry key="title">内容详情</entry>
+
+<entry key="title.big">内容管理</entry>
+<entry key="title.left">内容详情</entry>
+<entry key="title.right">内容附加元数据</entry>
+
+<entry key="title.name">名称</entry>
+<entry key="title.value">当前值</entry>
+<entry key="title.input">已变更的值</entry>
+
+<entry key="assetName">名称</entry>
+<entry key="externalId">资产外部编号</entry>
+<entry key="status">状态</entry>
+<entry key="assetId">资产编号</entry>
+<entry key="parentAssetId">父资产编号</entry>
+<entry key="fileName">产品名称</entry>
+<entry key="providerId">供应商编号</entry>
+<entry key="editProvider">编辑供应商</entry>
+<entry key="providerName">供应商</entry>
+<entry key="providerJpName">供应商日文名称</entry>
+<entry key="category1">类别</entry>
+<entry key="category2">子类别</entry>
+<entry key="description">详细信息</entry>
+<entry key="brief">概述</entry>
+<entry key="price">价格</entry>
+<entry key="createDate">开始时间</entry>
+<entry key="expireDate">有效期</entry>
+<entry key="fileSize">文件大小</entry>
+<entry key="tag">标签</entry>
+
+<entry key="newArrivalDueDate">新品上市到期时间</entry>
+<entry key="recommendStartDate">推荐商品开始时间</entry>
+<entry key="recommendDueDate">推荐商品到期时间</entry>
+<entry key="recommendOrder">推荐商品顺序</entry>
+
+<entry key="thumbnailBig">缩略大图</entry>
+<entry key="thumbnail">缩略图</entry>
+<entry key="screenShot1">屏幕截图 1</entry>
+<entry key="screenShot2">屏幕截图 2</entry>
+<entry key="screenShot3">屏幕截图 3</entry>
+<entry key="screenShot4">屏幕截图 4</entry>
+<entry key="screenShot5">屏幕截图 5</entry>
+<entry key="upDate">更新日期</entry>
+
+
+<entry key="view">查看</entry>
+
+<entry key="msg.warn.update">你确定想要更新资产二进制版本吗?</entry>
+<entry key="msg.warn.delete">你确定想要删除资产二进制版本吗?</entry>
+<entry key="msg.warn.eavupdate">你确定想要更新资产二进制版本的eav属性吗?</entry>
+<entry key="msg.result.update.success">更新资产二进制版本成功!</entry>
+<entry key="msg.result.delete.success">删除资产二进制版本成功!</entry>
+<entry key="msg.result.eavupdate.success">更新资产二进制版本的eav属性成功!</entry>
+<entry key="msg.error.update.noprovider">不能找到指定的供应商!</entry>
+<entry key="msg.error.delete.nobinary">该资产二进制版本不存在!</entry>
+<entry key="title.prompt">提示</entry>
+
+<entry key="invalid.asset.external.id">请输入有效的外部编号.</entry>
+<entry key="invalid.date">发布日期不能超出有效期.</entry>
+
+<entry key="btn.update">保存</entry>
+<entry key="btn.delete">删除</entry>
+<entry key="btn.back">返回</entry>
+<entry key="btn.generate">创建</entry>
+<entry key="btn.add">添加</entry>
+
+
+
+<entry key="cppriority">内容供应商优先级</entry>
+
+<entry key="displayorder">显示顺序</entry>
+<entry key="pickup">整理</entry>
+<entry key="japanesename">日文名称</entry>
+<entry key="titlename">主题名称</entry>
+
+<entry key="titlejpname">日文主题名称</entry>
+<entry key="partinfo">部分信息</entry>
+<entry key="licensername">许可证名称</entry>
+<entry key="licenserjpname">许可证日文名称</entry>
+<entry key="musiclabel">音乐标签</entry>
+<entry key="musicjplabel">音乐日文标签</entry>
+<entry key="artistname">艺术家名称</entry>
+<entry key="artistjpname">艺术家日文名称</entry>
+<entry key="shortdescription">简述</entry>
+<entry key="longdescription">详述</entry>
+<entry key="copyright">版权</entry>
+<entry key="otherdescription">其它描述信息</entry>
+<entry key="lmark">中文</entry>
+<entry key="chargetype">付费类型</entry>
+<entry key="price">价格</entry>
+<entry key="billingcomment">付费评论</entry>
+<entry key="saleprice">售价</entry>
+<entry key="salecomment">出售评论</entry>
+<entry key="campaignstartdate">竞选开始时间</entry>
+<entry key="campaignenddate">竞选结束时间</entry>
+<entry key="redownloadflag">重新下载标志</entry>
+<entry key="redownloaddays">重新下载天数</entry>
+<entry key="playduration">比赛间隔</entry>
+<entry key="androidmarkerurl">机器人商城链接</entry>
+<entry key="cppageurl">内容供应商页面链接</entry>
+<entry key="sampledownloadurl">示例下载链接</entry>
+<entry key="releventsalesiteurl">相关销售点链接</entry>
+
+<entry key="filterflag">过滤标志</entry>
+
+<entry key="versioncomment">版本评论</entry>
+<entry key="supportname">支持名称</entry>
+<entry key="supportcontact">支持联系</entry>
+<entry key="supportdetail">支持详述</entry>
+<entry key="officialsiteurl">官网链接</entry>
+<entry key="releventsiteurl">相关销售点链接</entry>
+<entry key="flashurl">动画链接</entry>
+<entry key="twitter">中文</entry>
+<entry key="enablecommentflag">可用的评论标志</entry>
+<entry key="lid">中文</entry>
+
+<entry key="resolutionfilter">分辨率过滤器</entry>
+<entry key="functionfilter">功能过滤器</entry>
+<entry key="mimetypefilter">MIME类型过滤器</entry>
+
+<entry key="releventcontentsid1">相关内容序列号1</entry>
+<entry key="releventcontentsid2">相关内容序列号2</entry>
+<entry key="releventcontentsid3">相关内容序列号3</entry>
+<entry key="installupdateflg">安装更新标志</entry>
+
+<entry key="securityinfo">安全信息</entry>
+<entry key="saledateinfo">销售日期信息</entry>
+<entry key="managementcode">管理代码</entry>
+<entry key="publishplandate">发布计划日期</entry>
+
+<entry key="commissionrate">佣金率</entry>
+
+
+<entry key="field.wrongType">错误的字段值输入:</entry>
+
+</properties>

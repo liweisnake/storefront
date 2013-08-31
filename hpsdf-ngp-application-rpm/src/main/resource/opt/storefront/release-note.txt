@@ -1,0 +1,16 @@
+[Version]
+1.2.0	
+[Release Dates]	
+2009-12-18
+[Title]
+HP Store Front Portal 
+[Description]	
+
+[New and Noteworthy]
+
+[Bug Fixes]
+
+[Limitations and Know Issues]
+
+[Installation]	
+Refer to the Installation Guide

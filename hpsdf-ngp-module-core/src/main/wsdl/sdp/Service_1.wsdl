@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.hp.com/sgf/wsdl/sgf_api/service_mgmt/v1_0/service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.hp.com/sgf/wsdl/sgf_api/service_mgmt/v1_0/service" xmlns:intf="http://www.hp.com/sgf/wsdl/sgf_api/service_mgmt/v1_0/service" xmlns:tns1="http://www.hp.com/sgf/schema/sgf_api/service_mgmt/v1_0/" xmlns:tns2="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/service_mgmt/v1_0/"/>
+      <simpleType name="TrafficType">
+        <restriction base="xsd:string">
+          <enumeration value="NO"/>
+          <enumeration value="NT"/>
+          <enumeration value="NO-NT"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ServiceIndication">
+        <restriction base="xsd:string">
+          <enumeration value="Generic Application end-point"/>
+          <enumeration value="SMS Application end-point"/>
+          <enumeration value="MMS Application end-point"/>
+          <enumeration value="VXML Application end-point"/>
+          <enumeration value="WLNG ParlayX Application end-point"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Webservice">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="wsdlURL" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="serviceInterfaceWsdlURL" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="stubTestURL" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="commonBrokeredUrlRequired" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="Method">
+        <restriction base="xsd:string">
+          <enumeration value="GET"/>
+          <enumeration value="POST"/>
+          <enumeration value="PUT"/>
+          <enumeration value="DELETE"/>
+        </restriction>
+      </simpleType>
+      <complexType name="HTTPService">
+        <sequence>
+          <element name="url" type="xsd:string"/>
+          <element maxOccurs="unbounded" name="methodName" type="tns2:Method"/>
+        </sequence>
+      </complexType>
+      <complexType name="XMLHTTPService">
+        <sequence>
+          <element name="url" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="request" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="response" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="AccessInterfaceDetails">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="webservice" type="tns2:Webservice"/>
+          <element maxOccurs="1" minOccurs="0" name="httpService" type="tns2:HTTPService"/>
+          <element maxOccurs="1" minOccurs="0" name="xmlHTTPService" type="tns2:XMLHTTPService"/>
+        </sequence>
+      </complexType>
+      <simpleType name="Transport">
+        <restriction base="xsd:string">
+          <enumeration value="HTTP"/>
+          <enumeration value="HTTPS"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ServiceCategory">
+        <restriction base="xsd:string">
+          <enumeration value="Web Services"/>
+          <enumeration value="IVR User interaction"/>
+          <enumeration value="Messaging"/>
+          <enumeration value="Call Control"/>
+          <enumeration value="Transcoding"/>
+          <enumeration value="WAP Push"/>
+          <enumeration value="Location"/>
+          <enumeration value="GeoInfo Services"/>
+          <enumeration value="Presence"/>
+          <enumeration value="GLMS"/>
+          <enumeration value="Streaming Platform"/>
+          <enumeration value="Billing interfaces"/>
+          <enumeration value="User Profile"/>
+          <enumeration value="DRM"/>
+          <enumeration value="Dev. Profile Management"/>
+          <enumeration value="Not relevant enabler"/>
+          <enumeration value="IN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ExceptionType">
+        <restriction base="xsd:string">
+          <enumeration value="SERVICEGROUP_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_MODIFY_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="PARTNER_REGISTER_EXCEPTION"/>
+          <enumeration value="PARTNER_MODIFY_EXCEPTION"/>
+          <enumeration value="PARTNER_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICE_APPROVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICE_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="COS_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="FLEXREPORTS_EXCEPTION"/>
+          <enumeration value="EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="GET_REST_FOR_WS_EXCEPTION"/>
+          <enumeration value="GET_METADATA_EXCEPTION"/>
+          <enumeration value="DOMAIN_RETRIEVAL_EXCEPTION "/>
+          <enumeration value="REGISTER_WS_EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="REGISTER_METADATA_EXCEPTION"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Status">
+        <sequence>
+          <element name="code" type="xsd:string"/>
+          <element name="text" type="tns2:ExceptionType"/>
+          <element name="details" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SGFException">
+        <sequence>
+          <element name="sgfVersion" type="xsd:string"/>
+          <element name="status" type="tns2:Status"/>
+        </sequence>
+      </complexType>
+      <element name="SGFException" type="tns2:SGFException"/>
+      <complexType name="OutboundSecurity">
+        <sequence>
+          <element name="authentication" type="xsd:string"/>
+          <element name="transport" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/service_mgmt/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/"/>
+      <simpleType name="AccessInterface">
+        <restriction base="xsd:string">
+          <enumeration value="webservice"/>
+          <enumeration value="httpService"/>
+          <enumeration value="xmlHTTPService"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="PublishToExternal">
+        <restriction base="xsd:string">
+          <enumeration value="Yes"/>
+          <enumeration value="No"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Basic">
+        <sequence>
+          <element name="userName" type="xsd:string"/>
+          <element name="password" type="xsd:string"/>
+          <element name="confirmPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="Authentication">
+        <sequence>
+          <element name="basic" type="tns1:Basic"/>
+        </sequence>
+      </complexType>
+      <complexType name="OutboundSecurity">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="authentication" type="tns1:Authentication"/>
+          <element name="transport" type="tns2:Transport"/>
+        </sequence>
+      </complexType>
+      <complexType name="InboundValue">
+        <sequence>
+          <element name="httpBasic" type="xsd:string"/>
+          <element name="httpsBasic" type="xsd:string"/>
+          <element name="httpCertificate" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="InboundSecurity">
+        <sequence>
+          <element maxOccurs="unbounded" name="value" type="tns1:InboundValue"/>
+        </sequence>
+      </complexType>
+      <complexType name="Service">
+        <sequence>
+          <element name="name" type="xsd:string"/>
+          <element name="version" type="xsd:string"/>
+          <element name="description" type="xsd:string"/>
+          <element name="serviceProvider" type="xsd:string"/>
+          <element name="trafficType" type="tns2:TrafficType"/>
+          <element name="serviceIndication" type="tns2:ServiceIndication"/>
+          <element name="accessInterface" type="tns1:AccessInterface"/>
+          <element name="publishToExternal" type="tns1:PublishToExternal"/>
+          <element name="accessInterfaceDetails" type="tns2:AccessInterfaceDetails"/>
+          <element name="outboundSecurity" type="tns1:OutboundSecurity"/>
+          <element name="serviceCategory" type="tns2:ServiceCategory"/>
+          <element name="keywords" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="enablerName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="inboundSecurity" type="tns1:InboundSecurity"/>
+          <element maxOccurs="1" minOccurs="0" name="status" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="RegisterService">
+        <sequence>
+          <element name="service" type="tns1:Service"/>
+        </sequence>
+      </complexType>
+      <element name="registerService" type="tns1:RegisterService"/>
+      <complexType name="RegisterServiceResponse">
+        <sequence>
+          <element name="result" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="registerServiceResponse" type="tns1:RegisterServiceResponse"/>
+      <complexType name="GetAllServices">
+        <sequence/>
+      </complexType>
+      <element name="getAllServices" type="tns1:GetAllServices"/>
+      <complexType name="BrokerService">
+        <sequence>
+          <element name="brokeredServiceName" type="xsd:string"/>
+          <element name="url" type="xsd:string"/>
+          <element name="authType" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="BrokerServices">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="brokerService" type="tns1:BrokerService"/>
+        </sequence>
+      </complexType>
+      <complexType name="ServiceDetails">
+        <sequence>
+          <element name="name" type="xsd:string"/>
+          <element name="id" type="xsd:string"/>
+          <element name="version" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element name="serviceProvider" type="xsd:string"/>
+          <element name="trafficType" type="tns2:TrafficType"/>
+          <element name="serviceIndication" type="tns2:ServiceIndication"/>
+          <element name="accessInterface" type="tns1:AccessInterface"/>
+          <element maxOccurs="1" minOccurs="0" name="outboundSecurity" type="tns2:OutboundSecurity"/>
+          <element name="serviceCategory" type="tns2:ServiceCategory"/>
+          <element name="keywords" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="enablerName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="status" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="brokerServices" type="tns1:BrokerServices"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="method" type="tns2:Method"/>
+        </sequence>
+      </complexType>
+      <complexType name="Services">
+        <sequence>
+          <element maxOccurs="unbounded" name="service" type="tns1:ServiceDetails"/>
+        </sequence>
+      </complexType>
+      <complexType name="GetAllServicesResponse">
+        <sequence>
+          <element name="services" type="tns1:Services"/>
+        </sequence>
+      </complexType>
+      <element name="getAllServicesResponse" type="tns1:GetAllServicesResponse"/>
+      <complexType name="GetServicesForSP">
+        <sequence>
+          <element name="partnerUsername" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getServicesForSP" type="tns1:GetServicesForSP"/>
+      <complexType name="GetServicesForSPResponse">
+        <sequence>
+          <element name="services" type="tns1:Services"/>
+        </sequence>
+      </complexType>
+      <element name="getServicesForSPResponse" type="tns1:GetServicesForSPResponse"/>
+      <complexType name="GetServicesForASP">
+        <sequence>
+          <element name="partnerUsername" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getServicesForASP" type="tns1:GetServicesForASP"/>
+      <complexType name="GetServicesForASPResponse">
+        <sequence>
+          <element name="services" type="tns1:Services"/>
+        </sequence>
+      </complexType>
+      <element name="getServicesForASPResponse" type="tns1:GetServicesForASPResponse"/>
+      <complexType name="GetAllServiceDiscoveryGroups">
+        <sequence/>
+      </complexType>
+      <element name="getAllServiceDiscoveryGroups" type="tns1:GetAllServiceDiscoveryGroups"/>
+      <complexType name="ServiceDiscoveryDetail">
+        <sequence>
+          <element name="name" type="xsd:string"/>
+          <element name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="modifiedBy" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="modifiedDate" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ServiceDiscovery">
+        <sequence>
+          <element maxOccurs="unbounded" name="serviceDiscovery" type="tns1:ServiceDiscoveryDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="GetAllServiceDiscoveryGroupsResponse">
+        <sequence>
+          <element name="serviceDiscoverys" type="tns1:ServiceDiscovery"/>
+        </sequence>
+      </complexType>
+      <element name="getAllServiceDiscoveryGroupsResponse" type="tns1:GetAllServiceDiscoveryGroupsResponse"/>
+      <complexType name="GetAllServicesForServiceGroup">
+        <sequence>
+          <element name="serviceGroupName" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getAllServicesForServiceGroup" type="tns1:GetAllServicesForServiceGroup"/>
+      <complexType name="GetAllServicesForServiceGroupResponse">
+        <sequence>
+          <element name="services" type="tns1:Services"/>
+        </sequence>
+      </complexType>
+      <element name="getAllServicesForServiceGroupResponse" type="tns1:GetAllServicesForServiceGroupResponse"/>
+      <complexType name="GetAllServicesForServiceDiscoveryGroup">
+        <sequence>
+          <element name="serviceDiscoveryGroupName" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getAllServicesForServiceDiscoveryGroup" type="tns1:GetAllServicesForServiceDiscoveryGroup"/>
+      <complexType name="GetAllServicesForServiceDiscoveryGroupResponse">
+        <sequence>
+          <element name="services" type="tns1:Services"/>
+        </sequence>
+      </complexType>
+      <element name="getAllServicesForServiceDiscoveryGroupResponse" type="tns1:GetAllServicesForServiceDiscoveryGroupResponse"/>
+      <complexType name="GetServiceByName">
+        <sequence>
+          <element name="serviceName" type="xsd:string"/>
+          <element name="version" type="xsd:string"/>
+          <element name="accessInterface" type="tns1:AccessInterface"/>
+        </sequence>
+      </complexType>
+      <element name="getServiceByName" type="tns1:GetServiceByName"/>
+      <complexType name="GetServiceByNameResponse">
+        <sequence>
+          <element name="services" type="tns1:Services"/>
+        </sequence>
+      </complexType>
+      <element name="getServiceByNameResponse" type="tns1:GetServiceByNameResponse"/>
+      <complexType name="GetServiceByID">
+        <sequence>
+          <element name="serviceID" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getServiceByID" type="tns1:GetServiceByID"/>
+      <complexType name="GetServiceByIDResponse">
+        <sequence>
+          <element name="services" type="tns1:Services"/>
+        </sequence>
+      </complexType>
+      <element name="getServiceByIDResponse" type="tns1:GetServiceByIDResponse"/>
+      <complexType name="GetMetadataForRESTService">
+        <sequence>
+          <element name="serviceID" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getMetadataForRESTService" type="tns1:GetMetadataForRESTService"/>
+      <complexType name="OutputParameters">
+        <sequence>
+          <element name="outputMetadataId" type="xsd:string"/>
+          <element name="contentType" type="xsd:string"/>
+          <element name="status" type="xsd:int"/>
+          <element name="metadata" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="InputParameters">
+        <sequence>
+          <element name="inputMetadataId" type="xsd:string"/>
+          <element name="contentType" type="xsd:string"/>
+          <element name="metadata" type="xsd:string"/>
+          <element maxOccurs="unbounded" name="output" type="tns1:OutputParameters"/>
+        </sequence>
+      </complexType>
+      <complexType name="Method">
+        <sequence>
+          <element name="name" type="xsd:string"/>
+          <element name="id" type="xsd:string"/>
+          <element name="input" type="tns1:InputParameters"/>
+        </sequence>
+      </complexType>
+      <complexType name="MetadataDetails">
+        <sequence>
+          <element name="serviceID" type="xsd:string"/>
+          <element maxOccurs="unbounded" name="method" type="tns1:Method"/>
+        </sequence>
+      </complexType>
+      <complexType name="GetMetadataForRESTServiceResponse">
+        <sequence>
+          <element name="metadataDetails" type="tns1:MetadataDetails"/>
+        </sequence>
+      </complexType>
+      <element name="getMetadataForRESTServiceResponse" type="tns1:GetMetadataForRESTServiceResponse"/>
+      <complexType name="RegisterWSForExposeREST">
+        <sequence>
+          <element name="serviceId" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="registerWSForExposeREST" type="tns1:RegisterWSForExposeREST"/>
+      <complexType name="RegisterWSForExposeRESTResponse">
+        <sequence>
+          <element name="result" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="registerWSForExposeRESTResponse" type="tns1:RegisterWSForExposeRESTResponse"/>
+      <complexType name="GetRESTforWS">
+        <sequence>
+          <element name="serviceID" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="targetId" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getRESTforWS" type="tns1:GetRESTforWS"/>
+      <complexType name="RestServiceDetails">
+        <sequence>
+          <element name="name" type="xsd:string"/>
+          <element name="id" type="xsd:string"/>
+          <element name="version" type="xsd:string"/>
+          <element name="targetId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="brokerServices" type="tns1:BrokerServices"/>
+        </sequence>
+      </complexType>
+      <complexType name="RestServices">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="restService" type="tns1:RestServiceDetails"/>
+        </sequence>
+      </complexType>
+      <complexType name="GetRESTforWSResponse">
+        <sequence>
+          <element name="ws" type="tns1:RestServices"/>
+        </sequence>
+      </complexType>
+      <element name="getRESTforWSResponse" type="tns1:GetRESTforWSResponse"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="getServiceByNameResponse">
+    <wsdl:part element="tns1:getServiceByNameResponse" name="getServiceByNameResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServicesResponse">
+    <wsdl:part element="tns1:getAllServicesResponse" name="getAllServicesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getServiceByNameRequest">
+    <wsdl:part element="tns1:getServiceByName" name="getServiceByName"/>
+  </wsdl:message>
+  <wsdl:message name="registerServiceResponse">
+    <wsdl:part element="tns1:registerServiceResponse" name="registerServiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServicesForServiceDiscoveryGroupResponse">
+    <wsdl:part element="tns1:getAllServicesForServiceDiscoveryGroupResponse" name="getAllServicesForServiceDiscoveryGroupResponse"/>
+  </wsdl:message>
+  <wsdl:message name="registerServiceRequest">
+    <wsdl:part element="tns1:registerService" name="registerService"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServicesForServiceDiscoveryGroupRequest">
+    <wsdl:part element="tns1:getAllServicesForServiceDiscoveryGroup" name="getAllServicesForServiceDiscoveryGroup"/>
+  </wsdl:message>
+  <wsdl:message name="getMetadataForRESTServiceRequest">
+    <wsdl:part element="tns1:getMetadataForRESTService" name="getMetadataForRESTService"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServicesRequest">
+    <wsdl:part element="tns1:getAllServices" name="getAllServices"/>
+  </wsdl:message>
+  <wsdl:message name="getMetadataForRESTServiceResponse">
+    <wsdl:part element="tns1:getMetadataForRESTServiceResponse" name="getMetadataForRESTServiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getServiceByIDResponse">
+    <wsdl:part element="tns1:getServiceByIDResponse" name="getServiceByIDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getRESTforWSResponse">
+    <wsdl:part element="tns1:getRESTforWSResponse" name="getRESTforWSResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SGFException">
+    <wsdl:part element="tns2:SGFException" name="SGFException"/>
+  </wsdl:message>
+  <wsdl:message name="getServicesForASPResponse">
+    <wsdl:part element="tns1:getServicesForASPResponse" name="getServicesForASPResponse"/>
+  </wsdl:message>
+  <wsdl:message name="registerWSForExposeRESTResponse">
+    <wsdl:part element="tns1:registerWSForExposeRESTResponse" name="registerWSForExposeRESTResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServicesForServiceGroupRequest">
+    <wsdl:part element="tns1:getAllServicesForServiceGroup" name="getAllServicesForServiceGroup"/>
+  </wsdl:message>
+  <wsdl:message name="getServicesForSPResponse">
+    <wsdl:part element="tns1:getServicesForSPResponse" name="getServicesForSPResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServiceDiscoveryGroupsResponse">
+    <wsdl:part element="tns1:getAllServiceDiscoveryGroupsResponse" name="getAllServiceDiscoveryGroupsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServiceDiscoveryGroupsRequest">
+    <wsdl:part element="tns1:getAllServiceDiscoveryGroups" name="getAllServiceDiscoveryGroups"/>
+  </wsdl:message>
+  <wsdl:message name="registerWSForExposeRESTRequest">
+    <wsdl:part element="tns1:registerWSForExposeREST" name="registerWSForExposeREST"/>
+  </wsdl:message>
+  <wsdl:message name="getRESTforWSRequest">
+    <wsdl:part element="tns1:getRESTforWS" name="getRESTforWS"/>
+  </wsdl:message>
+  <wsdl:message name="getServiceByIDRequest">
+    <wsdl:part element="tns1:getServiceByID" name="getServiceByID"/>
+  </wsdl:message>
+  <wsdl:message name="getAllServicesForServiceGroupResponse">
+    <wsdl:part element="tns1:getAllServicesForServiceGroupResponse" name="getAllServicesForServiceGroupResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getServicesForASPRequest">
+    <wsdl:part element="tns1:getServicesForASP" name="getServicesForASP"/>
+  </wsdl:message>
+  <wsdl:message name="getServicesForSPRequest">
+    <wsdl:part element="tns1:getServicesForSP" name="getServicesForSP"/>
+  </wsdl:message>
+  <wsdl:portType name="Service">
+    <wsdl:operation name="registerService" parameterOrder="registerService">
+      <wsdl:input message="impl:registerServiceRequest" name="registerServiceRequest"/>
+      <wsdl:output message="impl:registerServiceResponse" name="registerServiceResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServices" parameterOrder="getAllServices">
+      <wsdl:input message="impl:getAllServicesRequest" name="getAllServicesRequest"/>
+      <wsdl:output message="impl:getAllServicesResponse" name="getAllServicesResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServicesForSP" parameterOrder="getServicesForSP">
+      <wsdl:input message="impl:getServicesForSPRequest" name="getServicesForSPRequest"/>
+      <wsdl:output message="impl:getServicesForSPResponse" name="getServicesForSPResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServicesForASP" parameterOrder="getServicesForASP">
+      <wsdl:input message="impl:getServicesForASPRequest" name="getServicesForASPRequest"/>
+      <wsdl:output message="impl:getServicesForASPResponse" name="getServicesForASPResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServiceDiscoveryGroups" parameterOrder="getAllServiceDiscoveryGroups">
+      <wsdl:input message="impl:getAllServiceDiscoveryGroupsRequest" name="getAllServiceDiscoveryGroupsRequest"/>
+      <wsdl:output message="impl:getAllServiceDiscoveryGroupsResponse" name="getAllServiceDiscoveryGroupsResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServicesForServiceGroup" parameterOrder="getAllServicesForServiceGroup">
+      <wsdl:input message="impl:getAllServicesForServiceGroupRequest" name="getAllServicesForServiceGroupRequest"/>
+      <wsdl:output message="impl:getAllServicesForServiceGroupResponse" name="getAllServicesForServiceGroupResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServicesForServiceDiscoveryGroup" parameterOrder="getAllServicesForServiceDiscoveryGroup">
+      <wsdl:input message="impl:getAllServicesForServiceDiscoveryGroupRequest" name="getAllServicesForServiceDiscoveryGroupRequest"/>
+      <wsdl:output message="impl:getAllServicesForServiceDiscoveryGroupResponse" name="getAllServicesForServiceDiscoveryGroupResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceByName" parameterOrder="getServiceByName">
+      <wsdl:input message="impl:getServiceByNameRequest" name="getServiceByNameRequest"/>
+      <wsdl:output message="impl:getServiceByNameResponse" name="getServiceByNameResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceByID" parameterOrder="getServiceByID">
+      <wsdl:input message="impl:getServiceByIDRequest" name="getServiceByIDRequest"/>
+      <wsdl:output message="impl:getServiceByIDResponse" name="getServiceByIDResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMetadataForRESTService" parameterOrder="getMetadataForRESTService">
+      <wsdl:input message="impl:getMetadataForRESTServiceRequest" name="getMetadataForRESTServiceRequest"/>
+      <wsdl:output message="impl:getMetadataForRESTServiceResponse" name="getMetadataForRESTServiceResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="registerWSForExposeREST" parameterOrder="registerWSForExposeREST">
+      <wsdl:input message="impl:registerWSForExposeRESTRequest" name="registerWSForExposeRESTRequest"/>
+      <wsdl:output message="impl:registerWSForExposeRESTResponse" name="registerWSForExposeRESTResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getRESTforWS" parameterOrder="getRESTforWS">
+      <wsdl:input message="impl:getRESTforWSRequest" name="getRESTforWSRequest"/>
+      <wsdl:output message="impl:getRESTforWSResponse" name="getRESTforWSResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoapBinding" type="impl:Service">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="registerService">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="registerServiceRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerServiceResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServices">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAllServicesRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllServicesResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServicesForSP">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServicesForSPRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServicesForSPResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServicesForASP">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServicesForASPRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServicesForASPResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServiceDiscoveryGroups">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAllServiceDiscoveryGroupsRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllServiceDiscoveryGroupsResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServicesForServiceGroup">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAllServicesForServiceGroupRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllServicesForServiceGroupResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServicesForServiceDiscoveryGroup">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAllServicesForServiceDiscoveryGroupRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllServicesForServiceDiscoveryGroupResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceByName">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServiceByNameRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceByNameResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceByID">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServiceByIDRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceByIDResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMetadataForRESTService">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getMetadataForRESTServiceRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMetadataForRESTServiceResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="registerWSForExposeREST">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="registerWSForExposeRESTRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerWSForExposeRESTResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRESTforWS">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getRESTforWSRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRESTforWSResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicemgmtService">
+    <wsdl:port binding="impl:ServiceSoapBinding" name="Service">
+      <wsdlsoap:address location="http://16.157.132.78:6001/AdminWebApp/webservices/Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,308 @@
+@charset "utf-8";
+/************************
+* font styles *
+*************************/
+#body { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #656565; }
+#regionA h2 { font-family: Arial, Helvetica, sans-serif; }
+.contentbox h3 { font-family: Arial, Helvetica, sans-serif; }
+th, td, input, select, textarea, a ,div{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; }
+body { font-family: Arial, Helvetica, sans-serif; }
+.font-red { color: #C00; }
+/************************
+* common *
+*************************/
+body { margin: 0px; padding: 0px; }
+#body { margin: 0px; padding: 0px; }
+.header_bg { }
+div, h1, h2, h3, h4, form, input, ul, ol, li, img { margin: 0; padding: 0; border:0; }
+ul, dl, li { list-style-type: none; }
+a { color: #126190; text-decoration: underline; outline:0px;}
+a:hover { color: #F60; text-decoration: underline; }
+.header { font-size: 24px; color: #FFF; min-width:500px; width: 100%; height: 48px; }
+.login { text-align: right; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #000; padding-top: 10px; padding-right: 10px; padding-bottom: 0px; padding-left: 0px; }
+.footer { height: 20px; padding: 10px; font-size: 12px; line-height: 20px; color: #FFF; background-color: #56656D; }
+.logo { padding: 10px; float: left; }
+.systemname { line-height: 48px; float: left; font-size: 24px; font-family:sans-serif; }
+/************************
+*content styles *
+*************************/
+#regionA { padding: 0px; margin: 0px; width: 100%; min-width: 830px; }
+#regionA .title { height: 42px; float: left; width: 100%; }
+#regionA .sub-title { font-size: 14px; line-height: 30px; padding-left: 15px; font-size: 14px; color: #414D54; font-weight: normal; }
+#regionA h2 { height: 42px; float: left; font-size: 24px; color: #414D54; }
+#regionA .title-button { float: left; padding: 5px 0px 0px 10px; }
+#regionA .content { float: left; width: 100%; padding-bottom: 10px; }
+#regionA .column1 { float: left; width: 50%; }
+#regionA .column2 { float: right; width: 49%; }
+.icon-title-content { background: url(images/icon-title.png) no-repeat 0px 0px; padding: 0 0 0 36px; }
+.icon-title-category { background: url(images/icon-title.png) no-repeat 0px -40px; padding: 0 0 0 36px; }
+.icon-title-comment { background: url(images/icon-title.png) no-repeat 0px -80px; padding: 0 0 0 36px; }
+.icon-title-store { background: url(images/icon-title.png) no-repeat 0px -120px; padding: 0 0 0 36px; }
+.icon-title-handset { background: url(images/icon-title.png) no-repeat 0px -160px; padding: 0 0 0 36px; }
+.icon-title-reporting { background: url(images/icon-title.png) no-repeat 0px -200px; padding: 0 0 0 36px; }
+.icon-title-account { background: url(images/icon-title.png) no-repeat 0px -240px; padding: 0 0 0 36px; }
+.icon-title-special { background: url(images/icon-title.png) no-repeat 0px -280px; padding: 0 0 0 36px; }
+.contentbox { float: left; width: 100%; }
+.contentbox h3 { float: left; padding:0px 0px 10px 0px; line-height: 30px; font-size: 14px; color: #414D54; font-weight: normal; }
+.contentbox .content-default-leftwidth { float: left; width: 30%; }
+.contentbox .content-default-rightwidth { float:right; width: 69%; }
+.contentbox .content-default-setdate { float: left; width: 100%; padding: 0px; }
+.contentbox .content-default-setdate h4 { float: left; }
+.contentbox h4 { font-size: 14px; color: #E19C16; line-height: 30px; }
+.searchbox-list { float: left; width: 100%; background:#EDF0F3; /*position:relative; */ margin-bottom: 10px; padding: 10px 0px 10px 0px; }
+.searchbox-list ul { float: left; width: 80%; }
+.searchbox-list li { float: left; width: 49%; padding-bottom: 2px; height:30px; font-size: 12px; display:block }
+.searchbox-list ul li b { float: left; width: 45%; text-align: right; padding:2px 10px 2px 0px; font-weight: normal; font-size: 12px; display: block; line-height:20px; }
+.searchbox-list ul li span { float: left; width: 45%; display: block; line-height:20px; padding:2px 10px 2px 0px; }
+.searchbox-list li span .common-textfield { float: left; }
+.searchbox-list ul li span span { float: left; width: 23px; padding:0 0 0 5px; }
+.searchbutton { float:left; text-align: center; width: 20%; }
+.update-list { float: left; width: 100%; min-width:750px; background:#EDF0F3; /*position:relative; */ margin-bottom: 10px; padding: 10px 0px 10px 0px; }
+.update-list ul { width: 700px; padding:0 auto; }
+.update-list li { float: left; width: 100%; padding-bottom: 2px; }
+.update-list li b { float: left; width: 30%; text-align: right; padding:5px 10px 5px 0px; font-weight: normal; font-size: 12px; display: block; }
+.update-list li span { float: left; width: 65%; display: block; }
+.update-list li span .common-textfield { float: left; }
+.update-list li span span { float: left; width: 23px; padding:0 0 0 5px; }
+.update-list .updatebutton { float: left; text-align: center; width: 150px; }
+.content-default-searchbox-list { float: left; width: 100%; background:#EDF0F3; margin-bottom: 10px; padding: 10px 0px 10px 0px; }
+.content-default-searchbox-list ul { float: left; width: 75%; }
+.content-default-searchbox-list li { float: left; width: 100%; padding-bottom: 2px; height:30px; font-size: 12px; }
+.content-default-searchbox-list b { float: left; width: 40%; text-align: right; padding:5px 10px 5px 0px; font-weight: normal; font-size: 12px; display: block; }
+.content-default-searchbox-list span { float: left; width: 50%; display: block; }
+.column1 .content-list ul li .period-leftwidth, .column2 .content-list ul li .period-leftwidth { width: 20%; height:25px; text-align: right; padding:0px 10px 0px 0px; }
+.column1 .content-list ul li .period-rightwidth, .column2 .content-list ul li .period-rightwidth { width: 70%; }
+.column1 .content-list ul li .class-leftwidth, .column2 .content-list ul li .class-leftwidth { width: 30%; height:25px; }
+.column1 .content-list ul li .class-rightwidth, .column2 .content-list ul li .class-rightwidth { width: 30%; }
+.content-list { float: left; width: 100%; padding:10px 0px 10px 0px; }
+.content-list ul { float: left; width: 100%; }
+.content-list li { float: left; width: 100%; padding-bottom: 10px; display:block; }
+.content-list li b { float: left; width: 30%; height:20px; line-height:20px; text-align: right; padding:2px 10px 2px 0px; font-weight: normal; font-size: 12px; display: block; color:#414D54; }
+.content-list li i { float: left; width: 26%; text-align: left; padding:2px 0px 2px 5%; font-weight: normal; font-size: 12px; display: block; font-style: normal; color:#73848D; line-height:20px; }
+.content-list li span { float: left; width: 60%; display: block; color:#414D54; padding:2px 0px 2px 0px; line-height:20px; }
+.content-list li span span { float: left; width: 23px; padding:0 0 0 5px; }
+.content-list li b span { width: auto; float: left; }
+.content-list ul li .right { text-align: right; }
+.content .contentbutton, .popupbox .contentbutton { float:left; text-align: center; width:100%; padding: 10px 0px; }
+.statistic-conditions-list { float: left; width: 100%; padding:0px 0px 10px 0px; }
+.statistic-conditions-list ul { float: left; width: 100%; padding:10px 0px 0px 0px; }
+.statistic-conditions-list ul li { float: left; width: 49%; }
+.statistic-conditions-list ul li b { float: left; width: 45%; text-align: left; padding:2px 0px 2px 0px; font-weight: normal; font-size: 12px; display: block; font-style: normal; color:#414D54; line-height:20px; }
+.statistic-conditions-list ul li span { float: left; width: 50%; display: block; line-height:20px; padding:2px 10px 2px 0px; }
+.column1 .content-list li b, .column2 .content-list li b { min-width: 120px; }
+.column1 .content-list li span, .column2 .content-list li span { width: 60%; }
+.column1 .content-list li span span, .column2 .content-list li span span { width: 23px; }
+.column1 .common-textfield, .column1 .common-textarea, .column1 .common-select, .column1 .common-filefieldupload, .column2 .common-textfield, .column2 .common-textarea, .column2 .common-select, .column2 .common-filefieldupload { width: 69%; }
+.column1 .style-a .content-list ul, .column2 .style-a .content-list ul { float: left; width: 100%; }
+.column1 .style-a .content-list li, .column1 .style-a .content-list li { float: left; width: 100%; padding-bottom: 10px; display:block; }
+.column1 .style-a .content-list li b, .column2 .style-a .content-list li b { float: left; width: 20%; height:20px; line-height:20px; text-align: right; padding:2px 10px 2px 0px; font-weight: normal; font-size: 12px; display: block; color:#414D54; }
+.column1 .style-a .content-list li i, .column2 .style-a .content-list li i { float: left; width: 25%; min-width:100px; text-align: left; padding:2px 0px 2px 0px; font-weight: normal; font-size: 12px; display: block; font-style: normal; color:#73848D; line-height:20px; }
+.column1 .style-a .content-list li span, .column2 .style-a .content-list li span { float: left; width: 38%; display: block; color:#414D54; padding:2px 0px 2px 0px; line-height:20px; }
+.column1 .style-a .content-list li span span, .column2 .style-a .content-list li span span { float: left; width: 23px; padding:0 0 0 5px; }
+.column1 .style-a .content-list li .common-textfield, .column1 .style-a .content-list li .common-textarea, .column1 .style-a .content-list li .common-filefieldupload, .column1 .style-a .content-list li .common-select, .column2 .style-a .content-list li .common-textfield, .column2 .style-a .content-list li .common-textarea, .column2 .style-a .content-list li .common-filefieldupload, .column2 .style-a .content-list li .common-select {
+float::left; width: 70%; }
+.statistics-diagram-cpu { padding:10px; }
+.statistics-diagram-cpu #select { width:40%; }
+.bgblue { background:#EDF0F3; }
+.filefieldupload { }
+.line-1xp { margin-top: 10px; border-top: 1px solid #B2C2CB; line-height: 30px; }
+.align-center { text-align: center; }
+
+/************************************
+* portal-container & talbe+images+%*
+*************************************/
+.portal-container { width: 100%; }
+.portal-container-top { background-image: url(images/portal-top-bg.png); height: 5px; }
+.portal-container-top-left { background-image: url(images/portal-top-left.png); height: 5px; width: 5px; }
+.portal-container-top-right { background-image: url(images/portal-top-right.png); height: 5px; width: 5px; }
+.portal-container-content { background-image: url(images/portal-content-bg.png); padding: 10px; }
+.portal-container-content-left { background-image: url(images/portal-content-left.png); width: 5px; }
+.portal-container-content-right { background-image: url(images/portal-content-right.png); width: 5px; }
+.portal-container-bottom { height: 5px; background-image: url(images/portal-bottom-bg.png); }
+.portal-container-bottom-left { background-image: url(images/portal-bottom-left.png); height: 5px; width: 5px; }
+.portal-container-bottom-right { background-image: url(images/portal-bottom-right.png); height: 5px; width: 5px; }
+
+/************************************
+* portal-container & div*
+*************************************/
+.portal-box{ 
+border: 1px solid #B1C1CA;  background-color: #FFF; 
+-webkit-border-radius: 5px; 
+-moz-border-radius: 5px; 
+-khtml-border-radius: 5px; 
+border-radius: 5px;
+-webkit-box-shadow:0px 0px 1px #B1C1CA;
+-moz-box-shadow:0px 0px 1px #B1C1CA; }
+.portal-box{}
+.content-container{padding:10px;}
+.clear{ clear: both; }
+
+
+/************************
+* table tyles*
+*************************/
+.table-box { float: left; width:100%;}
+.twidth{ }/*table-width>800px*/
+.table-styles-a {  border: 1px solid #AABAC3; margin-bottom: 10px; width:100%;}
+.table-styles-a th { font-size: 14px; color: #414D54; background-color: #EDF0F3; line-height: 26px; /*white-space:nowrap;*/padding:0 10px 0 10px; white-space:nowrap; }
+.table-styles-a td { font-size: 12px; color: #414D54; line-height: 30px; border-bottom: 1px solid #EDF0F3; text-align: center; padding:0 10px 0 10px; white-space:nowrap; }
+.overflow { overflow-x:scroll; width: 100%; float: left; }
+/**/
+.talbe-page { width:100%; float:left; line-height:30px; background:#EDF0F3; }
+.talbe-pagedisplay { float: left; padding-left: 10px; text-align: left; }
+.talbe-pagenubmer { float: right; padding-right: 10px; text-align: right; }
+
+/************************
+* popup-box*
+*************************/
+.popupbox { padding:0px; margin:250px auto; position:absolute; border: 1px solid #B1C1CA; width:400px; background-color: #FFF; -webkit-border-radius: 6px; -moz-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; -webkit-box-shadow:2px 2px 5px #B1C1CA; -moz-box-shadow:2px 2px 5px #B1C1CA; top: 0px; left: 25%; }
+.popupbox-text { padding: 10px; float: left; height: 50px; width: 380px; font-size: 18px; }
+.popupbox h1 { background-color: #7EB5D3; font-size: 14px; color: #FFF; line-height: 30px; padding: 0px 10px; }
+.popupbox h1 { -webkit-border-radius: 5px 5px 0px 0px; -moz-border-radius:  5px 5px 0px 0px; -khtml-border-radius:  5px 5px 0px 0px; border-radius:  5px 5px 0px 0px; }
+/************************
+* input*
+*************************/
+.common-textfield { width: 79%; height: 20px; border: 1px solid #9FB3BE; line-height: 20px; }
+.common-textarea { width: 79%; border: 1px solid #9FB3BE; line-height: 20px; }
+.common-select { width: 79%; height: 20px; border: 1px solid #9FB3BE; line-height: 20px; }
+.common-filefieldupload { width: 79%; height: 100px; border: 1px solid #9FB3BE; background:#F1F2F2; font-size: 12px; line-height: 20px; padding: 10px　0px; }
+.account-msn-textarea { height: 153px; }
+.common-checkbox { margin:5px 0 0 0; }
+.searchbox-list form ul li span .common-checkbox .common-checkbox { padding: 2px 0px 0px 0px; }
+.search-list .common-textfield, .update-list .common-textfield, .content-list .common-textfield { float:left; }
+.textfield-date { width: 79%; height: 20px; border: 1px solid #9FB3BE; line-height: 20px; float:left; }
+/************************
+* button & button font*
+*************************/
+.link-submit { background:url(images/button-submit.png) no-repeat scroll 0 0 transparent; color:#FFFFFF; font-size:12px; height:28px; line-height:28px; text-decoration: none; margin:0 0 0 10px; text-align:center; width:121px; display:block; float:left; }
+.link-submit a { color:#FFFFFF; text-decoration: none; }
+.link-submit:hover { background: url(images/button-submit.png) no-repeat 0px -32px; color:#FFFFFF; text-decoration:none; }
+.button-submit { background:url(images/button-submit.png) no-repeat scroll 0 0 transparent; color:#FFFFFF; font-size:12px; height:28px; line-height:28px; text-decoration: none; margin:0 0 0 10px; text-align:center; width:121px; cursor: pointer; border:0 none; }
+.button-submit a { color:#FFFFFF; text-decoration: none; }
+.button-submit:hover { background: url(images/button-submit.png) no-repeat 0px -32px; color:#FFFFFF; }
+.button-submit-b { background:url(images/button-submit-b.png) no-repeat scroll 0 0 transparent; color:#FFFFFF; font-size:10px; height:20px; line-height:20px; text-decoration: none; margin:0 0 0 5px; text-align:center; width:60px; cursor: pointer; border:0 none; }
+.button-submit-c a { color:#FFFFFF; text-decoration: none; }
+.button-submit-c:hover { background: url(images/button-submit-c.png) no-repeat 0px -30px; color:#FFFFFF; }
+.button-submit-c { background:url(images/button-submit-c.png) no-repeat scroll 0 0 transparent; color:#FFFFFF; font-size:10px; height:20px; line-height:20px; text-decoration: none; margin:0 0 0 5px; text-align:center; width:120px; cursor: pointer; border:0 none; }
+.button-submit-b a { color:#FFFFFF; text-decoration: none; }
+.button-submit-b:hover { background: url(images/button-submit-b.png) no-repeat 0px -30px; color:#FFFFFF; }
+
+.button-submit-small { height: 14px; width: 50px; background: url(images/button-submit-small.png) no-repeat; font-size: 10px; color: #FFF; margin:3px 0px 0px 5px; line-height:14px; border:0 none; }
+.button-submit-small:hover { background: url(images/button-submit-small.png) no-repeat 0px -19px; }
+.button-search { height: 54px; width: 106px; background: url(images/button-search.png) no-repeat; font-size: 14px; color: #FFF; padding-left: 42px; text-align: left; cursor: pointer; border:0 none; }
+.button-search a{ outline:0px;}
+
+.button-search:hover { background: url(images/button-search.png) no-repeat 0px -60px; }
+.button-update { height: 54px; width: 106px; background: url(images/button-update.png) no-repeat; font-size: 14px; color: #FFF; padding-left: 42px; text-align: left; cursor: pointer; border:0 none; }
+.button-update:hover { background: url(images/button-update.png) no-repeat 0px -60px; }
+.button-logout { height: 24px; width: 71px; background: url(images/button-logout.png) no-repeat; font-size: 12px; color: #FFF; border:0 none; }
+.button-logout:hover{ background: url(images/button-logout.png) no-repeat 0px -29px;   }
+.button-pagego { height: 18px; width: 27px; background: url(images/pagego.png) no-repeat 0px 0px; font-size: 12px; color: #FFF; border:0 none; }
+.button-pagego:hover { background: url(images/pagego.png) no-repeat 0px -22px; }
+.input-pagego { height: 18px; width: 45px; border: 1px solid #9FB3BE; text-align: center; margin-top: 0px; margin-right: 10px; margin-bottom: 0px; margin-left: 10px; line-height: 18px; }
+
+/************************
+* button position*
+*************************/
+.relative { position:relative; }
+.searchbutton-layer { width:150px; position:absolute; right: -20px; bottom: 20px; }
+/**/
+
+
+/* *************************************************** */
+/*      Default for JBoss Portal                 */
+/* *************************************************** */
+
+#body { background: url(images/header_bg.png) repeat-x #F1F2F2; margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #656565; }
+/*****************
+* Portal Header  *
+******************/
+
+/* spacer to keep header at certain width regardless of display size
+done to avoid overlapping of tab navigation in header */
+#spacer { width: 100px; line-height: 0px; font-size: 0px; height: 0px; }
+/* Wrapper for Header */
+#header-container { height: 88px; width: 100%; z-index: 5; margin: 0px; }
+/* Header background */
+#header { }
+#logoName { position:absolute; z-index:99; top:10px; left:10px; width:28px; height:28px; background-image:url(images/logo.png); }
+#navigation { width: 230px; position: absolute; left: 10px; top: 88px; background: url(images/navigation_bg.png) -484px bottom; padding-bottom: 40px; }
+/************************
+* Portal Layout Regions *
+*************************/
+
+/* wrapper for entire portal. starts/ends after/before body tag */
+#portal-container { /* part of below IE hack to preserve min-width for portlet regions */ /*width: 100%;*/ margin: 0; padding: 0; }
+/* min width for IE */
+#expander { margin: 0; padding:0; }
+/* min width hack for IE */
+#sizer { width: 100%; }
+/* IE Hack \*/
+* html #portal-container, * html #sizer, * html #expander { height: 0; }
+/* end IE min-width hack */
+
+/* table that contains all regions. does not include header */
+
+#content-container { height: 100%; text-align: left; min-width: 760px; margin-left: 248px;   /*
+   position: absolute;
+   top: 70px;
+   left: 0px; / * z-index: 1; * /
+   / * part of below IE hack
+padding: 0 350px 0 350px; * /
+   padding: 0px 100px 0px 0px;
+   */ }
+/* Login JSP Selectors */
+#login-container { position: relative; left: 35%; top: 55px; right: 45%; width: 320px; height: 250px; margin: 0px; }
+/***************************
+*  Utility Navigation  *
+*****************************/
+
+#dashboardnav { float: right; font-size: 12px; padding: 50px 12px 0px 0px; z-index: 20; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #000; }
+#dashboardnav a { color: gray; }
+#dashboardnav .addcontent { background-image: url(images/logo.png); height: 28px; width: 28px; padding-left: 16px; }
+/***************************
+*  Primary Navigation (Tabbed Nav)  *
+*****************************/
+
+ul#tabsHeader { float: left; width: 228px; padding-top: 19px; padding-right: 1px; padding-left: 1px; background: url(images/navigation_bg.png) top left; }
+ul#tabsHeader li { display: block; list-style: none; margin-left: 0px; margin-top: 0px; margin-right: 0px; position: relative; top: 0px; white-space: nowrap; height: 37px; margin-bottom: 0px; text-align: left; }
+ul#tabsHeader li:hover { white-space: nowrap; }
+/* hover selectors for main header tabs */
+ul#tabsHeader li.hoverOn { background: url(images/navigation_bg.png) repeat-y -242px -56px; white-space: nowrap; }
+ul#tabsHeader li.hoverOff { white-space: nowrap; }
+ul#tabsHeader a { height: 100%; vertical-align: middle; display: block; float: left; text-decoration: none; font: 12px / normal Arial, Helvetica, Sans-Serif, sans-serif; line-height:37px; color: #414D54; white-space: nowrap; padding-left: 40px; width:188px; }
+ul#tabsHeader a:hover { text-decoration: none; white-space: nowrap; color:#FFF; }
+ul#tabsHeader #current { background: url(images/navigation_bg.png) repeat-y -242px -19px; }
+ul#tabsHeader #current a, #current a:hover { font: 12px / normal Arial, Helvetica, Sans-Serif, sans-serif; font-weight: bold; line-height:37px; color:#FFF; }
+/* Begin Submenu selectors */
+ul#tabsHeader ul { visibility: hidden; position: absolute; height: 0; top: -99999px; /*top: 0px;*/ left: 0; width: 160px; text-align: left; margin: 0px; padding: 0px; margin-top: 22px; }
+ul#tabsHeader ul a { text-decoration: none; font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-Serif, sans-serif; font-weight: normal; color: #414D54; }
+ul#tabsHeader ul a:hover { font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-Serif, sans-serif; font-weight: normal; color: #fff; }
+ul#tabsHeader #current ul a { font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-Serif, sans-serif; font-weight: normal; color: #414D54; }
+ul#tabsHeader li:hover ul, ul#tabsHeader a:hover ul { visibility: visible; }
+ul#tabsHeader ul li { background: #DFE8ED; color: #414D54; padding: 3px; width: 160px; border: 1px solid #98b7c6; border-width: 0px 1px 1px 1px; margin-left: 0px; margin-top: 0px; margin-right: 0px; }
+ul#tabsHeader ul li:hover { background: #C0D3DC; }
+/* End Submenu selectors */
+
+/* -------- These are new selectors for the admin and add page styles ------- */
+
+ul#tabsHeader #admin { display: inline; background-image: url( images/tab_right_admin.gif ); background-repeat: no-repeat; background-position: right top; padding-top: -3px; line-height: 37px; }
+ul#tabsHeader #admin a { text-decoration: none; color: #414D54; /*   background-image: url(images/tab_left_admin.gif);*/ background-repeat: no-repeat; background-position: top left; white-space: nowrap; padding-top: -3px; line-height: 37px; }
+ul#tabsHeader #admin a:hover { text-decoration: underline; }
+ul#tabsHeader #addpage { display: inline; background-color: transparent; }
+ul#tabsHeader #addpage a, #addpage a:hover { font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-Serif, sans-serif; font-variant: normal; font-weight: bold; color: white; line-height: 28px; background-image: none; white-space: nowrap; }
+ul#tabsHeader #addpage a:hover { text-decoration: underline; }
+/* Tab background color for selected global nav item */
+li.currentTabBackground { background: #fff; }
+/* backslash hack for IE5-Mac \*/
+ul#tabsHeader a { }
+/*****************
+* Portal Footer  *
+******************/
+#footer-container { clear:both; padding:10px; height: 20px; background-color: #56656D; }
+.portal-copyright { font-size: 12px; line-height: 20px; color: #FFF; }
+/* *************************************************** */
+/*      Date                 */
+/* *************************************************** */
+.yui-skin-sam .yui-calcontainer.withtitle { width:150px; }
+#regionA .yui-skin-sam .yui-calcontainer .title {height:25px;width:170px; padding:0;}

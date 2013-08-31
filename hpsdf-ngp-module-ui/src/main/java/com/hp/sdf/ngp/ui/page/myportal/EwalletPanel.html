@@ -1,0 +1,40 @@
+<wicket:panel>
+<div class="mainPanel" >
+<div class="panelBody">
+<div class="panelContent">
+<table border="0" cellspacing="0" cellpadding="0" class="formTableSet">
+	<tr>
+		<td width="200" align="right"><wicket:message key="ewallet.balance">Balance</wicket:message> : </td>
+		<td ><span wicket:id="balance">balance</span></td>
+	</tr>
+	<tr>
+		<td width="200" align="right"><wicket:message key="ewallet.expiredate">Expire Date</wicket:message> : </td>
+		<td ><span wicket:id="expireDate">expireDate</span></td>
+	</tr>
+
+</table>
+<p><b>Transaction History</b></p>
+<table  cellspacing="0" cellpadding="0" class="tableSet">
+	<thead>
+		<tr>
+			<th width="25%">Transaction Date</th>
+			<th>Trasaction Detail</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<tr wicket:id="transactionInfo">
+			<td align="center" wicket:id="transactionDate">Transaction Date</td>
+			<td align="left"  wicket:id="trasactionDetail">Transaction Detail</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<div class="clear"></div>
+<div class="panelBottom">
+<div class="panelFoot"></div>
+</div>
+</div>
+
+</div>
+</wicket:panel>

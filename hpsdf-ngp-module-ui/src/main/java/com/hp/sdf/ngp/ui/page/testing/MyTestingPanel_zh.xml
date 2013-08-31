@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">我测试的应用</entry>
+<entry key="app.name">应用名</entry>
+<entry key="bin.version">文件版本</entry>
+<entry key="bin.platform">平台</entry>
+<entry key="app.brief">简介</entry>
+<entry key="bin.ready.list">等待测试的应用列表</entry>
+</properties>

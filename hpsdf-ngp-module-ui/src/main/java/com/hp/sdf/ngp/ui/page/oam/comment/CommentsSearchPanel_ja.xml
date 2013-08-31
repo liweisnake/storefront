@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="subscriberName">ハンドルネーム</entry>
+<entry key="assetID">identifierID</entry>
+<entry key="commentsManagement">査閲</entry>
+<entry key="pid">プロバイダーID</entry>
+<entry key="keyword">キーワード</entry>
+<entry key="title">コメント検索</entry>
+<entry key="providerName">プロバイダー名</entry>
+<entry key="assetName">商品名</entry>
+<entry key="search">検索</entry>
+</properties>

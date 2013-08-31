@@ -1,0 +1,24 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+   <f:loadBundle var="bundle" basename="conf.bundles.Identity" />
+
+<ui:composition template="/jsf/profile/editProfileTemplate.xhtml">
+
+<ui:define name="title">
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_EDIT_PROFILE_TITLE}" />
+	</li>
+</ui:define>
+
+<ui:define name="content">
+		<h3><h:messages style="list-style:none" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+              fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/></h3>
+</ui:define>
+
+</ui:composition>
+</div>

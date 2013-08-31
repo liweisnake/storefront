@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<portlet-app
+   xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+   version="2.0">
+   <portlet>
+      <description>Netvibes Widget Portlet</description>
+      <portlet-name>NetvibesWidgetPortlet</portlet-name>
+      <display-name>Netvibes Widget Portlet</display-name>
+      <portlet-class>org.jboss.portal.widget.netvibes.NetvibesWidgetPortlet</portlet-class>
+      <init-param>
+         <description>Connection timeout when retrieving gadgets from google directory (in milliseconds)</description>
+         <name>connectionTimeout</name>
+         <value>5000</value>
+      </init-param>
+      <init-param>
+         <description>Time until a Widget expires and gets refreshed (in minutes). Default value is 6 hours.</description>
+         <name>widgetExpiration</name>
+         <value>360</value>
+      </init-param>
+      <init-param>
+         <description>Time until a query expires (in minutes). Default value is 1 hour.</description>
+         <name>queryExpiration</name>
+         <value>60</value>
+      </init-param>
+      <init-param>
+      	<description>This value defines if all widgets should be fetched when performing the directory search.</description>
+      	<name>fetchWidgetsOnDirectoryLookup</name>
+      	<value>false</value>
+      </init-param>
+      <init-param>
+      	<description>The default height of the widget if no height attribute is defined by the widget itself.</description>
+      	<name>defaultHeight</name>
+      	<value>250</value>
+      </init-param>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+         <portlet-mode>EDIT_CONTENT</portlet-mode>
+      </supports>
+      <portlet-info>
+         <title>Netvibes Widget</title>
+         <keywords>widget,netvibes</keywords>
+      </portlet-info>
+      <supported-publishing-event><qname xmlns:x="urn:jboss:portal:content">x:select</qname></supported-publishing-event>
+      <supported-public-render-parameter>uri</supported-public-render-parameter>
+      <supported-public-render-parameter>parameters</supported-public-render-parameter>
+   </portlet>
+   
+   <event-definition>
+      <qname xmlns:x="urn:jboss:portal:content">x:select</qname>
+   	  <value-type>org.jboss.portal.api.content.SelectedContent</value-type>
+   </event-definition>
+   
+   <public-render-parameter>
+      <identifier>uri</identifier>
+      <qname xmlns:c="urn:jboss:portal:content">c:uri</qname>
+   </public-render-parameter>
+   
+   <public-render-parameter>
+      <identifier>parameters</identifier>
+      <qname xmlns:c="urn:jboss:portal:content">c:parameters</qname>
+   </public-render-parameter>
+</portlet-app>

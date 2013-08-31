@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">请选择</entry>
+<entry key="title">应用明细信息</entry>
+<entry key="label.auther">作者</entry>
+<entry key="label.update">更新日期</entry>
+<entry key="label.intro">介绍</entry>
+<entry key="label.category">分类</entry>
+<entry key="label.rating">平均评分</entry>
+<entry key="label.myrating">我的评分</entry>
+<entry key="label.rate.range">5</entry>
+<entry key="default.rating">0</entry>
+<entry key="btn.update">更新</entry>
+<entry key="btn.reset">取消</entry>
+<entry key="btn.rating">评分</entry>
+<entry key="link.manage.bin">管理应用文件</entry>
+<entry key="description.title">应用描述：</entry>
+</properties>

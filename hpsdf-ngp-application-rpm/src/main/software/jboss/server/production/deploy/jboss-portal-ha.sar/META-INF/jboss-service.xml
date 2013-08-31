@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<server>
+
+   <!-- Server configuration service -->
+   <mbean code="org.jboss.portal.server.config.ServerConfigService" name="portal:service=ServerConfig" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="ConfigLocation">conf/config.xml</attribute>
+   </mbean>
+
+   <!-- DTD repository -->
+   <mbean code="org.jboss.portal.server.impl.xml.EntityResolverService" name="portal:service=EntityResolver"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="DTDMapping">
+         <properties>
+            <entry key="-//JBoss Portal//DTD JBoss Portlet 2.6//EN">dtd/jboss-portlet_2_6.dtd</entry>
+            <entry key="-//JBoss Portal//DTD JBoss App 2.6//EN">dtd/jboss-app_2_6.dtd</entry>
+            <entry key="-//JBoss Portal//DTD Portal Object 2.6//EN">dtd/portal-object_2_6.dtd</entry>
+            <entry key="-//JBoss Portal//DTD Portlet Instances 2.6//EN">dtd/portlet-instances_2_6.dtd</entry>
+         </properties>
+      </attribute>
+   </mbean>
+
+   <!-- Runtime context for running portlet container -->
+   <mbean code="org.jboss.portal.web.jboss.JBossWebContext" name="portal:service=ServletContainerFactory" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <!-- Portal security services-->
+   <mbean code="org.jboss.portal.security.impl.JBossAuthorizationDomainRegistryImpl"
+          name="portal:service=AuthorizationDomainRegistry" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.security.impl.jacc.JACCPortalAuthorizationManagerFactory"
+          name="portal:service=PortalAuthorizationManagerFactory" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="AuthorizationDomainRegistry" proxy-type="attribute">
+         portal:service=AuthorizationDomainRegistry
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.impl.security.JBossPortletSecurityService"
+          name="portal:service=PortletSecurityService" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+      <depends optional-attribute-name="AuthorizationDomainRegistry" proxy-type="attribute">
+         portal:service=AuthorizationDomainRegistry
+      </depends>
+   </mbean>
+
+   <!-- Server stack -->
+   <mbean code="org.jboss.portal.server.aspects.server.SessionLockInterceptor"
+          name="portal:service=Interceptor,type=Server,name=SessionLock" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.server.TransactionInterceptor"
+          name="portal:service=Interceptor,type=Server,name=Transaction" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.impl.api.user.UserEventBridgeTriggerInterceptor"
+          name="portal:service=Interceptor,type=Server,name=UserEvent" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.server.aspects.server.SignOutInterceptor"
+          name="portal:service=Interceptor,type=Server,name=SessionInvalidator" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="ServletContainerFactory" proxy-type="attribute">
+         portal:service=ServletContainerFactory
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.server.UserInterceptor"
+          name="portal:service=Interceptor,type=Server,name=User" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="CacheUser">true</attribute>
+      <depends>portal:service=Module,type=IdentityServiceController</depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.server.LocaleInterceptor"
+          name="portal:service=Interceptor,type=Server,name=Locale" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.server.PortalContextPathInterceptor"
+          name="portal:service=Interceptor,type=Server,name=PortalContextPath" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.server.aspects.server.ContentTypeInterceptor"
+          name="portal:service=Interceptor,type=Server,name=ContentType" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean
+      code="org.jboss.portal.core.aspects.server.IdentityCacheInterceptor"
+      name="portal:service=Interceptor,type=Server,name=IdentityCache"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.server.impl.invocation.JBossInterceptorStackFactory"
+          name="portal:service=InterceptorStackFactory,type=Server" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends-list optional-attribute-name="InterceptorNames">
+         <depends-list-element>portal:service=Interceptor,type=Server,name=SessionLock</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=Transaction</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=IdentityCache</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=UserEvent</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=SessionInvalidator</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=User</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=Locale</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=PortalContextPath</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Server,name=ContentType</depends-list-element>
+      </depends-list>
+   </mbean>
+
+
+
+
+   <!-- Command stack -->
+   <mbean code="org.jboss.portal.core.aspects.controller.ControlInterceptor"
+          name="portal:service=Interceptor,type=Command,name=Control" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalControlPolicy" proxy-type="attribute">
+         portal:service=ControlPolicy,type=Portal
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.controller.BackwardCompatibilityInterceptor"
+          name="portal:service=Interceptor,type=Command,name=BackwardCompatibility" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.controller.ResourceAcquisitionInterceptor"
+          name="portal:service=Interceptor,type=Command,name=ResourceAcquisition" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.controller.ajax.AjaxInterceptor"
+          name="portal:service=Interceptor,type=Command,name=Ajax" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <!--
+      this tag has to be set when context root of portal-ajax is
+      different by /portal-ajax path. 
+      Uncomment and change it if you want to change context root for portal-ajax application 
+      <attribute name="TargetContextPath">/portal-ajax</attribute> -->
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.controller.NavigationalStateInterceptor"
+          name="portal:service=Interceptor,type=Command,name=NavigationalState" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <!-- 
+   		This interceptor cleans the Navigation state of windows when the user call a new page or refresh the page
+   -->
+   <mbean
+      code="org.jboss.portal.core.aspects.controller.CleanNSInterceptor"
+      name="portal:service=Interceptor,type=Command,name=CleanNS"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean
+      code="org.jboss.portal.core.aspects.controller.node.PortalNodeInterceptor"
+      name="portal:service=Interceptor,type=Command,name=PortalNode"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.controller.PolicyEnforcementInterceptor"
+          name="portal:service=Interceptor,type=Command,name=PolicyEnforcement" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.controller.PageCustomizerInterceptor"
+          name="portal:service=Interceptor,type=Command,name=PageCustomizer" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="TargetContextPath">/portal-core</attribute>
+      <attribute name="HeaderPath">/WEB-INF/jsp/header/header.jsp</attribute>
+      <attribute name="TabsPath">/WEB-INF/jsp/header/tabs.jsp</attribute>
+      <!-- Overrides the value of core.login.namespace in config.xml  --><!--  attribute name="LoginNamespace">dashboard</attribute -->
+      <depends optional-attribute-name="Config" proxy-type="attribute">portal:service=ServerConfig</depends>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">portal:container=PortalObject
+      </depends>
+
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.controller.node.EventBroadcasterInterceptor"
+          name="portal:service=Interceptor,type=Command,name=EventBroadcaster" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="ListenerRegistry" proxy-type="attribute">portal:service=ListenerRegistry
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.server.impl.invocation.JBossInterceptorStackFactory"
+          name="portal:service=InterceptorStackFactory,type=Command" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends-list optional-attribute-name="InterceptorNames">
+         <depends-list-element>portal:service=Interceptor,type=Command,name=ResourceAcquisition</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Command,name=Ajax</depends-list-element>
+         <!-- depends-list-element>portal:service=Interceptor,type=Command,name=CleanNS</depends-list-element -->
+         <depends-list-element>portal:service=Interceptor,type=Command,name=NavigationalState</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Command,name=Control</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Command,name=BackwardCompatibility</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Command,name=PortalNode</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Command,name=PolicyEnforcement</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Command,name=PageCustomizer</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Command,name=EventBroadcaster</depends-list-element>
+      </depends-list>
+   </mbean>
+
+   <!-- Instance stack -->
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.ConsumerCacheInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=ConsumerCache" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.instance.InstanceSecurityInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=InstanceSecurity" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.PortalSessionSynchronizationInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=PortalSessionSynchronization" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.instance.InstanceInvoker"
+          name="portal:service=Interceptor,type=Portlet,name=InstanceInvoker" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+         <depends optional-attribute-name="PortletInvoker" proxy-type="attribute">
+            portal:service=PortletInvoker,type=Federating
+         </depends>
+      <xmbean/>
+   </mbean>
+
+   <mbean code="org.jboss.portal.portlet.impl.invocation.JBossPortletInterceptorStackFactory"
+          name="portal:service=InterceptorStackFactory,type=Instance" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends-list optional-attribute-name="InterceptorNames">
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=ConsumerCache</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=InstanceSecurity</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=PortalSessionSynchronization</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=InstanceInvoker</depends-list-element>
+      </depends-list>
+   </mbean>
+ 
+ 
+   <!-- Producer stack -->
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.ValveInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=Valve" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.ContextTrackerInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=ContextTracker" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.SecureTransportInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=SecureTransport" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.ContextDispatcherInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=ContextDispatcher" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="ServletContainerFactory" proxy-type="attribute">
+         portal:service=ServletContainerFactory
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.PortletSessionSynchronizationInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=PortletSessionSynchronization" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.bridge.BridgeInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=Bridge" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.ProducerCacheInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=ProducerCache" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.RequestAttributeConversationInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=RequestAttributeConversation" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.aspects.portlet.EventPayloadInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=EventPayload" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.portlet.TransactionInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=Transaction" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.portlet.HttpHeaderInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=HttpHeader" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="DefaultCookiePath">/</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.portlet.HeaderInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=Header" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.portlet.AjaxInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=Ajax" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.portlet.BackwardCompatibilityInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=BackwardCompatibility" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.aspects.portlet.SignOutInterceptor"
+          name="portal:service=Interceptor,type=Portlet,name=SignOut" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <mbean code="org.jboss.portal.portlet.container.ContainerPortletDispatcher"
+          name="portal:service=Dispatcher,type=Portlet,name=ContainerPortlet" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   
+   
+   <mbean code="org.jboss.portal.portlet.impl.invocation.JBossPortletInterceptorStackFactory"
+          name="portal:service=InterceptorStackFactory,type=Producer" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends-list optional-attribute-name="InterceptorNames">
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=Valve</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=SecureTransport</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=HttpHeader</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=ContextDispatcher</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=ContextTracker</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=PortletSessionSynchronization</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=Bridge</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=BackwardCompatibility</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=Ajax</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=SignOut</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=ProducerCache</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=RequestAttributeConversation</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=EventPayload</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=Header</depends-list-element>
+         <depends-list-element>portal:service=Interceptor,type=Portlet,name=Transaction</depends-list-element>
+         <depends-list-element>portal:service=Dispatcher,type=Portlet,name=ContainerPortlet</depends-list-element>
+      </depends-list>
+   </mbean>
+
+   <!-- Theme and layout services -->
+   <mbean code="org.jboss.portal.theme.impl.ThemeServiceImpl" name="portal:service=ThemeService" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="DefaultThemeName">renewal</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.theme.impl.LayoutServiceImpl" name="portal:service=LayoutService" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="DefaultLayoutName">generic</attribute>
+      <attribute name="DefaultRenderSetName">divRenderer</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.theme.impl.PageServiceImpl" name="portal:service=PageService" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="LayoutService" proxy-type="attribute">portal:service=LayoutService</depends>
+      <depends optional-attribute-name="ThemeService" proxy-type="attribute">portal:service=ThemeService</depends>
+   </mbean>
+
+ <!--
+      Node locking scheme possible values (NodeLockingScheme attribute):
+         OPTIMISTIC
+         PESSIMISTIC (default)
+
+
+      Isolation level possible values (IsolationLevel attribute):
+         SERIALIZABLE
+         REPEATABLE_READ (default)
+         READ_COMMITTED
+         READ_UNCOMMITTED
+         NONE
+      Note that this attribute is IGNORED if your NodeLockingScheme attribute is set at OPTIMISTIC.
+
+      Cache modes possible values (CacheMode attribute):
+         LOCAL
+         REPL_ASYNC
+         REPL_SYNC
+         INVALIDATION_ASYNC
+         INVALIDATION_SYNC
+
+      If you use REPL_SYNC and a UDP-based ClusterConfig we recommend you comment out the FC (flow control)
+      protocol in the ClusterConfig section below.
+
+
+      Alternate TCP stack: customize it for your environment, change bind_addr and initial_hosts
+      <attribute name="ClusterConfig">      
+   		<config>
+   			<TCP bind_addr="thishost" start_port="7840" loopback="true"
+   				tcp_nodelay="true"
+   				recv_buf_size="20000000"
+   				send_buf_size="640000"
+   				discard_incompatible_packets="true"
+   				enable_bundling="false"
+   				max_bundle_size="64000"
+   				max_bundle_timeout="30"
+   				use_incoming_packet_handler="true"
+   				use_outgoing_packet_handler="false"
+   				down_thread="false" up_thread="false"
+   				use_send_queues="false"
+   				sock_conn_timeout="300"
+   				skip_suspected_members="true"/>
+   			<TCPPING initial_hosts="thishost[7840],otherhost[7840]" port_range="3"
+   				timeout="3000"
+   				down_thread="false" up_thread="false"
+   				num_initial_members="3"/>
+   			<MERGE2 max_interval="100000"
+   				down_thread="false" up_thread="false" min_interval="20000"/>
+   			<FD_SOCK down_thread="false" up_thread="false"/>
+   			<FD timeout="10000" max_tries="5" down_thread="false" up_thread="false" shun="true"/>
+   			<VERIFY_SUSPECT timeout="1500" down_thread="false" up_thread="false"/>
+   			<pbcast.NAKACK max_xmit_size="60000"
+   				use_mcast_xmit="false" gc_lag="0"
+   				retransmit_timeout="300,600,1200,2400,4800"
+   				down_thread="false" up_thread="false"
+   				discard_delivered_msgs="true"/>
+   			<pbcast.STABLE stability_delay="1000" desired_avg_gossip="50000"
+   				down_thread="false" up_thread="false"
+   				max_bytes="400000"/>
+   			<pbcast.GMS print_local_addr="true" join_timeout="3000"
+   				down_thread="false" up_thread="false"
+   				join_retry_timeout="2000" shun="true"
+   				view_bundling="true"/>
+   			<pbcast.STATE_TRANSFER down_thread="false" up_thread="false" use_flush="false"/>
+   		</config>
+      </attribute> 
+   -->
+
+   <!--
+      | Uncomment in clustered mode : replicated cache for hibernate
+      -->
+   <mbean code="org.jboss.cache.TreeCache"
+   	name="portal:service=TreeCache,type=hibernate">
+   	<depends>jboss:service=Naming</depends>
+   	<depends>jboss:service=TransactionManager</depends>
+
+   	<attribute name="TransactionManagerLookupClass">
+   		org.jboss.cache.JBossTransactionManagerLookup
+   	</attribute>
+
+   	<attribute name="NodeLockingScheme">OPTIMISTIC</attribute>
+   	<attribute name="IsolationLevel">READ_COMMITTED</attribute>
+   	<attribute name="CacheMode">INVALIDATION_SYNC</attribute>
+
+
+   	<attribute name="CacheMode">REPL_SYNC</attribute>
+
+   	<attribute name="ClusterName">
+   		${portal.hibernate.cache.partition.name:portal.hibernate}
+   	</attribute>
+
+   	<attribute name="InitialStateRetrievalTimeout">17500</attribute>
+
+   	<attribute name="SyncReplTimeout">17500</attribute>
+
+   	<attribute name="LockAcquisitionTimeout">15000</attribute>
+
+
+   	<attribute name="EvictionPolicyClass">
+   		org.jboss.cache.eviction.LRUPolicy
+   	</attribute>
+   	<attribute name="EvictionPolicyConfig">
+   		<config>
+   			<attribute name="wakeUpIntervalSeconds">5</attribute>
+
+   			<region name="/_default_">
+   				<attribute name="maxNodes">5000</attribute>
+   				<attribute name="timeToLiveSeconds">1000</attribute>
+   			</region>
+   		</config>
+   	</attribute>
+
+   	<attribute name="ClusterConfig">
+   		<config>
+   			<UDP
+   				mcast_addr="${jboss.partition.udpGroup:239.11.12.13}"
+   				mcast_port="${portal.hibernate.cache.udpPort:23456}" tos="8"
+   				ucast_recv_buf_size="20000000" ucast_send_buf_size="640000"
+   				mcast_recv_buf_size="25000000" mcast_send_buf_size="640000"
+   				loopback="false" discard_incompatible_packets="true"
+   				enable_bundling="false" max_bundle_size="64000"
+   				max_bundle_timeout="30" use_incoming_packet_handler="true"
+   				use_outgoing_packet_handler="false"
+   				ip_ttl="${jgroups.udp.ip_ttl:2}" down_thread="false"
+   				up_thread="false" />
+   			<PING timeout="2000" down_thread="false"
+   				up_thread="false" num_initial_members="3" />
+   			<MERGE2 max_interval="100000" down_thread="false"
+   				up_thread="false" min_interval="20000" />
+   			<FD_SOCK down_thread="false" up_thread="false" />
+   			<FD timeout="10000" max_tries="5" down_thread="false"
+   				up_thread="false" shun="true" />
+   			<VERIFY_SUSPECT timeout="1500" down_thread="false"
+   				up_thread="false" />
+   			<pbcast.NAKACK max_xmit_size="60000"
+   				use_mcast_xmit="false" gc_lag="0"
+   				retransmit_timeout="300,600,1200,2400,4800" down_thread="false"
+   				up_thread="false" discard_delivered_msgs="true" />
+   			<UNICAST timeout="300,600,1200,2400,3600"
+   				down_thread="false" up_thread="false" />
+   			<pbcast.STABLE stability_delay="1000"
+   				desired_avg_gossip="50000" down_thread="false" up_thread="false"
+   				max_bytes="400000" />
+   			<pbcast.GMS print_local_addr="true" join_timeout="3000"
+   				down_thread="false" up_thread="false" join_retry_timeout="2000"
+   				shun="true" view_bundling="true" />
+   			<FRAG2 frag_size="60000" down_thread="false"
+   				up_thread="false" />
+   			<pbcast.STATE_TRANSFER down_thread="false"
+   				up_thread="false" use_flush="false" />
+   		</config>
+   	</attribute>
+   </mbean>
+      
+   <!--
+   -->
+
+   <!-- Session factories -->
+   <mbean code="org.jboss.portal.jems.hibernate.SessionFactoryBinder" name="portal:service=Hibernate" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>   
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="ConfigLocation">conf/hibernate/user/hibernate.cfg.xml</attribute>
+      <attribute name="SetupLocation">conf/hibernate/user/setup.txt</attribute>
+      <attribute name="JNDIName">java:/portal/IdentitySessionFactory</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.jems.hibernate.SessionFactoryBinder" name="portal:service=Hibernate,type=Instance"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="ConfigLocation">conf/hibernate/instance/hibernate.cfg.xml</attribute>
+      <attribute name="JNDIName">java:/portal/InstanceSessionFactory</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.jems.hibernate.SessionFactoryBinder" name="portal:service=Hibernate,type=PortalObject"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="ConfigLocation">conf/hibernate/portal/hibernate.cfg.xml</attribute>
+      <attribute name="JNDIName">java:/portal/PortalObjectSessionFactory</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.jems.hibernate.SessionFactoryBinder" name="portal:service=Hibernate,type=Portlet"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>      
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="ConfigLocation">conf/hibernate/portlet/hibernate.cfg.xml</attribute>
+      <attribute name="JNDIName">java:/portal/PortletSessionFactory</attribute>
+   </mbean>
+
+   <!--Identity-->
+   <mbean code="org.jboss.portal.identity.service.IdentityEventManagerService"
+          name="portal:service=IdentityEventManager" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.identity.service.IdentityServiceControllerImpl"
+          name="portal:service=Module,type=IdentityServiceController" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>portal:service=Hibernate</depends>
+      <depends optional-attribute-name="IdentityEventBroadcaster" proxy-type="attribute">
+         portal:service=IdentityEventManager
+      </depends>
+      <attribute name="JndiName">java:/portal/IdentityServiceController</attribute>
+      <attribute name="RegisterMBeans">true</attribute>
+      <attribute name="ConfigFile">conf/identity/identity-config.xml</attribute>
+      <attribute name="DefaultConfigFile">conf/identity/standardidentity-config.xml</attribute>
+   </mbean>
+
+   <mbean code="org.jboss.portal.core.impl.mail.MailModuleImpl" name="portal:service=Module,type=Mail" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss:service=Mail</depends>
+      <depends>portal:service=Module,type=IdentityServiceController</depends>
+      <attribute name="QueueCapacity">-1</attribute>
+      <attribute name="Gateway">localhost</attribute>
+      <attribute name="SmtpUser"></attribute>
+      <attribute name="SmtpPassword"></attribute>
+      <attribute name="JavaMailDebugEnabled">false</attribute>
+      <attribute name="SMTPConnectionTimeout">100000</attribute>
+      <attribute name="SMTPTimeout">10000</attribute>
+      <attribute name="JNDIName">java:portal/MailModule</attribute>
+   </mbean>
+
+   <mbean code="org.jboss.security.auth.login.DynamicLoginConfig" name="portal:service=JAASLoginModule">
+      <depends optional-attribute-name="LoginConfigService">jboss.security:service=XMLLoginConfig</depends>
+      <depends optional-attribute-name="SecurityManagerService">jboss.security:service=JaasSecurityManager</depends>
+      <attribute name="AuthConfig">conf/login-config.xml</attribute>
+   </mbean>
+
+   <!-- a service to schedule activity of the users -->
+   <mbean code="org.jboss.portal.core.identity.UsersActivityStatsServiceImpl"
+          name="portal:service=Module,type=UsersActivityStatsService" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <!--
+        |Uncomment in clustered mode : broadcaster will spread info about user activity in cluster
+      -->
+
+         <attribute name="ActivityBroadcasterName">portal:service=HAUserActivityNotificationBroadcaster</attribute>
+
+      <!--
+      -->
+   </mbean>
+
+   <!--
+     |Uncomment in clustered mode : broadcaster will spread info about user activity in cluster
+   -->
+
+   <mbean code="org.jboss.portal.core.identity.UserActivityNotificationBroadcaster" 
+      name="portal:service=HAUserActivityNotificationBroadcaster">
+      <depends>jboss:service=${jboss.partition.name:DefaultPartition}</depends>
+   </mbean>
+
+   <!--
+   -->
+
+   <!-- Registries -->
+
+   <!-- mbean
+      code="org.jboss.portal.portlet.deployment.jboss.PortletApplicationDeployer"
+      name="portal:service=WebAppRegistry"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends
+         optional-attribute-name="ServletContainerFactory"
+         proxy-type="attribute">portal:service=ServletContainerFactory</depends>
+      
+   </mbean-->
+
+   <!-- Listener registry -->
+   <mbean code="org.jboss.portal.core.event.PortalEventListenerRegistryImpl" name="portal:service=ListenerRegistry"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <!-- The different containers -->
+
+   <mbean code="org.jboss.portal.core.impl.model.instance.persistent.PersistentInstanceContainerContext"
+          name="portal:service=InstanceContainerContext" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>portal:service=Hibernate,type=Instance</depends>
+      <attribute name="SessionFactoryJNDIName">java:/portal/InstanceSessionFactory</attribute>
+      <attribute name="CacheNaturalId">true</attribute>
+   </mbean>
+
+   <mbean code="org.jboss.portal.core.impl.model.instance.InstanceContainerImpl" name="portal:container=Instance"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="ContainerContext" proxy-type="attribute">portal:service=InstanceContainerContext
+      </depends>
+      <depends optional-attribute-name="StackFactory" proxy-type="attribute">
+         portal:service=InterceptorStackFactory,type=Instance
+      </depends>
+      <depends optional-attribute-name="PortletInvoker" proxy-type="attribute">
+         portal:service=PortletInvoker,type=Federating
+      </depends>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+      <depends optional-attribute-name="AuthorizationDomainRegistry" proxy-type="attribute">
+         portal:service=AuthorizationDomainRegistry
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer"
+          name="portal:container=PortalObject" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>portal:service=Hibernate,type=PortalObject</depends>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+      <depends optional-attribute-name="AuthorizationDomainRegistry" proxy-type="attribute">
+         portal:service=AuthorizationDomainRegistry
+      </depends>
+      <depends optional-attribute-name="ContentProviderRegistry" proxy-type="attribute">
+         portal:service=ContentProviderRegistry
+      </depends>
+      <attribute name="SessionFactoryJNDIName">java:/portal/PortalObjectSessionFactory</attribute>
+      <attribute name="CacheNaturalId">true</attribute>
+   </mbean>
+
+   <!-- Coordination service -->
+
+   <mbean code="org.jboss.portal.core.impl.coordination.CoordinationService"
+          name="portal:service=CoordinationService" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">
+         portal:container=PortalObject
+      </depends>
+   </mbean>
+
+   <!-- Customization manager -->
+   <mbean code="org.jboss.portal.core.impl.model.CustomizationManagerService" name="portal:service=CustomizationManager"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+      <depends optional-attribute-name="InstanceContainer" proxy-type="attribute">portal:container=Instance</depends>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">portal:container=PortalObject
+      </depends>
+      <depends>portal:service=Module,type=IdentityServiceController</depends>
+      <attribute name="DashboardContextId">dashboard</attribute>
+   </mbean>
+
+   <!-- The content provider framework -->
+   <mbean code="org.jboss.portal.core.impl.model.content.ContentProviderRegistryService"
+          name="portal:service=ContentProviderRegistry" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.impl.model.content.portlet.InternalPortletContentProvider"
+          name="portal:service=ContentRenderer,type=portlet" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="ContentType">portlet</attribute>
+      <depends optional-attribute-name="Registry" proxy-type="attribute">portal:service=ContentProviderRegistry
+      </depends>
+      <depends optional-attribute-name="CustomizationManager" proxy-type="attribute">portal:service=CustomizationManager
+      </depends>
+      <depends optional-attribute-name="InstanceContainer" proxy-type="attribute">portal:container=Instance</depends>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+   </mbean>
+
+   <!-- Integrate identity -->
+   <mbean code="org.jboss.portal.core.identity.DashboardBridge" name="portal:service=IdentityDashboardBridge"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="IdentityEventEmitter" proxy-type="attribute">portal:service=IdentityEventManager
+      </depends>
+      <depends optional-attribute-name="CustomizationManager" proxy-type="attribute">portal:service=CustomizationManager
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.identity.SecurityBridge" name="portal:service=IdentitySecurityBridge" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="IdentityEventEmitter" proxy-type="attribute">portal:service=IdentityEventManager
+      </depends>
+      <depends optional-attribute-name="DynamicLoginConfig" proxy-type="attribute">portal:service=JAASLoginModule
+      </depends>
+   </mbean>
+
+   <!-- Command factories -->
+   <mbean code="org.jboss.portal.core.controller.command.mapper.DelegatingCommandFactoryService"
+          name="portal:commandFactory=Delegating" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.portal.DefaultPortalCommandFactory"
+          name="portal:commandFactory=DefaultPortal" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="NextFactory" proxy-type="attribute">portal:commandFactory=Delegating</depends>
+      <depends optional-attribute-name="Container" proxy-type="attribute">portal:container=PortalObject</depends>
+   </mbean>
+
+   <mbean code="org.jboss.portal.core.model.portal.command.mapping.DefaultPortalObjectPathMapper"
+          name="portal:service=PortalObjectPathMapper,type=Default" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Container" proxy-type="attribute">portal:container=PortalObject</depends>
+      <attribute name="Namespace"><![CDATA[]]></attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.portal.PortalObjectCommandFactory" name="portal:commandFactory=PortalObject"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Mapper" proxy-type="attribute">
+         portal:service=PortalObjectPathMapper,type=Default
+      </depends>
+      <attribute name="KeepPNState">true</attribute>
+   </mbean>
+
+   <mbean code="org.jboss.portal.core.controller.command.mapper.CommandFactoryDelegate"
+          name="portal:commandFactory=Delegate,path=portal" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/portal</attribute>
+      <depends optional-attribute-name="DelegatingFactory" proxy-type="attribute">portal:commandFactory=Delegating
+      </depends>
+      <depends optional-attribute-name="DelegateFactory" proxy-type="attribute">portal:commandFactory=PortalObject
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.controller.command.mapper.SignOutCommandFactoryService"
+          name="portal:commandFactory=SignOut" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.controller.command.mapper.CommandFactoryDelegate"
+          name="portal:commandFactory=Delegate,path=signout" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/signout</attribute>
+      <depends optional-attribute-name="DelegatingFactory" proxy-type="attribute">portal:commandFactory=Delegating
+      </depends>
+      <depends optional-attribute-name="DelegateFactory" proxy-type="attribute">portal:commandFactory=SignOut</depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.portal.command.mapping.DashboardPortalObjectPathMapper"
+          name="portal:service=PortalObjectPathMapper,type=Dashboard" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="CustomizationManager" proxy-type="attribute">portal:service=CustomizationManager
+      </depends>
+      <depends optional-attribute-name="Container" proxy-type="attribute">portal:container=PortalObject</depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.portal.PortalObjectCommandFactory" name="portal:commandFactory=Dashboard"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Mapper" proxy-type="attribute">
+         portal:service=PortalObjectPathMapper,type=Dashboard
+      </depends>
+   </mbean>
+
+   <mbean code="org.jboss.portal.core.controller.command.mapper.CommandFactoryDelegate"
+          name="portal:commandFactory=Delegate,path=dashboard" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/dashboard</attribute>
+      <depends optional-attribute-name="DelegatingFactory" proxy-type="attribute">portal:commandFactory=Delegating
+      </depends>
+      <depends optional-attribute-name="DelegateFactory" proxy-type="attribute">portal:commandFactory=Dashboard
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.controller.ajax.AjaxCommandFactory" name="portal:commandFactory=Ajax" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.controller.command.mapper.CommandFactoryDelegate"
+          name="portal:commandFactory=Delegate,path=ajax" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/ajax</attribute>
+      <depends optional-attribute-name="DelegatingFactory" proxy-type="attribute">portal:commandFactory=Delegating
+      </depends>
+      <depends optional-attribute-name="DelegateFactory" proxy-type="attribute">portal:commandFactory=Ajax</depends>
+   </mbean>
+
+   <!-- URL factories -->
+   <mbean code="org.jboss.portal.core.controller.command.mapper.DelegatingURLFactoryService"
+          name="portal:urlFactory=Delegating" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.portal.PortalObjectURLFactory"
+          name="portal:urlFactory=PortalObject,type=Default" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Namespace"><![CDATA[]]></attribute>
+      <attribute name="Path">/portal</attribute>
+      <depends optional-attribute-name="Factory" proxy-type="attribute">portal:urlFactory=Delegating</depends>
+      <depends optional-attribute-name="Mapper" proxy-type="attribute">
+         portal:service=PortalObjectPathMapper,type=Default
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.controller.command.mapper.SignOutURLFactory" name="portal:urlFactory=SignOut"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/signout</attribute>
+      <depends optional-attribute-name="Factory" proxy-type="attribute">portal:urlFactory=Delegating</depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.portal.PortalObjectURLFactory"
+          name="portal:urlFactory=PortalObject,type=Dashboard" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Namespace">dashboard</attribute>
+      <attribute name="Path">/dashboard</attribute>
+      <depends optional-attribute-name="Factory" proxy-type="attribute">portal:urlFactory=Delegating</depends>
+      <depends optional-attribute-name="Mapper" proxy-type="attribute">
+         portal:service=PortalObjectPathMapper,type=Dashboard
+      </depends>
+   </mbean>
+
+   <!-- The federating portlet invoker -->
+   <mbean code="org.jboss.portal.portlet.federation.impl.FederatingPortletInvokerService"
+          name="portal:service=PortletInvoker,type=Federating" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <!-- The portlet container invoker -->
+   <mbean code="org.jboss.portal.portlet.container.ContainerPortletInvoker"
+          name="portal:service=PortletInvoker,type=Container" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Next" proxy-type="attribute">
+         portal:service=Interceptor,type=Portlet,name=Valve
+      </depends>
+      <depends>portal:service=InterceptorStackFactory,type=Producer</depends>
+   </mbean>
+
+   <!-- The producer portlet invoker -->
+   <mbean code="org.jboss.portal.core.impl.portlet.state.PersistentPortletStatePersistenceManager"
+          name="portal:service=PersistenceManager,type=Producer" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>portal:service=Hibernate,type=Portlet</depends>
+      <attribute name="SessionFactoryJNDIName">java:/portal/PortletSessionFactory</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.impl.state.StateManagementPolicyService"
+          name="portal:service=StateManagementPolicy,type=Producer" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="PersistLocally">true</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.portlet.impl.state.StateConverterV0" name="portal:service=StateConverter,type=Producer"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+   <mbean code="org.jboss.portal.core.impl.portlet.state.ProducerPortletInvoker"
+          name="portal:service=PortletInvoker,type=Producer" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <!-- 
+      <depends optional-attribute-name="PortletInvoker" proxy-type="attribute">
+         portal:service=PortletInvoker,type=Container
+      </depends>
+       -->
+      <depends optional-attribute-name="Next" proxy-type="attribute">
+         portal:service=PortletInvoker,type=Container
+      </depends>
+      <depends optional-attribute-name="PersistenceManager" proxy-type="attribute">
+         portal:service=PersistenceManager,type=Producer
+      </depends>
+      <depends optional-attribute-name="StateManagementPolicy" proxy-type="attribute">
+         portal:service=StateManagementPolicy,type=Producer
+      </depends>
+      <depends optional-attribute-name="StateConverter" proxy-type="attribute">
+         portal:service=StateConverter,type=Producer
+      </depends>
+   </mbean>
+
+   <!-- Register the state portlet invoker on the federating portlet invoker -->
+   <mbean code="org.jboss.portal.portlet.federation.impl.PortletInvokerRegistrationService"
+          name="portal:service=PortletInvokerRegistration,id=local" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Id">local</attribute>
+      <depends optional-attribute-name="PortletInvoker" proxy-type="attribute">
+         portal:service=PortletInvoker,type=Producer
+      </depends>
+      <depends optional-attribute-name="FederatingPortletInvoker" proxy-type="attribute">
+         portal:service=PortletInvoker,type=Federating
+      </depends>
+   </mbean>
+
+   <!-- The classic response handler -->
+   <mbean code="org.jboss.portal.core.controller.classic.ClassicResponseHandler"
+          name="portal:service=ResponseHandler,type=Classic" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <!-- The ajax response handler -->
+   <mbean code="org.jboss.portal.core.controller.ajax.AjaxResponseHandler"
+          name="portal:service=ResponseHandler,type=Ajax" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PageService" proxy-type="attribute">portal:service=PageService</depends>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">portal:container=PortalObject
+      </depends>
+   </mbean>
+
+   <!-- The response handler selector -->
+   <mbean code="org.jboss.portal.core.controller.handler.ResponseHandlerSelector"
+          name="portal:service=ResponseHandler,type=Selector" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="ClassicResponseHandler" proxy-type="attribute">
+         portal:service=ResponseHandler,type=Classic
+      </depends>
+      <depends optional-attribute-name="AjaxResponseHandler" proxy-type="attribute">
+         portal:service=ResponseHandler,type=Ajax
+      </depends>
+   </mbean>
+
+   <!-- -->
+   <mbean code="org.jboss.portal.core.model.portal.control.page.DefaultPageControlPolicy"
+          name="portal:service=ControlPolicy,type=Page" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">portal:container=PortalObject
+      </depends>
+   </mbean>
+   <mbean code="org.jboss.portal.core.model.portal.control.portal.DefaultPortalControlPolicy"
+          name="portal:service=ControlPolicy,type=Portal" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">portal:container=PortalObject
+      </depends>
+   </mbean>
+
+   <!-- The controller -->
+   <mbean code="org.jboss.portal.core.controller.Controller" name="portal:service=Controller" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PageService" proxy-type="attribute">portal:service=PageService</depends>
+      <depends optional-attribute-name="CommandFactory" proxy-type="attribute">portal:commandFactory=DefaultPortal
+      </depends>
+      <depends optional-attribute-name="URLFactory" proxy-type="attribute">portal:urlFactory=Delegating</depends>
+      <depends optional-attribute-name="StackFactory" proxy-type="attribute">
+         portal:service=InterceptorStackFactory,type=Command
+      </depends>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">portal:container=PortalObject
+      </depends>
+      <depends optional-attribute-name="InstanceContainer" proxy-type="attribute">portal:container=Instance</depends>
+      <depends optional-attribute-name="PortalAuthorizationManagerFactory" proxy-type="attribute">
+         portal:service=PortalAuthorizationManagerFactory
+      </depends>
+      <depends optional-attribute-name="CustomizationManager" proxy-type="attribute">portal:service=CustomizationManager
+      </depends>
+      <depends optional-attribute-name="ContentRendererRegistry" proxy-type="attribute">
+         portal:service=ContentProviderRegistry
+      </depends>
+      <depends optional-attribute-name="ResponseHandler" proxy-type="attribute">
+         portal:service=ResponseHandler,type=Selector
+      </depends>
+      <depends optional-attribute-name="PageControlPolicy" proxy-type="attribute">portal:service=ControlPolicy,type=Page
+      </depends>
+      <depends optional-attribute-name="ContentProviderRegistry" proxy-type="attribute">
+         portal:service=ContentProviderRegistry
+      </depends>
+      <depends optional-attribute-name="CoordinationManager" proxy-type="attribute">
+         portal:service=CoordinationService
+      </depends>
+      <depends optional-attribute-name="CoordinationConfigurator" proxy-type="attribute">
+         portal:service=CoordinationService
+      </depends>
+   </mbean>
+
+   <!-- The controller factory -->
+   <mbean code="org.jboss.portal.server.impl.RequestControllerFactoryImpl" name="portal:service=ControllerFactory"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Controller" proxy-type="attribute">portal:service=Controller</depends>
+   </mbean>
+
+   <!-- -->
+   <mbean code="org.jboss.portal.server.impl.ServerImpl" name="portal:service=Server" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Config" proxy-type="attribute">portal:service=ServerConfig</depends>
+      <depends optional-attribute-name="ServletContainerFactory" proxy-type="attribute">
+         portal:service=ServletContainerFactory
+      </depends>
+   </mbean>
+
+   <!-- -->
+   <mbean code="org.jboss.portal.server.deployment.jboss.ServerDeployer" name="portal:deployer=PortalWebApp">
+      <depends>jboss.system:service=MainDeployer</depends>
+      <depends>portal:container=PortalObject</depends>
+      <depends>portal:container=Instance</depends>
+      <depends optional-attribute-name="PortalServer" proxy-type="attribute">portal:service=Server</depends>
+   </mbean>
+
+   <!-- Portal object deployment factory --><!--
+      | Uncomment in cluster mode : have the deployment of objects run as a clustered singleton
+      -->
+      <mbean
+      code="org.jboss.portal.jems.as.system.LifecycleInvoker"
+      name="portal:service=Controller,target=ObjectDeploymentFactory"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.ha:service=HASingletonDeployer,type=Barrier</depends>
+      <depends>jboss:service=${jboss.partition.name:DefaultPartition}</depends>
+      <depends>portal:container=PortalObject</depends>
+      <attribute name="Target">portal:deploymentFactory=Object</attribute>
+      <attribute name="OnStart">registerFactory</attribute>
+      <attribute name="OnStop">unregisterFactory</attribute>
+      </mbean>
+   <!--
+   -->
+   <mbean code="org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory" name="portal:deploymentFactory=Object"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Deployer" proxy-type="attribute">portal:deployer=PortalWebApp</depends>
+      <depends optional-attribute-name="PortalObjectContainer" proxy-type="attribute">portal:container=PortalObject
+      </depends>
+      <depends optional-attribute-name="ContentProviderRegistry" proxy-type="attribute">
+         portal:service=ContentProviderRegistry
+      </depends>
+      <depends optional-attribute-name="PortalObjectEntityResolver" proxy-type="attribute">portal:service=EntityResolver
+      </depends>
+      <depends optional-attribute-name="CoordinationConfigurator" proxy-type="attribute">
+         portal:service=CoordinationService
+      </depends>
+      <attribute name="SetupLocation">conf/data/default-object.xml</attribute>
+      <!-- Set to false in clustered mode, otherwise set to true -->
+      <attribute name="RegistrationControlledByService">false</attribute>
+   </mbean>
+
+   <mbean code="org.jboss.portal.core.impl.portlet.info.CoreInfoBuilderFactory"
+          name="portal:service=InfoBuilderFactory,type=Core" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <!--  --><!--
+      | Uncomment in cluster mode : have the creation of instances run as a clustered singleton
+      -->
+      <mbean
+      code="org.jboss.portal.jems.as.system.LifecycleInvoker"
+      name="portal:service=Controller,target=PortletAppDeploymentFactory"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.ha:service=HASingletonDeployer,type=Barrier</depends>
+      <depends>jboss:service=${jboss.partition.name:DefaultPartition}</depends>
+      <depends>portal:container=PortalObject</depends>
+      <attribute name="Target">portal:deploymentFactory=PortletApp</attribute>
+      <attribute name="OnStart">enableCreateInstances</attribute>
+      <attribute name="OnStop">disableCreateInstances</attribute>
+      </mbean>
+   <!--
+   -->
+   <mbean code="org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory"
+          name="portal:deploymentFactory=PortletApp" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <!-- -->
+      <depends>jboss.ha:service=HASingletonDeployer</depends>
+      <!-- -->
+      <depends>portal:service=PortletInvokerRegistration,id=local</depends>
+      <depends optional-attribute-name="Deployer" proxy-type="attribute">portal:deployer=PortalWebApp</depends>
+      <depends optional-attribute-name="CoreInfoBuilderFactory" proxy-type="attribute">
+         portal:service=InfoBuilderFactory,type=Core
+      </depends>
+      <depends optional-attribute-name="PortletContainerInvoker" proxy-type="attribute">
+         portal:service=PortletInvoker,type=Container
+      </depends>
+      <depends optional-attribute-name="Config" proxy-type="attribute">portal:service=ServerConfig</depends>
+      <depends optional-attribute-name="PortletSecurityService" proxy-type="attribute">
+         portal:service=PortletSecurityService
+      </depends>
+      <depends optional-attribute-name="InstanceContainer" proxy-type="attribute">portal:container=Instance</depends>
+      <depends optional-attribute-name="JBossPortletEntityResolver" proxy-type="attribute">portal:service=EntityResolver
+      </depends>
+      <depends optional-attribute-name="PortalObjectEntityResolver" proxy-type="attribute">portal:service=EntityResolver
+      </depends>
+      <depends optional-attribute-name="PortletInstancesEntityResolver" proxy-type="attribute">
+         portal:service=EntityResolver
+      </depends>
+      <attribute name="StandardJBossApplicationMetaDataLocation">conf/standardjboss-portlet.xml</attribute>
+      <!-- Set to false in clustered mode, otherwise set to true -->
+      <attribute name="CreateInstances">false</attribute>
+   </mbean>
+   <mbean code="org.jboss.portal.theme.deployment.jboss.LayoutDeploymentFactory" name="portal:deploymentFactory=Layout"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Deployer" proxy-type="attribute">portal:deployer=PortalWebApp</depends>
+      <depends optional-attribute-name="LayoutService" proxy-type="attribute">portal:service=LayoutService</depends>
+   </mbean>
+   <mbean code="org.jboss.portal.theme.deployment.jboss.LayoutFeaturesDeploymentFactory"
+          name="portal:deploymentFactory=LayoutFeatures" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Deployer" proxy-type="attribute">portal:deployer=PortalWebApp</depends>
+      <depends optional-attribute-name="LayoutService" proxy-type="attribute">portal:service=LayoutService</depends>
+   </mbean>
+   <mbean code="org.jboss.portal.theme.deployment.jboss.ThemeDeploymentFactory" name="portal:deploymentFactory=Theme"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Deployer" proxy-type="attribute">portal:deployer=PortalWebApp</depends>
+      <depends optional-attribute-name="ThemeService" proxy-type="attribute">portal:service=ThemeService</depends>
+   </mbean>
+   <mbean code="org.jboss.portal.server.deployment.WebAppAdapter" name="portal:deployer=Adapter" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="InterceptedDeployer">jboss.web:service=WebServer</depends>
+      <depends optional-attribute-name="Deployer" proxy-type="attribute">portal:deployer=PortalWebApp</depends>
+      <depends optional-attribute-name="JBossAppEntityResolver" proxy-type="attribute">portal:service=EntityResolver
+      </depends>
+   </mbean>
+   
+</server>

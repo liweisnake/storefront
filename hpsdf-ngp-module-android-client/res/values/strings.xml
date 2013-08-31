@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">storeFront</string>
+
+	<!-- default url base 16.157.132.20:8280(ocmpbuild4) 16.157.134.164:8280(ocmpbuild1) 16.157.132.19:8280(ocmpbuild3)-->
+	<string name="storefrontUrl">http://16.157.134.164:8280</string>
+	<string name="downloadFilePath">/package/</string>
+
+	<!-- Config net proxy -->
+	<string name="downloadProxyHost">web-proxy.corp.hp.com</string>
+	<string name="downloadProxyPort">8088</string>
+
+	<string name="proxyHostAndPort">Please input proxy host and port</string>
+
+	<string name="webUrlPrefix">/storefront/mobileclient/</string>
+	<string name="imageUrlPrefix"></string>
+
+	<string name="systemConfig">Storefront Configuration</string>
+
+	<!-- command -->
+	<string name="install">Install</string>
+	<string name="uninstall">Uninstall</string>
+	<string name="update">Update</string>
+	<string name="download">Download</string>
+
+	<!-- common -->
+	<string name="ok">Ok</string>
+	<string name="hidden">Hidden</string>
+	<string name="cancel">Cancel</string>
+	<string name="submit">Submit</string>
+	
+	<string name="exit">Exit</string>
+	<string name="exitWarning">Confirm to exit Storefront?</string>
+	<string name="purcharseWarning">The price is {0}, confirm to purchase?
+	</string>
+
+	<string name="pagingDetail"> total:{0} current page:{1}/{2}</string>
+
+	<string name="commentsMaxLengthWarning">Sorry! Comments max length is 500.</string>
+	<string name="downloadFailedWarning">Sorry! Download failed.</string>
+	<string name="downloadWarning">Do you want to download this asset now?</string>
+	<string name="commentRateSuccess">comment and the rating succesfully.</string>
+
+	<string name="commentsIntro">This asset have {0} comments.</string>
+
+	<!-- progress bar title -->
+	<string name="progressTitle">Downloading....</string>
+
+	<!-- sign in -->
+	<string name="signIn">Sign In</string>
+	<string name="userName">User Name</string>
+	<string name="password">Password</string>
+
+	<string name="serverAddrTitle">Server Address</string>
+	<string name="serverAddress">Please input storefront server address
+	</string>
+	<string name="startFrame">Start</string>
+
+	<!-- comment -->
+	<string name="comment">Comment</string>
+
+	<!-- rating -->
+	<string name="rating">Rating</string>
+
+	<!-- frame -->
+	<string name="popular">Popular</string>
+	<string name="category">Category</string>
+	<string name="myPortal">My Portal</string>
+	<string name="search">Search</string>
+
+	<string name="titlePref">Asset Detail</string>
+
+	<!-- network connection -->
+	<string name="networkConnection">Network Connection</string>
+
+	<string name="storefrontServerAddressPreference">Store front host</string>
+	<string name="storefrontServerAddressSummary">Store front server address</string>
+	<string name="storefrontServerAddressTitle">Store front IP address</string>
+
+	<string name="storefrontServerPortPreference">Store front server port</string>
+	<string name="storefrontServerPortSummary">Store front server port</string>
+	<string name="storefrontServerPortTitle">Store front server port</string>
+
+	<string name="proxyHostPreference">Proxy host</string>
+	<string name="proxyHostSummary">Proxy host</string>
+	<string name="proxyHostTitle">Proxy host</string>
+
+	<string name="proxyPortPreference">Proxy port</string>
+	<string name="proxyPortSummary">Proxy port</string>
+	<string name="proxyPortTitle">Proxy port</string>
+
+	<string name="itemsPerPagePreference">Page items number</string>
+	<string name="itemsPerPageSummary">Page items number</string>
+	<string name="itemsPerPageTitle">Page items number</string>
+
+</resources>

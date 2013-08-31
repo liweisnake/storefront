@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="recommendOrder">オススメ度</entry>
+<entry key="publishDate">公開日</entry>
+<entry key="newArrivalDueDate">新着期間完了日</entry>
+<entry key="providerName">プロバイダー名</entry>
+<entry key="commissionRate">手数料率</entry>
+<entry key="recommendStartDate">オススメ開始日</entry>
+<entry key="msg.delete">選択されたオススメ情報を一括削除してよろしいでしょうか？</entry>
+<entry key="msg.update.result">選択されたオススメ情報を一括更新しました。</entry>
+<entry key="binaryExternalId">identifierID</entry>
+<entry key="defaultSetting">デフォルト設定</entry>
+<entry key="newBinaryVersion">コンテンツ登録</entry>
+<entry key="title.big">コンテンツ管理</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="recommendDueDate">オススメ終了日</entry>
+<entry key="title.prompt">プロンプト</entry>
+<entry key="updateTime">投稿日時</entry>
+<entry key="targetPublishDate">公開予定日</entry>
+<entry key="category2">ジャンル</entry>
+<entry key="status">ステータス</entry>
+<entry key="category1">カテゴリ</entry>
+<entry key="msg.update">選択されたオススメ情報を一括更新してよろしいでしょうか？</entry>
+<entry key="assetId">子ID</entry>
+<entry key="msg.delete.noselect">オススメ情報を選択してください。</entry>
+<entry key="save">更新</entry>
+<entry key="providerId">プロバイダーID</entry>
+<entry key="delete">削除</entry>
+<entry key="selectAll">全て選択</entry>
+<entry key="parentAssetId">親ID</entry>
+<entry key="msg.delete.result">選択されたオススメ情報を一括削除しました。</entry>
+<entry key="title.list">オススメ設定コンテンツ一覧</entry>
+<entry key="title">オススメ設定コンテンツ一覧</entry>
+<entry key="assetExternalId">identifierID</entry>
+<entry key="name">JIL-WH取得ジャンルName</entry>
+</properties>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<server>
+   <!-- WSRP Producer implementation -->
+   <mbean
+      code="org.jboss.portal.wsrp.producer.WSRPProducerImpl"
+      name="portal.wsrp:service=WSRPProducer"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Invoker" proxy-type="attribute">portal:service=PortletInvoker,type=Producer</depends>
+      <depends optional-attribute-name="RegistrationManager" proxy-type="attribute">
+         portal.wsrp:service=RegistrationManager,type=Producer
+      </depends>
+      <depends optional-attribute-name="ProducerConfigurationService" proxy-type="attribute">
+         portal.wsrp:service=ProducerConfiguration
+      </depends>
+   </mbean>
+
+   <!-- Registration manager -->
+   <mbean code="org.jboss.portal.registration.impl.RegistrationManagerImpl"
+          name="portal.wsrp:service=RegistrationManager,type=Producer" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="PersistenceManager" proxy-type="attribute">
+         portal.wsrp:service=PersistenceManager
+      </depends>
+   </mbean>
+
+   <!-- Persistence manager for registrations -->
+   <mbean code="org.jboss.portal.core.impl.portlet.state.PersistentPortletStatePersistenceManager"
+          name="portal.wsrp:service=PersistenceManager" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>portal:service=Hibernate,type=Portlet</depends>
+      <attribute name="SessionFactoryJNDIName">java:/portal/PortletSessionFactory</attribute>
+   </mbean>
+
+   <!-- Producer configuration service -->
+   <mbean code="org.jboss.portal.wsrp.producer.config.impl.ProducerConfigurationServiceImpl"
+          name="portal.wsrp:service=ProducerConfiguration" xmbean-dd=""
+          xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="ConfigLocation">conf/producer/config.xml</attribute>
+   </mbean>
+
+   <mbean
+      code="org.jboss.portal.server.impl.xml.EntityResolverService"
+      name="portal.wsrp:service=EntityResolver"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="DTDMapping">
+         <properties>
+            <entry
+               key="-//JBoss Portal//DTD WSRP Remote Producer Configuration 2.6//EN">
+               dtd/jboss-wsrp-consumer_2_6.dtd
+            </entry>
+            <entry
+               key="-//JBoss Portal//DTD WSRP Local Producer Configuration 2.6//EN">
+               dtd/jboss-wsrp-producer_2_6.dtd
+            </entry>
+            <entry key="urn:jboss:portal:wsrp:consumer:v2_6">/xsd/jboss-wsrp-consumer_2_6.xsd</entry>
+            <entry key="urn:jboss:portal:wsrp:producer:v2_6">/xsd/jboss-wsrp-consumer_2_6.xsd</entry>
+         </properties>
+      </attribute>
+   </mbean>
+
+   <!-- Deployer for *-wsrp.xml files. Deploys default-wsrp.xml which contains the 'self' consumer -->
+   <mbean code="org.jboss.portal.wsrp.deployment.WSRPDeployer" name="portal.wsrp:service=WSRPDeployer">
+      <attribute name="DefaultWSRPLocation">default-wsrp.xml</attribute>
+      <depends>jboss.system:service=MainDeployer</depends>
+      <depends optional-attribute-name="ConsumerRegistry"
+               proxy-type="attribute">portal.wsrp:service=ConsumerRegistry
+      </depends>
+      <depends optional-attribute-name="EntityResolver"
+               proxy-type="attribute">portal.wsrp:service=EntityResolver
+      </depends>
+   </mbean>
+
+   <mbean
+      code="org.jboss.portal.jems.hibernate.SessionFactoryBinder"
+      name="portal:service=Hibernate,type=WSRPConsumer"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>jboss.jca:service=DataSourceBinding,name=PortalDS</depends>
+      <!-- Uncomment in clustered mode : hibernate depends on its tree cache service 
+        <depends>portal:service=TreeCacheProvider,type=hibernate</depends>
+      -->
+      <attribute name="DoChecking">true</attribute>
+      <attribute name="ConfigLocation">conf/hibernate/consumer/hibernate.cfg.xml</attribute>
+      <attribute name="JNDIName">java:/portal/WSRPConsumerSessionFactory</attribute>
+   </mbean>
+
+   <!-- Consumers registry for WSRP consumers -->
+   <mbean code="org.jboss.portal.wsrp.consumer.ConsumerRegistryService"
+          name="portal.wsrp:service=ConsumerRegistry"
+          xmbean-dd="" xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends>portal:service=Hibernate,type=WSRPConsumer</depends>
+      <attribute name="SessionFactoryJNDIName">java:/portal/WSRPConsumerSessionFactory</attribute>
+      <depends optional-attribute-name="FederatingPortletInvoker" proxy-type="attribute">
+         portal:service=PortletInvoker,type=Federating
+      </depends>
+      <depends optional-attribute-name="PortalEventListenerRegistry" proxy-type="attribute">
+         portal:service=ListenerRegistry
+      </depends>
+   </mbean>
+</server>
+

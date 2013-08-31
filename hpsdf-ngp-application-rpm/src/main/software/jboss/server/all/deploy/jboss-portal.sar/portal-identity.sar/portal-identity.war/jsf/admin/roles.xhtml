@@ -1,0 +1,63 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/roles/roleTemplate.xhtml">
+<ui:define name="title">
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE_MANAGEMENT}" />
+	</li>
+</ui:define>
+
+<ui:define name="content">
+	<h3><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE_MANAGEMENT}" /></h3>
+   <h:messages style="list-style:none" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+              fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+    <br/>
+             
+<h:form id="roles-form">
+
+   <h:dataTable id="userlist" value="#{rolemanagementbean.roleList}" var="role" rowClasses="portlet-section-body,portlet-section-alternate" headerClass="portlet-section-header" styleClass="datatable" width="100%">
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE}" />
+		</f:facet>
+		<h:outputText value="#{role.name}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE_DISPLAY}" />
+		</f:facet>
+		<h:outputText value="#{role.displayName}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION}"/>
+		</f:facet>
+		<h:commandLink id="edit-role-link" action="#{editrolemgr.editRole}">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_EDIT_ROLE}" styleClass="actionRename"/>
+			<f:param name="currentRole" value="#{role.escapedName}"/>
+		</h:commandLink>
+		| <h:commandLink id="view-role-link" action="#{rolemanagementbean.viewRoleMembers}" styleClass="actionPreferences">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE_MEMBERS}"/>
+			<f:param name="currentRole" value="#{role.escapedName}"/>
+		  </h:commandLink>
+		| <h:commandLink id="delete-role-link" action="#{rolemanagementbean.deleteRole}" styleClass="actionDelete">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION_DELETE}"/>
+			<f:param name="currentRole" value="#{role.escapedName}"/>
+		  </h:commandLink> 
+	</h:column>
+	</h:dataTable>
+	</h:form>
+	
+	<hr/>
+	<h:form id="create-role-form">
+		<p style="text-align: right; padding-right: 5px;">
+		<h:commandLink id="create-role-link" value="#{bundle.IDENTITY_MANAGEMENT_CREATE_ROLE}" action="createRole" styleClass="actionCreateInstance"/></p>
+	</h:form>
+</ui:define>
+</ui:composition>
+</div>

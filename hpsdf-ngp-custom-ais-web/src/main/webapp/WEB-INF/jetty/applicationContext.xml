@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+ http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Autowired Configuration -->
+	<context:component-scan base-package="com.hp.sdf.ngp.ais" />
+	<context:component-scan base-package="com.hp.sdf.ngp.banner" />
+	<context:component-scan base-package="com.hp.sdf.ngp.eav" />
+	<context:component-scan base-package="com.hp.sdf.ngp.poll" />
+	<context:annotation-config />
+	<!--/-->
+
+	<bean id="localDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		 
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:." />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+		<!-- 
+		<property name="driverClassName"><value>${test.database.driverclass}</value></property>
+		<property name="url" ><value>${test.database.connectionurl}</value></property>
+		<property name="username" ><value>${test.database.username}</value></property>
+		<property name="password" ><value>${test.database.password}</value></property>
+		-->
+		
+	</bean>
+	<bean id="localSessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		destroy-method="destroy">		
+		<property name="dataSource" ref="localDataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				<prop key="hibernate.use_sql_comments">true</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="com.hp.sdf.ngp.banner,com.hp.sdf.ngp.eav,com.hp.sdf.ngp.poll"/>
+
+		<property name="lobHandler">
+			<ref local="lobHandler" />
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="localSessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+	<bean id="nativeJdbcExtractor" lazy-init="true"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+	<bean id="lobHandler" lazy-init="true"
+		class="org.springframework.jdbc.support.lob.OracleLobHandler">
+		<property name="nativeJdbcExtractor">
+			<ref bean="nativeJdbcExtractor" />
+		</property>
+	</bean>
+
+	<bean id="property-placeholder"
+		class="com.hp.sdf.ngp.common.annotation.PropertyAnnotationAndPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>
+					/WEB-INF/jetty/conf.properties
+				</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="log4jInitialization"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>src/main/webapp/WEB-INF/jetty/log4j.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- to pick up beans with the @Schedule annotations -->
+
+	<!-- handels @Schedule annotations -->
+	<bean
+		class="org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor" />
+
+	<!-- needed to schedule jobs -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />
+
+
+
+</beans>

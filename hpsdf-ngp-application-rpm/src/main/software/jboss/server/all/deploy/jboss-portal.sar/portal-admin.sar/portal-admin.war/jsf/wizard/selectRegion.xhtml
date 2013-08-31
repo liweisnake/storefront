@@ -1,0 +1,38 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+   <f:loadBundle basename="Resource" var="bundle" />
+   <ui:composition template="newWindowTpl.xhtml">
+      <ui:define name="content">
+
+         <table class="full-width datatable">
+
+            <tbody class="portlet-section-header">
+               <tr>
+                  <th>#{bundle.WIZARD_PORTAL}</th>
+               </tr>
+            </tbody>
+            <tbody>
+               <h:form id="region-wiz-form">
+                  <c:forEach items="#{newWindowWizard.regions}" var="object" varStatus="status">
+                     <tr
+                        class="#{object == newWindowWizard.selectedRegionId ? 'portlet-section-selected' : status.index % 2 == 0 ? 'portlet-section-body' : 'portlet-section-alternate'}">
+                        <td>
+                           <h:commandLink id="region-#{status.index}" action="#{newWindowWizard.selectRegion}">
+                              <h:outputText value="#{object}"/>
+                              <f:param name="name" value="#{object}"/>
+                           </h:commandLink>
+                        </td>
+                     </tr>
+                  </c:forEach>
+               </h:form>
+            </tbody>
+         </table>
+
+      </ui:define>
+   </ui:composition>
+</div>

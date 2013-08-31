@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll">Select All</entry>
+	<entry key="select">Select</entry>
+	<entry key="assetName">Asset Name</entry>
+	<entry key="recommendOrder">Recommend Order</entry>
+	<entry key="category">Category</entry>
+	<entry key="status">Status</entry>
+	<entry key="tag">Tag</entry>
+	<entry key="action">Action</entry>
+	<entry key="go">Go</entry>
+	<entry key="addCategory">Add Category</entry>
+	<entry key="updateStatus">Update Status to</entry>
+	<entry key="addTag">Add Tag</entry>
+	<entry key="deteleTag">Detele Tag</entry>
+	<entry key="export">Export</entry>
+	<entry key="recommend">Recommend</entry>
+	<entry key="submit">Submit</entry>
+	<entry key="title.prompt">Prompt</entry>
+	<entry key="msg.error.delete">This asset is not exist!</entry>
+</properties>

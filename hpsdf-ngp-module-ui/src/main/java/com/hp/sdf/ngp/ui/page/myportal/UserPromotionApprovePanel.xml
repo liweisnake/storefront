@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="mypromotionapprove.user">User</entry>
+<entry key="mypromotionapprove.role">Role</entry>
+<entry key="mypromotionapprove.remark">Remark</entry>
+<entry key="mypromotionapprove.createdate">Create Date</entry>
+<entry key="mypromotionapprove.approve">Approve</entry>
+</properties>

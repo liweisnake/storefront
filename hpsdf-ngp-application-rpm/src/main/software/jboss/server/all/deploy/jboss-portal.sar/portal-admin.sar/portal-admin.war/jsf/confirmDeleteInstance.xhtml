@@ -1,0 +1,50 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:jbp="http://www.jboss.org/portal"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="admin-ui">
+
+   <ui:composition template="instancesTemplate.xhtml">
+      <ui:define name="content">
+
+         <h:form id="confirm-delete-form">
+            <ul class="objectpath">
+               <li class="pathItem">
+                  <h:commandLink id="instance-link" action="instances">#{bundle.PORTLET_INSTANCES}</h:commandLink>
+               </li>
+               <li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+               <li class="selected">
+                  <span class="objectName">#{instancemgr.selectedInstance.id}</span> #{bundle.INSTANCE_DELETE}
+               </li>
+            </ul>
+         </h:form>
+         <br/>
+
+         <div class="portlet-msg">
+            <div class="portlet-msg-icon"><h:graphicImage url="/img/msgIcon_Warning.gif" alt=""/></div>
+            <div class="portlet-msg-body">
+               <h3>Delete <span class="objectName">#{instancemgr.selectedInstance.id}</span></h3>
+
+               <p class="portlet-msg-alert">
+                  #{bundle.COMMON_DELETING}
+                  <span class="objectName">#{instancemgr.selectedInstance.id}</span> #{bundle.PORTLET_CAUSING_REFERENCING_NOT_ABLE}.
+               </p>
+
+               <p class="portlet-class">#{bundle.ARE_YOU_SURE_DELETE}</p>
+
+               <h:form id="confirm-delete-form1">
+                  <h:commandButton id="delete" value="#{bundle.COMMON_DELETE}" action="instances" actionListener="#{instancemgr.deleteInstance}"
+                                   styleClass="portlet-form-button portlet-section-buttonrow">
+                     <f:attribute name="instanceId" value="#{instancemgr.selectedInstance.id}"/>
+                  </h:commandButton>
+                  <h:commandButton id="cancel" value="#{bundle.COMMON_CANCEL}" action="instances" actionListener="objects"
+                                   styleClass="portlet-form-button portlet-section-buttonrow"/>
+               </h:form>
+            </div>
+         </div>
+      </ui:define>
+   </ui:composition>
+</div>

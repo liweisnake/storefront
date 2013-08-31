@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">资产列表</entry>
+<entry key="defaultSetting">默认设置</entry>
+<entry key="newAsset">新建资产</entry>
+
+<entry key="title.big">资产管理</entry>
+<entry key="title.search">搜索资产</entry>
+<entry key="title.list">资产列表</entry>
+<entry key="title.operation">资产运作</entry>
+
+<entry key="providerId">供应商编号</entry>
+<entry key="providerName">供应商</entry>
+<entry key="parentAssetId">父资产编号</entry>
+<entry key="assetId">资产编号</entry>
+<entry key="externalId">外部编号</entry>
+<entry key="assetName">资产名称</entry>
+<entry key="targetPublishDate">预定发布时间</entry>
+<entry key="publishDate">发布时间</entry>
+<entry key="category1">类别</entry>
+<entry key="category2">子类别</entry>
+<entry key="status">状态</entry>
+<entry key="newArrivalDueDate">新品上市到期时间</entry>
+<entry key="recommendStartDate">推荐商品开始时间</entry>
+<entry key="recommendDueDate">推荐商品到期时间</entry>
+<entry key="recommendOrder">推荐商品顺序</entry>
+<entry key="commissionRate">佣金率</entry>
+<entry key="binaryName">二进制版本名</entry>
+<entry key="binaryVersion">二进制版本</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="commissionSymbol">%</entry>
+
+<entry key="update.title">批量更新</entry>
+
+<entry key="update.status">状态</entry>
+<entry key="update.comments">操作评论</entry>
+<entry key="update.commentType">状态转换评论类型</entry>
+
+<entry key="update.commissionRate">佣金率</entry>
+
+<entry key="update.recommendStartDate">推荐商品开始日期</entry>
+<entry key="update.recommendDueDate">推荐商品到期时间</entry>
+
+<entry key="update.newArrivalDueDate">新品上市到期时间</entry>
+
+<entry key="btn.update.update">更新</entry>
+<entry key="btn.update.reset">重置</entry>
+<entry key="btn.download">下载</entry>
+
+<entry key="title.prompt">提示</entry>
+<entry key="msg.download">你确定想要下载该CSV文件吗?</entry>
+<entry key="msg.update">你确定想要批量更新已选的资产吗?</entry>
+<entry key="msg.error.download">搜索结果的行数超出了excel表格的最大行数!</entry>
+<entry key="msg.update.result">批量更新已选资产成功!</entry>
+<entry key="msg.delete.result">批量删除资产成功!</entry>
+<entry key="error.select.no.asset">请选择资产!</entry>
+<entry key="msg.error.delete">该资产不存在!</entry>
+<entry key="msg.error.batch.delete"> 不存在!</entry>
+
+<entry key="download.file.name">Asset.csv</entry>
+
+</properties>

@@ -1,0 +1,21 @@
+<webapp-structure>
+  <registeredFiles>
+    <entry>
+      <string>currentBuild</string>
+      <path-set>
+        <pathsSet class="linked-hash-set">
+          <string>css/default.css</string>
+          <string>css/wicket.css</string>
+          <string>WEB-INF/applicationContext.xml</string>
+          <string>WEB-INF/conf.properties</string>
+          <string>WEB-INF/jetty/applicationContext.xml</string>
+          <string>WEB-INF/jetty/applicationContextMock.xml</string>
+          <string>WEB-INF/jetty/conf.properties</string>
+          <string>WEB-INF/jetty/log4j.properties</string>
+          <string>WEB-INF/jetty/web.xml</string>
+          <string>WEB-INF/web.xml</string>
+        </pathsSet>
+      </path-set>
+    </entry>
+  </registeredFiles>
+</webapp-structure>

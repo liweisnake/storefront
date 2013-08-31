@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="title">编辑手机模型</entry>		
+	<entry key="title.big">手机模型管理</entry>	
+	<entry key="save">保存</entry>
+	<entry key="back">返回</entry>
+	<entry key="add">添加</entry>
+	<entry key="delete">删除</entry>
+	
+	<entry key="big">High:宽度 800 px, 高度 480 px</entry>
+	<entry key="middle">Midle:宽度 480 px, 高度 320 px</entry>
+	<entry key="small">Low:宽度 320 px, 高度 240 px</entry>		
+		
+	<entry key="deviceName">设备名称</entry>
+	<entry key="displayName">手机名称</entry>
+	<entry key="deviceFuction">设备功能</entry>	
+	<entry key="mimeType">MIME类型</entry>	
+	
+	<entry key="accSensor">加速传感器</entry>
+	<entry key="camera">照相机</entry>
+	<entry key="gps">GPS设备</entry>	
+	
+	<entry key="displaySize">显示大小</entry>	
+	
+	<entry key="title">编辑手机模型</entry>
+	
+	<entry key="promptTitle">提示</entry>
+	<entry key="confirmMsg">你想要更新该手机模型吗?</entry>
+	<entry key="successMsg">更新手机成功.</entry>
+	
+	<entry key="confirmDeleteMsg">你想要删除手机模型吗?</entry>
+	
+	
+	<entry key="handsetNameIsNull">手机模型为空.</entry>
+	<entry key="deviceNameIsNull">设备名称为空.</entry>
+	<entry key="mimeTypeIsNull">设备MIME类型为空.</entry>
+	
+	<entry key="selectDeviceFunction">请选择设备功能.</entry>
+	<entry key="selectDisplaySize">请选择显示大小.</entry>	
+	<entry key="msg.error.save.nohandset">该手机不存在!</entry>
+</properties>

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hp.sdf.ngp</groupId>
+	<artifactId>master</artifactId>
+	<packaging>pom</packaging>
+	<name>hpsdf-ngp (master)</name>
+	<version>0.0.1</version>
+	<description>
+		HP Next Generation Portal
+	</description>
+	<url>N/A</url>
+
+	<issueManagement>
+		<system>HP GDAC China Mantis</system>
+	</issueManagement>
+	<ciManagement>
+		<system>Continuum</system>
+		<url>http://ocmptest4.chn.hp.com:8082/continuum
+		</url>
+	</ciManagement>
+	<inceptionYear>2009</inceptionYear>
+	<scm>
+		<connection>
+			scm:svn:https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-application-master
+		</connection>
+		<developerConnection>
+			scm:svn:https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-application-master
+		</developerConnection>
+		<url>
+			https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-application-master
+		</url>
+	</scm>
+	<organization>
+		<name>HP GDAC China</name>
+		<url>http://www.hp.com/go/opencall</url>
+	</organization>
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>			
+		</plugins>
+	</build>
+	<modules>
+		<module>../hpsdf-ngp-module-api</module>
+		<module>../hpsdf-ngp-module-core</module>
+		<module>../hpsdf-ngp-custom-sbm-api</module>
+		<module>../hpsdf-ngp-custom-sbm-core</module>
+		<module>../hpsdf-ngp-module-ui</module>
+		<module>../hpsdf-ngp-custom-sbm-ui</module>
+		<module>../hpsdf-ngp-module-ws</module>
+		<module>../hpsdf-ngp-module-web</module>
+		<module>../hpsdf-ngp-custom-sbm-web</module>
+		<module>../hpsdf-ngp-module-theme</module>
+		<module>../hpsdf-ngp-application-core</module>
+		<module>../hpsdf-ngp-application-custom-sbm-core</module>
+		<module>../hpsdf-ngp-custom-ais-core</module>
+		<module>../hpsdf-ngp-custom-ais-ui</module>
+		<module>../hpsdf-ngp-custom-ais-web</module>
+		<module>../hpsdf-ngp-application-custom-ais-core</module>
+	</modules>
+	<properties>
+		<org.springframework.version>3.0.0.RELEASE
+		</org.springframework.version>
+	</properties>
+	<dependencies>
+		<!--
+			Core utilities used by other modules. Define this if you use Spring
+			Utility APIs (org.springframework.core.*/org.springframework.util.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Expression Language (depends on spring-core) Define this if you use
+			Spring Expression APIs (org.springframework.expression.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Bean Factory and JavaBeans utilities (depends on spring-core) Define
+			this if you use Spring Bean APIs (org.springframework.beans.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Aspect Oriented Programming (AOP) Framework (depends on spring-core,
+			spring-beans) Define this if you use Spring AOP APIs
+			(org.springframework.aop.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Application Context (depends on spring-core, spring-expression,
+			spring-aop, spring-beans) This is the central artifact for Spring's
+			Dependency Injection Container and is generally always defined
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Various Application Context utilities, including EhCache, JavaMail,
+			Quartz, and Freemarker integration Define this if you need any of
+			these integrations
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Transaction Management Abstraction (depends on spring-core,
+			spring-beans, spring-aop, spring-context) Define this if you use
+			Spring Transactions or DAO Exception Hierarchy
+			(org.springframework.transaction.*/org.springframework.dao.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			JDBC Data Access Library (depends on spring-core, spring-beans,
+			spring-context, spring-tx) Define this if you use Spring's
+			JdbcTemplate API (org.springframework.jdbc.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Object-to-Relation-Mapping (ORM) integration with Hibernate, JPA, and
+			iBatis. (depends on spring-core, spring-beans, spring-context,
+			spring-tx) Define this if you need ORM (org.springframework.orm.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Object-to-XML Mapping (OXM) abstraction and integration with JAXB,
+			JiBX, Castor, XStream, and XML Beans. (depends on spring-core,
+			spring-beans, spring-context) Define this if you need OXM
+			(org.springframework.oxm.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Web application development utilities applicable to both Servlet and
+			Portlet Environments (depends on spring-core, spring-beans,
+			spring-context) Define this if you use Spring MVC, or wish to use
+			Struts, JSF, or another web framework with Spring
+			(org.springframework.web.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Spring MVC for Servlet Environments (depends on spring-core,
+			spring-beans, spring-context, spring-web) Define this if you use
+			Spring MVC with a Servlet Container such as Apache Tomcat
+			(org.springframework.web.servlet.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Spring MVC for Portlet Environments (depends on spring-core,
+			spring-beans, spring-context, spring-web) Define this if you use
+			Spring MVC with a Portlet Container
+			(org.springframework.web.portlet.*)
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc-portlet</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--
+			Support for testing Spring applications with tools such as JUnit and
+			TestNG This artifact is generally always defined with a 'test' scope
+			for the integration testing framework and unit testing stubs
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}
+			</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.7.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- The dependency for testing purpose -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.6</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-junit4</artifactId>
+			<version>2.4.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.4.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.5.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.7</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- The dependency provided by JBOSS, excluded from final package -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.13</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>logkit</artifactId>
+					<groupId>logkit</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>avalon-framework</artifactId>
+					<groupId>avalon-framework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>servlet-api</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.6.ga</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.2.1.ga</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager
+			</artifactId>
+			<version>3.2.1.ga</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jboss</groupId>
+			<artifactId>jboss-system</artifactId>
+			<version>4.2.2.GA</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jboss</groupId>
+			<artifactId>jbossall-client</artifactId>
+			<version>4.2.2.GA</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jboss</groupId>
+			<artifactId>jboss-annotations-ejb3</artifactId>
+			<version>4.2.2.GA</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jboss</groupId>
+			<artifactId>jboss-ejb3x</artifactId>
+			<version>4.2.2.GA</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>2.4.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+	</dependencies>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jxr-maven-plugin</artifactId>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<aggregate>true</aggregate>
+					<linksource>true</linksource>
+					<links>
+						<link>
+							http://java.sun.com/j2se/1.5.0/docs/api
+						</link>
+					</links>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>
+					maven-project-info-reports-plugin
+				</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>project-team</report>
+							<report>mailing-list</report>
+							<report>issue-tracking</report>
+							<report>license</report>
+							<report>scm</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>surefire-report-maven-plugin
+				</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>changelog-maven-plugin
+				</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+			</plugin>
+			<plugin>  
+      			<groupId>com.atlassian.maven.plugins</groupId>  
+      			<artifactId>maven-clover2-plugin</artifactId>  
+      			<version>2.6.2-r2</version>
+      		
+      <configuration>  
+  
+        <!-- Verify that we can modify the location of the Clover database and that the directory is created if  
+             it doesn't exist. Note: we're putting the configuration here and not in the build section because the  
+             build section inherits from the reporting section but not the other way around... -->  
+        <!--cloverDatabase>${project.build.directory}/customclover/myclover.db</cloverDatabase-->  
+  
+        <!-- Verify that we can generate all types of Clover reports -->  
+        <generateHtml>true</generateHtml>  
+        <generatePdf>true</generatePdf>  
+  
+        <generateXml>true</generateXml>  
+  
+        <!-- We ask the Clover plugin to generate a historical report but we don't have any historical data saved.  
+             This is to verify it doesn't error out when this is the case. -->  
+        <generateHistorical>true</generateHistorical>  
+           <licenseLocation>${clover.licenseLocation}</licenseLocation>  
+ 			<!--useFullyQualifiedJavaLang>false</useFullyQualifiedJavaLang-->  
+      </configuration>  
+    </plugin> 
+		</plugins>
+	</reporting>
+	<distributionManagement>
+		<repository>
+			<id>proficio-repository</id>
+			<name>Proficio Repository</name>
+			<url>file://${basedir}/target/deploy
+			</url>
+		</repository>
+	</distributionManagement>
+</project>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="banner.pageName">Banner List</entry>
+<entry key="banner.bannerName">Name</entry>
+<entry key="banner.bannerType">Type</entry>
+<entry key="banner.bannerStatus">Status</entry>
+<entry key="banner.bannerAction">Action</entry>
+<entry key="banner.filter">Filter</entry>
+<entry key="banner.clear">Clear</entry>
+<entry key="addBanner">Add</entry>
+<entry key="submit">submit</entry>
+<entry key="preview">preview</entry>
+<entry key="staticBanner">staticBanner</entry>
+<entry key="rotatingBanner">rotatingBanner</entry>
+<entry key="tabbedBanner">tabbedBanner</entry>
+<entry key="all">all</entry>
+</properties>	

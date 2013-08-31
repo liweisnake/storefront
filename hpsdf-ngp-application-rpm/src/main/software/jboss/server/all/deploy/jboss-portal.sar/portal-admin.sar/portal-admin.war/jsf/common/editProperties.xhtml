@@ -1,0 +1,153 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jstl/core">
+
+<div class="portlet-area-header">#{bundle.COMMON_PROPERTIES}</div>
+<div class="portlet-area-body">
+
+<!-- divide the area body into two panes -->
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="align-top">
+
+   <!-- defines property creation section -->
+   <table class="full-width">
+      <tr>
+         <th class="portlet-section-title">#{bundle.COMMON_ADD_PROPERTY}.</th>
+      </tr>
+      <tr>
+         <td class="dotted-blue-vert-rt">
+
+            <h:form id="common-edit-prop-form">
+               <!-- defines layout of property form -->
+               <table>
+                  <tbody>
+                     <f:subview id="predefined-properties" rendered="#{not empty properties.propertyItems}">
+                        <tr>
+                           <td class="portlet-form-field-label">
+                              <h:outputLabel for="predefinedProperty"
+                                             styleClass="portlet-form-field-label">#{bundle.COMMON_SELECT_PREDEFINED_PROPERTY}:</h:outputLabel>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <h:selectOneMenu id="predefinedProperty" value="#{properties.action.selectedProperty}">
+                                 <f:selectItems value="#{properties.propertyItems}"/>
+                              </h:selectOneMenu>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="center">#{bundle.COMMON_OR}</td>
+                        </tr>
+                     </f:subview>
+                     <tr>
+                        <td class="portlet-form-field-label">
+                           <h:outputLabel for="property" styleClass="portlet-form-field-label">
+                              #{bundle.COMMON_ENTER_PROPERTY_NAME}:</h:outputLabel>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h:inputText id="property" styleClass="portlet-form-input-field"
+                                        value="#{properties.action.otherPropertyName}"/>
+                           <h:message for="property" errorClass="portlet-msg-error"/>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <!-- ends layout of property form -->
+               <h:commandButton id="add-property" value="#{bundle.COMMON_ADD_PROPERTY_BUTTON}"
+                                styleClass="portlet-form-button portlet-section-buttonrow"
+                                action="#{properties.action.updateProperty}"/></h:form>
+
+         </td>
+      </tr>
+   </table>
+   <!-- ends property creation section -->
+
+</td>
+<td valign="top" width="100%" style="padding-left:5px;"><!-- creates division of 2 pane area -->
+
+
+   <!-- defines property list section -->
+   <c:if test="#{properties.size != 0}">
+      <table class="full-width">
+         <tr>
+            <th class="portlet-section-title">#{bundle.COMMON_MANAGE_PROPERTIES}.</th>
+         </tr>
+         <tr>
+            <td class="portlet-section-body" valign="top">
+
+               <h:form id="common-manage-prop-form">
+                  <!-- defines layout of property table -->
+                  <h:dataTable id="prop-data-table" value="#{properties.entries}" width="100%" headerClass="portlet-section-header"
+                               styleClass="datatable full-width"
+                               rowClasses="portlet-section-body, portlet-section-alternate" var="prop">
+                     <h:column>
+                        <f:facet name="header">#{bundle.COMMON_NAME}</f:facet>
+                        <h:outputText title="#{prop.type}" value="#{prop.displayName}"/>
+                     </h:column>
+                     <h:column>
+                        <f:facet name="header">#{bundle.COMMON_DESCRIPTION}</f:facet>
+                        <h:outputText>#{prop.description}</h:outputText>
+                     </h:column>
+                     <h:column>
+                        <f:facet name="header">#{bundle.COMMON_INHERITED}</f:facet>
+                        <h:outputText>#{prop.inherited ? bundle.COMMON_YES : bundle.COMMON_NO}</h:outputText>
+                     </h:column>
+                     <h:column>
+                        <f:facet name="header">#{bundle.COMMON_VALUE}</f:facet>
+                        <h:selectBooleanCheckbox id="prop-read-check" value="#{prop.value}"
+                                                 readonly="#{prop.readOnly}"
+                                                 rendered="#{prop.type == 'java.lang.Boolean'}"/>
+
+                        <h:inputText id="prop-value-input" styleClass="portlet-form-input-field" value="#{prop.value}"
+                                     readonly="#{prop.readOnly}"
+                                     rendered="#{prop.type eq 'java.lang.String' and prop.name ne 'portal.windowInitialState'}"/>
+
+                        <h:selectOneMenu id="prop-value-select" styleClass="portlet-form-input-field"
+                                         value="#{prop.value}"
+                                         rendered="#{prop.type eq 'java.lang.String' and prop.name eq 'portal.windowInitialState' and (!portalobjectmgr.maximizedStateExists or prop.value eq 'maximized')}">
+                           <f:selectItem itemLabel="Choose One..." itemValue=""/>
+                           <f:selectItem itemLabel="Maximized" itemValue="maximized"/>
+                           <f:selectItem itemLabel="Minimized" itemValue="minimized"/>
+                           <f:selectItem itemLabel="Normal" itemValue="normal"/>
+                        </h:selectOneMenu>
+
+                        <h:selectOneMenu id="prop-value-select1" styleClass="portlet-form-input-field"
+                                         value="#{prop.value}" disabled="true"
+                                         rendered="#{prop.type eq 'java.lang.String' and prop.name eq 'portal.windowInitialState' and (portalobjectmgr.maximizedStateExists and prop.value ne 'maximized')}">
+                           <f:selectItem itemLabel="Minimized" itemValue="minimized"/>
+                        </h:selectOneMenu>
+
+
+                     </h:column>
+                     <h:column>
+                        <f:facet name="header">#{bundle.COMMON_DELETE}</f:facet>
+                        <h:commandLink id="delete" action="#{properties.action.removeProperty}"
+                                       rendered="#{!prop.inherited}">
+                           <h:outputText styleClass="actionDelete" value="#{bundle.COMMON_DELETE}"/>
+                           <f:param name="name" value="#{prop.name}"/>
+                        </h:commandLink>
+                     </h:column>
+                  </h:dataTable>
+
+                  <!-- ends property list -->
+                  <h:commandButton id="update" value="#{bundle.COMMON_UPDATE}"
+                                   styleClass="portlet-form-button portlet-section-buttonrow"/></h:form>
+            </td>
+         </tr>
+      </table>
+   </c:if>
+   <!-- ends property list section -->
+
+</td>
+</tr>
+</table>
+<!-- ends area body -->
+
+</div>
+
+</ui:composition>

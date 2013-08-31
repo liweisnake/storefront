@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">搜索供应商/开发商</entry>
+<entry key="search.pid">供应商外部编号</entry>
+<entry key="search.provider">供应商/开发商名称</entry>
+<entry key="btn.search">搜索</entry>
+<entry key="btn.all">全选</entry>
+<entry key="btn.reset">重置</entry>
+
+<entry key="title.small">搜索供应商/开发商</entry>
+
+</properties>

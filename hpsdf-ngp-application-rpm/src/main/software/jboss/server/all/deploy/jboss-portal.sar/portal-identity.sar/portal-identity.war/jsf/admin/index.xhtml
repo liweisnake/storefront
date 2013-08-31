@@ -1,0 +1,98 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+<ui:define name="title">
+   <li class="selected">
+      <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+   </li>
+</ui:define>
+
+<ui:define name="content">
+   <h:messages style="list-style:none" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+              fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+   <h3><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" /></h3>
+   <h:form id="user-form">
+   <h:panelGrid>
+         <h:commandLink id="search-user-link" value="#{bundle.IDENTITY_MANAGEMENT_SEARCH_USER}" action="searchUsers"
+                  styleClass="actionDetails"/>
+
+      <c:if test="#{useradministrationbean.pendingCount > 0}">
+         <h:commandLink id="pending-users-link" value="Show pending registrations" action="showPendingUsers" styleClass="actionPreferences"/>
+      </c:if>
+
+      <h:commandLink id="create-user-link" value="#{bundle.IDENTITY_MANAGEMENT_CREATE_USER}" action="createUser" styleClass="actionCreateInstance"/>
+   </h:panelGrid>
+   </h:form>
+   <br/>
+   <table style="width: 100%;">
+      <tr>
+         <th colspan="2" class="sectionTitle"><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_MATRIX}" /></th>
+      </tr>
+      <tr class="line-item">
+         <td><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_COUNT_REGISTERED_USERS}"/></td>
+         <td>
+            <h:outputText value="#{useradministrationbean.userCount}" />
+         </td>
+      </tr>
+      <c:if test="#{useradministrationbean.pendingCount > 0}">
+         <tr class="line-item">
+            <td> <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_COUNT_PENDING_USERS}" /></td>
+            <td><h:outputText value="#{useradministrationbean.pendingCount}" /></td>
+         </tr>
+      </c:if>
+      </table>
+   <br/>
+   <table style="width: 100%;">
+      <tr>
+         <th colspan="2" class="sectionTitle"><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_SUBSCRIPTION_MODES}" /></th>
+      </tr>
+      <tr class="line-item">
+         <td><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_SUBSCRIPTION_MODE}" /></td>
+         <td>
+         <c:choose>
+            <c:when test="#{useradministrationbean.subscriptionMode == 'automatic'}">
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_AUTOMATIC}" />
+            </c:when>
+            <c:when test="#{useradministrationbean.subscriptionMode == 'jbp_identity_validation_approval_workflow'}">
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_EMAIL_ADMIN}" />
+            </c:when>
+            <c:when test="#{useradministrationbean.subscriptionMode == 'jbp_identity_validation_workflow'}">
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_EMAIL}" />
+            </c:when>
+            <c:otherwise>
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_CUSTOM}" />
+            </c:otherwise>
+         </c:choose>
+         </td>
+      </tr>
+      <tr class="line-item">
+         <td><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_SUBSCRIPTION_ADMIN_MODE}" /></td>
+         <td>
+         <c:choose>
+            <c:when test="#{useradministrationbean.adminSubscriptionMode == 'automatic'}">
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_AUTOMATIC}" />
+            </c:when>
+            <c:when test="#{useradministrationbean.adminSubscriptionMode == 'jbp_identity_validation_approval_workflow'}">
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_EMAIL_ADMIN}" />
+            </c:when>
+            <c:when test="#{useradministrationbean.adminSubscriptionMode == 'jbp_identity_validation_workflow'}">
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_EMAIL}" />
+            </c:when>
+            <c:otherwise>
+               <h:outputText value="#{bundle.IDENTITY_MANAGEMENT_DESCRIPTION_SUBSCRIPTION_CUSTOM}" />
+            </c:otherwise>
+         </c:choose>
+         </td>
+      </tr>
+   </table>
+
+</ui:define>
+
+</ui:composition>
+</div>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="parlayx_account_management_service" targetNamespace="http://www.csapi.org/wsdl/parlayx/account_management/v2_2/service" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:interface="http://www.csapi.org/wsdl/parlayx/account_management/v2_2/interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.csapi.org/wsdl/parlayx/account_management/v2_2/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <import location="AccountManagement_1.wsdl" namespace="http://www.csapi.org/wsdl/parlayx/account_management/v2_2/interface"/>
+  <binding name="AccountManagementBinding" type="interface:AccountManagement">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getBalance">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getCreditExpiryDate">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="balanceUpdate">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="voucherUpdate">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getHistory">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getBalanceTypes">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="createAccount">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="deleteAccount">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listAccount">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="updateExpiryDate">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listAllAvailableBalanceTypes">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="AccountManagementService">
+    <port binding="tns:AccountManagementBinding" name="AccountManagement">
+      <soap:address location="http://16.157.132.88:7001/ChargingEnabler/webservices/AccountManagement"/>
+    </port>
+  </service>
+</definitions>

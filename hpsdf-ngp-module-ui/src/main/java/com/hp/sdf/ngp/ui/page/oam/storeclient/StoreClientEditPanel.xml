@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">Save</entry>
+	<entry key="back">Back</entry>
+	<entry key="name">Client Name</entry>
+	
+	<entry key="binaryFile">Binary File</entry>
+	<entry key="configFile">Config File</entry>	
+	
+	<entry key="configFileName">Config File Name</entry>		
+	<entry key="version">Version</entry>
+	<entry key="uploadNewFile">Upload New File</entry>
+	<entry key="configFileVersion">Config File Version</entry>
+	<entry key="updateDate">Update Date</entry>
+	
+	<entry key="handsetType">Handset Type</entry>
+	<entry key="newVersionUpdate">New Version File</entry>	
+	<entry key="upload">Upload</entry>
+	
+	<entry key="title">Edit Client Application</entry>
+	<entry key="title.big">Client Application Management</entry>
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to update the store client?</entry>
+	<entry key="successMsg">Update the store client successfully.</entry>	
+	
+	<entry key="error.save.nofile">Please select one file.</entry>	
+	<entry key="error.save.failed">Update failed.</entry>	
+</properties>

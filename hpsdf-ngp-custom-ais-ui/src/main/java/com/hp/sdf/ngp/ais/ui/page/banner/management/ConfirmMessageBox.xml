@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="message">If you want to confirm, please click yes.</entry>
+<entry key="title">Confirm Operation</entry>
+</properties>	

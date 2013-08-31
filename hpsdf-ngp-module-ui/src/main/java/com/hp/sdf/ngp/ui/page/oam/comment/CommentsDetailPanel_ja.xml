@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="commentsTitle">ユーザコメントタイトル</entry>
+<entry key="back">戻る</entry>
+<entry key="userId">アカウント名</entry>
+<entry key="commentsManagement">査閲</entry>
+<entry key="title">詳細コメント</entry>
+<entry key="commentsDetail">詳細コメント</entry>
+</properties>

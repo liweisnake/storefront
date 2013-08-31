@@ -1,0 +1,20 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/register/registerTemplate.xhtml">
+
+<ui:define name="title">
+	<h:outputText value="#{bundle.IDENTITY_REGISTER_TITLE_CONFIRM}" />
+</ui:define>
+<ui:define name="content">
+	<ui:decorate template="/jsf/common/confirm.xhtml">
+		<ui:param name="manager" value="#{userregistermgr}"/>
+		<ui:param name="subscriptionMode" value="user" />
+	</ui:decorate>
+</ui:define>
+</ui:composition>
+</div>

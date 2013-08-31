@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="banner.pageName">广告条列表</entry>
+<entry key="banner.bannerName">名字</entry>
+<entry key="banner.bannerType">类型</entry>
+<entry key="banner.bannerStatus">状态</entry>
+<entry key="banner.bannerAction">动作</entry>
+<entry key="banner.filter">过滤器</entry>
+<entry key="banner.clear">清除</entry>
+<entry key="addBanner">添加</entry>
+<entry key="submit">已提交</entry>
+<entry key="preview">预览</entry>
+<entry key="staticBanner">静态</entry>
+<entry key="rotatingBanner">滚动</entry>
+<entry key="tabbedBanner">分页</entry>
+<entry key="all">全部</entry>
+</properties>	

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.ClientAppHandSetRelation"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.ClientApplication"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.ClientAppSetting"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.ClientSettingAppRelation"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.ContentItem"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.DeviceFunction"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.HandSetDevice"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.HandSetFunctionRelation"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.MimeType"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.PurchaseHistoryExtend"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.SBMAssetPrice"></entity>
+	<entity class="com.hp.sdf.ngp.custom.sbm.storeclient.model.SecurityToken"></entity>	
+	
+	
+	<entity class="com.hp.sdf.ngp.eav.model.Attribute"></entity>
+	<entity class="com.hp.sdf.ngp.eav.model.AttributeValueChar"></entity>
+	<entity class="com.hp.sdf.ngp.eav.model.AttributeValueDate"></entity>
+	<entity class="com.hp.sdf.ngp.eav.model.AttributeValueDomain"></entity>
+	<entity class="com.hp.sdf.ngp.eav.model.AttributeValueNumber"></entity>
+	<entity class="com.hp.sdf.ngp.eav.model.Entity"></entity>
+	<entity class="com.hp.sdf.ngp.eav.model.EntityAttribute"></entity>
+
+	<entity class="com.hp.sdf.ngp.model.ApiKey"></entity>
+	<entity class="com.hp.sdf.ngp.model.Asset"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetBinaryVersion"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetCategoryRelation"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetLifecycleAction"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetLifecycleActionHistory"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetLifecycleCommentType"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetPlatformRelation"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetPrice"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetRating"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetRestrictionRelation"></entity>
+	<entity class="com.hp.sdf.ngp.model.AssetTagRelation"></entity>
+	<entity class="com.hp.sdf.ngp.model.BinaryFile"></entity>
+	<entity class="com.hp.sdf.ngp.model.Category"></entity>
+	<entity class="com.hp.sdf.ngp.model.Comments"></entity>
+	<entity class="com.hp.sdf.ngp.model.CommentsSensorWord"></entity>
+	<entity class="com.hp.sdf.ngp.model.ContentProviderOperator"></entity>
+	<entity class="com.hp.sdf.ngp.model.Country"></entity>
+	<entity class="com.hp.sdf.ngp.model.Language"></entity>
+	<entity class="com.hp.sdf.ngp.model.Operation"></entity>
+	<entity class="com.hp.sdf.ngp.model.Platform"></entity>
+	<entity class="com.hp.sdf.ngp.model.Provider"></entity>
+	<entity class="com.hp.sdf.ngp.model.PurchaseHistory"></entity>
+	<entity class="com.hp.sdf.ngp.model.RestrictedType"></entity>
+	<entity class="com.hp.sdf.ngp.model.RoleCategory"></entity>
+	<entity class="com.hp.sdf.ngp.model.ScreenShots"></entity>
+	<entity class="com.hp.sdf.ngp.model.Service"></entity>
+	<entity class="com.hp.sdf.ngp.model.ServiceSubscription"></entity>
+	<entity class="com.hp.sdf.ngp.model.ShoppingCart"></entity>
+	<entity class="com.hp.sdf.ngp.model.Status"></entity>
+	<entity class="com.hp.sdf.ngp.model.SubscriberProfile"></entity>
+	<entity class="com.hp.sdf.ngp.model.SystemConfig"></entity>
+	<entity class="com.hp.sdf.ngp.model.Tag"></entity>
+	<entity class="com.hp.sdf.ngp.model.UserDownloadHistory"></entity>
+	<entity class="com.hp.sdf.ngp.model.UserLifecycleAction"></entity>
+	<entity class="com.hp.sdf.ngp.model.UserLifecycleActionHistory"></entity>
+	<entity class="com.hp.sdf.ngp.model.UserProfile"></entity>
+	<entity class="com.hp.sdf.ngp.model.UserRoleCategory"></entity>
+	<entity class="com.hp.sdf.ngp.model.ParentAssetVersionSummary"></entity>	
+</entity-mappings>

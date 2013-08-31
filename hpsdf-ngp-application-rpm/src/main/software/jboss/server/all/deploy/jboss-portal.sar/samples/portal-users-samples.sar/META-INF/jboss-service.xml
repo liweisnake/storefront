@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<server>
+
+   <mbean
+      code="org.jboss.portal.core.event.PortalEventListenerServiceImpl"
+      name="portal:service=ListenerService,type=current_user_listener"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends
+         optional-attribute-name="Registry"
+         proxy-type="attribute">portal:service=ListenerRegistry</depends>
+      <attribute name="RegistryId">current_user_listener</attribute>
+      <attribute name="ListenerClassName">org.jboss.portal.core.samples.users.event.UserEventListener</attribute>
+   </mbean>
+
+   <mbean
+      code="org.jboss.portal.core.event.PortalEventListenerServiceImpl"
+      name="portal:service=ListenerService,type=session_listener"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends
+         optional-attribute-name="Registry"
+         proxy-type="attribute">portal:service=ListenerRegistry</depends>
+      <attribute name="RegistryId">session_listener</attribute>
+      <attribute name="ListenerClassName">org.jboss.portal.core.samples.users.event.PortalSessionEventListener</attribute>
+   </mbean>
+
+</server>

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE profile PUBLIC
+   "-//JBoss Portal//DTD JBoss User Profile Configuration 1.0//EN"
+   "http://www.jboss.org/portal/dtd/profile-config_2_6.dtd">
+
+<profile>
+   <!--Database mapping - jbp_user table column mapping-->
+   <property>
+      <name>user.name.nickName</name>
+      <type>java.lang.String</type>
+      <access-mode>read-only</access-mode>
+      <usage>mandatory</usage>
+      <display-name xml:lang="en">Name</display-name>
+      <description xml:lang="en">The user's nickname</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_uname</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>user.name.given</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Given Name</display-name>
+      <description xml:lang="en">The user's given name</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_givenname</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>user.name.family</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Family name</display-name>
+      <description xml:lang="en">The user's family name</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_familyname</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>user.business-info.online.email</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>mandatory</usage>
+      <display-name xml:lang="en">Email</display-name>
+      <description xml:lang="en">The user's real email</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_realemail</value>
+         </database>
+         <ldap>
+            <value>mail</value>
+         </ldap>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.email.fake</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Fake email</display-name>
+      <description xml:lang="en">The user's fake email</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_fakeemail</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.registration-date</name>
+      <type>java.util.Date</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Registration date</display-name>
+      <description xml:lang="en">The user's registration date</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_regdate</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.email.view-real</name>
+      <type>java.lang.Boolean</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">View real email</display-name>
+      <description xml:lang="en">Should the user's real email be displayed in public?</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_viewrealemail</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.enabled</name>
+      <type>java.lang.Boolean</type>
+      <access-mode>read-write</access-mode>
+      <usage>mandatory</usage>
+      <display-name xml:lang="en">Enabled</display-name>
+      <description xml:lang="en">Is user enabled?</description>
+      <mapping>
+         <database>
+            <type>column</type>
+            <value>jbp_enabled</value>
+         </database>
+      </mapping>
+   </property>
+
+   <!--Dynamic database store-->
+	
+	<property>
+      <name>user.personal-info.idcard</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Idcard</display-name>
+      <description xml:lang="en">The user's idcard</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.idcard</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.gender</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Gender</display-name>
+      <description xml:lang="en">The user's gender</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.gender</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.cellphone</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Cellphone</display-name>
+      <description xml:lang="en">The user's cellphone</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.cellphone</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.business-info.company</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Company</display-name>
+      <description xml:lang="en">The user's company name</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.business-info.company</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.zip</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Zip</display-name>
+      <description xml:lang="en">The user's zip code</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.zip</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.birthday</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Birthday</display-name>
+      <description xml:lang="en">The user's birthday</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.birthday</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.createdate</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">createDate</display-name>
+      <description xml:lang="en">The user's create date</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.createdate</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.onlineTime</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">onlineTime</display-name>
+      <description xml:lang="en">The user's online time</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.onlineTime</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.country</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Country</display-name>
+      <description xml:lang="en">The user's country</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.country</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>user.personal-info.language</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Language</display-name>
+      <description xml:lang="en">The user's language</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.personal-info.language</value>
+         </database>
+      </mapping>
+   </property>
+
+   <property>
+      <name>portal.user.location</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Location</display-name>
+      <description xml:lang="en">The user's location</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.location</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.occupation</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Occupation</display-name>
+      <description xml:lang="en">The user's occupation</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.occupation</value>
+         </database>
+         <ldap>
+            <value>title</value>
+         </ldap>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.extra</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Extra info</display-name>
+      <description xml:lang="en">Extra informtion about user</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.extra</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.signature</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Signature</display-name>
+      <description xml:lang="en">The user's signature</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.signature</value>
+         </database>
+         <!--<ldap>
+            <value>personalSignature</value>
+         </ldap>-->
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.interests</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Interests</display-name>
+      <description xml:lang="en">The user's interests</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.interests</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.locale</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Locale</display-name>
+      <description xml:lang="en">The user's locale</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.locale</value>
+         </database>
+         <!--<ldap>-->
+         <!--<value>localityName</value>-->
+         <!--</ldap>-->
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.im.icq</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">ICQ</display-name>
+      <description xml:lang="en">The user's ICQ id</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.im.icq</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.im.aim</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">AIM</display-name>
+      <description xml:lang="en">The user's AIM id</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.im.aim</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.im.msnm</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">MSN</display-name>
+      <description xml:lang="en">The user's MSN id</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.im.msnm</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.im.yim</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">YIM</display-name>
+      <description xml:lang="en">The user's YIM id</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.im.yim</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.im.skype</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Skype</display-name>
+      <description xml:lang="en">The user's Skype id</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.im.skype</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.im.xmmp</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">XMMP</display-name>
+      <description xml:lang="en">The user's XMMP id</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.im.xmmp</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.homepage</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Homepage</display-name>
+      <description xml:lang="en">The user's homepage</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.homepage</value>
+         </database>
+         <!--<ldap>-->
+         <!--<value>seeAlso</value>-->
+         <!--</ldap>-->
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.time-zone-offset</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Timezone</display-name>
+      <description xml:lang="en">The user's timezone</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.time-zone-offset</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.theme</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Theme</display-name>
+      <description xml:lang="en">The user's chosen Portal theme</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.theme</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.security.question</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Password Question</display-name>
+      <description xml:lang="en">Portal password recovery question</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.security.question</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.security.answer</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Password Answer</display-name>
+      <description xml:lang="en">Portal password recovery answer</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.security.answer</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>portal.user.last-login-date</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>optional</usage>
+      <display-name xml:lang="en">Last login</display-name>
+      <description xml:lang="en">The user's last login date</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>portal.user.last-login-date</value>
+         </database>
+      </mapping>
+   </property>
+   <property>
+      <name>user.login.id</name>
+      <type>java.lang.String</type>
+      <access-mode>read-write</access-mode>
+      <usage>mandatory</usage>
+      <display-name xml:lang="en">User login identifier</display-name>
+      <description xml:lang="en">The user's login identifier</description>
+      <mapping>
+         <database>
+            <type>dynamic</type>
+            <value>user.login.id</value>
+         </database>
+      </mapping>
+   </property>
+</profile>

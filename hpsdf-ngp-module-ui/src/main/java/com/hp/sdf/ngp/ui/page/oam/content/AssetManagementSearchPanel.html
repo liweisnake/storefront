@@ -1,0 +1,73 @@
+<wicket:panel>
+	<div class="content">
+    	<div class="portal-box">
+				<div class="content-container">
+        			<div class="contentbox">
+            			<h3><wicket:message key="title.search">Search Assets</wicket:message></h3>
+            			<div class="searchbox-list">
+            				<div wicket:id="feedback">feedback</div>
+	              			<form wicket:id="searchForm">
+	                			<ul>
+	                				<li>
+	                					<b>
+											<wicket:message key="providerId">providerId</wicket:message> :
+										</b>
+										<span>
+											<input type="text" wicket:id="providerId" class="common-textfield"/>
+										</span>
+									</li> 
+									<li>
+	                					<b>
+	                						<wicket:message key="providerName">providerName</wicket:message> : 
+	                					</b>
+	                					<span>
+											<input type="text" wicket:id="providerName" class="common-textfield"/>
+										</span>
+									</li>
+									<li>
+	                					<b>
+											<wicket:message key="parentAssetId">parentAssetId</wicket:message> : 
+										</b>
+										<span>
+											<input type="text" wicket:id="parentAssetId" class="common-textfield"/>
+										</span>
+									</li>
+									<li>
+	                					<b>
+											<wicket:message key="assetId">assetId</wicket:message> : 
+										</b>
+										<span>
+											<input type="text" wicket:id="assetId" class="common-textfield"/>
+										</span>
+									</li>
+									<li>
+	                					<b>
+											<wicket:message key="assetName">assetName</wicket:message> : 
+										</b>
+										<span>						
+											<input type="text" wicket:id="assetName" class="common-textfield"/>
+										</span>
+									</li>
+									<li>
+	                					<b>		
+											<wicket:message key="status">status</wicket:message> : 
+										</b>
+										<span>
+											<select wicket:id="status" class="common-select"></select>
+										</span>
+									</li>
+								</ul>
+								
+								<div class="searchbutton">
+	                  				<!--<input type="submit" wicket:id="btn.all" class="button-search" wicket:message="value:btn.all"/>-->
+	              					<input type="submit" id="submit" class="button-search" wicket:message="value:btn.search"/>
+	              					<!--<input type="reset" id="reset" class="button-search" wicket:message="value:btn.reset"/>-->
+	                			</div>
+							</form>                                                                                                                         
+						</div>
+          			</div>
+          		<div class="clear"></div>
+						</div>
+						</div> 
+	</div>  
+</wicket:panel>

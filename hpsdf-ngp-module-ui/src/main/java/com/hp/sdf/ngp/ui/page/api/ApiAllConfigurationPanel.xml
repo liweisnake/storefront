@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="titleAdd">Create Service Enabler</entry>
+<entry key="titleModify">Update Service Enabler</entry>
+<entry key="titleList">List Service Enabler</entry>
+<entry key="name">Name</entry>
+<entry key="type">Type</entry>
+<entry key="description">Description</entry>
+<entry key="serviceId">Service ID</entry>
+<entry key="sdkUrl">SDK URL</entry>
+<entry key="docUrl">Document URL</entry>
+<entry key="brokerServiceName">Broker Service Name</entry>
+<entry key="accessInterface">Access Interface</entry>
+<entry key="authType">Authentication Type</entry>
+<entry key="url">Endpoint URL</entry>
+<entry key="operation">Operation</entry>
+<entry key="add">Create</entry>
+<entry key="delete">Delete</entry>
+<entry key="modify">Update</entry>
+<entry key="exist.name">Service Enabler name exists</entry>
+<entry key="null.name">Service Enabler name is required</entry>
+<entry key="null.type">Service Enabler type is required</entry>
+</properties>

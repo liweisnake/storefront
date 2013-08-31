@@ -1,0 +1,63 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+	<h:form id="register-form">
+  	<h:panelGrid columns="2" cellpadding="3">
+  	<h:outputText value="#{bundle.IDENTITY_USERNAME} *"/>
+  	<h:inputText id="username" value="#{manager.uiUser.username}" required="true">
+  		<f:validator validatorId="UsernameValidator"/>
+  	</h:inputText>
+  	<h:panelGroup />
+  	<h:message for="username" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+  	
+  	<h:panelGroup>
+  		<h:outputText value="#{bundle.IDENTITY_EMAIL}"/>
+  		<h:outputText value=" *" rendered="#{metadataservice.email.required}" />
+  	</h:panelGroup>
+  	<h:inputText id="#{metadataservice.email.name}" value="#{manager.uiUser.attribute.email}" required="#{metadataservice.email.required}">
+  		<f:validator validatorId="#{metadataservice.email.validator}"/>
+  	</h:inputText>
+  	<h:panelGroup />
+  	<h:message for="#{metadataservice.email.name}" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+  	
+  	<h:outputText value="#{bundle.IDENTITY_PASSWORD} *"/>
+  	<h:inputSecret id="password" value="#{manager.uiUser.password}" required="true">
+  		<f:validateLength minimum="6"/>
+  	</h:inputSecret>
+  	<h:panelGroup />
+  	<h:message for="password" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+  	<h:outputText value="#{bundle.IDENTITY_REGISTER_PASSWORD_CONFIRM} *"/>
+  	<h:inputSecret id="passwordCheck" required="true">
+  		<f:validator validatorId="PasswordValidator"/>
+  	</h:inputSecret>
+  	<h:panelGroup />
+  	<h:message for="passwordCheck" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+  	
+  	
+	</h:panelGrid>
+	
+	<!-- include captcha -->
+	<ui:include src="/jsf/common/captcha.xhtml" />
+	
+	
+	<c:if test="#{portletPreferenceValue.profileAtRegistration == true}">
+    	<ui:decorate template="/jsf/common/editProfileInfo.xhtml">
+			<ui:param name="manager" value="#{userregistermgr}"/>
+			<ui:param name="adminMode" value="false"/>
+		</ui:decorate>
+	</c:if>
+	
+	<hr/>
+		<p style="text-align: left;">
+			<h:outputText value="* #{bundle.IDENTITY_REGISTER_REQUIRED_INFORMATION}" />
+		</p>
+		<p style="text-align: right;">
+			<h:commandButton id="submit" action="register" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" styleClass="portlet-form-button"/>
+			<h:commandButton id="cancel" action="#{manager.cancelRegistration}" value="#{bundle.IDENTITY_BUTTON_CANCEL}" immediate="true" styleClass="portlet-form-button"/>
+		</p>
+   </h:form>
+   </div>

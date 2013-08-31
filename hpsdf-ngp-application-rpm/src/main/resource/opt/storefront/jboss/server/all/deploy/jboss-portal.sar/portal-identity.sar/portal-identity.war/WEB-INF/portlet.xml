@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<portlet-app
+   xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+   version="2.0">
+   
+   
+   <portlet>
+      <description>Identity user portlet</description>
+      <portlet-name>IdentityUserPortlet</portlet-name>
+      <display-name>Identity user portlet</display-name>
+      <portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+      <init-param>
+         <name>javax.portlet.faces.defaultViewId.view</name>
+         <value>/jsf/index.xhtml</value>
+      </init-param>
+      <init-param>
+         <name>javax.portlet.faces.preserveActionParams</name>
+         <value>true</value>
+      </init-param>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+      </supports>
+      <supported-locale>fr</supported-locale>
+      <supported-locale>ru</supported-locale>
+      <supported-locale>en</supported-locale>
+      <supported-locale>it</supported-locale>
+      <supported-locale>pt_BR</supported-locale>
+      <supported-locale>zh</supported-locale>
+      <resource-bundle>conf.bundles.Identity</resource-bundle>
+      <portlet-preferences>
+      	<preference>
+      		<!-- Use captcha verification -->
+      		<name>captcha</name>
+      		<value>true</value>
+      	</preference>
+        <preference>
+      		<!-- The user can complete the whole profile during registration -->
+      		<name>profileAtRegistration</name>
+      		<value>false</value>
+      	</preference>
+      	<preference>
+      		<!-- 
+      			Use lost password service
+      			requires correct mail service configuration
+      		 -->
+      		<name>lostPassword</name>
+      		<value>false</value>
+      	</preference>
+      </portlet-preferences>
+   </portlet>
+   
+   <portlet>
+      <description>Identity admin portlet</description>
+      <portlet-name>IdentityAdminPortlet</portlet-name>
+      <display-name>Identity admin portlet</display-name>
+      <portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+      <init-param>
+         <name>javax.portlet.faces.defaultViewId.view</name>
+         <value>/jsf/admin/index.xhtml</value>
+      </init-param>
+      <init-param>
+         <name>javax.portlet.faces.preserveActionParams</name>
+         <value>true</value>
+      </init-param>
+
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+      </supports>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>EDIT</portlet-mode>
+      </supports>
+      <supported-locale>fr</supported-locale>
+      <supported-locale>en</supported-locale>
+      <supported-locale>it</supported-locale>
+      <supported-locale>pt_BR</supported-locale>
+      <supported-locale>zh</supported-locale>
+      <portlet-info>
+         <title>User management portlet</title>
+         <keywords>management,admin</keywords>
+      </portlet-info>
+      <portlet-preferences>
+      	<preference>
+      		<!-- 
+      			Use reset password in user management
+      			requires correct mail service configuration
+      		 -->
+      		<name>resetPassword</name>
+      		<value>false</value>
+      	</preference>
+      </portlet-preferences>
+   </portlet>
+   
+   <filter>
+         <filter-name>JBoss Portlet Filter</filter-name>
+         <filter-class>org.jboss.portlet.filter.JBossPortletFilter</filter-class>
+         <lifecycle>ACTION_PHASE</lifecycle>
+         <lifecycle>RENDER_PHASE</lifecycle>
+   </filter>
+
+   <filter-mapping>
+         <filter-name>JBoss Portlet Filter</filter-name>
+         <portlet-name>IdentityUserPortlet</portlet-name>
+         <portlet-name>IdentityAdminPortlet</portlet-name>
+   </filter-mapping>
+   
+</portlet-app>

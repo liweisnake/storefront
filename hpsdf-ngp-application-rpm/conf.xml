@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<ngp>
+<modules>
+  <module src="/source/hpsdf-ngp-module-api" target="hpsdf-ngp-module-api"/>
+  <module src="/source/hpsdf-ngp-application-core" target="hpsdf-ngp-application-core"/>
+  <module src="/source/hpsdf-ngp-application-master" target="hpsdf-ngp-application-master"/>
+  <module src="/source/hpsdf-ngp-application-rpm" target="hpsdf-ngp-application-rpm"/>
+  <module src="/source/hpsdf-ngp-module-core" target="hpsdf-ngp-module-core"/>
+  <module src="/source/hpsdf-ngp-module-theme" target="hpsdf-ngp-module-theme"/>
+  <module src="/source/hpsdf-ngp-module-ui" target="hpsdf-ngp-module-ui"/>
+  <module src="/source/hpsdf-ngp-module-web" target="hpsdf-ngp-module-web"/>
+</modules>
+<pom path="hpsdf-ngp-application-master/pom.xml"/>
+<rpms>
+  <rpm path="hpsdf-ngp-application-rpm/pom.xml" />
+</rpms>
+</ngp>

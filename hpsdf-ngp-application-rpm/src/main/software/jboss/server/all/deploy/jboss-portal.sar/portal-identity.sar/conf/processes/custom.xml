@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition name="custom" xmlns="urn:jbpm.org:jpdl-3.2">
+   <start-state>
+      <transition to="end">
+         <action class="org.jboss.portal.core.identity.services.workflow.impl.CreateUserAction"/>
+      </transition>
+   </start-state>
+
+   <end-state name="end"/>
+</process-definition>

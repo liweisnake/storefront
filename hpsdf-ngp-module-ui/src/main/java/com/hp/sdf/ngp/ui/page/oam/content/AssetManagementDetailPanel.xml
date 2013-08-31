@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newAsset">New Asset</entry>
+
+<entry key="title">Asset Detail</entry>
+
+<entry key="title.big">Asset Management</entry>
+<entry key="title.left">Asset Detail</entry>
+
+<entry key="assetName">Asset Name</entry>
+<entry key="status">Status</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="fileName">Product Name</entry>
+<entry key="providerId">Provider ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="category1">Category</entry>
+<entry key="category2">Genre</entry>
+<entry key="description">Description</entry>
+<entry key="brief">Brief</entry>
+<entry key="price">Price</entry>
+<entry key="createDate">Start Date</entry>
+<entry key="expireDate">Expire Date</entry>
+<entry key="fileSize">File Size</entry>
+<entry key="tag">Tag</entry>
+
+<entry key="newArrivalDueDate">New Arrival Due Date</entry>
+<entry key="recommendStartDate">Recommend Start Date</entry>
+<entry key="recommendDueDate">Recommend Due Date</entry>
+<entry key="recommendOrder">Recommend Order</entry>
+
+<entry key="thumbnailBig">Thumbnail Big Picture</entry>
+<entry key="thumbnailMed">Thumbnail Med Picture</entry>
+<entry key="thumbnail">Thumbnail Picture</entry>
+<entry key="screenShot">Screen Shot</entry>
+
+<entry key="view">View</entry>
+
+<entry key="msg.update">Do you want to update the asset?</entry>
+<entry key="msg.delete">Do you want to delete the asset?</entry>
+<entry key="msg.update.result">You successfully update the asset!</entry>
+<entry key="msg.delete.result">You successfully delete the asset!</entry>
+<entry key="msg.error.delete">This asset is not exist!</entry>
+<entry key="msg.error.fileupload">Please input valid file path!</entry>
+<entry key="title.prompt">Prompt</entry>
+
+<entry key="btn.update">Save</entry>
+<entry key="btn.delete">Delete</entry>
+<entry key="btn.back">Back</entry>
+
+</properties>

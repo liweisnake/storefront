@@ -1,0 +1,57 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+   <ui:composition template="objectTemplate.xhtml">
+
+      <ui:param name="portalObjectScreen" value="#{bundle.COMMON_PROPERTIES}"/>
+
+      <ui:define name="content">
+         <br/>
+         <div class="tenpx-top-bottom">
+         <p class="portlet-area-header">#{bundle.EVENT_LISTENER_BINDING}</p>
+
+         <div class="portlet-area-body tenpx-top-bottom">
+            <h:form id="edit-prop-form">
+               <h:outputLabel for="listener" styleClass="portlet-form-field-label">
+                  #{bundle.CHOOSE_ID_PORTALEVENTLISTENER} #{portalobjectmgr.selectedObjectType}:
+               </h:outputLabel>
+               <h:selectOneMenu id="listener" value="#{portalobjectmgr.selectedObject.listener}">
+                  <f:selectItems value="#{portalobjectmgr.listenerIds}"/>
+               </h:selectOneMenu>
+               <h:commandButton id="update" value="#{bundle.COMMON_UPDATE}" styleClass="portlet-form-button"/>
+            </h:form>
+         </div>
+         </div>
+            <ui:include src="common/editProperties.xhtml">
+               <ui:param name="properties" value="#{portalobjectmgr.selectedProperties}"/>
+            </ui:include>
+
+         <br/>
+         <c:if
+            test="#{portalobjectmgr.selectedProperties.relatedObject.type == PortalObject.TYPE_CONTEXT or portalobjectmgr.selectedProperties.relatedObject.type == PortalObject.TYPE_PORTAL}">
+
+            <!-- -->
+            <ui:include src="common/editPortalErrorHandling.xhtml">
+               <ui:param name="properties" value="#{portalobjectmgr.controlProperties}"/>
+            </ui:include>
+
+         </c:if>
+
+         <br/>
+         <c:if test="#{!(portalobjectmgr.selectedProperties.relatedObject.type == PortalObject.TYPE_WINDOW)}">
+
+            <!-- Separation -->
+            <ui:include src="common/editPageErrorHandling.xhtml">
+               <ui:param name="properties" value="#{portalobjectmgr.controlProperties}"/>
+            </ui:include>
+
+         </c:if>
+
+      </ui:define>
+
+   </ui:composition>
+</div>

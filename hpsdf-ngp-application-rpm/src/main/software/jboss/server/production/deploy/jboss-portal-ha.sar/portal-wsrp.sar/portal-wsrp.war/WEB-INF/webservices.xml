@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<webservices xmlns="http://java.sun.com/xml/ns/j2ee"
+             xmlns:impl="urn:oasis:names:tc:wsrp:v1:wsdl"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_web_services_1_1.xsd"
+             version="1.1">
+
+   <webservice-description>
+      <webservice-description-name>WSRPService</webservice-description-name>
+      <wsdl-file>WEB-INF/wsdl/wsrp_services.wsdl</wsdl-file>
+      <jaxrpc-mapping-file>WEB-INF/jaxrpc-mappings.xml</jaxrpc-mapping-file>
+
+      <port-component>
+         <port-component-name>WSRPServiceDescriptionService</port-component-name>
+         <wsdl-port>impl:WSRPServiceDescriptionService</wsdl-port>
+         <service-endpoint-interface>org.jboss.portal.wsrp.core.WSRP_v1_ServiceDescription_PortType</service-endpoint-interface>
+         <service-impl-bean>
+            <servlet-link>ServiceDescriptionService</servlet-link>
+         </service-impl-bean>
+         <handler>
+            <handler-name>ExtensionHandler</handler-name>
+            <handler-class>org.jboss.portal.wsrp.handler.WSRPExtensionHandler</handler-class>
+            <!--<init-param>
+               <param-name>debug</param-name>
+               <param-value>true</param-value>
+            </init-param>-->
+            <init-param>
+               <param-name>removeExtensions</param-name>
+               <param-value>true</param-value>
+            </init-param>
+         </handler>
+      </port-component>
+
+      <port-component>
+         <port-component-name>WSRPBaseService</port-component-name>
+         <wsdl-port>impl:WSRPBaseService</wsdl-port>
+         <service-endpoint-interface>org.jboss.portal.wsrp.core.WSRP_v1_Markup_PortType</service-endpoint-interface>
+         <service-impl-bean>
+            <servlet-link>MarkupService</servlet-link>
+         </service-impl-bean>
+         <handler>
+            <handler-name>ExtensionHandler</handler-name>
+            <handler-class>org.jboss.portal.wsrp.handler.WSRPExtensionHandler</handler-class>
+            <!--<init-param>
+               <param-name>debug</param-name>
+               <param-value>true</param-value>
+            </init-param>-->
+            <init-param>
+               <param-name>removeExtensions</param-name>
+               <param-value>true</param-value>
+            </init-param>
+         </handler>
+      </port-component>
+
+      <port-component>
+         <port-component-name>WSRPRegistrationService</port-component-name>
+         <wsdl-port>impl:WSRPRegistrationService</wsdl-port>
+         <service-endpoint-interface>org.jboss.portal.wsrp.core.WSRP_v1_Registration_PortType</service-endpoint-interface>
+         <service-impl-bean>
+            <servlet-link>RegistrationService</servlet-link>
+         </service-impl-bean>
+         <handler>
+            <handler-name>ExtensionHandler</handler-name>
+            <handler-class>org.jboss.portal.wsrp.handler.WSRPExtensionHandler</handler-class>
+            <!--<init-param>
+               <param-name>debug</param-name>
+               <param-value>true</param-value>
+            </init-param>-->
+            <init-param>
+               <param-name>removeExtensions</param-name>
+               <param-value>true</param-value>
+            </init-param>
+         </handler>
+      </port-component>
+
+      <port-component>
+         <port-component-name>WSRPPortletManagementService</port-component-name>
+         <wsdl-port>impl:WSRPPortletManagementService</wsdl-port>
+         <service-endpoint-interface>org.jboss.portal.wsrp.core.WSRP_v1_PortletManagement_PortType</service-endpoint-interface>
+         <service-impl-bean>
+            <servlet-link>PortletManagementService</servlet-link>
+         </service-impl-bean>
+         <handler>
+            <handler-name>ExtensionHandler</handler-name>
+            <handler-class>org.jboss.portal.wsrp.handler.WSRPExtensionHandler</handler-class>
+            <!--<init-param>
+               <param-name>debug</param-name>
+               <param-value>true</param-value>
+            </init-param>-->
+            <init-param>
+               <param-name>removeExtensions</param-name>
+               <param-value>true</param-value>
+            </init-param>
+         </handler>
+      </port-component>
+   </webservice-description>
+
+</webservices>

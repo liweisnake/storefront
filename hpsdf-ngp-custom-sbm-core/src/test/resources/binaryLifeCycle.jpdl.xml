@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="binaryLifeCycle" xmlns="http://jbpm.org/4.3/jpdl">
+	<description>
+		manager lifeCycle of each binary,instance Level
+		parameter{binId}{cycleActionId},
+		set when start instance,which refer to
+		the domain assetBinaryVersion
+	</description>
+	<start g="13,152,48,48" name="start1">
+		<transition to="binaryProvidedAction"/>
+	</start>
+	<custom expr="#{assetLifecylceUpdateAction}" g="132,150,121,52" name="binaryProvidedAction">
+	<field name="postStatus">
+			<string value="verified" />
+		</field>
+      <transition to="binaryTestingAction"/>
+	</custom>
+	
+	<custom expr="#{binaryTestingAction}" g="259,261,131,52" name="binaryTestingAction">
+		<transition to="evaluateTestResult"/>
+	</custom>
+
+	<decision expr="#{testResult}" g="494,126,48,48" name="evaluateTestResult">
+		<transition g="-36,23" name="pass" to="changeStatusToPublish"/>
+		<transition g="-15,-21" name="fail" to="binaryTestingAction"/>
+	</decision>
+
+	<custom expr="#{assetLifecylceUpdateAction}" g="506,292,131,52" name="changeStatusToPublish">
+	<field name="postStatus">
+			<string value="published" />
+		</field>
+		<transition to="adminProveAction"/>
+	</custom>
+
+	<custom expr="#{adminProveAction}" g="711,297,131,52" name="adminProveAction">
+		<transition to="publishBinaryAction"/>
+	</custom>
+
+	<custom expr="#{binaryStatusChangeAction}" g="782,102,131,52" name="publishBinaryAction">
+	<field name="postStatus">
+			<string value="published" />
+		</field>
+		<transition to="publishAssetAction"/>
+	</custom>
+
+	<custom expr="#{assetStatusChangeAction}" g="894,283,151,52" name="publishAssetAction">
+		<transition to="assetUpdateVersionAction"/>
+	</custom>
+
+	<custom expr="#{assetUpdateVersionAction}" g="959,106,181,52" name="assetUpdateVersionAction">
+		<transition to="end1"/>
+	</custom>
+
+	<end g="1148,282,48,48" name="end1"/>
+</process>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="title.big">カテゴリ管理</entry>
+<entry key="name">JIL-WH取得ジャンルName</entry>
+<entry key="parentExternalId">親ジャンルID</entry>
+<entry key="msg.error.save.parentExternalId">親カテゴリIDが存在していません。</entry>
+<entry key="externalId">MCD取得ジャンルID</entry>
+<entry key="confirmMsg">カテゴリを登録してよろしいでしょうか。</entry>
+<entry key="back">戻る</entry>
+<entry key="save">登録</entry>
+<entry key="msg.error.save.duplicatedCategoryName">カテゴリ名が既に存在しています。</entry>
+<entry key="displayName">端末表示名</entry>
+<entry key="title">カテゴリ登録</entry>
+<entry key="promptTitle">プロンプト</entry>
+<entry key="msg.error.save.duplicatedExternalId">MCD取得ジャンルIDが既に存在しています。</entry>
+<entry key="successMsg">カテゴリを登録しました。</entry>
+</properties>

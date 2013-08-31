@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="SendSmsService" targetNamespace="http://sms.parlayx.sdp.hp.com/" xmlns:tns="http://sms.parlayx.sdp.hp.com/" xmlns:ns1="http://www.csapi.org/schema/parlayx/common/v2_1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.csapi.org/schema/parlayx/sms/v2_2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://www.csapi.org/schema/parlayx/common/v2_1" version="1.0" xmlns:tns="http://www.csapi.org/schema/parlayx/common/v2_1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="PolicyException" nillable="true" type="tns:PolicyException"/>
+   <xs:element name="ServiceException" nillable="true" type="tns:ServiceException"/>
+   <xs:complexType name="ChargingInformation">
+    <xs:sequence>
+     <xs:element name="description" type="xs:string"/>
+     <xs:element minOccurs="0" name="currency" type="xs:string"/>
+     <xs:element minOccurs="0" name="amount" type="xs:decimal"/>
+     <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="SimpleReference">
+    <xs:sequence>
+     <xs:element name="endpoint" type="xs:anyURI"/>
+     <xs:element name="interfaceName" type="xs:string"/>
+     <xs:element name="correlator" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ServiceException">
+    <xs:sequence>
+     <xs:element name="messageId" type="xs:string"/>
+     <xs:element name="text" type="xs:string"/>
+     <xs:element maxOccurs="unbounded" minOccurs="0" name="variables" nillable="true" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PolicyException">
+    <xs:sequence>
+     <xs:element name="messageId" type="xs:string"/>
+     <xs:element name="text" type="xs:string"/>
+     <xs:element maxOccurs="unbounded" minOccurs="0" name="variables" nillable="true" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+    <xs:schema targetNamespace="http://www.csapi.org/schema/parlayx/sms/v2_2" version="1.0" xmlns:tns="http://www.csapi.org/schema/parlayx/sms/v2_2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="DeliveryInformation">
+    <xs:sequence>
+     <xs:element name="address" type="xs:anyURI"/>
+     <xs:element name="deliveryStatus" type="tns:DeliveryStatus"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="SmsFormat">
+    <xs:restriction base="xs:string">
+     <xs:enumeration value="Ems"/>
+     <xs:enumeration value="SmartMessaging"/>
+    </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DeliveryStatus">
+    <xs:restriction base="xs:string">
+     <xs:enumeration value="DeliveredToNetwork"/>
+     <xs:enumeration value="DeliveryUncertain"/>
+     <xs:enumeration value="DeliveryImpossible"/>
+     <xs:enumeration value="MessageWaiting"/>
+     <xs:enumeration value="DeliveredToTerminal"/>
+     <xs:enumeration value="DeliveryNotificationNotSupported"/>
+    </xs:restriction>
+   </xs:simpleType>
+  </xs:schema>
+    <xs:schema targetNamespace="http://sms.parlayx.sdp.hp.com/" version="1.0" xmlns:ns1="http://www.csapi.org/schema/parlayx/common/v2_1" xmlns:ns2="http://www.csapi.org/schema/parlayx/sms/v2_2" xmlns:tns="http://sms.parlayx.sdp.hp.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:import namespace="http://www.csapi.org/schema/parlayx/common/v2_1"/>
+   <xs:import namespace="http://www.csapi.org/schema/parlayx/sms/v2_2"/>
+   <xs:element name="getSmsDeliveryStatus" type="tns:getSmsDeliveryStatus"/>
+   <xs:element name="getSmsDeliveryStatusResponse" type="tns:getSmsDeliveryStatusResponse"/>
+   <xs:element name="sendSms" type="tns:sendSms"/>
+   <xs:element name="sendSmsLogo" type="tns:sendSmsLogo"/>
+   <xs:element name="sendSmsLogoResponse" type="tns:sendSmsLogoResponse"/>
+   <xs:element name="sendSmsResponse" type="tns:sendSmsResponse"/>
+   <xs:element name="sendSmsRingtone" type="tns:sendSmsRingtone"/>
+   <xs:element name="sendSmsRingtoneResponse" type="tns:sendSmsRingtoneResponse"/>
+   <xs:complexType name="sendSms">
+    <xs:sequence>
+     <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses" type="xs:string"/>
+     <xs:element minOccurs="0" name="senderName" type="xs:string"/>
+     <xs:element minOccurs="0" name="charging" type="ns1:ChargingInformation"/>
+     <xs:element minOccurs="0" name="message" type="xs:string"/>
+     <xs:element minOccurs="0" name="receiptRequest" type="ns1:SimpleReference"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendSmsResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendSmsLogo">
+    <xs:sequence>
+     <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses" type="xs:string"/>
+     <xs:element minOccurs="0" name="senderName" type="xs:string"/>
+     <xs:element minOccurs="0" name="charging" type="ns1:ChargingInformation"/>
+     <xs:element minOccurs="0" name="image" type="xs:base64Binary"/>
+     <xs:element minOccurs="0" name="smsFormat" type="ns2:SmsFormat"/>
+     <xs:element minOccurs="0" name="receiptRequest" type="ns1:SimpleReference"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendSmsLogoResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendSmsRingtone">
+    <xs:sequence>
+     <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses" type="xs:string"/>
+     <xs:element minOccurs="0" name="senderName" type="xs:string"/>
+     <xs:element minOccurs="0" name="charging" type="ns1:ChargingInformation"/>
+     <xs:element minOccurs="0" name="ringtone" type="xs:string"/>
+     <xs:element minOccurs="0" name="smsFormat" type="ns2:SmsFormat"/>
+     <xs:element minOccurs="0" name="receiptRequest" type="ns1:SimpleReference"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendSmsRingtoneResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getSmsDeliveryStatus">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="requestIdentifier" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getSmsDeliveryStatusResponse">
+    <xs:sequence>
+     <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns2:DeliveryInformation"/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+  </types>
+  <message name="SendSms_sendSmsRingtone">
+    <part name="sendSmsRingtone" element="tns:sendSmsRingtone">
+    </part>
+  </message>
+  <message name="SendSms_sendSmsRingtoneResponse">
+    <part name="sendSmsRingtoneResponse" element="tns:sendSmsRingtoneResponse">
+    </part>
+  </message>
+  <message name="SendSms_getSmsDeliveryStatusResponse">
+    <part name="getSmsDeliveryStatusResponse" element="tns:getSmsDeliveryStatusResponse">
+    </part>
+  </message>
+  <message name="SendSms_sendSmsLogo">
+    <part name="sendSmsLogo" element="tns:sendSmsLogo">
+    </part>
+  </message>
+  <message name="ServiceException">
+    <part name="ServiceException" element="tns:ServiceException">
+    </part>
+  </message>
+  <message name="SendSms_sendSmsResponse">
+    <part name="sendSmsResponse" element="tns:sendSmsResponse">
+    </part>
+  </message>
+  <message name="PolicyException">
+    <part name="PolicyException" element="tns:PolicyException">
+    </part>
+  </message>
+  <message name="SendSms_sendSmsLogoResponse">
+    <part name="sendSmsLogoResponse" element="tns:sendSmsLogoResponse">
+    </part>
+  </message>
+  <message name="SendSms_getSmsDeliveryStatus">
+    <part name="getSmsDeliveryStatus" element="tns:getSmsDeliveryStatus">
+    </part>
+  </message>
+  <message name="SendSms_sendSms">
+    <part name="sendSms" element="tns:sendSms">
+    </part>
+  </message>
+  <portType name="SendSms">
+    <operation name="getSmsDeliveryStatus" parameterOrder="getSmsDeliveryStatus">
+      <input message="tns:SendSms_getSmsDeliveryStatus">
+    </input>
+      <output message="tns:SendSms_getSmsDeliveryStatusResponse">
+    </output>
+      <fault name="PolicyException" message="tns:PolicyException">
+    </fault>
+      <fault name="ServiceException" message="tns:ServiceException">
+    </fault>
+    </operation>
+    <operation name="sendSms" parameterOrder="sendSms">
+      <input message="tns:SendSms_sendSms">
+    </input>
+      <output message="tns:SendSms_sendSmsResponse">
+    </output>
+      <fault name="PolicyException" message="tns:PolicyException">
+    </fault>
+      <fault name="ServiceException" message="tns:ServiceException">
+    </fault>
+    </operation>
+    <operation name="sendSmsLogo" parameterOrder="sendSmsLogo">
+      <input message="tns:SendSms_sendSmsLogo">
+    </input>
+      <output message="tns:SendSms_sendSmsLogoResponse">
+    </output>
+      <fault name="PolicyException" message="tns:PolicyException">
+    </fault>
+      <fault name="ServiceException" message="tns:ServiceException">
+    </fault>
+    </operation>
+    <operation name="sendSmsRingtone" parameterOrder="sendSmsRingtone">
+      <input message="tns:SendSms_sendSmsRingtone">
+    </input>
+      <output message="tns:SendSms_sendSmsRingtoneResponse">
+    </output>
+      <fault name="PolicyException" message="tns:PolicyException">
+    </fault>
+      <fault name="ServiceException" message="tns:ServiceException">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="SendSmsBinding" type="tns:SendSms">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getSmsDeliveryStatus">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="sendSms">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="sendSmsLogo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="sendSmsRingtone">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PolicyException">
+        <soap:fault name="PolicyException" use="literal"/>
+      </fault>
+      <fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="SendSmsService">
+    <port name="SendSmsPort" binding="tns:SendSmsBinding">
+      <soap:address location="http://YLIANG7:8280/hpsdp-parlayx-gw-web/SendSms"/>
+    </port>
+  </service>
+</definitions>

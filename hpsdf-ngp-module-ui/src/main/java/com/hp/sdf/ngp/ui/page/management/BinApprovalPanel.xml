@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Applications need to be approved</entry>
+<entry key="app.name">Name</entry>
+<entry key="bin.version">Binary Version</entry>
+<entry key="bin.platform">Platform</entry>
+<entry key="app.brief">Brief</entry>
+<entry key="label.status.current">Current Status</entry>
+<entry key="label.status.next">Next Status</entry>
+<entry key="btn.approve">Approve</entry>
+<entry key="btn.reject">Reject</entry>
+<entry key="btn.reset">Reset</entry>
+</properties>

@@ -1,0 +1,204 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="admin-ui">
+
+<f:loadBundle basename="Resource" var="bundle" />
+<link rel="stylesheet" type="text/css" href="/portal-admin/css/style.css" media="screen"/>
+
+<div class="wizard-tab-container">
+<ul class="objectpath">
+   <li class="selected">#{bundle.WIZARD_ADDING_NEW_PORTLET}</li>
+</ul>
+
+<div class="property-container">
+<c:choose>
+   <c:when test="#{newWindowWizard.currentStep == 0}">
+      <div class="wizardStepBox" id="selected">
+         <p class="stepNumber">#{bundle.WIZARD_STEP} 1</p>
+
+         <p class="stepText">#{bundle.WIZARD_SELECT_PORTLET}</p>
+      </div>
+   </c:when>
+   <c:otherwise>
+      <c:choose>
+         <c:when test="#{newWindowWizard.enabled[0]}">
+            <h:form id="step0"><h:commandLink id="goto-link" action="#{newWindowWizard.goTo}">
+               <f:param name="step" value="0"/>
+
+               <div class="wizardStepBox">
+                  <p class="stepNumber">#{bundle.WIZARD_STEP} 1</p>
+
+                  <p class="stepText">#{bundle.WIZARD_SELECT_PORTLET}</p>
+               </div>
+            </h:commandLink></h:form>
+         </c:when>
+         <c:otherwise>
+            <div class="wizardStepBox">
+               <p class="stepNumber">#{bundle.WIZARD_STEP} 1</p>
+
+               <p class="stepText">#{bundle.WIZARD_SELECT_PORTLET}</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+   </c:otherwise>
+</c:choose>
+
+<c:choose>
+   <c:when test="#{newWindowWizard.currentStep == 1}">
+      <div class="wizardStepBox" id="selected">
+         <p class="stepNumber">#{bundle.WIZARD_STEP} 2</p>
+
+         <p class="stepText">#{bundle.WIZARD_SELECT_PORTAL}</p>
+      </div>
+   </c:when>
+   <c:otherwise>
+      <c:choose>
+         <c:when test="#{newWindowWizard.enabled[1]}">
+            <h:form id="step1"><h:commandLink id="goto-link" action="#{newWindowWizard.goTo}">
+               <f:param name="step" value="1"/>
+
+               <div class="wizardStepBox">
+                  <p class="stepNumber">#{bundle.WIZARD_STEP} 2</p>
+
+                  <p class="stepText">#{bundle.WIZARD_SELECT_PORTAL}</p>
+               </div>
+            </h:commandLink></h:form>
+         </c:when>
+         <c:otherwise>
+            <div class="wizardStepBox">
+               <p class="stepNumber">#{bundle.WIZARD_STEP} 2</p>
+
+               <p class="stepText">#{bundle.WIZARD_SELECT_PORTAL}</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+   </c:otherwise>
+</c:choose>
+
+<c:choose>
+   <c:when test="#{newWindowWizard.currentStep == 2}">
+      <div class="wizardStepBox" id="selected">
+         <p class="stepNumber">#{bundle.WIZARD_STEP} 3</p>
+
+         <p class="stepText">#{bundle.WIZARD_SELECT_PAGE}</p>
+      </div>
+   </c:when>
+   <c:otherwise>
+      <c:choose>
+         <c:when test="#{newWindowWizard.enabled[2]}">
+            <h:form id="step2"><h:commandLink id="goto-link" action="#{newWindowWizard.goTo}">
+               <f:param name="step" value="2"/>
+
+               <div class="wizardStepBox">
+                  <p class="stepNumber">#{bundle.WIZARD_STEP} 3</p>
+
+                  <p class="stepText">#{bundle.WIZARD_SELECT_PAGE}</p>
+               </div>
+            </h:commandLink></h:form>
+         </c:when>
+         <c:otherwise>
+            <div class="wizardStepBox">
+               <p class="stepNumber">#{bundle.WIZARD_STEP} 3</p>
+
+               <p class="stepText">#{bundle.WIZARD_SELECT_PAGE}</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+   </c:otherwise>
+</c:choose>
+
+<c:choose>
+   <c:when test="#{newWindowWizard.currentStep == 3}">
+      <div class="wizardStepBox" id="selected">
+         <p class="stepNumber">#{bundle.WIZARD_STEP} 4</p>
+
+         <p class="stepText">#{bundle.WIZARD_SELECT_REGION}</p>
+      </div>
+   </c:when>
+   <c:otherwise>
+      <c:choose>
+         <c:when test="#{newWindowWizard.enabled[3]}">
+            <h:form id="step3"><h:commandLink id="goto-link" action="#{newWindowWizard.goTo}">
+               <f:param name="step" value="3"/>
+
+               <div class="wizardStepBox">
+                  <p class="stepNumber">#{bundle.WIZARD_STEP} 4</p>
+
+                  <p class="stepText">#{bundle.WIZARD_SELECT_REGION}</p>
+               </div>
+            </h:commandLink></h:form>
+         </c:when>
+         <c:otherwise>
+            <div class="wizardStepBox">
+               <p class="stepNumber">#{bundle.WIZARD_STEP} 4</p>
+
+               <p class="stepText">#{bundle.WIZARD_SELECT_REGION}</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+   </c:otherwise>
+</c:choose>
+
+<c:choose>
+   <c:when test="#{newWindowWizard.currentStep == 4}">
+      <div class="wizardStepBox" id="selected">
+         <p class="stepNumber">#{bundle.WIZARD_STEP} 5</p>
+
+         <p class="stepText">#{bundle.WIZARD_CONFIRM}</p>
+      </div>
+   </c:when>
+   <c:otherwise>
+      <c:choose>
+         <c:when test="#{newWindowWizard.enabled[4]}">
+            <h:form id="step4"><h:commandLink id="goto-link" action="#{newWindowWizard.goTo}">
+               <f:param name="step" value="4"/>
+
+               <div class="wizardStepBox">
+                  <p class="stepNumber">#{bundle.WIZARD_STEP} 5</p>
+
+                  <p class="stepText">#{bundle.WIZARD_CONFIRM}</p>
+               </div>
+            </h:commandLink></h:form>
+         </c:when>
+         <c:otherwise>
+            <div class="wizardStepBox">
+               <p class="stepNumber">#{bundle.WIZARD_STEP} 5</p>
+
+               <p class="stepText">#{bundle.WIZARD_CONFIRM}</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+   </c:otherwise>
+</c:choose>
+
+<!-- Status message -->
+<h:message id="status" for="status"/>
+
+
+<!-- Content -->
+<div class="wizardContent">
+
+   	   <ui:insert name="content">#{bundle.WIZARD_CONTENT}</ui:insert>
+</div>
+
+<div class="wizardButtonBox">
+   <h:form id="wiz-nav-form">
+      <h:commandButton id="previous" rendered="#{newWindowWizard.currentStep gt 0}" value="#{bundle.WIZARD_PREVIOUS}"
+                       action="#{newWindowWizard.previous}" styleClass="portlet-form-button"/>
+      <h:commandButton id="next"
+         rendered="#{newWindowWizard.currentStep lt 4 and newWindowWizard.enabled[newWindowWizard.currentStep + 1]}"
+         value="#{bundle.WIZARD_NEXT}" action="#{newWindowWizard.next}" styleClass="portlet-form-button"/>
+   </h:form>
+</div>
+
+<h:form id="advance-form">
+   <p style="text-align: right;"><h:commandLink id="advanced-link" action="advancedMode">#{bundle.WIZARD_SWITCH_ADVANCED_MODE}</h:commandLink></p>
+</h:form>
+</div>
+</div>
+
+</div>

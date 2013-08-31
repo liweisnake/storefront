@@ -1,0 +1,24 @@
+<wicket:panel>
+    <div id="appDownload">                                        
+      <form wicket:id="appDownloadForm">
+         <table width="98%" border="0" cellspacing="0" cellpadding="0">                                                                           
+	        <tr>
+	          <td width="10%"><b><wicket:message key="version"/></b></td>
+	          <td width="20%"><select wicket:id="version"></select></td>
+	          <td width="10%"><b><wicket:message key="bin.status"/></b></td>
+	          <td width="20%"><span wicket:id="binaryStatus"></span></td>
+	          <td width="10%"> <a href="#" wicket:id="download">
+      			<wicket:message key="download">download</wicket:message></a>
+      		  </td>
+	        </tr>
+		        <tr>
+		          <td colspan="7">
+                  <span wicket:id="hint"></span>
+	              </td>
+		        </tr>
+	      </table>
+      </form>         
+    </div>         
+    <!-- End appDownload --> 
+</wicket:panel>
+  

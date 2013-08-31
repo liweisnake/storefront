@@ -1,0 +1,30 @@
+/*--------------------------ToolTip*/
+.darktip {
+   width: 250px;
+   border: 5px solid #e3e9f6;
+}
+
+.darktip .toolbar {
+   background: #95a7ca;
+   color: #fff;
+   font: normal 14px Verdana, Arial, serif;
+}
+
+/*.darktip .toolbar a.close {*/
+   /*background: url( ../img/close_hover.gif );*/
+/*}*/
+
+/*.darktip .toolbar a.close:hover {*/
+   /*background: url( ../img/close.gif );*/
+/*}*/
+
+.darktip .title {
+   padding: 5px;
+}
+
+.darktip .content {
+   background: #d2daeb;
+   color: #224d83;
+   font: 11px Verdana, Arial, Helvetica, sans-serif;
+   padding: 5px;
+}

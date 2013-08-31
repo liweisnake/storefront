@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">Choose One</entry>
+<entry key="title">New Application</entry>
+<entry key="name">Application Name</entry>
+<entry key="brief">Brief</entry>
+<entry key="price">Price</entry>
+<entry key="preview">Preview Picture</entry>
+<entry key="thumbnail">Thumbnail Picture</entry>
+<entry key="description">Description</entry>
+<entry key="category">Category</entry>
+<entry key="platform">Platform</entry>
+<entry key="doc">Specification Document</entry>
+<entry key="btn.submit">Submit</entry>
+</properties>

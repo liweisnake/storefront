@@ -1,0 +1,80 @@
+<wicket:head>
+</wicket:head>
+<wicket:panel>
+	<div class="mainPanel">
+	<form wicket:id="dynamicForm">
+	<table align="center">
+		<tr>
+			<td><span>entityName</span></td>
+			<td><input type="text" wicket:id="entityName" /></td>
+		</tr>
+		
+		<tr>
+			<td><span>publishDate</span></td>
+			<td><input type="text" wicket:id="publishDate" /></td>
+		</tr>
+		
+		<tr align="left" valign="top">
+			<td height="10" width="100">
+				<font class="texto1">Country:</font>
+			</td>
+			<td width="90%">
+				<select wicket:id="country"/>
+			</td>
+		</tr>	
+		
+		<tr align="left" valign="top">
+			<td height="10" width="100">
+				<font class="texto1">Language:</font>
+			</td>
+			<td width="90%">
+				<select wicket:id="language"/>
+			</td>
+		</tr>	
+		
+		<tr align="left" valign="top">
+			<td height="10" width="100">
+				<font class="texto1">Gender:</font>
+			</td>
+			<td width="90%">
+				<span valign="top" wicket:id="gender"></span>
+			</td>
+		</tr>	
+		
+		<tr align="left" valign="top">
+			<td height="10" width="100">
+				<font class="texto1">GenderTwo:</font>
+			</td>
+			<td width="90%">
+				<span valign="top" wicket:id="genderTwo"></span>
+			</td>
+		</tr>	
+		
+		<tr align="left" valign="top">
+			<td height="10" width="100">
+				<font class="texto1">Comment:</font>
+			</td>
+			<td width="90%">
+				<textarea wicket:id="comment"></textarea>
+			</td>
+		</tr>	
+		
+		<tr align="left" valign="top">
+			<td height="10" width="100">
+				<font class="texto1">languageTwo:</font>
+			</td>
+			<td width="90%">
+				<span valign="top" wicket:id="languageTwo"></span>
+			</td>
+		</tr>	
+	</table>
+
+	<div id="btns" align="center"><input type="submit"
+		onclick="JavaScript:if(confirm('Are you sure to add?')){return true;}else{return false;}"
+		wicket:id="addNew" class="button" value="Submit"></input>&nbsp;&nbsp;
+	&nbsp;&nbsp;</div>
+
+	</form>
+	</div>
+	<div wicket:id="feedback">[[ feedback ]]</div>
+</wicket:panel>

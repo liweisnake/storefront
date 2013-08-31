@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">默认设置</entry>
+<entry key="defaultSetting">默认设置</entry>
+<entry key="newBinaryVersion">新建内容</entry>
+<entry key="days">新到商品间隔</entry>
+<entry key="daysSymbol"> 天数</entry>
+<entry key="content">内容来源</entry>
+<entry key="rate">比率(%)</entry>
+<entry key="save">保存</entry>
+<entry key="update.pid">供应商外部编号</entry>
+<entry key="update.provider">供应商/开发人员</entry>
+<entry key="update.rate">比率(%)</entry>
+<entry key="update.save">保存</entry>
+<entry key="update.back">返回</entry>
+
+<entry key="defaultRate">默认比率</entry>
+<entry key="rateSymbol">%</entry>
+
+<entry key="title.big">内容管理</entry>
+<entry key="title.left.big">默认设置</entry>
+<entry key="title.right.big">供应商/开发人员比率</entry>
+
+<entry key="title.prompt">提示</entry>
+<entry key="msg.warn.update">你想要编辑默认设置吗?</entry>
+<entry key="msg.warn.update.provider">你想要批量更新供应商的比率吗?</entry>
+<entry key="msg.result.update.success">编辑默认设置成功!</entry>
+<entry key="msg.result.update.provider.success">批量更新供应商的比率成功!</entry>
+<entry key="msg.warn.update.days">你想要编辑新促销商品到期时间吗?</entry>
+<entry key="msg.result.update.days.success">编辑新促销商品到期时间成功!</entry>
+
+<entry key="msg.error.update.days">无效的值!</entry>
+
+</properties>

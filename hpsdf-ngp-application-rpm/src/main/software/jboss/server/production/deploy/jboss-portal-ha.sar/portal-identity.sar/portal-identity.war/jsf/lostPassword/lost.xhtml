@@ -1,0 +1,35 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+   
+<ui:composition template="/jsf/lostPassword/lostTemplate.xhtml">
+
+<ui:define name="title">
+	<h:outputText value="#{bundle.IDENTITY_LOST_PASSWORD_TITLE}" />
+</ui:define>
+<ui:define name="content">
+<h:form id="lost-pwd-form">
+	<p><h:outputText value="#{bundle.IDENTITY_LOST_PASSWORD_DESCRIPTION}" /></p>
+	<h:panelGrid columns="2" cellpadding="3">
+		<h:outputText value="#{bundle.IDENTITY_USERNAME}"/>
+		<h:inputText id="username" value="#{lostpasswordmgr.username}" required="true"/>
+  		<h:panelGroup />
+		<h:message for="username"  infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+	</h:panelGrid>
+
+	<!-- include captcha -->
+	<ui:include src="/jsf/common/captcha.xhtml" />
+
+	<hr/>
+	<p style="text-align: right;">
+	<h:commandButton id="submit" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" action="#{lostpasswordmgr.doomed}" styleClass="portlet-form-button"/>
+	<h:commandButton id="cancel" action="start" value="#{bundle.IDENTITY_BUTTON_CANCEL}" immediate="true" styleClass="portlet-form-button"/>
+	</p>
+</h:form>  
+</ui:define>
+</ui:composition>
+</div>
+

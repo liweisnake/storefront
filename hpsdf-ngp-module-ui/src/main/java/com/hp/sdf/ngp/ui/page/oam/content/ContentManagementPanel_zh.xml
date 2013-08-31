@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">二进制版本列表</entry>
+<entry key="defaultSetting">默认设置</entry>
+<entry key="newBinaryVersion">新建内容</entry>
+
+<entry key="title.big">内容管理</entry>
+<entry key="title.search">搜索内容</entry>
+<entry key="title.list">内容列表</entry>
+<entry key="title.operation">内容运作</entry>
+
+<entry key="providerId">供应商外部编号</entry>
+<entry key="providerName">供应商</entry>
+<entry key="parentAssetId">父资产编号</entry>
+<entry key="assetId">资产编号</entry>
+<entry key="externalId">资产外部编号</entry>
+<entry key="binaryVersionExternalId">二进制版本外部编号</entry>
+
+<entry key="assetName">名称</entry>
+<entry key="targetPublishDate">预定发布日期</entry>
+<entry key="publishDate">发布日期</entry>
+<entry key="category1">类别</entry>
+<entry key="category2">子类别</entry>
+<entry key="status">状态</entry>
+<entry key="newArrivalDueDate">新品上市到期时间</entry>
+<entry key="recommendStartDate">推荐商品开始时间</entry>
+<entry key="recommendDueDate">推荐商品到期时间</entry>
+<entry key="recommendOrder">推荐商品顺序</entry>
+<entry key="commissionRate">佣金率</entry>
+<entry key="binaryName">二进制版本名称</entry>
+<entry key="binaryVersion">二进制版本</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="commissionSymbol">%</entry>
+
+<entry key="update.title">批量更新</entry>
+
+<entry key="updateStatus">更新状态</entry>
+<entry key="update.status">状态</entry>
+<entry key="update.comments">操作员评论</entry>
+<entry key="update.commentType">评论类型</entry>
+
+<entry key="updateCommissionRate">佣金率更新</entry>
+<entry key="update.commissionRate">佣金率</entry>
+
+<entry key="updateRecommend">推荐</entry>
+<entry key="update.recommendStartDate">推荐开始时间</entry>
+<entry key="update.recommendDueDate">推荐到期时间</entry>
+
+<entry key="updateNewArrival">新到商品</entry>
+<entry key="update.newArrivalDueDate">新品上市到期时间</entry>
+
+<entry key="btn.update.update">更新</entry>
+<entry key="btn.update.delete">删除</entry>
+<entry key="btn.update.reset">重置</entry>
+<entry key="btn.download">下载结果</entry>
+
+<entry key="title.prompt">提示</entry>
+<entry key="msg.warn.download">你想要下载CSV文件吗?</entry>
+<entry key="msg.warn.update">你想要批量更新已选的资产二进制版本吗?</entry>
+<entry key="msg.warn.delete">你想要批量删除已选的资产二进制版本吗?</entry>
+<entry key="msg.error.download">搜索结果行数超过excel表格的最大容量行数!</entry>
+<entry key="msg.result.update.success">批量更新已选的资产二进制版本成功!</entry>
+<entry key="msg.result.delete.success">批量删除已选的资产二进制版本成功!</entry>
+<entry key="msg.error.nobinaryselect">请选择资产二进制版本!</entry>
+<entry key="msg.error.link.notexist">该资产二进制版本不存在!</entry>
+<entry key="msg.error.batch.notexist"> 不存在!</entry>
+<entry key="msg.error.statuschange.condition">不符合条件的状态转换!</entry>
+
+<entry key="need.insert.status">状态字段是必填项.</entry>
+<entry key="need.insert.operatorComments">操作员评论字段是必填项.</entry>
+<entry key="need.insert.commentTypeOption">状态转换评论类型字段是必填项.</entry>
+<entry key="need.insert.commissionRate">佣金率字段是必填项.</entry>
+<entry key="need.insert.recommendStartDate">推荐开始时间字段是必填项.</entry>
+<entry key="need.insert.recommendDueDate">推荐到达时间字段是必填项.</entry>
+<entry key="need.insert.newArrivalDueDate">新品上市到期时间字段是必填项.</entry>
+
+<entry key="download.file.name">BinaryVersion.csv</entry>
+
+</properties>

@@ -1,0 +1,448 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2009, Red Hat Middleware, LLC, and individual
+  ~ contributors as indicated by the @authors tag. See the
+  ~ copyright.txt in the distribution for a full listing of
+  ~ individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<ui:composition template="objectTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:pfc="http://www.jboss.com/portal/facelet/common"
+                xmlns:c="http://java.sun.com/jstl/core">
+<ui:param name="portalObjectScreen" value="#{bundle.COORDINATION_COORDINATION}"/>
+<ui:define name="content">
+   <script type="text/javascript">
+   <!--
+       function toggle_visibility(id) {
+          var e = document.getElementById(id);
+          var disc = document.getElementById(id + 'Disc');
+          if(e.style.display != 'none')
+          {
+             e.style.display = 'none';
+             disc.setAttribute('src', '/portal-admin/img/plus.gif');
+             disc.setAttribute('alt', '+');
+          }
+          else
+          {
+             e.style.display = '';
+             disc.setAttribute('src','/portal-admin/img/minus.gif');
+             disc.setAttribute('alt', '-');
+          }
+       }
+
+   //-->
+   </script>
+
+   <br/>
+
+   <!-- Alias bindings -->
+   <div class="tenpx-top">
+      <h2 class="portlet-area-header" onclick="toggle_visibility('aliasBindings');" style="cursor: pointer">
+         <img id="aliasBindingsDisc" src="/portal-admin/img/minus.gif" alt="-"/>
+         <a name="#{bundle.COORDINATION_ALIAS_BINDINGS}"/>#{bundle.COORDINATION_ALIAS_BINDINGS}
+      </h2>
+
+      <!-- Create alias binding -->
+      <div id="aliasBindings" class="coordination-section">
+         <h3 class="sectionTitle tenpx-bottom" style="margin-top: 3px;">#{bundle.COORDINATION_ALIAS_CREATE}</h3>
+         <h:outputText value="#{bundle.COORDINATION_ALIAS_CREATE_NO_PARAMS}" rendered="#{empty aliasManager.availableRenderParameters}"/>
+         <h:form rendered="#{!empty aliasManager.availableRenderParameters}" id="create-alias-form">
+            <div class="float-left tenpx-right">
+               <h4>#{bundle.COORDINATION_ALIAS_CREATE_STEP1}</h4>
+               <h:selectManyListbox id="alias"  size="5" value="#{aliasManager.originalQNames}"
+                                   immediate="true" onchange="this.form.submit()">
+                  <f:selectItems value="#{aliasManager.availableRenderParameters}"/>
+               </h:selectManyListbox>
+            </div>
+            <div class="float-left aliasBinding-step2">
+               <h:panelGroup rendered="#{!empty aliasManager.originalQNames}">
+                  <h4>#{bundle.COORDINATION_ALIAS_CREATE_STEP2}</h4>
+                  <div class="full-width">
+                     <span>
+                        <h:inputText id="aliasName" value="#{aliasManager.aliasName}"/>
+                        <h:message for="aliasName" errorClass="portlet-msg-error"/>
+                     </span>
+                     <span>
+                        <h:commandButton value="#{bundle.COORDINATION_ALIAS_CREATE_CREATE}"
+                                         action="#{aliasManager.create}" styleClass="portlet-form-button"/>
+                        <h:commandButton value="#{bundle.COMMON_CANCEL}" action="#{aliasManager.cancel}"
+                                         styleClass="portlet-form-button"/>
+                     </span>
+                  </div>
+                  <div>
+                     <ul class="bindingList">
+                        <ui:repeat var="selectedQNames" value="#{aliasManager.originalQNames}">
+                           <li>#{selectedQNames}</li>
+                        </ui:repeat>
+                     </ul>
+                  </div>
+               </h:panelGroup>
+            </div>
+            <br class="clear"/>
+         </h:form>
+
+         <!-- Manage existing alias bindings -->
+         <h3 class="sectionTitle tenpx-top-bottom">#{bundle.COORDINATION_ALIAS_MANAGE_EXISTING}</h3>
+         <h:outputText value="#{bundle.COORDINATION_ALIAS_EXISTING_NONE}" rendered="#{empty aliasManager.displayAliasBindings}"/>
+         <h:form rendered="#{!empty aliasManager.displayAliasBindings}">
+            <div class="float-left full-width">
+               <h:dataTable var="binding" value="#{aliasManager.displayAliasBindings}"
+                            rendered="true" styleClass="objectList datatable full-width"
+                            rowClasses="portlet-section-body,portlet-section-alternate-blue"
+                            columnClasses="half-width"
+                            headerClass="portlet-section-header">
+                  <h:column>
+                     <f:facet name="header">#{bundle.COORDINATION_ALIAS_EXISTING_NAME}</f:facet>
+                     <div class="bindingListContainer">
+                        <div class="bindingList-header">#{binding.name}</div>
+                        <ul class="bindingList">
+                           <ui:repeat var="qname" value="#{binding.names}">
+                              <li>#{qname}</li>
+                           </ui:repeat>
+                        </ul>
+                     </div>
+                  </h:column>
+                  <h:column>
+                     <f:facet name="header">#{bundle.COORDINATION_ALIAS_EXISTING_ACTIONS}</f:facet>
+                     <h:panelGrid columns="2" cellpadding="0" cellspacing="0" border="0">
+                        <h:commandLink action="renameCoordination" actionListener="#{coordinationManager.select}">
+                           <h:outputText styleClass="actionRename" value="#{bundle.RENAME}"/>
+                           <f:param name="name" value="#{binding.name}"/>
+                           <f:param name="type" value="alias"/>
+                        </h:commandLink>
+                        <h:commandLink action="confirmCoordinationDeletion" actionListener="#{coordinationManager.select}">
+                           <h:outputText styleClass="actionDelete" value="#{bundle.COMMON_DELETE}"/>
+                           <f:param name="name" value="#{binding.name}"/>
+                           <f:param name="type" value="alias"/>
+                        </h:commandLink>
+                     </h:panelGrid>
+                  </h:column>
+               </h:dataTable>
+            </div>
+            <br class="clear"/>
+         </h:form>
+      </div>
+   </div>
+
+   <br/>
+   
+   <!-- Parameter bindings -->
+   <div class="tenpx-top-bottom">
+      <h2 class="portlet-area-header" onclick="toggle_visibility('parameterBindings');" style="cursor: pointer">
+         <img id="parameterBindingsDisc" src="/portal-admin/img/minus.gif" alt="-"/>
+         <a name="#{bundle.COORDINATION_PARAMETER_BINDINGS}"/>#{bundle.COORDINATION_PARAMETER_BINDINGS}
+      </h2>
+      <div id="parameterBindings" class="coordination-section">
+         <h:form>
+            <h:selectBooleanCheckbox id="useExplicitBinding" value="#{coordinationManager.explicitParametersUsed}"
+                                     onclick="this.form.submit()" immediate="true"/>
+            #{bundle.COORDINATION_PARAMETER_EXPLICIT_MODE}
+         </h:form>
+
+         <hr/>
+
+         <!-- Create parameter binding -->
+         <h3 class="sectionTitle tenpx-top-bottom">#{bundle.COORDINATION_PARAMETER_CREATE}</h3>
+         <h:outputText value="#{bundle.COORDINATION_PARAMETER_CREATE_NO_PAIRS}" rendered="#{empty parameterManager.availableParameterWindowPairs}"/>
+         <h:form rendered="#{!empty parameterManager.availableParameterWindowPairs}" id="create-binding-form">
+            <div class="float-left tenpx-right">
+               <h4>#{bundle.COORDINATION_PARAMETER_CREATE_STEP1}</h4>
+               <h:selectManyListbox id="parameterWindowPair"  size="5" value="#{parameterManager.selectedParameterWindowPairs}"
+                                   immediate="true" onchange="this.form.submit()">
+                  <f:selectItems value="#{parameterManager.availableParameterWindowPairs}"/>
+               </h:selectManyListbox>
+            </div>
+
+            <h:panelGroup rendered="#{!empty parameterManager.selectedParameterWindowPairs}">
+               <div class="float-left paramBinding-step2">
+                  <h4>#{bundle.COORDINATION_PARAMETER_CREATE_STEP2}</h4>
+                  <div class="full-width">
+                     <span>
+                        <h:inputText id="bindingName" value="#{parameterManager.windowBindingName}"/>
+                        <h:message for="bindingName" errorClass="portlet-msg-error"/>
+                     </span>
+                     <span>
+                        <h:commandButton value="#{bundle.COORDINATION_PARAMETER_CREATE_CREATE}"
+                                      action="#{parameterManager.create}" styleClass="portlet-form-button"/>
+                     <h:commandButton value="#{bundle.COMMON_CANCEL}" action="#{parameterManager.cancel}"
+                                      styleClass="portlet-form-button"/>
+                     </span>
+                  </div>
+               </div>
+            </h:panelGroup>
+
+            <br class="clear"/>
+         </h:form>
+
+         <!-- Manage existing parameter bindings -->
+         <h3 class="sectionTitle tenpx-top-bottom">#{bundle.COORDINATION_PARAMETER_MANAGE_EXISTING}</h3>
+         <div class="float-left full-width">
+            <h:outputText value="#{bundle.COORDINATION_PARAMETER_EXISTING_NONE}" rendered="#{empty parameterManager.displayParameterBindings}"/>
+            <h:form rendered="#{!empty parameterManager.displayParameterBindings}">
+               <h:dataTable var="binding" value="#{parameterManager.displayParameterBindings}"
+                            rendered="true" styleClass="objectList datatable full-width"
+                            rowClasses="portlet-section-body,portlet-section-alternate-blue"
+                            columnClasses="ten-percent-width,half-width,quarter-width"
+                            headerClass="portlet-section-header">
+                  <h:column>
+                     <f:facet name="header">#{bundle.COORDINATION_PARAMETER_EXISTING_NAME}</f:facet>
+                     <h4>#{binding.name}</h4>
+                  </h:column>
+                  <h:column>
+                     <f:facet name="header">#{bundle.COORDINATION_PARAMETER_EXISTING_PAIRS}</f:facet>
+                       <div class="full-width">
+                        <ui:repeat var="pair" value="#{binding.parameterWindowPairs}">
+                           <div class="float-left pad5">
+                              <div class="paramList-header">#{pair.window.name}</div>
+                              <ul class="paramList">
+                                 <c:set var="pairname" value="#{fn:split(pair.name, ';')}" />
+                                 <ui:repeat var="name" value="#{pairname}">
+                                    <li>#{name}</li>
+                                 </ui:repeat>
+                              </ul>
+                           </div>
+                        </ui:repeat>
+                     </div>
+
+                  </h:column>
+                  <h:column>
+                     <f:facet name="header">#{bundle.COORDINATION_PARAMETER_EXISTING_ACTIONS}</f:facet>
+                     <h:panelGrid columns="2" cellpadding="0" cellspacing="0" border="0">
+                     <h:commandLink action="renameCoordination" actionListener="#{coordinationManager.select}">
+                        <h:outputText styleClass="actionRename" value="#{bundle.RENAME}"/>
+                        <f:param name="name" value="#{binding.name}"/>
+                        <f:param name="type" value="parameter"/>
+                     </h:commandLink>
+                     <h:commandLink action="confirmCoordinationDeletion" actionListener="#{coordinationManager.select}">
+                        <h:outputText styleClass="actionDelete" value="#{bundle.COMMON_DELETE}"/>
+                        <f:param name="name" value="#{binding.name}"/>
+                        <f:param name="type" value="parameter"/>
+                     </h:commandLink>
+                     </h:panelGrid>
+                  </h:column>
+               </h:dataTable>
+            </h:form>
+         </div>
+         <br class="clear"/>
+      </div>
+   </div>
+
+   <br/>
+
+   <!-- Event wirings -->
+   <h2 class="portlet-area-header" onclick="toggle_visibility('eventWirings');" style="cursor: pointer">
+      <img id="eventWiringsDisc" src="/portal-admin/img/minus.gif" alt="-"/>
+      <a name="#{bundle.COORDINATION_EVENT_WIRINGS}"/>#{bundle.COORDINATION_EVENT_WIRINGS}
+   </h2>
+   <div id="eventWirings" class="coordination-section">
+      <h:form>
+         <h:selectBooleanCheckbox id="useExplicitEvents" value="#{coordinationManager.explicitEventsUsed}"
+                                  onclick="this.form.submit()" immediate="true"/>#{bundle.COORDINATION_EVENT_EXPLICIT_MODE}
+      </h:form>
+
+      <hr/>
+
+      <!-- Create new event wiring -->
+      <h3 class="sectionTitle tenpx-top-bottom">#{bundle.COORDINATION_EVENT_CREATE}</h3>
+      <h:outputText value="#{bundle.COORDINATION_EVENT_CREATE_NO_EVENTS}" rendered="#{empty eventManager.sourceEvents}"/>
+      <h:form rendered="#{!empty eventManager.sourceEvents}" id="create-wiring-form">
+         <div class="half-width float-left">
+            <div class="full-width pad5">
+               <h4>#{bundle.COORDINATION_EVENT_CREATE_STEP1}</h4>
+               <h:selectOneListbox id="sourceEvent" size="5" value="#{eventManager.selectedSourceEvent}" immediate="true"
+                                   onchange="this.form.submit()">
+                  <f:selectItems value="#{eventManager.sourceEvents}"/>
+               </h:selectOneListbox>
+            </div>
+
+            <f:subview id="COORDINATION_EVENT_CREATE_STEP2" rendered="#{!empty eventManager.selectedSourceEvent}">
+               <div class="full-width pad5">
+               <h4>#{bundle.COORDINATION_EVENT_CREATE_STEP2}</h4>
+               <div class="pad5"><h:graphicImage url="/img/jbp-icon-set/event_source.gif"/> #{eventManager.selectedSourceEvent}</div>
+                  <h:selectManyListbox id="sourceWindows" size="5" value="#{eventManager.selectedSourceWindows}" immediate="true"
+                                       onchange="this.form.submit()">
+                     <f:selectItems value="#{eventManager.sourceWindows}"/>
+                  </h:selectManyListbox>
+               </div>
+            </f:subview>
+
+            <f:subview id="COORDINATION_EVENT_CREATE_STEP3" rendered="#{!empty eventManager.selectedSourceWindows}">
+               <div class="full-width pad5">
+                  <h4>#{bundle.COORDINATION_EVENT_CREATE_STEP3}</h4>
+                  <h:selectOneListbox id="destEvent" size="5" value="#{eventManager.selectedDestinationEvent}" immediate="true"
+                                      onchange="this.form.submit()">
+                     <f:selectItems value="#{eventManager.destinationEvents}"/>
+                  </h:selectOneListbox>
+               </div>
+            </f:subview>
+
+            <f:subview id="COORDINATION_EVENT_CREATE_STEP4" rendered="#{!empty eventManager.selectedDestinationEvent}">
+               <div class="full-width pad5">
+                  <h4>#{bundle.COORDINATION_EVENT_CREATE_STEP4}</h4>
+                  <div class="pad5"><h:graphicImage url="/img/jbp-icon-set/event_dest.gif"/>#{eventManager.selectedDestinationEvent}</div>
+                  <h:selectManyListbox id="destWindows" size="5" value="#{eventManager.selectedDestinationWindows}" immediate="true"
+                                       onchange="this.form.submit()">
+                     <f:selectItems value="#{eventManager.destinationWindows}"/>
+                  </h:selectManyListbox>
+               </div>
+            </f:subview>
+
+            <br class="clear"/>
+         </div>
+
+         <div class="half-width float-left event-wiring-preview">
+            <f:subview id="sourceEventUI" rendered="#{!empty eventManager.selectedSourceEvent}">
+               <h4>#{bundle.COORDINATION_EVENT_CREATE_PREVIEW}</h4>
+               <p>#{bundle.COORDINATION_EVENT_CREATE_PREVIEW_STEP1}</p>
+               <ul class="sourceEventList">
+                  <li>#{eventManager.selectedSourceEvent}</li>
+               </ul>
+            </f:subview>
+            <f:subview id="sourceWindowUI" rendered="#{!empty eventManager.selectedSourceWindows}" >
+               <p>#{bundle.COORDINATION_EVENT_CREATE_PREVIEW_STEP2}</p>
+               <ul class="sourceWindowList">
+                  <ui:repeat var="window" value="#{eventManager.selectedSourceWindows}">
+                     <li>#{window}</li>
+                  </ui:repeat>
+               </ul>
+            </f:subview>
+            <f:subview id="destEventUI" rendered="#{!empty eventManager.selectedDestinationEvent}">
+               <hr/>
+               <p>#{bundle.COORDINATION_EVENT_CREATE_PREVIEW_STEP3}</p>
+               <ul class="destEventList">
+                  <li>#{eventManager.selectedDestinationEvent}</li>
+               </ul>
+            </f:subview>
+            <f:subview id="destWindowUI" rendered="#{!empty eventManager.selectedDestinationWindows}">
+               <p>#{bundle.COORDINATION_EVENT_CREATE_PREVIEW_STEP4}</p>
+               <ul class="destWindowList">
+                  <ui:repeat var="window" value="#{eventManager.selectedDestinationWindows}">
+                     <li>#{window}</li>
+                  </ui:repeat>
+               </ul>
+            </f:subview>
+
+            <f:subview id="COORDINATION_EVENT_CREATE_STEP5" rendered="#{!empty eventManager.selectedDestinationWindows}">
+               <div class="full-width createwiring-box">
+                  <div class="margin10">
+                     <h4>#{bundle.COORDINATION_EVENT_CREATE_STEP5}</h4>
+                     <h:inputText id="wiringName" value="#{eventManager.wiringName}"/>
+                     <h:message for="wiringName" errorClass="portlet-msg-error"/>
+                     <h:commandButton value="#{bundle.COORDINATION_EVENT_CREATE_CREATE}" action="#{eventManager.create}"
+                                      styleClass="portlet-form-button"/>
+                     <h:commandButton value="#{bundle.COMMON_CANCEL}" action="#{eventManager.cancel}"
+                                      styleClass="portlet-form-button"/>
+                  </div>
+               </div>
+            </f:subview>
+
+            <br class="clear"/>
+         </div>
+
+      </h:form>
+
+      <br class="clear"/>
+
+      <!-- Manage existing wirings -->
+      <h3 class="sectionTitle tenpx-top-bottom">#{bundle.COORDINATION_EVENT_MANAGE_EXISTING}</h3>
+      <h:outputText value="#{bundle.COORDINATION_EVENT_EXISTING_NONE}" rendered="#{empty eventManager.displayEventWirings}"/>
+      <h:form rendered="#{!empty eventManager.displayEventWirings}">
+         <h:dataTable var="wiring" value="#{eventManager.displayEventWirings}"
+                      styleClass="objectList datatable"
+                      rowClasses="portlet-section-body,portlet-section-alternate-blue"
+                      columnClasses="ten-percent-width,quarter-width,quarter-width,ten-percent-width"
+                      headerClass="portlet-section-header">
+            <h:column>
+               <f:facet name="header">
+                  #{bundle.COORDINATION_EVENT_EXISTING_NAME}
+               </f:facet>
+               #{wiring.name}
+            </h:column>
+
+            <h:column>
+               <f:facet name="header">
+                  #{bundle.COORDINATION_EVENT_EXISTING_SOURCE_WINDOWS} &#8658; #{bundle.COORDINATION_EVENT_EXISTING_SOURCE_EVENTS}
+               </f:facet>
+               <ul class="sourceWindowList">
+                  <ui:repeat var="window" value="#{wiring.sourceWindows}">
+                     <li>
+                        <h:commandLink action="#{portalobjectmgr.selectObject}" styleClass="objectName">
+                           <f:param name="id" value="#{window.id}"/>
+                           #{window.name}
+                        </h:commandLink>
+                     </li>
+                  </ui:repeat>
+               </ul>
+               <span style="display: block; text-align:center;">&#8659;</span>
+               <ul class="sourceEventList">
+                  <ui:repeat var="event" value="#{wiring.sourceEvents}">
+                     <li>#{event}</li>
+                  </ui:repeat>
+               </ul>
+            </h:column>
+            <h:column>
+               <f:facet name="header">
+                   #{bundle.COORDINATION_EVENT_EXISTING_DESTINATION_WINDOWS} &#8656; #{bundle.COORDINATION_EVENT_EXISTING_DESTINATION_EVENTS}
+               </f:facet>
+
+               <ul class="destWindowList">
+                  <ui:repeat var="window" value="#{wiring.destinationWindows}">
+                     <li>
+                        <h:commandLink action="#{portalobjectmgr.selectObject}" styleClass="objectName">
+                           <f:param name="id" value="#{window.id}"/>
+                           #{window.name}
+                        </h:commandLink>
+                     </li>
+                  </ui:repeat>
+               </ul>
+               <span style="display: block; text-align:center;">&#8657;</span>
+               <ul class="destEventList">
+                  <ui:repeat var="event" value="#{wiring.destinationEvents}">
+                     <li>#{event}</li>
+                  </ui:repeat>
+               </ul>
+
+
+            </h:column>
+            <h:column>
+               <f:facet name="header">
+                  #{bundle.COORDINATION_EVENT_EXISTING_ACTIONS}
+               </f:facet>
+               <h:panelGrid columns="2" cellpadding="0" cellspacing="0" border="0">
+               <h:commandLink action="renameCoordination" actionListener="#{coordinationManager.select}">
+                  <h:outputText styleClass="actionRename" value="#{bundle.RENAME}"/>
+                  <f:param name="name" value="#{wiring.name}"/>
+                  <f:param name="type" value="wiring"/>
+               </h:commandLink>
+               <h:commandLink action="confirmCoordinationDeletion" actionListener="#{coordinationManager.select}">
+                  <h:outputText styleClass="actionDelete" value="#{bundle.COMMON_DELETE}"/>
+                  <f:param name="name" value="#{wiring.name}"/>
+                  <f:param name="type" value="wiring"/>
+               </h:commandLink>
+               </h:panelGrid>
+            </h:column>
+         </h:dataTable>
+      </h:form>
+   </div>
+
+</ui:define>
+</ui:composition>

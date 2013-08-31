@@ -1,0 +1,80 @@
+<wicket:head>
+	<script type="text/javascript">
+
+	function selectAll() {
+	   	var groupselector = document.getElementById("groupselector");
+	   	//support IE and Firefox
+	   	var tagArray = document.getElementsByTagName("*");
+
+	   	if(groupselector.checked) {
+			for (var i = 0; i < tagArray.length; i++) {   
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = true;
+		        	}
+		  		}
+			}
+	   	}
+	   	else {
+			for (var i = 0; i < tagArray.length; i++) {  
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = false;
+		          	}
+		        }			    
+		  	}
+	   	}
+		
+	}
+	</script>
+</wicket:head>
+
+<wicket:panel>
+
+
+  <div class="content">
+    <form wicket:id="accountsForm">
+    
+   <div class="portal-box">
+    <div class="content-container">
+    		<h3><wicket:message key="accountList" /></h3>
+    	<div class="contentbox">
+<span style="color: red;"
+		wicket:id="feedBack">error message</span>
+
+	            <div class="table-box overflow">
+		              <table border="0" cellpadding="0" cellspacing="0" class="table-styles-a">
+		                <tr>
+		                  <th><input type="checkbox" wicket:id="groupselector" onclick="selectAll()"> 
+							<wicket:message	key="selectAll" /> </input></th>
+		                  <th><wicket:message key="accountName" /></th>
+		                  <th><wicket:message key="accountRole" /></th>
+		                  <th><wicket:message key="providerName" /></th>                  
+		                  <th><wicket:message key="detail" /></th>
+		                </tr>
+		                
+						<tr wicket:id="accounts">
+							<td align="center"><input wicket:id="select" type="checkbox"></input></td>
+							<td align="center">&nbsp;<span wicket:id="accountName"></span></td>
+							<td align="center">&nbsp;<span wicket:id="accountRole"></span></td>
+							<td align="center">&nbsp;<span wicket:id="providerName"></span></td>					
+							<td align="center"><a wicket:id="detail"><img src="images/icon_edit.gif" /></a></td>			
+						</tr>                
+		              </table>
+	            </div>
+            
+               <span wicket:id="navigator"></span>
+  	     </div> 
+  	     
+  	     <div class="clear"></div>                         
+       </div>
+                      
+            <div class="contentbutton">
+			<div wicket:id="checkPanel"></div>
+              <input type="submit" wicket:id="delete" wicket:message="value:delete" class="button-submit" />
+            </div>
+    </div>
+          
+    </form>
+ </div>	
+</wicket:panel>

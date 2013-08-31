@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">保存</entry>
+	<entry key="back">返回</entry>
+	<entry key="add">添加</entry>
+	<entry key="delete">删除</entry>
+		
+	<entry key="userId">用户名</entry>
+	<entry key="roleName">角色</entry>	
+	<entry key="providerID">供应商编号</entry>
+	<entry key="newPassword">密码</entry>
+	<entry key="confirmPassword">确认密码</entry>	
+	
+	<entry key="accountInfo">账户信息</entry>	
+	<entry key="msisdn">号码</entry>	
+	
+	<entry key="title.big">账户管理</entry>		
+	
+	<entry key="promptTitle">提示</entry>
+	<entry key="confirmMsg">你确定想要新建一个账户吗？</entry>
+	<entry key="successMsg">新建账户成功.</entry>
+	
+	<entry key="msg.error.save.nouser">用户为空.</entry>
+	<entry key="msg.error.save.existeduser">该用户已存在.</entry>
+	<entry key="msg.error.save.noproviderID">供应商编号不存在.</entry>
+	<entry key="msg.error.save.wrongproviderID">错误格式的供应商编号.</entry>
+	<entry key="msg.error.save.passwordLength">密码长度必须为1到32位.</entry>
+	<entry key="msg.error.save.passwordNotSame">两次输入密码不一致.</entry>
+	<entry key="msg.error.save.passwordEmpty">两次输入密码为空.</entry>
+	<entry key="msg.error.save.noRole">该角色不存在.</entry>
+
+</properties>

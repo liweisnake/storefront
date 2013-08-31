@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="rate_management_interface" targetNamespace="http://www.csapi.org/wsdl/parlayx/rate_management/v2_2/interface" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://www.csapi.org/schema/parlayx/common/v2_1" xmlns:parlayx_common_faults="http://www.csapi.org/wsdl/parlayx/common/v2_0/faults" xmlns:rate_management="http://www.csapi.org/wsdl/parlayx/rate_management/v2_2/interface" xmlns:rate_management_local_xsd="http://www.csapi.org/schema/parlayx/rate_management/v2_2/local" xmlns:rate_management_xsd="http://www.csapi.org/schema/parlayx/rate_management/v2_2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <import location="RateManagement_1_2.wsdl" namespace="http://www.csapi.org/wsdl/parlayx/common/v2_0/faults"/>
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/parlayx/rate_management/v2_2/local">
+      <xsd:import namespace="http://www.csapi.org/schema/parlayx/rate_management/v2_2" schemaLocation="RateManagement_1.xsd"/>
+      <xsd:import namespace="calendar-schemalet" schemaLocation="RateManagement.xsd"/>
+      <xsd:element name="createServiceOperation" type="rate_management_local_xsd:createServiceOperation"/>
+      <xsd:complexType name="createServiceOperation">
+        <xsd:sequence>
+          <xsd:element name="rate" type="rate_management_xsd:Rate"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="createServiceOperationResponse" type="rate_management_local_xsd:createServiceOperationResponse"/>
+      <xsd:complexType name="createServiceOperationResponse">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="deleteServiceOperationRate" type="rate_management_local_xsd:RateManagement_deleteServiceOperationRate"/>
+      <xsd:complexType name="RateManagement_deleteServiceOperationRate">
+        <xsd:sequence>
+          <xsd:element name="ratePlanId" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="deleteServiceOperationRateResponse" type="rate_management_local_xsd:RateManagement_deleteServiceOperationRateResponse"/>
+      <xsd:complexType name="RateManagement_deleteServiceOperationRateResponse">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listServiceOperationRate" type="rate_management_local_xsd:listServiceOperationRate"/>
+      <xsd:complexType name="listServiceOperationRate">
+        <xsd:sequence>
+          <xsd:element name="input" type="rate_management_xsd:Rate"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListServiceOperationRateResponse" type="rate_management_local_xsd:listServiceOperationRateResponse"/>
+      <xsd:complexType name="listServiceOperationRateResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="rate" type="rate_management_xsd:Rate"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getServiceOperationRate" type="rate_management_local_xsd:getServiceOperationRate"/>
+      <xsd:complexType name="getServiceOperationRate">
+        <xsd:sequence>
+          <xsd:element name="ratePlanId" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getServiceOperationRateResponse" type="rate_management_local_xsd:getServiceOperationRateResponse"/>
+      <xsd:complexType name="getServiceOperationRateResponse">
+        <xsd:sequence>
+          <xsd:element name="rate" type="rate_management_xsd:Rate"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getServiceOperationRateExpiryDate" type="rate_management_local_xsd:getServiceOperationRateExpiryDate"/>
+      <xsd:complexType name="getServiceOperationRateExpiryDate">
+        <xsd:sequence>
+          <xsd:element name="ratePlanId" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getServiceOperationRateExpiryDateResponse" type="rate_management_local_xsd:getServiceOperationRateExpiryDateResponse"/>
+      <xsd:complexType name="getServiceOperationRateExpiryDateResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="expiryDetails" type="rate_management_xsd:ExpiryDetails"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="updateServiceOperationRate" type="rate_management_local_xsd:updateServiceOperationRate"/>
+      <xsd:complexType name="updateServiceOperationRate">
+        <xsd:sequence>
+          <xsd:element name="rate" type="rate_management_xsd:Rate"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="updateServiceOperationRateResponse" type="rate_management_local_xsd:updateServiceOperationRateResponse"/>
+      <xsd:complexType name="updateServiceOperationRateResponse">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="getHistory" type="rate_management_local_xsd:getHistory"/>
+      <xsd:complexType name="getHistory">
+        <xsd:sequence>
+          <xsd:element name="ratePlanId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="fromDate" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="toDate" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="maxEntries" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getHistoryResponse" type="rate_management_local_xsd:getHistoryResponse"/>
+      <xsd:complexType name="getHistoryResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="datedTransaction" type="rate_management_xsd:DatedTransaction"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="updateExpiryDate" type="rate_management_local_xsd:updateExpiryDate"/>
+      <xsd:complexType name="updateExpiryDate">
+        <xsd:sequence>
+          <xsd:element name="ratePlanId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="date" type="xsd:dateTime"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="updateExpiryDateResponse" type="rate_management_local_xsd:updateExpiryDateResponse"/>
+      <xsd:complexType name="updateExpiryDateResponse">
+        <xsd:sequence/>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="RateManagement_getServiceOperationRateResponse">
+    <part element="rate_management_local_xsd:getServiceOperationRateResponse" name="result"/>
+  </message>
+  <message name="RateManagement_updateExpiryDateResponse">
+    <part element="rate_management_local_xsd:updateExpiryDateResponse" name="result"/>
+  </message>
+  <message name="RateManagement_getHistoryRequest">
+    <part element="rate_management_local_xsd:getHistory" name="parameters"/>
+  </message>
+  <message name="RateManagement_updateServiceOperationRateRequest">
+    <part element="rate_management_local_xsd:updateServiceOperationRate" name="parameters"/>
+  </message>
+  <message name="RateManagement_getServiceOperationRateExpiryDateResponse">
+    <part element="rate_management_local_xsd:getServiceOperationRateExpiryDateResponse" name="result"/>
+  </message>
+  <message name="RateManagement_listServiceOperationRateResponse">
+    <part element="rate_management_local_xsd:ListServiceOperationRateResponse" name="result"/>
+  </message>
+  <message name="RateManagement_updateServiceOperationRateResponse">
+    <part element="rate_management_local_xsd:updateServiceOperationRateResponse" name="result"/>
+  </message>
+  <message name="RateManagement_updateExpiryDateRequest">
+    <part element="rate_management_local_xsd:updateExpiryDate" name="parameters"/>
+  </message>
+  <message name="RateManagement_listServiceOperationRateRequest">
+    <part element="rate_management_local_xsd:listServiceOperationRate" name="parameters"/>
+  </message>
+  <message name="RateManagement_getServiceOperationRateRequest">
+    <part element="rate_management_local_xsd:getServiceOperationRate" name="parameters"/>
+  </message>
+  <message name="RateManagement_getHistoryResponse">
+    <part element="rate_management_local_xsd:getHistoryResponse" name="result"/>
+  </message>
+  <message name="RateManagement_deleteServiceOperationRateResponse">
+    <part element="rate_management_local_xsd:deleteServiceOperationRateResponse" name="result"/>
+  </message>
+  <message name="RateManagement_createServiceOperationRateResponse">
+    <part element="rate_management_local_xsd:createServiceOperationResponse" name="result"/>
+  </message>
+  <message name="RateManagement_createServiceOperationRateRequest">
+    <part element="rate_management_local_xsd:createServiceOperation" name="parameters"/>
+  </message>
+  <message name="RateManagement_getServiceOperationRateExpiryDateRequest">
+    <part element="rate_management_local_xsd:getServiceOperationRateExpiryDate" name="parameters"/>
+  </message>
+  <message name="RateManagement_deleteServiceOperationRateRequest">
+    <part element="rate_management_local_xsd:deleteServiceOperationRate" name="parameters"/>
+  </message>
+  <portType name="RateManagement">
+    <operation name="createServiceOperationRate">
+      <input message="rate_management:RateManagement_createServiceOperationRateRequest"/>
+      <output message="rate_management:RateManagement_createServiceOperationRateResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="deleteServiceOperationRate">
+      <input message="rate_management:RateManagement_deleteServiceOperationRateRequest"/>
+      <output message="rate_management:RateManagement_deleteServiceOperationRateResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="listServiceOperationRate">
+      <input message="rate_management:RateManagement_listServiceOperationRateRequest"/>
+      <output message="rate_management:RateManagement_listServiceOperationRateResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="getServiceOperationRate">
+      <input message="rate_management:RateManagement_getServiceOperationRateRequest"/>
+      <output message="rate_management:RateManagement_getServiceOperationRateResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="getServiceOperationRateExpiryDate">
+      <input message="rate_management:RateManagement_getServiceOperationRateExpiryDateRequest"/>
+      <output message="rate_management:RateManagement_getServiceOperationRateExpiryDateResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="updateServiceOperationRate">
+      <input message="rate_management:RateManagement_updateServiceOperationRateRequest"/>
+      <output message="rate_management:RateManagement_updateServiceOperationRateResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="getHistory">
+      <input message="rate_management:RateManagement_getHistoryRequest"/>
+      <output message="rate_management:RateManagement_getHistoryResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="updateExpiryDate">
+      <input message="rate_management:RateManagement_updateExpiryDateRequest"/>
+      <output message="rate_management:RateManagement_updateExpiryDateResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+  </portType>
+</definitions>

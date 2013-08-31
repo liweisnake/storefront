@@ -1,0 +1,46 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+   <h:form id="common-edit-theme-form">
+      <table class="full-width datatable">
+         <thead class="portlet-section-header">
+            <tr>
+               <th>#{bundle.COMMON_NAME}</th>
+               <th>#{bundle.COMMON_DESCRIPTION}</th>
+               <th>#{bundle.COMMON_SETTING}</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr class="portlet-section-body">
+               <td>#{bundle.COMMON_LAYOUT}</td>
+               <td>#{bundle.COMMON_NAME_LAYOUT_IMPLEMENTATION}</td>
+               <td>
+                  <h:selectOneMenu id="layout" value="#{theme.layoutName}">
+                     <f:selectItems value="#{applicationScope.LayoutService.layoutItems}"/>
+                  </h:selectOneMenu>
+               </td>
+            </tr>
+            <tr class="portlet-section-alternate">
+               <td>#{bundle.COMMON_THEME}</td>
+               <td>#{bundle.COMMON_NAME_LOOK_AND_FEEL}</td>
+               <td>
+                  <h:selectOneMenu id="theme" value="#{theme.themeName}">
+                     <f:selectItems value="#{applicationScope.ThemeService.themeItems}"/>
+                  </h:selectOneMenu>
+               </td>
+            </tr>
+            <tr class="portlet-section-body">
+               <td>#{bundle.COMMON_RENDERSET}</td>
+               <td>#{bundle.COMMON_NAME_RENDER_ENGINE_PAGES}</td>
+               <td>
+                  <h:selectOneMenu id="renderSet" value="#{theme.renderSetName}">
+                     <f:selectItems value="#{applicationScope.LayoutService.renderSetItems}"/>
+                  </h:selectOneMenu>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <br />
+      <ui:insert name="form_submit"/>
+   </h:form>
+</div>

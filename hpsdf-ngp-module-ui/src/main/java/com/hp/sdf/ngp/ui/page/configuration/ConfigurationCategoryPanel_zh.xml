@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="titleAdd">创建分类</entry>
+<entry key="titleModify">更新分类</entry>
+<entry key="titleList">列表分类</entry>
+<entry key="name">名字</entry>
+<entry key="description">描述</entry>
+<entry key="operation">操作</entry>
+<entry key="add">创建</entry>
+<entry key="delete">删除</entry>
+<entry key="modify">更新</entry>
+<entry key="exist.name">分类已经存在</entry>
+<entry key="toLong">分类名长度不能超过100个字符</entry>
+</properties>

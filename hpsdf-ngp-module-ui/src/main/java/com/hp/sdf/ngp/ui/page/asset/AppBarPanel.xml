@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Applications</entry>
+<entry key="criteria.all">ALL</entry>
+<entry key="criteria.keyword">KEYWORD</entry>
+<entry key="criteria.CATEGORY">CATEGORY</entry>
+<entry key="criteria.PLATFORM">PLATFORM</entry>
+<entry key="criteria.APPTAGRELATION">TAG</entry>
+<entry key="label.sortby">Sort By: </entry>
+<entry key="lnk.name">Name</entry>
+<entry key="lnk.date">Date</entry>
+<entry key="lnk.rate">Rating</entry>
+</properties>

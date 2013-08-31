@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:oasis:names:tc:wsrp:v1:wsdl" xmlns:tns="urn:oasis:names:tc:wsrp:v1:wsdl" xmlns:intf="urn:oasis:names:tc:wsrp:v1:intf" xmlns:bind="urn:oasis:names:tc:wsrp:v1:bind" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="urn:oasis:names:tc:wsrp:v1:bind" location="wsrp_v1_bindings.wsdl">
+    </wsdl:import>
+  <wsdl:service name="WSRPService">
+    <wsdl:port name="WSRPPortletManagementService" binding="bind:WSRP_v1_PortletManagement_Binding_SOAP">
+      <soap:address location="http://127.0.0.1:8080/portal-wsrp/PortletManagementService"/>
+    </wsdl:port>
+    <wsdl:port name="WSRPRegistrationService" binding="bind:WSRP_v1_Registration_Binding_SOAP">
+      <soap:address location="http://127.0.0.1:8080/portal-wsrp/RegistrationService"/>
+    </wsdl:port>
+    <wsdl:port name="WSRPBaseService" binding="bind:WSRP_v1_Markup_Binding_SOAP">
+      <soap:address location="http://127.0.0.1:8080/portal-wsrp/MarkupService"/>
+    </wsdl:port>
+    <wsdl:port name="WSRPServiceDescriptionService" binding="bind:WSRP_v1_ServiceDescription_Binding_SOAP">
+      <soap:address location="http://127.0.0.1:8080/portal-wsrp/ServiceDescriptionService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

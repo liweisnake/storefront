@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">Save</entry>
+	<entry key="back">Back</entry>
+	
+	<entry key="title">New Platform</entry>	
+	
+	<entry key="platformName">Platform Name</entry>
+	<entry key="description">Description</entry>
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to create a new platform?</entry>
+	<entry key="successMsg">Create a platform successfully.</entry>
+	
+	
+	<entry key="error.save.dpplatform">Duplicated platform.</entry>
+</properties>

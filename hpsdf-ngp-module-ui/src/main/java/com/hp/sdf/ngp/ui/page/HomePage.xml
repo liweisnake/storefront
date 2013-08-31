@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="welcome">Welcome to HP Next Generation Portal</entry>
+<entry key="logout">logout</entry>
+<entry key="developer">developer</entry>
+<entry key="owner">7</entry>
+</properties>

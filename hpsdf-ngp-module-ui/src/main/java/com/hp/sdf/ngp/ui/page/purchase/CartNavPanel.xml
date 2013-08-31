@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Cart Navigate Panel</entry>
+<entry key="header">Success!</entry>
+<entry key="hint.success">The asset is successfully added to your shopping cart.</entry>
+<entry key="hint.fail">The asset failed to be added to your shopping cart.</entry>
+<entry key="msg.1">There are</entry>
+<entry key="msg.2"> items in your shopping cart.</entry>
+<entry key="label.amount">Total Amount : </entry>
+<entry key="link.cart">Go Shopping Cart</entry>
+<entry key="link.cancel">Continue Browsing</entry>
+</properties>

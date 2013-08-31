@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<storefront>
+	<userCategories>
+		<category>
+			<name>User</name>
+			<display>a registered user</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+			</privileges>			
+		</category>
+		<category>
+			<name>Admin</name>
+			<display>the super administrator</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<value>viewmyappapproval</value>
+				<value>viewmypromotionapproval</value>
+				<value>viewcategorylist</value>
+				<value>deletecategory</value>
+				<value>newcategory</value>
+				<value>editcategory</value>
+				<value>viewcensoredwordlist</value>
+				<value>deletecensoredword</value>
+				<value>newcensoredword</value>
+				<value>editcensoredword</value>
+				<value>searchcomments</value>
+				<value>deletecomments</value>
+				<value>viewcommentslist</value>		
+				<value>viewclientapplication</value>	
+				<value>updateclientapplication</value>	
+				<value>searchhandset</value>
+				<value>deletehandset</value>
+				<value>viewhandsetlist</value>		
+				<value>edithandset</value>	
+				<value>newhandset</value>	
+				<value>searchaccount</value>
+				<value>deleteaccount</value>
+				<value>viewaccountlist</value>		
+				<value>editaccount</value>	
+				<value>newaccount</value>
+				<value>searchpurchasehistory</value>	
+				<value>viewpurchasehistory</value>														
+			</privileges>			
+		</category>
+		
+		<category>
+			<name>SBM System Manager</name>
+			<display>SBM System Manager</display>
+			<description></description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<!-- content begin -->
+				<value>contentsearch</value>
+				<value>contentlist</value>
+				<value>contentdownload</value>
+				<value>contentbatch</value>
+				<value>contentupdate</value>
+				<value>contentdelete</value>
+				<value>newcontent</value>
+				<value>updatecontent</value>
+				<value>statushistory</value>
+				<value>recommendsearch</value>
+				<value>defaultsetting</value>
+				<value>newpromotionduedate</value>
+				<value>defaultrate</value>
+				<!-- content end -->
+				<value>viewcategorylist</value>
+				<value>deletecategory</value>
+				<value>newcategory</value>
+				<value>editcategory</value>
+				<value>viewcensoredwordlist</value>
+				<value>deletecensoredword</value>
+				<value>newcensoredword</value>
+				<value>editcensoredword</value>
+				<value>searchcomments</value>
+				<value>deletecomments</value>
+				<value>viewcommentslist</value>		
+				<value>viewclientapplication</value>	
+				<value>updateclientapplication</value>	
+				<value>searchhandset</value>
+				<value>deletehandset</value>
+				<value>viewhandsetlist</value>		
+				<value>edithandset</value>	
+				<value>newhandset</value>	
+				<value>searchaccount</value>
+				<value>deleteaccount</value>
+				<value>viewaccountlist</value>		
+				<value>editaccount</value>	
+				<value>newaccount</value>
+				<value>searchpurchasehistory</value>	
+				<value>viewpurchasehistory</value>														
+			</privileges>
+		</category>
+		
+		<category>
+			<name>SBM System Monitor</name>
+			<display>SBM System Monitor</display>
+			<description></description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<!-- content begin -->
+				<value>contentsearch</value>
+				<value>contentlist</value>
+				<value>contentdownload</value>
+				<value>newcontent</value>
+				<value>updatecontent</value>
+				<value>statushistory</value>
+				<value>defaultsetting</value>
+				<!-- content end -->
+				<value>viewcategorylist</value>
+				<value>viewcensoredwordlist</value>
+				<value>searchcomments</value>
+				<value>viewcommentslist</value>	
+				<value>viewclientapplication</value>	
+				<value>searchhandset</value>
+				<value>viewhandsetlist</value>
+				<value>editaccount</value>	
+				<value>searchpurchasehistory</value>	
+				<value>viewpurchasehistory</value>																
+			</privileges>
+		</category>	
+		
+		<category>
+			<name>SBM Service Manager</name>
+			<display>SBM Service Manager</display>
+			<description></description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<!-- content begin -->
+				<value>contentsearch</value>
+				<value>contentlist</value>
+				<value>contentdownload</value>
+				<value>contentbatch</value>
+				<value>contentupdate</value>
+				<value>contentdelete</value>
+				<value>newcontent</value>
+				<value>updatecontent</value>
+				<value>statushistory</value>
+				<value>recommendsearch</value>
+				<value>defaultsetting</value>
+				<value>newpromotionduedate</value>
+				<value>defaultrate</value>
+				<!-- content end -->
+				<value>viewcategorylist</value>
+				<value>deletecategory</value>
+				<value>newcategory</value>
+				<value>editcategory</value>		
+				<value>viewcensoredwordlist</value>
+				<value>deletecensoredword</value>
+				<value>newcensoredword</value>
+				<value>editcensoredword</value>
+				<value>searchcomments</value>
+				<value>deletecomments</value>
+				<value>viewcommentslist</value>
+				<value>viewclientapplication</value>	
+				<value>updateclientapplication</value>	
+				<value>searchhandset</value>
+				<value>viewhandsetlist</value>
+				<value>searchaccount</value>
+				<value>deleteaccount</value>
+				<value>viewaccountlist</value>		
+				<value>editaccount</value>	
+				<value>newaccount</value>
+				<value>searchpurchasehistory</value>	
+				<value>viewpurchasehistory</value>																												
+			</privileges>
+		</category>		
+		
+		<category>
+			<name>SBM Content Operator</name>
+			<display>SBM Content Operator</display>
+			<description></description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<!-- content begin -->
+				<value>contentsearch</value>
+				<value>contentlist</value>
+				<value>contentdownload</value>
+				<value>contentbatch</value>
+				<value>contentupdate</value>
+				<value>contentdelete</value>
+				<value>newcontent</value>
+				<value>updatecontent</value>
+				<value>statushistory</value>
+				<value>recommendsearch</value>
+				<value>defaultsetting</value>
+				<value>newpromotionduedate</value>
+				<value>defaultrate</value>
+				<!-- content end -->
+				<value>viewcategorylist</value>
+				<value>deletecategory</value>
+				<value>newcategory</value>
+				<value>editcategory</value>	
+				<value>viewcensoredwordlist</value>
+				<value>deletecensoredword</value>
+				<value>newcensoredword</value>
+				<value>editcensoredword</value>
+				<value>searchcomments</value>
+				<value>deletecomments</value>
+				<value>viewcommentslist</value>
+				<value>viewclientapplication</value>	
+				<value>updateclientapplication</value>
+				<value>searchhandset</value>
+				<value>viewhandsetlist</value>
+				<value>editaccount</value>
+				<value>searchpurchasehistory</value>	
+				<value>viewpurchasehistory</value>																														
+			</privileges>
+		</category>		
+		
+		<category>
+			<name>SBM CS</name>
+			<display>SBM CS</display>
+			<description></description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<!-- content begin -->
+				<value>contentsearch</value>
+				<value>contentlist</value>
+				<value>updatecontent</value>
+				<value>notstatushistory</value>
+				<!-- content end -->
+				<value>viewcensoredwordlist</value>
+				<value>searchcomments</value>
+				<value>viewcommentslist</value>	
+				<value>viewclientapplication</value>
+				<value>editaccount</value>	
+				<value>searchpurchasehistory</value>	
+				<value>viewpurchasehistory</value>											
+			</privileges>
+		</category>		
+		
+		<category>
+			<name>CP</name>
+			<display></display>
+			<description></description>
+			<attributes>
+			</attributes>
+			<privileges>
+				<value>default</value>
+				<!-- content begin -->
+				<value>contentlist</value>
+				<value>contentdownload</value>
+				<value>updatecontent</value>
+				<value>statushistory</value>
+				<!-- content end -->
+				<value>searchcomments</value>
+				<value>viewcommentslist</value>	
+				<value>editaccount</value>
+				<value>searchpurchasehistory</value>	
+				<value>viewpurchasehistory</value>															
+			</privileges>
+		</category>		
+		
+	</userCategories>
+	<applicationLifeCycles>
+
+	</applicationLifeCycles>
+	<applicationBinaryLifeCycles>
+
+	</applicationBinaryLifeCycles>
+</storefront>

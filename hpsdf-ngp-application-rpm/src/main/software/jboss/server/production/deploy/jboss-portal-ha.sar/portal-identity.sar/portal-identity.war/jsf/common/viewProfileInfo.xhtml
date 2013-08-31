@@ -1,0 +1,32 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+	<f:loadBundle var="bundle" basename="conf.bundles.Identity" />
+	<h:messages infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+		fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+
+	<h:panelGrid columns="2">
+	<h:outputText value="#{bundle.IDENTITY_USERNAME}:"/>
+	<h:outputText value="#{editprofilemgr.uiUser.username}"/>
+	
+	<h:outputText value="#{bundle.IDENTITY_EMAIL}:" rendered="#{editprofilemgr.uiUser.attribute.email != null}"/>
+	<h:outputText value="#{editprofilemgr.uiUser.attribute.email}" rendered="#{editprofilemgr.uiUser.attribute.email != null}"/>
+	
+	<h:outputText value="#{bundle.IDENTITY_GIVENNAME}:" rendered="#{editprofilemgr.uiUser.attribute.givenname != null}"/>
+	<h:outputText value="#{editprofilemgr.uiUser.attribute.givenname}" rendered="#{editprofilemgr.uiUser.attribute.givenname != null}"/>
+	
+	<h:outputText value="#{bundle.IDENTITY_FAMILYNAME}:" rendered="#{editprofilemgr.uiUser.attribute.familyname != null}"/>
+	<h:outputText value="#{editprofilemgr.uiUser.attribute.familyname}"  rendered="#{editprofilemgr.uiUser.attribute.familyname != null}"/>
+	
+	<h:outputText value="#{bundle.IDENTITY_LOCATION}:" rendered="#{editprofilemgr.uiUser.attribute.location != null}"/>
+	<h:outputText value="#{editprofilemgr.uiUser.attribute.location}" rendered="#{editprofilemgr.uiUser.attribute.location != null}"/>
+	
+	<h:outputText value="#{bundle.IDENTITY_HOMEPAGE}:" rendered="#{editprofilemgr.uiUser.attribute.homepage != null}"/>
+	<h:outputText value="#{editprofilemgr.uiUser.attribute.homepage}" rendered="#{editprofilemgr.uiUser.attribute.homepage != null}"/>
+	
+	</h:panelGrid>
+</div>

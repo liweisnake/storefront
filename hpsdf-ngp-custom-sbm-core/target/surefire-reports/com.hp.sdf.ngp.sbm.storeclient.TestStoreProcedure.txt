@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.hp.sdf.ngp.sbm.storeclient.TestStoreProcedure
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 3.5 sec

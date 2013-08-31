@@ -1,0 +1,24 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+	<c:choose>
+	<c:when test="#{portletRenderParameter.operation != null}">
+			<ui:include src="/jsf/validationStatus/jbp_status.xhtml" />
+	</c:when>
+	<c:otherwise>
+			<c:choose>
+			<c:when test="#{facesContext.externalContext.remoteUser != null}">
+				<ui:include src="/jsf/profile/viewProfile.xhtml"/>
+			</c:when>
+			<c:otherwise>
+				<ui:include src="/jsf/register/overview.xhtml"/>
+			</c:otherwise>
+			</c:choose>
+		</c:otherwise>
+	</c:choose>
+    <h:messages style="list-style:none" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+              fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+</div>

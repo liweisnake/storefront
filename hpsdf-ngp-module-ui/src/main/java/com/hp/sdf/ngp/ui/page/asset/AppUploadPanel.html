@@ -1,0 +1,26 @@
+<wicket:panel>
+    <div id="appUpload">                                        
+      <!-- Application Information -->                      			                     
+      <h2><span><wicket:message key="title">Application Metadata</wicket:message></span></h2>
+      <div wicket:id="feedback">[[ feedback ]]</div>
+      <form wicket:id="appUploadForm">                                                         
+	      <table width="98%" border="0" cellspacing="0" cellpadding="0">                                                                           
+	        <tr>
+	          <td><wicket:message key="version">version</wicket:message></td>
+	          <td><input type="text" wicket:id="version" /></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="30%"><wicket:message key="file">file</wicket:message></td>
+ 	          <td><input type="file" wicket:id="file" /></td>                                                                           
+	        </tr>                                                                           
+	        <tr>
+	          <td><input type="submit" value="Submit" wicket:message="value:btn.submit"/></td>
+	          <td>&nbsp;</td>                                                                           
+	          <td>&nbsp;</td>
+	        </tr>
+	      </table>
+      </form>                                                                                                                         
+    </div>         
+    <!-- End appUpload --> 
+</wicket:panel>
+  

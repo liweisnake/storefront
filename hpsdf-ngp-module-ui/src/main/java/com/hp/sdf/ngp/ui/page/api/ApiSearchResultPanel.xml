@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Service Enabler List</entry>
+<entry key="criteria.all">ALL</entry>
+<entry key="service.type.all">Service Enabler</entry>
+<entry key="service.type.sgf">SGF API</entry>
+<entry key="service.type.common">Common API</entry>
+<entry key="criteria.keyword">KEYWORD</entry>
+<entry key="service.name">Service Name</entry>
+<entry key="access.interface">Access Interface</entry>
+<entry key="authentication.type">Authentication Type</entry>
+<entry key="service.url">Service URL</entry>
+<entry key="service.description">Description</entry>
+<entry key="operation.subscription">My APIs</entry>
+<entry key="details">Details...</entry>
+<entry key="update">Update</entry>
+</properties>

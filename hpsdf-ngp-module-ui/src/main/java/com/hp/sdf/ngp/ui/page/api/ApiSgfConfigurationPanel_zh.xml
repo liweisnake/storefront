@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="titleAdd">创建SGF应用程序接口</entry>
+<entry key="titleModify">更新SGF应用程序接口</entry>
+<entry key="titleList">列表SGF应用程序接口</entry>
+<entry key="name">名字</entry>
+<entry key="description">描述</entry>
+<entry key="serviceId">应用程序接口编号</entry>
+<entry key="sdkUrl">软件开发工具包地址</entry>
+<entry key="docUrl">文档地址</entry>
+<entry key="brokerServiceName">代理应用程序接口名字</entry>
+<entry key="accessInterface">访问接口</entry>
+<entry key="authType">权限类型</entry>
+<entry key="url">接入点地址</entry>
+<entry key="operation">操作</entry>
+<entry key="add">创建</entry>
+<entry key="delete">删除</entry>
+<entry key="modify">更新</entry>
+<entry key="exist.name">SGF应用程序接口已经存在</entry>
+<entry key="null.name">SGF应用程序接口的名字是必填项</entry>
+</properties>

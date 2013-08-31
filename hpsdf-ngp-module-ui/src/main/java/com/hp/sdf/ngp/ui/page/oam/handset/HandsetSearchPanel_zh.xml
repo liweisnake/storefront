@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="deviceName">设备名称</entry>
+	<entry key="displayName">手机模型名称</entry>
+	<entry key="search">搜索</entry>
+	<entry key="newHandset">新建手机模型</entry>	
+	
+	<entry key="title">搜索手机模型</entry>		
+	<entry key="title.big">手机模型管理</entry>		
+</properties>

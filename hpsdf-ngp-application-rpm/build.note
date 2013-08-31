@@ -1,0 +1,27 @@
+Set up a linux build server with Maven and SVN
+
+Set up a build folder as below 
+
+|---conf.xml
+|---release.sh
+|---scr/
+|---target/
+
+execute the command to build with test
+
+$release.sh -all https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk
+
+
+execute the command to build without test
+
+$release.sh -alltestskip https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk
+
+Build Procedure	SVN location: 
+https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/
+
+Package generation procedure:
+Login the build server(ocmptest4.chn.hp.com) as ngp/ngp
+Step into the directory /home/ngp/ngp_build
+Execute the following command
+./release.sh -all https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/
+After it completes, there new ear and RPM package will be generated in target/.

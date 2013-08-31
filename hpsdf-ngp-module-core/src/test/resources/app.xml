@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<asset>
+	<name>test</name>
+	<author>levi</author>
+	<brief>aaaa</brief>
+	<description>bbbb</description>
+	<category>game</category>
+	<preview>a.jpg</preview><!-- image format -->
+	<thumbnail>b.gif</thumbnail><!-- image format -->
+	<document>c.doc</document><!-- any format -->
+
+	<platform>linux</platform>
+	<!--
+					must match system provided platform
+				-->
+	<version>1.0</version>
+	<file>app1.exe</file>
+</asset>

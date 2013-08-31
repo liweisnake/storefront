@@ -1,0 +1,53 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:jbp="http://www.jboss.org/portal"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="admin-ui">
+
+   <ui:composition template="objectTemplate.xhtml">
+
+      <ui:param name="portalObjectScreen" value="#{bundle.COMMON_DELETE}"/>
+      <ui:define name="content">
+
+      <f:subview rendered="#{empty coordinationManager.selectedName}">
+         <p class="portlet-msg-error">#{bundle.COMMON_INCONSISTENT_STATE}</p>
+      </f:subview>
+
+      <f:subview rendered="#{not empty coordinationManager.selectedName}">
+         <div class="portlet-msg">
+            <div class="portlet-msg-icon"><h:graphicImage url="/img/msgIcon_Warning.gif" alt="/!\"/></div>
+            <div class="portlet-msg-body">
+               <h3>#{bundle.COMMON_DELETE} #{coordinationManager.selectedType}</h3>
+
+               <p class="portlet-msg-alert">
+                  #{bundle.COMMON_DELETING}
+                  <span class="objectName">#{coordinationManager.selectedName}</span>
+                  #{coordinationManager.selectedType} #{bundle.COMMON_FROM}
+                  <c:if test="#{not empty portalobjectmgr.selectedObjectParent.name}">
+                     <span class="objectName">#{portalobjectmgr.selectedObject.name}</span>
+                  </c:if>
+                  #{portalobjectmgr.selectedObject.typeName}!
+               </p>
+
+               <p class="portlet-class">#{bundle.COMMON_SURE_DELETE} #{coordinationManager.selectedType}?</p>
+
+               <h:form>
+                  <h:commandButton value="#{bundle.COMMON_DELETE}" action="editCoordination"
+                                   actionListener="#{coordinationManager.deleteSelected}"
+                                   styleClass="portlet-form-button portlet-section-buttonrow">
+                  </h:commandButton>
+                  <h:commandButton value="#{bundle.COMMON_CANCEL}" action="editCoordination"
+                                   styleClass="portlet-form-button portlet-section-buttonrow"/>
+               </h:form>
+            </div>
+         </div>
+      </f:subview>
+
+      </ui:define>
+
+   </ui:composition>
+
+</div>

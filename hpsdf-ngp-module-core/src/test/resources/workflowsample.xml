@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<storefront>
+	<userCategories>
+		<category>
+			<name>registered</name>
+			<display>Registered User</display>
+			<description>Blah, blah, blah...</description>
+			<attributes>
+				<attribute>
+					<name>SGF_domain</name>
+					<value>sandbox</value>
+				</attribute>
+				<attribute>
+					<name>billing_type</name>
+					<value>BOBO user</value>
+				</attribute>
+			</attributes>
+			<privileges>
+				<value>browse_app_gallery</value>
+				<value>comment_app</value>
+				<value>download_app</value>
+			</privileges>			
+		</category>
+	</userCategories>
+	<applicationLifeCycles>
+		<applifecycle>
+			<name>default</name>
+			<display>the default status</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>comment</operation>
+					<allowed>
+						<value>user</value>						
+					</allowed>
+				</access>
+				<access>
+					<operation>tag</operation>
+					<allowed>
+						<value>owner</value>	
+						<value>manager</value>						
+					</allowed>
+				</access>
+			</accesses>
+		</applifecycle>
+	</applicationLifeCycles>
+	<applicationBinaryLifeCycles>
+		<binarylifecycle>
+			<name>new</name>
+			<display>new created</display>
+			<description>Blah, blah, blah...</description>
+			<accesses>
+				<access>
+					<operation>browse</operation>
+					<allowed>
+						<value>owner</value>
+						<value>admin</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>download</operation>
+					<allowed>
+						<value>owner</value>
+						<value>admin</value>
+						<value>tester</value>
+					</allowed>
+				</access>
+				<access>
+					<operation>tagging</operation>
+					<allowed>
+						<value>owner</value>
+						<value>admin</value>
+					</allowed>
+				</access>
+			</accesses>
+			
+		</binarylifecycle>
+	</applicationBinaryLifeCycles>
+</storefront>

@@ -1,0 +1,29 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink id="user-adm-link" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_REGISTER_TITLE_CONFIRM}" />
+	</li>
+</ui:define>
+<ui:define name="content">
+	<h3><h:outputText value="#{bundle.IDENTITY_REGISTER_TITLE_CONFIRM}" /></h3>
+	<ui:decorate template="/jsf/common/confirm.xhtml">
+		<ui:param name="manager" value="#{userregistermgr}"/>
+		<ui:param name="show_roles" value="true"/>
+		<ui:param name="subscriptionMode" value="admin" />
+	</ui:decorate>
+</ui:define>
+</ui:composition>
+</div>

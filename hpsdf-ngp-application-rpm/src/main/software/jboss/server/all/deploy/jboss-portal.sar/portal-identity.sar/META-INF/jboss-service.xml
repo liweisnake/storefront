@@ -1,0 +1,135 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<server>
+
+   <mbean
+      code="org.jboss.portal.core.identity.services.impl.IdentityCommandFactoryService"
+      name="portal:commandFactory=IdentityUI"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="InstanceId">IdentityUserPortletInstance</attribute>
+      <depends
+         optional-attribute-name="ValidateEmailService"
+         proxy-type="attribute">portal:service=ValidateEmailService,type=IdentityUI
+      </depends>
+   </mbean>
+   
+   <mbean
+      code="org.jboss.portal.core.model.instance.InstanceURLFactory"
+      name="portal:urlFactory=IdentityUI"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="InstanceId">IdentityUserPortletInstance</attribute>
+      <attribute name="Path">/validateEmail</attribute>
+      <depends
+         optional-attribute-name="Factory"
+         proxy-type="attribute">portal:urlFactory=Delegating</depends>
+   </mbean>
+
+	<mbean
+      code="org.jboss.portal.core.identity.services.metadata.IdentityUIConfigurationServiceImpl"
+      name="portal:service=IdentityUIConfigurationService,type=IdentityUI"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="IdentityServiceController" proxy-type="attribute">
+      	portal:service=Module,type=IdentityServiceController
+      </depends>
+      <depends optional-attribute-name="WorkflowService" proxy-type="attribute">
+      	portal:service=Workflow,type=WorkflowService
+      </depends>
+      <attribute name="JNDIName">java:portal/IdentityUIConfigurationService</attribute>  
+     </mbean>
+
+	<mbean
+      code="org.jboss.portal.core.identity.services.impl.IdentityMailServiceImpl"
+      name="portal:service=IdentityMailService,type=Mail"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="MailModule" proxy-type="attribute">portal:service=Module,type=Mail</depends>
+      <depends optional-attribute-name="IdentityUIConfigurationService" proxy-type="attribute">
+      	portal:service=IdentityUIConfigurationService,type=IdentityUI
+      </depends>
+      <attribute name="JNDIName">java:portal/IdentityMailService</attribute>
+     </mbean>
+
+	<mbean
+      code="org.jboss.portal.core.identity.services.impl.IdentityUserManagementServiceImpl"
+      name="portal:service=IdentityUserManagementService,type=IdentityUI"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="IdentityServiceController" proxy-type="attribute">
+      	portal:service=Module,type=IdentityServiceController
+      </depends>
+      <attribute name="JNDIName">java:portal/IdentityUserManagementService</attribute>  
+     </mbean>
+   
+	<mbean
+      code="org.jboss.portal.core.identity.services.workflow.impl.RegistrationServiceImpl"
+      name="portal:service=RegistrationService,type=IdentityUI"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="IdentityUIConfigurationService" proxy-type="attribute">
+      	portal:service=IdentityUIConfigurationService,type=IdentityUI
+      </depends>
+      <depends optional-attribute-name="IdentityUserManagementService" proxy-type="attribute">
+      	portal:service=IdentityUserManagementService,type=IdentityUI
+      </depends>
+     </mbean>
+     
+	<mbean
+      code="org.jboss.portal.core.identity.services.workflow.impl.ValidateEmailServiceImpl"
+      name="portal:service=ValidateEmailService,type=IdentityUI"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="IdentityUIConfigurationService" proxy-type="attribute">
+      	portal:service=IdentityUIConfigurationService,type=IdentityUI
+      </depends>
+      <depends optional-attribute-name="IdentityUserManagementService" proxy-type="attribute">
+      	portal:service=IdentityUserManagementService,type=IdentityUI
+      </depends>
+     </mbean>
+     
+   <mbean
+      code="org.jboss.portal.core.controller.command.mapper.CommandFactoryDelegate"
+      name="portal:commandFactory=Delegate,path=validateEmail"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="Path">/validateEmail</attribute>
+      <depends
+         optional-attribute-name="DelegatingFactory"
+         proxy-type="attribute">portal:commandFactory=Delegating</depends>
+      <depends
+         optional-attribute-name="DelegateFactory"
+         proxy-type="attribute">portal:commandFactory=IdentityUI</depends>
+   </mbean>
+   
+</server>

@@ -1,0 +1,54 @@
+<wicket:panel>
+	<div class="mainPanel">
+	<div class="panelBody"><span style="color: red;"
+		wicket:id="feedBack">error message</span>
+
+<br></br><br></br>
+	<form wicket:id="registerForm"><span><wicket:message
+		key="userInfo" /></span>
+	<table cellpadding="0" cellspacing="0" class="formTableSet">
+		<tbody>
+			<tr>
+				<td align="right"><wicket:message key="userId" /> *:</td>
+				<td><input type="text" wicket:id="userId" /></td>
+			</tr>
+
+			<tr>
+				<td align="right"><wicket:message key="email" /> *:</td>
+				<td><input type="text" wicket:id="email" /></td>
+			</tr>
+
+			<tr>
+				<td align="right"><wicket:message key="newPassword" /> *:</td>
+				<td><input wicket:id="newPassword" type="password" /></td>
+			</tr>
+
+			<tr>
+				<td align="right"><wicket:message key="confirmPassword" /> *:</td>
+				<td><input wicket:id="confirmPassword" type="password" /></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2"><img wicket:id="captchaImage" /></td>
+			</tr>
+
+			<tr>
+				<td align="right"><wicket:message key="verifyCaptcha" /> *:</td>
+				<td><input wicket:id="verifyCaptcha" type="text" /></td>
+			</tr>			
+		</tbody>
+	</table>
+	
+	<br></br>
+	<span><wicket:message key="indicate" /></span><br></br><br></br>
+	
+	<input type="submit" wicket:id="submit" align="center"
+		wicket:message="value:submit" /> <input type="submit" wicket:id="cancel"
+		align="center" wicket:message="value:cancel" /> <br></br>
+
+	</form>
+	<li class="portlet-msg-success"><span wicket:id="registerSuccess"></span></li>
+
+	</div>
+	</div>
+</wicket:panel>

@@ -1,0 +1,135 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2009, Red Hat Middleware, LLC, and individual
+  ~ contributors as indicated by the @authors tag. See the
+  ~ copyright.txt in the distribution for a full listing of
+  ~ individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+   <c:choose>
+      <c:when test="#{not empty prefs.entries}">
+         <h:form id="common-edit-pref-form">
+            <table class="full-width datatable">
+               <thead class="portlet-section-header" style="text-align:left;">
+               <tr>
+                  <th>#{bundle.COMMON_KEY}</th>
+                  <th>#{bundle.COMMON_NAME}</th>
+                  <th>#{bundle.COMMON_READONLY}</th>
+                  <c:if test="#{prefs.mutable}">
+                     <th>#{bundle.COMMON_VALUE}</th>
+                  </c:if>
+               </tr>
+               </thead>
+               <tbody>
+               <c:forEach items="#{prefs.entries}" var="pref" varStatus="status">
+                  <tr class="#{status.index % 2 == 0 ? 'portlet-section-body' : 'portlet-section-alternate'}">
+                     <td>
+                        <c:choose>
+                           <c:when test="#{prefs.mutable and pref.readOnly == false}">
+                              <h:commandLink id="pref-link-#{status.index}"
+                                             rendered="#{pref.readOnly == false}"
+                                             action="#{pref.select}">#{pref.name}</h:commandLink>
+                           </c:when>
+                           <c:otherwise>#{pref.name}</c:otherwise>
+                        </c:choose>
+                     </td>
+                     <td>
+                        <h:outputText value="#{pref.displayName.value}"/>
+                     </td>
+                     <td>
+                        <h:selectBooleanCheckbox id="pref-check-#{status.index}" disabled="true"
+                                                 value="#{pref.readOnly}"/>
+                     </td>
+                     <c:if test="#{prefs.mutable}">
+                        <td>
+                           <h:outputText value="#{pref.value}"/>
+                        </td>
+                     </c:if>
+                  </tr>
+               </c:forEach>
+               </tbody>
+            </table>
+         </h:form>
+      </c:when>
+      <c:otherwise>
+         <p>#{bundle.COMMON_NO_DEFINED_PREFERENCES}.</p>
+      </c:otherwise>
+   </c:choose>
+
+   <c:if test="#{prefs.selectedEntry != null}">
+      <h:form id="common-edit-existing-form" style="padding: 1em 0 1em 0">
+         <fieldset style="border: 1px solid;">
+            <legend>#{bundle.COMMON_EDIT_EXISTING_VALUES}</legend>
+            <table>
+               <tbody>
+               <c:forEach items="#{prefs.selectedEntry.indices}" var="index" varStatus="status">
+                  <tr>
+                     <td>
+                        <h:outputLabel for="row_#{status.index}">
+                           <h:outputText value="#{bundle.COMMON_VALUE} #{status.index}: "
+                                         styleClass="portlet-form-field-label"/>
+                        </h:outputLabel>
+                     </td>
+                     <td>
+                        <h:inputText id="pref-input-#{status.index}" value="#{prefs.selectedEntry[index]}"
+                                     styleClass="portlet-form-input-field"/>
+                     </td>
+                     <td>
+                        <h:commandButton
+                           id="row_#{status.index}"
+                           actionListener="#{prefs.selectedEntry.deleteLine}"
+                           value="#{bundle.COMMON_DELETE}"
+                           styleClass="portlet-form-button"/>
+                        <h:message for="pref-input-#{status.index}" errorClass="portlet-msg-error"/>
+                     </td>
+                  </tr>
+               </c:forEach>
+               <tr>
+                  <td colspan="3">
+                     <h:commandButton id="update" value="#{bundle.COMMON_UPDATE}" styleClass="portlet-form-button"/>
+                  </td>
+               </tr>
+               </tbody>
+            </table>
+         </fieldset>
+      </h:form>
+
+      <h:form id="common-append-form">
+         <fieldset style="border: 1px solid;">
+            <legend>#{bundle.COMMON_APPEND_VALUE}</legend>
+            <h:outputLabel for="new_value">
+               <h:outputText value="#{bundle.COMMON_NEW_VALUE}: " styleClass="portlet-form-field-label"/>
+            </h:outputLabel>
+            <h:inputText id="new_value" value="#{prefs.selectedEntry.line}" styleClass="portlet-form-input-field"/>
+            <h:commandButton id="append-button" action="#{prefs.selectedEntry.appendLine}"
+                             value="#{bundle.COMMON_APPEND}"
+                             styleClass="portlet-form-button"/>
+            <h:message for="new_value" errorClass="portlet-msg-error"/>
+         </fieldset>
+      </h:form>
+
+   </c:if>
+
+</div>

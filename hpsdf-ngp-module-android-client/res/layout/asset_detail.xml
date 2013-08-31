@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/screen" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<TableLayout android:id="@+id/widget0"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+		<AbsoluteLayout android:id="@+id/detailTitleBar"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+			<ImageView android:id="@+id/detailThumbnail"
+				android:layout_width="95px" android:layout_height="95px"
+				android:layout_x="4px" android:layout_y="8px">
+			</ImageView>
+
+			<TextView android:id="@+id/detailName" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="aHome"
+				android:layout_x="110px" android:layout_y="10px">
+			</TextView>
+
+			<TextView android:id="@+id/detailCom" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="mAPPn Inc."
+				android:layout_x="109px" android:layout_y="33px">
+			</TextView>
+
+			<TextView android:id="@+id/detailPrice"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="Free" android:layout_x="109px" android:layout_y="58px">
+			</TextView>
+
+			<RatingBar android:id="@+id/assetTitleRatingbar" style="?android:attr/ratingBarStyleSmall"
+				android:layout_marginLeft="5dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+				android:layout_x="109px" android:layout_y="85px" />
+
+			<Button android:id="@+id/purchaseBtn" android:layout_width="90px"
+				android:layout_height="53px" android:text="Purchase"
+				android:layout_x="230px" android:layout_y="75px">
+			</Button>
+
+		</AbsoluteLayout>
+
+		<AbsoluteLayout android:id="@+id/detailDesc"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+			<TextView style="?android:attr/listSeparatorTextViewStyle"
+				android:text="Description" android:layout_marginTop="5dip"
+				android:layout_x="0px" android:layout_y="0px" />
+
+			<TextView android:id="@+id/detailVer" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Version:"
+				android:layout_x="18px" android:layout_y="25px">
+			</TextView>
+
+			<TextView android:id="@+id/detailLastUpdate"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="Last Update:" android:layout_x="151px"
+				android:layout_y="25px">
+			</TextView>
+
+			<TextView android:id="@+id/detailDescContent"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="DescContent" android:layout_x="18px" android:layout_y="56px">
+			</TextView>
+
+		</AbsoluteLayout>
+
+		<AbsoluteLayout android:id="@+id/detailComment"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+			<TextView style="?android:attr/listSeparatorTextViewStyle"
+				android:text="Comments" android:layout_marginTop="5dip"
+				android:layout_x="0px" android:layout_y="0px" />
+
+			<ListView android:id="@+id/commentList"
+				android:layout_width="300px" android:layout_height="250px"
+				android:layout_x="10px" android:layout_y="30px">
+			</ListView>
+
+		</AbsoluteLayout>
+
+		<AbsoluteLayout android:id="@+id/detailComment2"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+			<TextView style="?android:attr/listSeparatorTextViewStyle"
+				android:id="@+id/commentSizeIntro" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_x="10px"
+				android:layout_y="30px">
+			</TextView>
+
+			<Button android:id="@+id/seeCommentDetailsBtn"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="See more..." android:layout_x="220px"
+				android:layout_y="30px">
+			</Button>
+
+			<Button android:id="@+id/cmtRateBtn" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Comment and Rate"
+				android:layout_x="90px" android:layout_y="110px">
+			</Button>
+
+		</AbsoluteLayout>
+
+		<AbsoluteLayout android:id="@+id/detailPreview"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+			<TextView style="?android:attr/listSeparatorTextViewStyle"
+				android:text="Screenshot" android:layout_marginTop="5dip"
+				android:layout_x="0px" android:layout_y="0px" />
+
+			<ImageView android:id="@+id/detailPreview1"
+				android:layout_width="150px" android:layout_height="205px"
+				android:layout_x="6px" android:layout_y="30px">
+			</ImageView>
+
+			<ImageView android:id="@+id/detailPreview2"
+				android:layout_width="150px" android:layout_height="205px"
+				android:layout_x="160px" android:layout_y="30px">
+			</ImageView>
+
+		</AbsoluteLayout>
+
+	</TableLayout>
+
+</ScrollView>

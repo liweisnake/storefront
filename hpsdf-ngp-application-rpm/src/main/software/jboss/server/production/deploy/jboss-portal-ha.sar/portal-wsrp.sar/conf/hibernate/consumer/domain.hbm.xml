@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2007, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="org.jboss.portal.wsrp.consumer.ProducerInfo" table="JBP_PRODUCER_INFO">
+      <cache usage="read-write"/>
+      <id name="key" column="PK" access="field" type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">wsrpconsumer_seq</param>
+         </generator>
+      </id>
+      <many-to-one name="endpointConfigurationInfo"
+                   column="ENDPOINT_ID"
+                   class="org.jboss.portal.wsrp.consumer.EndpointConfigurationInfo"
+                   unique="true"
+                   not-null="true"
+                   cascade="all"
+                   lazy="false"/>
+      <many-to-one name="registrationInfo"
+                   column="REGISTRATION_ID"
+                   class="org.jboss.portal.wsrp.consumer.RegistrationInfo"
+                   unique="true"
+                   not-null="false"
+                   cascade="all"
+                   lazy="false"/>
+      <property name="expirationCacheSeconds" column="EXPIRATION_CACHE_SECONDS" type="java.lang.Integer"/>
+      <property name="active" not-null="true" column="ACTIVE" type="boolean"/>
+      <property name="persistentId" column="PRODUCER_ID" not-null="true" unique="true" type="java.lang.String"
+                access="field"/>
+   </class>
+
+   <class name="org.jboss.portal.wsrp.consumer.EndpointConfigurationInfo" table="JBP_ENDPOINT_INFO">
+      <cache usage="read-write"/>
+      <id name="key" column="PK" type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">wsrpconsumer_seq</param>
+         </generator>
+      </id>
+      <property name="serviceDescriptionURL" column="SD_URL" type="java.lang.String" not-null="true"/>
+      <property name="markupURL" column="M_URL" type="java.lang.String" not-null="true"/>
+      <property name="portletManagementURL" column="PM_URL" type="java.lang.String" not-null="false"/>
+      <property name="registrationURL" column="R_URL" type="java.lang.String" not-null="false"/>
+      <property name="wsdlDefinitionURL" column="WSDL_URL" type="java.lang.String" not-null="false"/>
+   </class>
+
+   <class name="org.jboss.portal.wsrp.consumer.RegistrationInfo" table="JBP_REGISTRATION_INFO">
+      <cache usage="read-write"/>
+      <id name="key" column="PK" type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">wsrpconsumer_seq</param>
+         </generator>
+      </id>
+      <property name="persistentConsumerName" column="CONSUMER_NAME" type="java.lang.String" not-null="true"
+                access="field"/>
+      <property name="persistentRegistrationHandle" column="HANDLE" type="java.lang.String" access="field"/>
+      <property name="registrationState" column="STATE" type="binary" length="16384"/>
+      <map name="persistentRegistrationProperties" cascade="all,delete-orphan" lazy="false" access="field">
+         <cache usage="read-write"/>
+         <key column="REG_PK" not-null="true"/>
+         <map-key type="string" formula="NAME"/>
+         <one-to-many class="org.jboss.portal.wsrp.consumer.RegistrationProperty"/>
+      </map>
+   </class>
+
+   <class name="org.jboss.portal.wsrp.consumer.RegistrationProperty" table="JBP_REG_PROPERTY">
+      <cache usage="read-write"/>
+      <id name="key" column="PK" type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">wsrpconsumer_seq</param>
+         </generator>
+      </id>
+      <property name="name" column="NAME" type="java.lang.String" not-null="true"/>
+      <property name="value" column="VALUE" type="java.lang.String"/>
+      <property name="invalid" column="INVALID" type="java.lang.Boolean"/>
+      <property name="lang" column="LANG" type="java.lang.String" not-null="true"/>
+      <many-to-one
+         name="description"
+         column="DESC_PK"
+         class="org.jboss.portal.wsrp.registration.RegistrationPropertyDescription"
+         unique="true"
+         cascade="all"
+         lazy="false"/>
+   </class>
+   <class name="org.jboss.portal.wsrp.registration.RegistrationPropertyDescription" table="JBP_REG_PROP_DESC">
+      <cache usage="read-write"/>
+      <id name="key" column="PK" type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">portlet_seq</param>
+         </generator>
+      </id>
+      <property name="name" column="NAME" type="org.jboss.portal.jems.hibernate.QNameUserType" not-null="true"/>
+      <property name="type" column="TYPE" type="org.jboss.portal.jems.hibernate.QNameUserType" not-null="true"/>
+      <property name="schemaLocation" column="SCHEMA_LOCATION" type="java.lang.String"/>
+      <component name="description" class="org.jboss.portal.wsrp.registration.LocalizedString">
+         <property name="value" column="DESC_VALUE"/>
+         <property name="locale" column="DESC_LOCALE"/>
+         <property name="resourceName" column="DESC_RES"/>
+      </component>
+      <component name="hint" class="org.jboss.portal.wsrp.registration.LocalizedString">
+         <property name="value" column="HINT_VALUE"/>
+         <property name="locale" column="HINT_LOCALE"/>
+         <property name="resourceName" column="HINT_RES"/>
+      </component>
+      <component name="label" class="org.jboss.portal.wsrp.registration.LocalizedString">
+         <property name="value" column="LABEL_VALUE"/>
+         <property name="locale" column="LABEL_LOCALE"/>
+         <property name="resourceName" column="LABEL_RES"/>
+      </component>
+      <array name="usages" table="JBP_REG_PROP_DESC_USAGES" cascade="all" fetch="join">
+         <cache usage="read-write"/>
+         <key column="PK"/>
+         <index column="IDX"/>
+         <element column="DESC_USAGE" type="java.lang.String" not-null="true" unique="false"/>
+      </array>
+      <array name="aliases" table="JBP_REG_PROP_DESC_ALIASES" cascade="all" fetch="join">
+         <cache usage="read-write"/>
+         <key column="PK"/>
+         <index column="IDX"/>
+         <element column="ALIAS" type="org.jboss.portal.jems.hibernate.QNameUserType" not-null="true" unique="false"/>
+      </array>
+   </class>
+</hibernate-mapping>

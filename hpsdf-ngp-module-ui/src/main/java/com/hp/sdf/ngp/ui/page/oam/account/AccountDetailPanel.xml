@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">Save</entry>
+	<entry key="back">Back</entry>
+	<entry key="add">Add</entry>
+	<entry key="delete">Delete</entry>	
+	
+	<entry key="userId">User Name</entry>
+	<entry key="roleName">Role</entry>	
+	<entry key="providerID">Provider ID</entry>
+	<entry key="oldPassword">Password</entry>	
+	<entry key="newPassword">New Password</entry>
+	<entry key="confirmPassword">Confirm Password</entry>		
+		
+	<entry key="accountInfo">Account Info</entry>	
+	<entry key="msisdn">MSISDN</entry>	
+	
+	<entry key="title.big">Account Management</entry>		
+	
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to update the account?</entry>
+	<entry key="successMsg">Update the account successfully.</entry>	
+	
+	
+	<entry key="msg.error.save.noProviderID">Provider ID is not existed.</entry>
+	<entry key="msg.error.save.wrongProviderID">Provider ID is wrong format.</entry>
+	<entry key="msg.error.save.nullUserID">The user can not be null.</entry>
+	<entry key="msg.error.save.oldPasswordProng">The old password is wrong.</entry>
+	<entry key="msg.error.save.passwordLength">The password length should be between 1 and 32.</entry>
+	<entry key="msg.error.save.passwordNotSame">The two new password is not same.</entry>
+	<entry key="msg.error.save.passwordEmpty">The two new password are empty.</entry>
+	<entry key="msg.error.save.noSubscriberForMsisdn">Subscriber does not exist with this msisdn.</entry>
+	
+	<entry key="msg.error.save.invalidmsisdn">MSISDN is 11 number.</entry>
+</properties>

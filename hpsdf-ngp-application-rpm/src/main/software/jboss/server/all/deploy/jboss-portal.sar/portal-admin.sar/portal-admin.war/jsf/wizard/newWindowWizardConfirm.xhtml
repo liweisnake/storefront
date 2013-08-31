@@ -1,0 +1,39 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+   <f:loadBundle basename="Resource" var="bundle" />
+   <ui:composition template="newWindowTpl.xhtml">
+      <ui:define name="content">
+
+         <table>
+            <tr>
+               <td><b>#{bundle.WIZARD_PORTLET}:</b></td>
+               <td>#{newWindowWizard.selectedPortlet.name}</td>
+            </tr>
+            <tr>
+               <td><b>#{bundle.WIZARD_PORTAL}:</b></td>
+               <td>#{newWindowWizard.selectedPortal.name}</td>
+            </tr>
+            <tr>
+               <td><b>#{bundle.WIZARD_PAGE}:</b></td>
+               <td>#{newWindowWizard.selectedPage.name}</td>
+            </tr>
+            <tr>
+               <td><b>#{bundle.WIZARD_REGION}:</b></td>
+               <td>#{newWindowWizard.selectedRegionId}</td>
+            </tr>
+         </table>
+
+         <h:form id="wiz-conf-form">
+            <h:commandButton id="confirm" value="#{bundle.WIZARD_CONFIRM}" action="#{newWindowWizard.createWindow}" styleClass="portlet-form-button"/>
+            <h:commandButton id="cancel" value="#{bundle.COMMON_CANCEL}" action="#{newWindowWizard.cancel}" styleClass="portlet-form-button"/>
+         </h:form>
+
+      </ui:define>
+   </ui:composition>
+
+</div>

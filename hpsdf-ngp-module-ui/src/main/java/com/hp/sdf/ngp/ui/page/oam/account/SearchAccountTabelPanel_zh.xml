@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll"></entry>
+	<entry key="providerName">供应商</entry>
+	<entry key="accountRole">角色</entry>
+	<entry key="userLifeCycle">用户生命周期历史</entry>
+	<entry key="accountName">用户名</entry>
+	<entry key="detail">编辑</entry>
+	<entry key="delete">删除</entry>
+	<entry key="accountList">账户列表</entry>	
+	
+	<entry key="confirmMsg">你确定想要删除已选的账户吗?</entry>
+</properties>

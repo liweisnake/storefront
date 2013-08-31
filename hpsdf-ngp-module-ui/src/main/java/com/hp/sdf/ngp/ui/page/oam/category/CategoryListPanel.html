@@ -1,0 +1,97 @@
+<wicket:head>
+	<script type="text/javascript">
+
+	function selectAll() {
+	   	var groupselector = document.getElementById("groupselector");
+	   	//support IE and Firefox
+	   	var tagArray = document.getElementsByTagName("*");
+
+	   	if(groupselector.checked) {
+			for (var i = 0; i < tagArray.length; i++) {   
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = true;
+		        	}
+		  		}
+			}
+	   	}
+	   	else {
+			for (var i = 0; i < tagArray.length; i++) {  
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = false;
+		          	}
+		        }			    
+		  	}
+	   	}
+		
+	}
+	</script>
+</wicket:head>
+
+<wicket:panel>
+
+
+ <div id="regionA">
+  	<form wicket:id="categoryListForm">
+  	
+	  <div class="title">
+    	<h2 class="icon-title-content"><wicket:message key="title.big"></wicket:message></h2>
+    	<div class="title-button">
+    		<input type="submit" wicket:id="newEntry" wicket:message="value:newEntry" class="button-submit"></input>
+    	</div>
+	  </div>   	  	
+  	
+ 	<div class="content">  	
+
+   		<div class="portal-box">
+    		<div class="content-container">
+    		
+	    			<h3><wicket:message	key="title" /></h3>
+	    		<div class="contentbox">
+	    		<span style="color: red;"
+		wicket:id="feedBack">error message</span>
+
+ 
+	    		  <div class="overflow" >
+	            	<div class="table-box">
+		              <table border="0" cellpadding="0" cellspacing="0" class="table-styles-a">
+		                <tr>
+		                  <th><input type="checkbox" wicket:id="groupselector" onclick="selectAll()"> 
+							<wicket:message	key="selectAll" /> </input></th>
+		                  <th><wicket:message key="externalId" /></th>
+		                  <th><wicket:message key="parentExternalId" /></th>
+		                  <th><wicket:message key="name" /></th>
+		                  <th><wicket:message key="displayName" /></th>
+		                  <th><wicket:message key="detail" /></th>
+		                </tr>
+		                
+						<tr wicket:id="listview">
+							<td align="center">&nbsp;<input wicket:id="select" type="checkbox"></input></td>
+							<td align="center">&nbsp;<span wicket:id="externalId"></span></td>
+							<td align="center">&nbsp;<span wicket:id="parentExternalId"></span></td>
+							<td align="center">&nbsp;<span wicket:id="name"></span></td>
+							<td align="center">&nbsp;<span wicket:id="displayName"></span></td>										
+							<td align="center">&nbsp;<a wicket:id="detail"><img src="images/icon_edit.gif" /></a></td>			
+						</tr>                
+		              </table>
+		          </div>
+		          </div>
+		            
+		            <span wicket:id="navigator"></span>
+	            </div>
+	            
+	            <div class="clear"></div>  
+            </div>
+                        
+            <div class="contentbutton">
+			<div wicket:id="checkPanel"></div>
+              <input type="submit" wicket:id="delete" wicket:message="value:delete" class="button-submit" />
+            </div>
+         </div>
+
+    </div>
+    </form>
+ </div>	
+
+</wicket:panel>

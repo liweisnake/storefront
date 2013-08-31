@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="titleAdd">Create SGF API</entry>
+<entry key="titleModify">Update SGF API</entry>
+<entry key="titleList">List SGF API</entry>
+<entry key="name">Name</entry>
+<entry key="description">Description</entry>
+<entry key="serviceId">Service ID</entry>
+<entry key="sdkUrl">SDK URL</entry>
+<entry key="docUrl">Document URL</entry>
+<entry key="brokerServiceName">Broker Service Name</entry>
+<entry key="accessInterface">Access Interface</entry>
+<entry key="authType">Authentication Type</entry>
+<entry key="url">Endpoint URL</entry>
+<entry key="operation">Operation</entry>
+<entry key="add">Create</entry>
+<entry key="delete">Delete</entry>
+<entry key="modify">Update</entry>
+<entry key="exist.name">SGF API name exists</entry>
+<entry key="null.name">SGF API name is required</entry>
+</properties>

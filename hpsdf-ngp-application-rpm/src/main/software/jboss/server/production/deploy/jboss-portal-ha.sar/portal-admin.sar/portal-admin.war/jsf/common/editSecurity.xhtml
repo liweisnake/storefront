@@ -1,0 +1,44 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+   <h:form id="common-edit-security-form">
+      <table class="datatable full-width">
+         <thead class="portlet-section-header">
+            <tr>
+               <th>#{bundle.COMMON_ROLES}</th>
+               <th>#{bundle.COMMON_PERMISSIONS}</th>
+            </tr>
+         </thead>
+         <tbody>
+            <c:forEach items="#{auth.roles}" var="role" varStatus="status">
+               <tr class="#{status.index % 2 == 0 ? 'portlet-section-body' : 'portlet-section-alternate'}">
+                  <td>
+                     <h:outputLabel for="cars_#{status.index}">
+                        #{bundle.COMMON_ROLE}
+                        #{role == '__unchecked__' ? 'Unchecked' : (auth.roleDisplayNameMap[role] != null ? auth.roleDisplayNameMap[role] : role)}:
+                     </h:outputLabel>
+                  </td>
+                  <td>
+                     <h:selectManyCheckbox
+                        id="cars_#{status.index}"
+                        value="#{auth.forRole[role]}"
+                        layout="lineDirection">
+                        <f:selectItems value="#{auth.availableActions}"/>
+                     </h:selectManyCheckbox>
+                  </td>
+               </tr>
+            </c:forEach>
+         </tbody>
+      </table>
+      <br />
+      <div>
+         <h:commandButton id="update" value="#{bundle.COMMON_UPDATE}" action="#{auth.submit}" styleClass="portlet-form-button"/>
+         <h:commandButton id="cancel" value="#{bundle.COMMON_CANCEL}" action="#{auth.cancel}" styleClass="portlet-form-button" immediate="true"/>
+      </div>
+   </h:form>
+
+</div>

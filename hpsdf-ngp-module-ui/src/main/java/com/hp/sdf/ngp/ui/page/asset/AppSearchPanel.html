@@ -1,0 +1,31 @@
+<wicket:panel>
+    <div id="appEdit">                                        
+      <!-- Application Information -->                      			                          
+      <div wicket:id="feedback">[[ feedback ]]</div>
+      <form wicket:id="appSearchForm">                                                         
+	      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTableSet">                                                                           
+	        <tr>
+	          <td width="30%" align="center">
+	          	<wicket:message key="keyword">keyword</wicket:message> : <input type="text" wicket:id="keyword" style="width:100px" />
+	          </td>
+	          <td width="25%" align="center">
+	          	<wicket:message key="category">category</wicket:message> : <select wicket:id="category" style="width:100px"></select>
+	          </td>                                                                           
+	          <td width="25%" align="center">
+	          	<wicket:message key="platform">platform</wicket:message> : <select wicket:id="platform" style="width:100px"></select>
+	          </td>
+	          <wicket:enclosure child="binstatus">
+	          <td align="center">
+	          	<span wicket:id="label.bin.status"></span><select wicket:id="binstatus" style="width:50px"></select>
+	          </td>
+	          </wicket:enclosure>
+	          <td width="20%" align="center">
+	          	<input type="submit" id="submit" class="button" value="search" wicket:message="value:btn.search"/>
+	          </td>
+	        </tr>                                                                           
+	      </table>
+      </form>                                                                                                                         
+    </div>         
+    <!-- End appDetail --> 
+</wicket:panel>
+  

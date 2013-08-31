@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.hp.com/sgf/wsdl/sgf_api/partner_mgmtEx/v1_0/service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.hp.com/sgf/wsdl/sgf_api/partner_mgmtEx/v1_0/service" xmlns:intf="http://www.hp.com/sgf/wsdl/sgf_api/partner_mgmtEx/v1_0/service" xmlns:tns1="http://www.hp.com/sgf/schema/sgf_api/partner_mgmt/v1_0/" xmlns:tns2="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/partner_mgmt/v1_0/"/>
+      <simpleType name="Country">
+        <restriction base="xsd:string">
+          <enumeration value="Canada"/>
+          <enumeration value="China"/>
+          <enumeration value="France"/>
+          <enumeration value="India"/>
+          <enumeration value="Italy"/>
+          <enumeration value="Japan"/>
+          <enumeration value="Spain"/>
+          <enumeration value="United Arab Emirates"/>
+          <enumeration value="United Kingdom"/>
+          <enumeration value="United States"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Address">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="street" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="city" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="state" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="zip" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="country" type="tns2:Country"/>
+        </sequence>
+      </complexType>
+      <simpleType name="Title">
+        <restriction base="xsd:string">
+          <enumeration value="Mr."/>
+          <enumeration value="Mrs."/>
+          <enumeration value="Miss"/>
+          <enumeration value="Dr."/>
+        </restriction>
+      </simpleType>
+      <simpleType name="Language">
+        <restriction base="xsd:string">
+          <enumeration value="English"/>
+          <enumeration value="Japanese"/>
+          <enumeration value="Chinese"/>
+          <enumeration value="Spanish"/>
+          <enumeration value="French"/>
+        </restriction>
+      </simpleType>
+      <complexType name="LoginCredentials">
+        <sequence>
+          <element name="username" type="xsd:string"/>
+          <element name="password" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="ExceptionType">
+        <restriction base="xsd:string">
+          <enumeration value="SERVICEGROUP_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_MODIFY_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="PARTNER_REGISTER_EXCEPTION"/>
+          <enumeration value="PARTNER_MODIFY_EXCEPTION"/>
+          <enumeration value="PARTNER_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICE_APPROVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICE_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="COS_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="FLEXREPORTS_EXCEPTION"/>
+          <enumeration value="EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="GET_REST_FOR_WS_EXCEPTION"/>
+          <enumeration value="GET_METADATA_EXCEPTION"/>
+          <enumeration value="DOMAIN_RETRIEVAL_EXCEPTION "/>
+          <enumeration value="REGISTER_WS_EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="REGISTER_METADATA_EXCEPTION"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Status">
+        <sequence>
+          <element name="code" type="xsd:string"/>
+          <element name="text" type="tns2:ExceptionType"/>
+          <element name="details" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SGFException">
+        <sequence>
+          <element name="sgfVersion" type="xsd:string"/>
+          <element name="status" type="tns2:Status"/>
+        </sequence>
+      </complexType>
+      <element name="SGFException" type="tns2:SGFException"/>
+    </schema>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/partner_mgmt/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/"/>
+      <complexType name="CompanyInfo">
+        <sequence>
+          <element name="name" type="xsd:string"/>
+          <element name="address" type="tns2:Address"/>
+          <element name="url" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ContactDetails">
+        <sequence>
+          <element name="title" type="tns2:Title"/>
+          <element name="firstname" type="xsd:string"/>
+          <element name="lastname" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="responsibility" type="xsd:string"/>
+          <element name="address" type="tns2:Address"/>
+          <element maxOccurs="1" minOccurs="0" name="fax" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="phone" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="mobile" type="xsd:string"/>
+          <element name="email" type="xsd:string"/>
+          <element name="language" type="tns2:Language"/>
+        </sequence>
+      </complexType>
+      <simpleType name="PasswordQuestion">
+        <restriction base="xsd:string">
+          <enumeration value="Company name"/>
+          <enumeration value="Company URL"/>
+          <enumeration value="Favorite Car"/>
+          <enumeration value="Favorite Mobile"/>
+          <enumeration value="Favorite actor"/>
+          <enumeration value="Favorite movie"/>
+          <enumeration value="Native town"/>
+          <enumeration value="Pet name"/>
+        </restriction>
+      </simpleType>
+      <complexType name="LoginInfo">
+        <sequence>
+          <element name="login" type="tns2:LoginCredentials"/>
+          <element name="passwordQuestion" type="tns1:PasswordQuestion"/>
+          <element name="passwordAnswer" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="CategoryValue">
+        <restriction base="xsd:string">
+          <enumeration value="SP"/>
+          <enumeration value="ASP"/>
+          <enumeration value="CP"/>
+        </restriction>
+      </simpleType>
+      <complexType name="PartnerCategory">
+        <sequence>
+          <element maxOccurs="unbounded" name="value" type="tns1:CategoryValue"/>
+        </sequence>
+      </complexType>
+      <simpleType name="PartnerType">
+        <restriction base="xsd:string">
+          <enumeration value="Internal"/>
+          <enumeration value="External"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Partner">
+        <sequence>
+          <element name="companyInfo" type="tns1:CompanyInfo"/>
+          <element name="contactDetails" type="tns1:ContactDetails"/>
+          <element name="loginInfo" type="tns1:LoginInfo"/>
+          <element name="category" type="tns1:PartnerCategory"/>
+          <element maxOccurs="1" minOccurs="0" name="serviceDiscoveryGroup" type="xsd:string"/>
+          <element name="domainName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="partnerType" type="tns1:PartnerType"/>
+          <element maxOccurs="1" minOccurs="0" name="status" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="modificationDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="comment" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="CreatePartner">
+        <sequence>
+          <element name="partner" type="tns1:Partner"/>
+        </sequence>
+      </complexType>
+      <element name="createPartner" type="tns1:CreatePartner"/>
+      <complexType name="CreatePartnerResponse">
+        <sequence>
+          <element name="result" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="createPartnerResponse" type="tns1:CreatePartnerResponse"/>
+      <complexType name="ModifyPartner">
+        <sequence>
+          <element name="partner" type="tns1:Partner"/>
+        </sequence>
+      </complexType>
+      <element name="modifyPartner" type="tns1:ModifyPartner"/>
+      <complexType name="ModifyPartnerResponse">
+        <sequence>
+          <element name="result" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="modifyPartnerResponse" type="tns1:ModifyPartnerResponse"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="modifyPartnerRequest">
+    <wsdl:part element="tns1:modifyPartner" name="modifyPartner"/>
+  </wsdl:message>
+  <wsdl:message name="createPartnerRequest">
+    <wsdl:part element="tns1:createPartner" name="createPartner"/>
+  </wsdl:message>
+  <wsdl:message name="modifyPartnerResponse">
+    <wsdl:part element="tns1:modifyPartnerResponse" name="modifyPartnerResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SGFException">
+    <wsdl:part element="tns2:SGFException" name="SGFException"/>
+  </wsdl:message>
+  <wsdl:message name="createPartnerResponse">
+    <wsdl:part element="tns1:createPartnerResponse" name="createPartnerResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="PartnerEx">
+    <wsdl:operation name="createPartner" parameterOrder="createPartner">
+      <wsdl:input message="impl:createPartnerRequest" name="createPartnerRequest"/>
+      <wsdl:output message="impl:createPartnerResponse" name="createPartnerResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPartner" parameterOrder="modifyPartner">
+      <wsdl:input message="impl:modifyPartnerRequest" name="modifyPartnerRequest"/>
+      <wsdl:output message="impl:modifyPartnerResponse" name="modifyPartnerResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PartnerExSoapBinding" type="impl:PartnerEx">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createPartner">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="createPartnerRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createPartnerResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPartner">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="modifyPartnerRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="modifyPartnerResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PartnerExService">
+    <wsdl:port binding="impl:PartnerExSoapBinding" name="PartnerEx">
+      <wsdlsoap:address location="http://16.157.132.78:6001/AdminWebApp/webservices/PartnerEx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

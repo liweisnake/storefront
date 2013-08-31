@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<table name="content">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>CONTENTTYPE</column>
+		<column>PATH</column>
+		<column>REFERENCEID</column>
+		<column>BANNERTYPE</column>
+		<column>HREF</column>
+		<row>
+			<value>1</value>
+			<value>sample content</value>
+			<value>0</value>
+			<value>/banner/20100709/0930/1111/sample.jpg</value>
+			<value>1</value>
+			<value>0</value>
+			<value>http://www.google.com</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>sample content2</value>
+			<value>0</value>
+			<value>/banner/20100709/0930/2222/sample.jpg</value>
+			<value>1</value>
+			<value>1</value>
+			<value>http://www.google.com</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>sample content3</value>
+			<value>1</value>
+			<value>/banner/20100709/0930/3333/sample/index.html</value>
+			<value>2</value>
+			<value>1</value>
+			<value></value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>sample content4</value>
+			<value>0</value>
+			<value>/banner/20100709/0930/4444/sample.jpg</value>
+			<value>3</value>
+			<value>2</value>
+			<value>http://www.google.com</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>sample content5</value>
+			<value>1</value>
+			<value>/banner/20100709/0930/5555/sample/index.html</value>
+			<value>3</value>
+			<value>2</value>
+			<value></value>
+		</row>
+	</table>
+	
+	<table name="basebanner">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>DESCRIPTION</column>
+		<column>BANNERTYPE</column>
+		<column>BANNERSTATUS</column>
+		<row>
+			<value>1</value>
+			<value>sample static banner</value>
+			<value>this is a static sample banner</value>
+			<value>0</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>sample rotating banner</value>
+			<value>this is a sample ratating banner</value>
+			<value>1</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>sample tabbed banner</value>
+			<value>this is a sample tabbed banner</value>
+			<value>2</value>
+			<value>1</value>
+		</row>
+	</table>
+	
+	<table name="staticbanner">
+		<column>ID</column>
+		<row>
+			<value>1</value>
+		</row>
+	</table>
+	
+	<table name="rotatingbanner">
+		<column>ID</column>
+		<row>
+			<value>2</value>
+		</row>
+	</table>
+	
+	<table name="tabbedbanner">
+		<column>ID</column>
+		<column>AUTOROTATION</column>
+		<column>INTERVALROTATION</column>
+		<row>
+			<value>3</value>
+			<value>1</value>
+			<value>5</value>
+		</row>
+	</table>
+	
+	<table name="contentset">
+		<column>ID</column>
+		<column>NAME</column>
+		<column>DOW</column>
+		<column>HODSTART</column>
+		<column>HODEND</column>
+		<column>EXPIRATION</column>
+		<column>BANNERID</column>
+		<row>
+			<value>1</value>
+			<value>sample content set</value>
+			<value>1111111</value>
+			<value>0900</value>
+			<value>1800</value>
+			<value>2010-12-31</value>
+			<value>2</value>
+		</row>
+	</table>
+	
+	<table name="contentweight">
+		<column>ID</column>
+		<column>CONTENTSETID</column>
+		<column>WEIGHT</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>40</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>60</value>
+		</row>
+	</table>
+	
+	<table name="bannerusagelog">
+		<column>ID</column>
+		<column>BANNERID</column>
+		<column>CONTENTID</column>
+		<column>USERID</column>
+		<column>LOCATION</column>
+		<column>DATETIME</column>
+	</table>
+	
+	<table name="poll">
+		<column>ID</column>
+		<column>TITLE</column>
+		<column>DESCRIPTION</column>
+		<column>MULTIPLECHOICE</column>
+		<column>VIEWRESULT</column>
+		<column>EXPIRATION</column>
+		<row>
+			<value>1</value>
+			<value>sample content set</value>
+			<value>1111111</value>
+			<value>FALSE</value>
+			<value>FALSE</value>
+			<value>2010-12-31</value>
+		</row>
+	</table>
+	
+	<table name="choice">
+		<column>ID</column>
+		<column>POLLID</column>
+		<column>NAME</column>
+		<column>COUNTRESULT</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>RED</value>
+			<value>40</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>BULE</value>
+			<value>60</value>
+		</row>
+	</table>
+
+</dataset>
+    

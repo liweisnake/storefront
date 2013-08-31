@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="titleAdd">Create Tag</entry>
+<entry key="titleModify">Update Tag</entry>
+<entry key="titleList">List Tag</entry>
+<entry key="name">Name</entry>
+<entry key="description">Description</entry>
+<entry key="operation">Operation</entry>
+<entry key="add">Create</entry>
+<entry key="delete">Delete</entry>
+<entry key="modify">Update</entry>
+<entry key="exist.name">Tag name exists</entry>
+<entry key="toLong">The name can not be longger than the maximum of the 100 characters.</entry>
+<entry key="invalidChar">The name can not contain the character : ",".</entry>
+</properties>

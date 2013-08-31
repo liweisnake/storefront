@@ -1,0 +1,44 @@
+<wicket:panel>
+    <div class="mainPanel" >
+    <div class="panelBody">
+      <div wicket:id="searchPanel"></div>
+      <div id="sublist">
+        <span wicket:id="navigator"></span>
+    	<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+    <thead><tr>
+    			<th><wicket:message key="label.app.name">App Name</wicket:message></th>
+    			<th><wicket:message key="label.bin.platform">Platform</wicket:message></th>
+    			<th><wicket:message key="label.bin.version">Version</wicket:message></th>
+    			<th><wicket:message key="label.purchase.price">Price</wicket:message></th>
+    			<th><wicket:message key="label.purchase.date">Purchase Date</wicket:message></th>
+    			<th><wicket:message key="label.purchase.status">Status</wicket:message></th>
+    			<th><wicket:message key="label.bin.download">Download</wicket:message></th>
+    		</tr></thead>
+    		<!-- End Table Head -->
+            
+    		<!-- Table Body -->
+    		
+    		<span wicket:id="subscriptions">
+    		  <tr>
+    			<td>
+    			  <a href="#" wicket:id="nameLink">
+                    <span wicket:id="app.name">name</span>
+                  </a>
+                </td>
+    			<td><span wicket:id="platform" /></td>			
+    			<td><span wicket:id="version" /></td>
+    			<td><span wicket:id="price" /></td>
+    			<td><span wicket:id="purchase.date" /></td>
+    			<td><span wicket:id="purchase.status" /></td>
+    			<td><a href="#" wicket:id="binaryLink"><wicket:message key="label.download.link" /></a></td>
+    		  </tr>
+    		</span>
+    	</table>
+      </div><!-- end of sublist -->	
+	</div>
+	</div>
+	<div class="clear"></div>
+	<div class="panelBottom">
+	  <div class="panelFoot"></div>
+	</div>
+</wicket:panel>

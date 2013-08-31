@@ -1,0 +1,23 @@
+<wicket:panel>
+			<h3><wicket:message key="title.small">Search Provider/Developer</wicket:message></h3>       
+    		<div wicket:id="search.feedback">feedback</div>
+      		<form wicket:id="search.form">      
+      			<div class="content-default-searchbox-list">
+                	<ul>
+                    	<li>
+                    		<b><wicket:message key="search.pid">PID</wicket:message> : </b>
+                    		<span><input type="text" wicket:id="search.pid" class="common-textfield"/></span>
+                    	</li>
+                    	<li>
+                    		<b><wicket:message key="search.provider">Provider/Developer</wicket:message> : </b>
+		            		<span><input type="text" wicket:id="search.provider" class="common-textfield"/></span>
+            			</li>
+            		</ul>
+              		<div class="searchbutton"> 
+              			<!--<input type="submit" wicket:id="btn.all" class="button-search" wicket:message="value:btn.all"/>-->
+              			<input type="submit" id="submit" class="button-search" wicket:message="value:btn.search"/>
+              			<!--<input type="reset" id="reset" class="button-search" wicket:message="value:btn.reset"/>-->
+              		</div>
+            	</div>                                                                           
+			</form>                                                                                                                         
+</wicket:panel>

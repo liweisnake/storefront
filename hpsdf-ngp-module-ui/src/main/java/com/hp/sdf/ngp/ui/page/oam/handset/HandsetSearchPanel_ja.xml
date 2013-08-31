@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="title.big">移動機情報管理</entry>
+<entry key="displayName">機種名</entry>
+<entry key="newHandset">新規登録</entry>
+<entry key="search">検索</entry>
+<entry key="deviceName">デバイス情報</entry>
+<entry key="title">移動機情報検索</entry>
+</properties>

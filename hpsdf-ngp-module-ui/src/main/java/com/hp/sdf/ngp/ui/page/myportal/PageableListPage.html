@@ -1,0 +1,24 @@
+<html>
+<body>
+<form wicket:id ="form">
+<span wicket:id ="navigator">这里显示分页操作</span>
+<table width="240" border="1" bordercolor="ora nge">
+<tr>
+<th>选择</th>
+<th>序号</th>
+<th>书名</th>
+<th>作者</th>
+<th>操作</th>
+</tr>
+<tr wicket:id="books">
+<td><input type ="checkbox" wicket:id ="selected"></input></td>
+<td wicket:id ="id">id</td>
+<td wicket:id ="title">title </td>
+<td wicket:id ="author">author</td>
+<td><a wicket:id="edit">edit</a></td>
+</tr>
+</table >
+<input type="submit"></input>
+</form>
+</body>
+</html>

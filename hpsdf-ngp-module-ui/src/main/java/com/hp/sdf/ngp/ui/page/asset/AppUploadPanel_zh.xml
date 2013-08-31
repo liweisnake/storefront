@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">请选择</entry>
+<entry key="title">上传应用文件</entry>
+<entry key="file">应用文件* : </entry>
+<entry key="version">版本* : </entry>
+<entry key="platform">平台* : </entry>
+<entry key="price">价格* : </entry>
+<entry key="document">文档地址 : </entry>
+<entry key="btn.submit">提交</entry>
+</properties>

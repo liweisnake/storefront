@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="platform">Platform</entry>
+<entry key="version">Version</entry>
+<entry key="bin.status">Status : </entry>
+<entry key="download">download</entry>
+<entry key="error">Please select a binary to download</entry>
+<entry key="msg.noprivilege">Your user group can not download the binary with current status.</entry>
+<entry key="bin.nostatus"></entry>
+<entry key="bin.noprice"></entry>
+<entry key="bin.free">Free</entry>
+<entry key="bin.price">Price</entry>
+<entry key="link.buy">Subscribe</entry>
+<entry key="link.gift">Buy as a Gift</entry>
+<entry key="link.cart.buy">Add to Shopping Cart</entry>
+<entry key="link.cart.gift">Add to Shopping Cart as a Gift</entry>
+</properties>

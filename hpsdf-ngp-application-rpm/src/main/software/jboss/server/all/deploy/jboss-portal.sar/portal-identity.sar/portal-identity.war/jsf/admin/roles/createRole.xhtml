@@ -1,0 +1,40 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/roles/roleTemplate.xhtml">
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink id="role-adm-link" action="roleAdmin" value="#{bundle.IDENTITY_MANAGEMENT_ROLE_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_CREATE_ROLE}"/>
+	</li> 
+</ui:define>
+
+<ui:define name="content">
+<h3><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_CREATE_ROLE}"/></h3>
+<h:form id="create-role-form"> 
+	<h:panelGrid columns="3">
+	<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE}"/>
+	<h:inputText id="rolename" value="#{createrolemgr.uiRole.name}" required="true"/>
+  	<h:message for="rolename" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+	
+	<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE_DISPLAY}"/>
+	<h:inputText id="roledisplayname" value="#{createrolemgr.uiRole.displayName}" required="true"/>
+   <h:message for="roledisplayname" infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+   </h:panelGrid>
+	<hr/>
+	<p style="text-align: right;">
+		<h:commandButton id="submit" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" action="#{createrolemgr.createRole}" styleClass="portlet-form-button"/>
+		<h:commandButton id="cancel" action="roleAdmin" value="#{bundle.IDENTITY_BUTTON_CANCEL}" immediate="true" styleClass="portlet-form-button"/>
+	</p>
+</h:form>
+</ui:define>
+</ui:composition>
+</div>

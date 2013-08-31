@@ -1,0 +1,48 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink id="user-mgm-link" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="pathItem">
+		<h:outputText value="#{bundle.IDENTITY_REGISTER_TITLE_CONFIRM_DELETE}" /> 
+	</li>
+	<li class="selected">
+		<h:outputText value="#{useradministrationbean.uiUser.username}"/>
+	</li>
+</ui:define>
+<ui:define name="content">
+         <div class="portlet-msg">
+            <div class="portlet-msg-icon"><h:graphicImage url="/img/msgIcon_Warning.gif" alt="/!\"/></div>
+            <div class="portlet-msg-body">
+            <h3>
+            	<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION_DELETE}" />&#160;
+            	<h:outputText value="'#{useradministrationbean.uiUser.username}'" />&#160;
+            	<h:outputText value="(#{useradministrationbean.uiUser.attribute.email})" />
+            </h3>
+            <p class="portlet-msg-alert">
+            	#{bundle.IDENTITY_WARNING_CONFIRM_DELETE_USER} 
+            	'#{useradministrationbean.uiUser.username}'
+            </p>
+	<h:form id="delete-user-form">
+		<h:commandButton id="cancel" value="#{bundle.IDENTITY_BUTTON_CANCEL}" action="searchUsers"
+							styleClass="portlet-form-button portlet-section-buttonrow" />
+							
+		<h:commandButton id="submit" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" action="#{useradministrationbean.confirmedDelete}"
+							styleClass="portlet-form-button portlet-section-buttonrow" />
+	</h:form>
+</div>
+</div>
+	
+</ui:define>
+</ui:composition>
+</div>

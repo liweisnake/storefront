@@ -1,0 +1,50 @@
+
+/*Modal Window*/
+
+.modal {
+    background-color: #eee;
+    padding: 0;
+    border: 0;
+}
+.modal p {
+    margin: 8px 0;
+}
+
+.modal-details {
+    font-size: 8px;
+    padding-top: 4px;
+}
+
+.modal-caption {
+    float: left;
+}
+
+.loadingMsg {
+    float: right;
+}
+
+.modal img {
+    border: none;
+    clear: both;
+}
+
+.overlay img {
+    border: none;
+}
+
+.overlay {
+    background-image: url(../images/modal/overlay-black.png);
+}
+
+* html .overlay {
+    background-color: transparent;
+    background-image: url(blank.gif);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/modal/overlay-black.png", sizingMethod="scale");
+}
+
+iframe.login-content{
+   padding:0;
+   margin:0;
+   border:0;
+}
+

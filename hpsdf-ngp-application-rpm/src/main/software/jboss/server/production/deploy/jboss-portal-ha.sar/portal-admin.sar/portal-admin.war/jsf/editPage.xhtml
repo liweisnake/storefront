@@ -1,0 +1,81 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:c="http://java.sun.com/jstl/core"
+   xmlns:h="http://java.sun.com/jsf/html">
+
+   <ui:composition template="objectTemplate.xhtml">
+
+      <ui:define name="content">
+         <h3 class="sectionTitle tenpx-top-bottom">#{bundle.MANAGE} <span class="objectName">#{portalobjectmgr.selectedObject.name}</span>
+            #{portalobjectmgr.selectedObject.typeName}</h3>
+
+         <h:form id="admin-portal-form">
+            <h:panelGrid id="page-panel" columns="11" cellpadding="0" cellspacing="0" border="0">
+            <h:commandLink id="edit-layout-link" rendered="#{portalobjectmgr.selectedObject.type == PortalObject.TYPE_PAGE}"
+               action="editPageLayout" actionListener="#{portalobjectmgr.selectObject}" styleClass="actionLayout">
+               <f:param name="id" value="#{portalobjectmgr.selectedObject.id}"/>
+               #{bundle.PAGE_LAYOUT}
+            </h:commandLink>
+            <h:commandLink id="edit-security-link" action="editPageSecurity" styleClass="actionSecurity"
+                                                             actionListener="#{portalobjectmgr.selectObject}">
+            <f:param name="id" value="#{portalobjectmgr.selectedObject.id}"/>
+            #{bundle.SECURITY}
+         </h:commandLink>
+            <h:commandLink id="edit-prop-link" action="editProperties" styleClass="actionProperties"
+                                           actionListener="#{portalobjectmgr.selectObject}">
+            <f:param name="id" value="#{portalobjectmgr.selectedObject.id}"/>
+            #{bundle.COMMON_PROPERTIES}
+         </h:commandLink>
+            <h:commandLink id="edit-theme-link" action="editPageTheme" styleClass="actionTheme"
+                                           actionListener="#{portalobjectmgr.selectObject}">
+            <f:param name="id" value="#{portalobjectmgr.selectedObject.id}"/>
+            #{bundle.THEME}
+         </h:commandLink>
+             <h:commandLink id="rename-link" rendered="#{!((portalobjectmgr.selectedObject.type == PortalObject.TYPE_PORTAL) and ((portalobjectmgr.selectedObject.name == 'admin') or (portalobjectmgr.selectedObject.name == 'template')))}"
+            action="renameObject" actionListener="#{portalobjectmgr.selectObject}" styleClass="actionRename">
+            <f:param name="id" value="#{portalobjectmgr.selectedObject.id}"/>
+            #{bundle.RENAME}
+         </h:commandLink>
+          <h:commandLink id="rename-display-link"
+            action="#{addDisplayNameAction.editDisplayNames}" actionListener="#{portalobjectmgr.selectObject}" styleClass="actionDisplayNames">
+            <f:param name="id" value="#{portalobjectmgr.selectedObject.id}" />
+            #{bundle.DISPLAY_NAMES}
+         </h:commandLink>
+           <h:commandLink id="edit-coord-link" action="#{coordinationManager.editCoordination}"
+                          rendered="#{'page' eq portalobjectmgr.selectedObjectType}"
+                             actionListener="#{portalobjectmgr.selectObject}"
+                             styleClass="actionCoordination">
+            <f:param name="id" value="#{portalobjectmgr.selectedObject.id}" />
+            #{bundle.COORDINATION_COORDINATION}
+         </h:commandLink>
+          <h:commandLink id="delete-link" action="confirm" styleClass="actionDelete"
+                         rendered="#{!((portalobjectmgr.selectedObject.type == PortalObject.TYPE_PORTAL) and ((portalobjectmgr.selectedObject.name == 'admin') or (portalobjectmgr.selectedObject.name == 'template') or (portalobjectmgr.selectedObject.default)))}"
+                                                          actionListener="#{portalobjectmgr.selectDeletingObject}">
+            <f:param name="id" value="#{portalobjectmgr.selectedObject.id}"/>
+            #{bundle.COMMON_DELETE}
+         </h:commandLink>
+            </h:panelGrid>
+         </h:form>
+
+         <h3 class="sectionTitle">#{bundle.MANAGE_SUB_PAGES_WITHIN} <span class="objectName">#{portalobjectmgr.selectedObject.name}</span>
+            #{portalobjectmgr.selectedObject.typeName}</h3>
+         <!-- Sub page addition -->
+         <div class="tenpx-top-bottom">
+         <h:form id="create-page-form">
+            <span class="portlet-font">#{bundle.CREATE_PAGE_NAMED}: </span>
+            <h:inputText id="pageName" value="#{addPageAction.pageName}" styleClass="portlet-form-input-field"
+                         required="true"/>
+            <h:commandButton id="create-page" action="#{addPageAction.execute}" value="#{bundle.CREATE_PAGE}" styleClass="portlet-form-button"/>
+            <h:message for="pageName" errorClass="portlet-msg-error"/>
+         </h:form>
+         </div>
+
+         <!-- Navigation -->
+         <ui:include src="objectNavigation.xhtml"/>
+      </ui:define>
+
+   </ui:composition>
+
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll"></entry>
+	<entry key="providerName">Provider Name</entry>
+	<entry key="accountRole">Role</entry>
+	<entry key="userLifeCycle">User Life Cycle History</entry>
+	<entry key="accountName">User Name</entry>
+	<entry key="detail">Edit</entry>
+	<entry key="delete">Delete</entry>
+	<entry key="accountList">Account List</entry>	
+	<entry key="msg.error.del.noaccount">Account does not exist!</entry>	
+	<entry key="msg.error.del.delSelf">Can not delete your login account!</entry>	
+	<entry key="confirmMsg">Do you want to delete the selected accounts?</entry>
+	<entry key="promptTitle">Prompt</entry>
+</properties>

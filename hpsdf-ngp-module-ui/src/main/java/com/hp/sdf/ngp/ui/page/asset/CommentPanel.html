@@ -1,0 +1,29 @@
+<wicket:head>
+    <script type="text/javascript">
+    </script>
+</wicket:head>
+<wicket:panel>
+ <div style="width:600px;margin:20px 10px 20px 10px;">
+     <form wicket:id="newCommentsForm">                              
+		<table>
+			<tr>
+			  <td><label><b><wicket:message key="comments">Comments</wicket:message> : </b></label></td>
+			  <td>
+			    <table>
+			      <tr><td><div wicket:id="commentsFeedback">[[ feedback ]]</div></td></tr>
+			      <tr><td>
+			    	<textarea wicket:id="comments" style="width:300px;" rows="3"></textarea>
+			      </td></tr>
+			    </table>
+			  </td>
+			  <td><input type="submit" id="submitComments" class="button" wicket:message="value:btn.add" ></input></td>
+			</tr>
+		</table>
+	</form>	
+ </div>
+<p/>
+<div id="commentsWrap" >
+    <span wicket:id="commentsTable"></span>
+	<p/>
+</div>
+</wicket:panel> 

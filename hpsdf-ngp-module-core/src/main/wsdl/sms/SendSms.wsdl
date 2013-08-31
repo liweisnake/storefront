@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://222.66.159.10/bundcenter-send-sms/services/SendSms" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://222.66.159.10/bundcenter-send-sms/services/SendSms" xmlns:intf="http://222.66.159.10/bundcenter-send-sms/services/SendSms" xmlns:tns1="http://nowsms.mobility.gdcc.hp.com" xmlns:tns2="http://smpp.logica.com" xmlns:tns3="http://v2_1.common.parlayx.schema.www.csapi.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://nowsms.mobility.gdcc.hp.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://smpp.logica.com"/>
+   <import namespace="http://v2_1.common.parlayx.schema.www.csapi.org"/>
+   <element name="main">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="args" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mainResponse">
+    <complexType/>
+   </element>
+   <element name="getString">
+    <complexType>
+     <sequence>
+      <element name="s" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStringResponse">
+    <complexType>
+     <sequence>
+      <element name="getStringReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendSms">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="addresses" type="xsd:anyURI"/>
+      <element name="senderName" type="xsd:string"/>
+      <element name="charging" type="tns3:ChargingInformation"/>
+      <element name="message" type="xsd:string"/>
+      <element name="receiptRequest" type="tns3:SimpleReference"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendSmsResponse">
+    <complexType>
+     <sequence>
+      <element name="sendSmsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://smpp.logica.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://v2_1.common.parlayx.schema.www.csapi.org"/>
+   <complexType name="SmppException">
+    <sequence/>
+   </complexType>
+   <complexType name="WrongSessionStateException">
+    <complexContent>
+     <extension base="tns2:SmppException">
+      <sequence>
+       <element name="message" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://222.66.159.10/bundcenter-send-sms/services/SendSms" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://smpp.logica.com"/>
+   <import namespace="http://v2_1.common.parlayx.schema.www.csapi.org"/>
+   <element name="fault" type="tns2:WrongSessionStateException"/>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://v2_1.common.parlayx.schema.www.csapi.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://smpp.logica.com"/>
+   <complexType name="ChargingInformation">
+    <sequence>
+     <element name="description" type="xsd:string"/>
+     <element maxOccurs="1" minOccurs="0" name="currency" type="xsd:string"/>
+     <element maxOccurs="1" minOccurs="0" name="amount" type="xsd:decimal"/>
+     <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SimpleReference">
+    <sequence>
+     <element name="endpoint" type="xsd:anyURI"/>
+     <element name="interfaceName" type="xsd:string"/>
+     <element name="correlator" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getStringResponse">
+
+      <wsdl:part element="tns1:getStringResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="WrongSessionStateException">
+
+      <wsdl:part element="impl:fault" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+      <wsdl:part element="tns1:mainResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendSmsResponse">
+
+      <wsdl:part element="tns1:sendSmsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendSmsRequest">
+
+      <wsdl:part element="tns1:sendSms" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStringRequest">
+
+      <wsdl:part element="tns1:getString" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="tns1:main" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SendSms">
+
+      <wsdl:operation name="main">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest"/>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse"/>
+
+         <wsdl:fault message="impl:WrongSessionStateException" name="WrongSessionStateException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getString">
+
+         <wsdl:input message="impl:getStringRequest" name="getStringRequest"/>
+
+         <wsdl:output message="impl:getStringResponse" name="getStringResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendSms">
+
+         <wsdl:input message="impl:sendSmsRequest" name="sendSmsRequest"/>
+
+         <wsdl:output message="impl:sendSmsResponse" name="sendSmsResponse"/>
+
+         <wsdl:fault message="impl:WrongSessionStateException" name="WrongSessionStateException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SendSmsSoapBinding" type="impl:SendSms">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WrongSessionStateException">
+
+            <wsdlsoap:fault name="WrongSessionStateException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getString">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStringRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStringResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendSms">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendSmsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendSmsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WrongSessionStateException">
+
+            <wsdlsoap:fault name="WrongSessionStateException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SendSmsService">
+
+      <wsdl:port binding="impl:SendSmsSoapBinding" name="SendSms">
+
+         <wsdlsoap:address location="http://222.66.159.10/bundcenter-send-sms/services/SendSms"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">保存</entry>
+	<entry key="back">返回</entry>
+	<entry key="title.big">类别管理</entry>	
+	<entry key="title">详细类别</entry>	
+	
+	<entry key="categoryId">类别编号</entry>	
+	<entry key="externalId">类别外部编号</entry>
+	<entry key="parentExternalId">父类别外部编号</entry>
+	<entry key="name">类别名称</entry>
+	<entry key="displayName">类别显示名称</entry>	
+	
+	<entry key="promptTitle">提示</entry>
+	<entry key="confirmMsg">你确定想要更新类别名称吗？</entry>
+	<entry key="successMsg">更新类别成功.</entry>
+	
+	
+	
+	<entry key="msg.error.save.duplicatedExternalId">类别外部编号重复!</entry>
+	
+	<entry key="msg.error.save.duplicatedCategoryName">类别名称重复!</entry>
+	
+	<entry key="msg.error.save.parentExternalId">没有符合此父类别外部编号的类别!</entry>
+	
+	<entry key="msg.error.save.norecord">该类别不存在!</entry>
+	
+</properties>

@@ -1,0 +1,39 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink id="user-adm-link" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="pathItem">
+		<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ASSIGN_ROLES}" />  
+	</li>	
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{userregistermgr.uiUser.username}" />
+	</li>
+</ui:define>
+
+<ui:define name="content">
+<br/>
+    <h3><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ASSIGN_ROLES}" /></h3>
+	<h:form id="register-role-form">
+		<h:selectManyCheckbox id="roles" value="#{userregistermgr.roles}">
+			<f:selectItems value="#{identityrolemgr.roleSelectItems}" />
+		</h:selectManyCheckbox>
+		<hr/>
+	<p style="text-align: right;">
+		<h:commandButton id="submit" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" action="register" styleClass="portlet-form-button"/>
+		<h:commandButton id="cancel" action="#{userregistermgr.cancelRegistration}" value="#{bundle.IDENTITY_BUTTON_CANCEL}" immediate="true" styleClass="portlet-form-button"/>
+	</p>	
+	</h:form>
+</ui:define>
+</ui:composition>
+</div>

@@ -1,0 +1,533 @@
+/* No border container for user portlets */
+div.identity-ui div.no-tab-container{
+   padding: 15px 0 10px 0;
+}
+
+/* Redefine spacing for tables. */
+
+a {
+   color: #446688;
+   text-decoration: none;
+}
+
+a:hover {
+   color: #5078aa;
+   text-decoration: underline;
+}
+
+.identity-ui table {
+   border: 0;
+   border-collapse:collapse;
+}
+
+hr {
+   display:none;
+   visibility:hidden;
+}
+
+table.datatable{
+   border-right: 1px solid #B3C0C7;
+   border-left: 1px solid #B3C0C7;
+   border-bottom: 1px solid #B3C0C7;
+}
+
+div.identity-ui div.tab-container{
+   border-bottom:1px solid #B3C0C7;
+   border-right:1px solid #B3C0C7;
+   border-left:1px solid #B3C0C7;
+   padding: 15px 0 10px 0;
+}
+
+.identity-ui th {
+   text-align: left;
+   border: 0;
+   padding-bottom: 2px;
+   padding-top: 2px;
+   font-size: 11px;
+}
+
+.identity-ui td {
+   padding-bottom: 2px;
+   padding-top: 2px;
+}
+
+/* Pagination. */
+
+.identity-ui ul.pagination {
+   margin: 0;
+   padding: .2em;
+}
+
+.identity-ui ul.pagination li {
+   text-align: center;
+   list-style-type: none;
+   display: inline;
+   margin-right: 2px;
+}
+
+.identity-ui ul.pagination li.selected {
+   font-weight: bold;
+   background-color: #eef;
+   border-bottom: 2px solid #656565;
+}
+
+.pagination a, .pagination a:visited, .pagination a:hover {
+   text-decoration: none;
+}
+
+/* Top nav. */
+
+.identity-ui ul.topnav {
+   margin: 0;
+   padding: 4px 0px 3px;
+   border-bottom: 1px solid #b3c0c7;
+}
+
+.identity-ui ul.topnav li {
+   list-style-type: none;
+   display: inline;
+   margin: 0;
+   padding: 3px 0.5em;
+   margin-left: 5px;
+   border: 1px solid #b3c0c7;
+   border-bottom: none;
+   background-color: #f2f4f5;
+}
+
+.identity-ui ul.topnav li:hover {
+   background-color: #fff;
+}
+
+.identity-ui ul.topnav li#currentTab {
+   background-color: white;
+   border-bottom: 1px solid white;
+}
+
+.identity-ui ul.topnav li#currentTab a:hover {
+}
+
+
+/* Object path. */
+
+.identity-ui ul.objectpath {
+   list-style-type: none;
+   font-size: 11px;
+   border: solid 1px #bbb;
+   border-left: solid 1px #eee;
+   border-right: solid 1px #eee;
+   background-color: #d5d5d5;
+   background-image: url( img/pathBackground.png );
+   background-position: left;
+   background-repeat: repeat-x;
+   height: 21px;
+   margin: 0px;
+   padding: 0px;
+   padding-left: 2px;
+}
+
+.identity-ui ul.objectpath li {
+   list-style-type: none;
+   display: block;
+   float: left;
+}
+
+.identity-ui ul li.pathItem {
+   padding-top: 4px;
+   padding-left: 3px;
+   padding-right: 2px;
+}
+
+/*
+.identity-ui ul.li.pathSeparator {
+   background-image: url(img/pathSeparator.png);
+   background-position: center center;
+   background-repeat: no-repeat;
+   width: 7px;
+}
+*/
+
+.identity-ui ul.objectpath li.selected {
+   font-weight: bold;
+   padding-top: 4px;
+   padding-left: 3px;
+   padding-right: 2px;
+}
+
+.identity-ui ul.objectpath a {
+   color: #333333;
+   text-decoration: none;
+}
+
+.identity-ui ul.objectpath a:hover {
+   color: #5078aa;
+   text-decoration: none;
+}
+
+/* Resize combo lists */
+.identity-ui select {
+   padding: 2px 4px 2px 1px;
+}
+
+.identity-ui select.contentType {
+   width: 8em;
+}
+
+.identity-ui select.instanceList {
+   width: 11em;
+}
+
+.identity-ui select.windowList {
+   width: 95%;
+   overflow: auto;
+}
+
+/* Style a table for form layout */
+.identity-ui table form {
+   margin: 0;
+}
+
+.identity-ui table form td.label {
+   text-align: right;
+   vertical-align: top;
+   padding-top: 0.4em;
+}
+
+.identity-ui table form td.widget {
+   text-align: left;
+}
+
+/* Area header. */
+
+.identity-ui .portlet-area-header {
+   border: 1px solid #54708c;
+   font-weight: bold;
+   color: #fff;
+   font-size: 11px;
+   background-color: #5986b3;
+   padding: 2px;
+   padding-left: 4px;
+   margin: 0;
+}
+
+.identity-ui .portlet-area-body {
+   border: 1px solid #d5d5d5;
+   border-top: 0px;
+   background-color: #fff;
+   padding: 4px;
+   margin: 0;
+}
+
+/* Styles updated and enhanced from the main portal css */
+
+.identity-ui th.portlet-section-title {
+   font-weight: bold;
+   color: #31587f;
+   font-size: 11px;
+   padding-bottom: 5px;
+}
+
+.identity-ui h3.sectionTitle,
+table th.sectionTitle,
+h3{
+   font-weight: bold;
+   color: #315896;
+   font-size: 11px;
+   padding: 3px 0 3px 3px;
+   background-image:url(img/section-subHeader-bg.gif);
+   background-position:left top;
+   background-repeat:repeat-x;
+   border:1px solid #b9c6d7;
+}
+
+.sectionTitle-blue {
+   font-weight: bold;
+   color: #5986b3;
+   font-size: 13px;
+   background-color: #ebf2f5;
+   padding: 2px 2px 2px 4px;
+   margin: 0;
+   border:1px solid #B3C0C7;
+}
+
+.identity-ui .portlet-section-header {
+   background-image: url( img/pathBackground.png );
+   background-position: left;
+   background-repeat: repeat-x;
+   font-weight: bold;
+   color: #656565;
+   font-size: 10px;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #999;
+   padding-left: 4px;
+}
+
+.identity-ui .portlet-section-header th {
+   background-image: url( img/pathBackground.png );
+   background-position: left;
+   background-repeat: repeat-x;
+   font-weight: bold;
+   color: #656565;
+   font-size: 10px;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #999;
+   padding-left: 4px;
+}
+
+.identity-ui .portlet-section-body {
+   color: #656565;
+   border: 1px solid #d5d5d5;
+   border-top: 0px;
+}
+
+.identity-ui .line-item {
+   color: #656565;
+   border-bottom: 1px solid #d5d5d5;
+}
+
+.identity-ui .portlet-section-alternate {
+   background-color: #F2F2F2;
+   border: 1px solid #d5d5d5;
+}
+
+.identity-ui .portlet-section-selected {
+   background-color: #CBD4E6;
+}
+
+.identity-ui .actionDetails {
+   background-image: url( img/actionIcon_Details.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 14px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionLayout {
+   background-image: url( img/actionIcon_Layout.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 14px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionSecurity {
+   background-image: url( img/actionIcon_Security.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   line-height: 14px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionProperties {
+   background-image: url( img/actionIcon_Properties.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   padding-left: 18px;
+   white-space: nowrap;
+   height: 22px;
+}
+
+.identity-ui .actionTheme {
+   background-image: url( img/actionIcon_Theme.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionRename {
+   background-image: url( img/actionIcon_Rename.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionDelete {
+   background-image: url( img/actionIcon_Delete.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionMakeDefault {
+   background-image: url( img/actionIcon_MakeDefault.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionDefault {
+   background-image: url( img/actionIcon_IsDefault.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionPreferences {
+   background-image: url( img/actionIcon_Properties.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .actionCreateInstance {
+   background-image: url( img/actionIcon_CreateInstance.gif );
+   background-position: left;
+   background-repeat: no-repeat;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   line-height: 18px;
+   padding-left: 18px;
+   white-space: nowrap;
+}
+
+.identity-ui .portlet-content-center {
+   padding: 0;
+   margin: 0;
+}
+
+.identity-ui .portlet-body {
+   padding: 0;
+   margin: 0;
+}
+
+.identity-ui .portlet-content-right {
+   padding: 0;
+   margin: 0;
+}
+
+.identity-ui .portlet-footer-left {
+   padding: 0;
+   margin: 0;
+}
+
+.identity-ui .portlet-table-header {
+   background-color: #eef;
+}
+
+.identity-ui .portlet-section-buttonrow {
+   margin-top: 6px;
+   margin-bottom: 6px;
+   float: right;
+}
+
+/* Change dashed line to solid. */
+
+.identity-ui hr {
+   border-top-style: solid;
+}
+
+.identity-ui .wizardStepBox {
+   display: inline;
+   float: left;
+   border: 1px solid #98B7C6;
+   height: 7em;
+   width: 9em;
+   background-color: #DFE8ED;
+   margin: .5em;
+}
+
+.identity-ui .wizardButtonBox {
+   margin: 1em;
+}
+
+.identity-ui .wizardContent {
+   clear: both;
+}
+
+.identity-ui form {
+   padding: 0;
+   margin: 0;
+}
+
+.identity-ui #selected.wizardStepBox {
+   background-color: #C8DCC4;
+   border: 1px solid black;
+   border-bottom: 5px solid black;
+}
+
+.identity-ui .stepNumber {
+   font-size: 2em;
+   text-align: center;
+   margin-top: 5px;
+   margin-bottom: 0;
+}
+
+.identity-ui .stepText {
+   text-align: center;
+}
+
+.identity-ui .layout-button {
+   width: 50px;
+   margin: 2px;
+   padding: 2px;
+}
+
+.identity-ui .createObjectForm {
+   display: block;
+   padding: 1em 0 0 0;
+}
+
+.identity-ui .objectList {
+   width: 100%;
+}
+
+.identity-ui .objectList .objectNameColumn {
+   width: 25%;
+}
+
+.identity-ui .objectList .objectActionColumn {
+   width: 75%;
+}
+
+.identity-ui .portlet-msg {
+   border: 1px solid #bbb;
+   margin: 2em auto;
+   padding: 1em;
+   width: 60%;
+}
+
+.identity-ui .portlet-msg-body {
+   position: relative;
+   top: -3em;
+   left: 3em;
+   width: 95%;
+}
+
+.identity-label {
+   padding: 0 4px 3px 0;
+   display: inline-block;
+   vertical-align: middle;
+}
+
+.content-container {
+   width: 98%;
+   margin: 0 auto 0 auto;
+}

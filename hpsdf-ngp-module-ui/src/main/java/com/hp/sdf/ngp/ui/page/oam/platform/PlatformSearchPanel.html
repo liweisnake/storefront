@@ -1,0 +1,52 @@
+
+<wicket:panel>
+
+<div id="regionA">   
+   	<form wicket:id="searchPlatformForm">
+    
+	  <div class="title">
+    	<div class="title-button">
+    		<input type="submit" wicket:id="newPlatform" wicket:message="value:newPlatform" class="button-submit"></input>
+    	</div>
+	  </div> 	   	    
+   	
+   	<div class="content">
+    <table border="0" cellpadding="0" cellspacing="0" class="portal-container">
+      <tr>
+        <td class="portal-container-top-left"></td>
+        <td class="portal-container-top"></td>
+        <td class="portal-container-top-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-content-left"></td>
+        <td class="portal-container-content">
+        <div class="contentbox">
+            <div class="searchbox-list">
+              <ul>
+                <li><b><wicket:message key="platformName" />:</b><span>
+                  <input type="text" wicket:id="platformName" class="common-textfield" />
+                  </span></li>
+              </ul>
+              <div class="searchbutton">
+                <input type="submit" wicket:id="search" wicket:message="value:search" class="button-search" />
+              </div>
+            </div>
+          </div></td>
+        <td class="portal-container-content-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-bottom-left"></td>
+        <td class="portal-container-bottom"></td>
+        <td class="portal-container-bottom-right"></td>
+      </tr>
+    </table>
+    </div>
+    </form>
+		
+	  <div class="content">
+		<span wicket:id="platformsTable"></span>
+	  </div>	
+	
+</div>
+	
+</wicket:panel>

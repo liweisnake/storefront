@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Recommended Binary Versions List</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newBinaryVersion">New Content</entry>
+
+
+<entry key="selectAll">Select All</entry>
+<entry key="providerId">Provider External ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="assetId">Asset ID</entry>
+
+<entry key="assetExternalId">Asset External ID</entry>
+<entry key="binaryExternalId">BinaryVersion External ID</entry>
+
+<entry key="name">Name</entry>
+<entry key="targetPublishDate">Target Publish Date</entry>
+<entry key="publishDate">Publish Date</entry>
+<entry key="category1">Category</entry>
+<entry key="category2">Genre</entry>
+<entry key="status">Status</entry>
+<entry key="newArrivalDueDate">New Arrival Due Date</entry>
+<entry key="recommendStartDate">Recommend Start Date</entry>
+<entry key="recommendDueDate">Recommend Due Date</entry>
+<entry key="recommendOrder">Recommend Order</entry>
+<entry key="commissionRate">Commission Rate</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="updateTime">Update Time</entry>
+
+<entry key="title.big">Recommended Management</entry>
+<entry key="title.list">Recommended Contents List</entry>
+
+<entry key="title.prompt">Prompt</entry>
+<entry key="msg.warn.update">Do you want to batch update the recommend order of the selected asset binary version?</entry>
+<entry key="msg.warn.delete">Do you want to batch delete the selected asset binary version?</entry>
+<entry key="msg.result.update.success">You successfully batch update the recommend order of the selected asset binary version!</entry>
+<entry key="msg.result.delete.success">You successfully batch delete the selected asset binary version!</entry>
+<entry key="msg.warn.delete.noselect">no selected record!</entry>
+<entry key="msg.order.input">You should be input the recommend order of the selected asset binary version!</entry>
+<entry key="msg.order.range">You should be input the recommend order between 1 and 500!</entry>
+<entry key="msg.error.batch.notexist"> is not exist!</entry>
+<entry key="msg.error.nobinaryselect">Please select some asset binary versions!</entry>
+<entry key="msg.error.can.not.delete"> can not be permited to delete!</entry>
+
+<entry key="delete">Delete</entry>
+<entry key="save">Update</entry>
+
+
+
+</properties>

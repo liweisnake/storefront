@@ -1,0 +1,83 @@
+<wicket:head>
+	<script type="text/javascript">
+
+	function selectAll() {
+	   	var groupselector = document.getElementById("groupselector");
+	   	//support IE and Firefox
+	   	var tagArray = document.getElementsByTagName("*");
+
+	   	if(groupselector.checked) {
+			for (var i = 0; i < tagArray.length; i++) {   
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = true;
+		        	}
+		  		}
+			}
+	   	}
+	   	else {
+			for (var i = 0; i < tagArray.length; i++) {  
+		    	if (typeof(tagArray[i].name) != "undefined") {
+		        	if (tagArray[i].type == "checkbox") {
+		          		tagArray[i].checked = false;
+		          	}
+		        }			    
+		  	}
+	   	}
+		
+	}
+	</script>
+</wicket:head>
+
+<wicket:panel>
+
+	<span style="color: red;" wicket:id="feedBack">error message</span>
+
+  <div class="content">
+    <form wicket:id="handsetsForm">
+    
+   <div class="portal-box">
+    <div class="content-container">
+    
+    	<div class="contentbox">	
+		<h3><wicket:message key="title.list" /></h3>
+	    <div class="overflow" >
+	     <div class="table-box">
+			<table border="0" cellpadding="0" cellspacing="0" class="table-styles-a">
+				<tr>
+					<th><input type="checkbox" wicket:id="groupselector"
+						onclick="selectAll()"> <wicket:message key="selectAll" /> </input></th>
+					<th><wicket:message key="displayName" /></th>
+					<th><wicket:message key="deviceName" /></th>
+					<th><wicket:message key="createTime" /></th>					
+					<th><wicket:message key="detail" /></th>
+				</tr>
+		
+				<tr wicket:id="handsetsView">
+					<td align="center"><input wicket:id="select" type="checkbox"></input></td>
+					<td align="center"><span wicket:id="displayName"></span></td>
+					<td align="center"><span wicket:id="deviceName"></span></td>
+					<td align="center"><span wicket:id="createTime"></span></td>					
+					<td align="center"><a wicket:id="detail"><img src="images/icon_edit.gif" /></a></td>
+				</tr>
+			</table>
+	       </div>
+	      </div>
+            
+             <span wicket:id="navigator"></span>
+  	     </div>  
+  	     
+  	     <div class="clear"></div>                        
+       </div>
+	
+		<div class="contentbutton">
+			<div wicket:id="checkPanel"></div>
+			<input type="submit"
+			wicket:id="delete" wicket:message="value:delete" class="button-submit" />
+		</div>
+	
+    </div>
+          
+    </form>
+ </div>	
+</wicket:panel>

@@ -1,0 +1,149 @@
+
+div.menu-container {
+   float:left;
+   width: 300px;
+   padding: 5px 0 10px 10px;
+}
+
+div.admin-ui div.cms-tab-container {
+   border:1px solid #B3C0C7;
+   padding: 0 0 10px 0;
+   margin: 10px 0 0 0;
+}
+
+.menu {
+   width: 150px;
+   font-size: 0.85em;
+   position: relative;
+   z-index: 100;
+}
+
+/* remove all the bullets, borders and padding from the default list styling */
+.menu ul {
+   padding: 0;
+   margin: 0;
+   list-style-type: none;
+}
+
+.menu ul ul {
+   width: 150px;
+   list-style-type: none;
+}
+
+/* float the list to make it horizontal and a relative positon so that you can control the dropdown menu positon */
+.menu li {
+   float: left;
+   width: 150px;
+   position: relative;
+   list-style: none;
+}
+
+/* style the links for the top level */
+.menu a, .menu a:visited {
+   display: block;
+   font-size: 11px;
+   text-decoration: none;
+   width: 139px;
+   height: 20px;
+   border: 1px solid #98b7c6;
+   border-width: 1px 1px 1px 1px;
+   padding-left: 5px;
+   line-height: 20px;
+}
+
+* html .menu a, * html .menu a:visited {
+   width: 150px;
+   w\idth: 139px;
+}
+
+.menu ul ul a.drop, .menu ul ul a.drop:visited {
+   background: #DFE8ED;
+}
+
+.menu ul ul a.drop:hover {
+   background: #C0D3DC;
+}
+
+.menu ul ul :hover > a.drop {
+   background: #C0D3DC;
+}
+
+.menu ul ul {
+   visibility: hidden;
+   position: absolute;
+   height: 0;
+   top: 20px;
+   left: 0;
+   width: 150px;
+}
+
+* html .menu ul ul {
+   top: 20px;
+   t\op: 20px;
+}
+
+/* not used */
+.menu table {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+.menu ul ul a, .menu ul ul a:visited {
+   background: #DFE8ED;
+   height: auto;
+   line-height: 20px;
+   padding: 5px 10px;
+   width: 129px
+}
+
+* html .menu ul ul a {
+   width: 150px;
+   w\idth: 129px;
+}
+
+.menu a:hover, .menu ul ul a:hover {
+   visibility: visible;
+}
+
+.menu :hover > a, .menu ul ul :hover > a {
+   background: #C0D3DC;
+}
+
+.menu ul li:hover ul,
+   .menu ul a:hover ul {
+   visibility: visible;
+   background: #C0D3DC;
+}
+
+div.search-container {
+   float:right;
+   padding: 5px 15px 10px 0;
+}
+
+div.search-container form{
+   margin:0;
+   padding:0;
+}
+
+h3.sectionTitle{
+
+}
+
+div.file-table-container{
+   width: 100%;
+}
+
+h3.sectionTitle {
+   margin:0;
+}
+
+div.admin-ui table{
+   margin:0;
+   border-collapse:collapse;
+}
+
+div.admin-ui th{
+   padding:0;
+}
+

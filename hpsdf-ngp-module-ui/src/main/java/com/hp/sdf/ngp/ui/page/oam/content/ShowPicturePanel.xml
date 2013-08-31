@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Show Picture</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newBinaryVersion">New Binary Version</entry>
+
+<entry key="btn.back">Back</entry>
+</properties>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Top Sales Search</entry>
+<entry key="beginDate">Begin Date</entry>
+<entry key="endDate">End Date</entry>
+<entry key="assetName">Asset Name</entry>
+
+<entry key="order.name">Name</entry>
+<entry key="order.createDate">Create Date</entry>
+<entry key="order.averageUserRating">Average User Rating</entry>
+<entry key="order.downloadCount">Download Count</entry>
+
+<entry key="btn.search">Search</entry>
+<entry key="btn.all">All</entry>
+<entry key="btn.reset">Reset</entry>
+
+<entry key="title.search">Statistic Condition</entry>
+<entry key="orderBy">Order By</entry>
+
+</properties>

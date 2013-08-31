@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="platformName">平台名称</entry>
+	<entry key="search">搜索</entry>
+	<entry key="newPlatform">新建平台</entry>	
+	
+	<entry key="title">搜索平台</entry>	
+</properties>

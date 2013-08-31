@@ -1,0 +1,28 @@
+<wicket:panel>
+    <div id="searchDiv">                                        
+      <div wicket:id="feedback">[[ feedback ]]</div>
+      <form wicket:id="searchForm">                                                         
+          <table class="formTableSet">                                                                           
+            <tr>
+              <td width="200" align="right"><wicket:message key="keyword">keyword</wicket:message> : </td>
+              <td><input type="text" wicket:id="keyword" /></td>
+              <td  align="right"><wicket:message key="status">status</wicket:message> : </td>
+              <td><select wicket:id="status"></select></td>
+            </tr>
+            <tr>                     
+              <td  width="200" align="right"><wicket:message key="purchase.date">Purchase Date</wicket:message> : </td>                                                                      
+              <td colspan="3">
+                <wicket:message key="purchase.date.from">From</wicket:message> 
+                <input type="text" wicket:id="startDate" />
+                <wicket:message key="purchase.date.to">To</wicket:message>
+                <input type="text" wicket:id="endDate" />
+              </td>
+            </tr>
+            <tr>
+              <td  width="200" align="right"><input type="submit" wicket:id="btn.all" class="button" wicket:message="value:btn.all"/></td>
+              <td colspan="3"><input type="submit" id="submit" class="button" wicket:message="value:btn.search"/></td>
+            </tr>                                                                           
+          </table>
+      </form>                                                                                                                         
+    </div><!--end of searchDiv-->         
+</wicket:panel>

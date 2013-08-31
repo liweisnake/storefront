@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<entry key="tabbedBanner">标签广告条:</entry>
+<entry key="bannerName">名字:</entry>
+<entry key="bannerType">广告条类型:</entry>
+<entry key="content">内容:</entry>
+<entry key="contentName">内容 名字:</entry>
+<entry key="contentType">内容 类型:</entry>
+<entry key="contentTableName">名字</entry>
+<entry key="contentTableType">类型</entry>
+<entry key="operation">操作</entry>
+<entry key="editBtn">编辑</entry>
+<entry key="deleteBtn">删除</entry>
+<entry key="addContentBtn">添加 内容</entry>
+<entry key="submitBtn">提交</entry>
+<entry key="previewBtn">预览</entry>
+<entry key="cancelBtn">取消</entry>
+<entry key="saveBtn">保存</entry>
+<entry key="uploadFile">上传文件:</entry>
+<entry key="clickLink">可点击的 链接:</entry>
+<entry key="contentTypeImage">图片</entry>
+<entry key="contentTypeHtml">超链接</entry>
+<entry key="uploadZip">上传ZIP包:</entry>
+<entry key="contentNameNeed">内容 名字不能为空.</entry>
+<entry key="contentNameLong">内容 名字太长了.</entry>
+<entry key="urlLong">可点击链接的长度小于100.</entry>
+<entry key="ImageNeed">必须选择图片.</entry>
+<entry key="selectImage">请选择图片.</entry>
+<entry key="htmlNeed">必须选择上传文件</entry>
+<entry key="selectZip">请选择zip包</entry>
+<entry key="bannerNameNeed">广告条 名字是必须的.</entry>
+<entry key="bannerNameLong">广告条 名字太长.</entry>
+<entry key="contentNeed">添加内容是必须的.</entry>
+<entry key="bannerNameExist">广告条 名字已经存在了.</entry>
+<entry key="rotationCheck">自动跳转</entry>
+<entry key="roatationInterval">自动跳转间隔</entry>
+<entry key="rotationIntervalNeed">自动跳转间隔不能为空!</entry>
+<entry key="staticBanner">静态广告条</entry>
+<entry key="rotatingBanner">轮换广告条</entry>
+<entry key="tabbedBanner">标签页广告条</entry>
+<entry key="image">图片</entry>
+<entry key="html">网页</entry>
+</properties>

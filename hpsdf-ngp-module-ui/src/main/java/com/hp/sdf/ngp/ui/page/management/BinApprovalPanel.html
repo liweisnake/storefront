@@ -1,0 +1,35 @@
+<wicket:panel>
+	<div class="panelBody">
+	<form wicket:id="approvalForm">
+	<span wicket:id="navigator"></span>
+	<!-- App binary list table -->
+	<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+		
+		<thead><tr>
+			<th width="10%">&nbsp;</th>
+			<th width="15%"><wicket:message key="app.name">Application Name</wicket:message></th>
+			<th width="15%"><wicket:message key="bin.version">Version</wicket:message></th>
+			<th width="20%"><wicket:message key="bin.platform">Platform</wicket:message></th>
+			<th width="15%"><wicket:message key="label.status.current">Current Status</wicket:message></th>
+			<th width="15%"><wicket:message key="label.status.next">Next Status</wicket:message></th>
+			<th width="10%"><wicket:message key="app.brief">Brief</wicket:message></th>
+		</tr>
+		</thead>
+		<span wicket:id="bins">
+			<tr>
+				<td width="10%"><input type="checkbox" wicket:id="checkbox" /></td>
+				<td width="15%"><span wicket:id="appName" /></td>
+				<td width="15%"><span wicket:id="version" /></td>
+				<td width="20%"><span wicket:id="platform" /></td>
+				<td width="15%"><span wicket:id="currentStatus" /></td>
+				<td width="15%"><span wicket:id="nextStatus" /></td>
+				<td width="10%"><span wicket:id="brief" /></td>
+			</tr>
+		</span>		
+	</table>
+	  <input type="submit" wicket:id="approve" wicket:message="value:btn.approve"/>
+	  <input type="submit" wicket:id="reject" wicket:message="value:btn.reject"/>
+	  <input type="reset" wicket:message="value:btn.reset"/>
+	</form>
+	</div>
+</wicket:panel>

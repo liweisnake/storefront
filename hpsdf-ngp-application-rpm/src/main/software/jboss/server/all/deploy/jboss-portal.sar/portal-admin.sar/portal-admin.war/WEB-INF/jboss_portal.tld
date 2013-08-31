@@ -1,0 +1,26 @@
+<!DOCTYPE taglib
+   PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+   "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+<tlib-version>0.01</tlib-version>
+<jsp-version>1.2</jsp-version>
+<short-name>jbp</short-name>
+<uri>http://www.jboss.org/portal</uri>
+<description>This tag library contains the scroller tag.</description>
+
+<tag>
+   <name>scroller</name>
+   <tag-class>org.jboss.portal.faces.component.scroller.ScrollerTag</tag-class>
+   
+   <attribute>
+     <name>for</name>
+     <required>true</required>
+   </attribute>
+   
+   <attribute>
+     <name>styleClass</name>
+   </attribute>
+   
+</tag>
+
+</taglib>

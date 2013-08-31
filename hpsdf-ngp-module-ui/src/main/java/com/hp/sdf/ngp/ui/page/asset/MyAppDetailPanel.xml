@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">My Application Details</entry>
+<entry key="label.auther">Author</entry>
+<entry key="label.update">Update date</entry>
+<entry key="label.intro">Introduction</entry>
+<entry key="label.category">Category</entry>
+<entry key="label.rating">Average Rating</entry>
+<entry key="label.myrating">My Rating</entry>
+<entry key="label.rate.range">5</entry>
+<entry key="default.rating">0</entry>
+<entry key="btn.update">Update</entry>
+<entry key="btn.reset">Reset</entry>
+<entry key="btn.rating">Button</entry>
+<entry key="link.manage.bin">Manage Application Binaries</entry>
+<entry key="description.title">Application Description :</entry>
+</properties>

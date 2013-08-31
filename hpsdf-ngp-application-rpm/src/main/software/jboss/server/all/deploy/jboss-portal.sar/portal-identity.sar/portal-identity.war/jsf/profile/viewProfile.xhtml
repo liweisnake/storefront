@@ -1,0 +1,25 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+	<f:loadBundle var="bundle" basename="conf.bundles.Identity" />
+
+<ui:composition template="/jsf/profile/viewProfileTemplate.xhtml">
+
+<ui:define name="title">
+	<h:outputText value="#{bundle.IDENTITY_VIEW_PROFILE_TITLE}" />
+</ui:define>
+
+<ui:define name="content">
+   <ui:decorate template="/jsf/common/viewProfileInfo.xhtml">
+      <ui:param name="manager" value="#{editprofilemgr}"/>
+   </ui:decorate>
+</ui:define>
+
+</ui:composition>
+
+
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="providerName">供应商</entry>
+	<entry key="accountRole">角色</entry>
+	<entry key="accountName">账户名称</entry>
+	<entry key="search">搜索</entry>
+	<entry key="newAccount">新建账户</entry>	
+	
+	<entry key="title">搜索账户</entry>	
+	<entry key="accountManagement">账户管理</entry>	
+	
+	<entry key="msg.error.save.noaccount">该账户不存在!</entry>
+	<entry key="msg.error.del.noselect">请至少选择一个账户!</entry>	
+</properties>

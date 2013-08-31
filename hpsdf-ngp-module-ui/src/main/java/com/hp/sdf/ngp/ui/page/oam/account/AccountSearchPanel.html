@@ -1,0 +1,70 @@
+
+<wicket:panel>
+
+<div id="regionA">
+
+   	<form wicket:id="searchAccountForm">
+	   
+	  <div class="title">
+    	<h2 class="icon-title-content"><wicket:message key="accountManagement"></wicket:message></h2>
+    	<div class="title-button">
+    		<input type="submit" wicket:id="newAccount" wicket:message="value:newAccount" class="button-submit"></input>
+    	</div>
+	  </div>  	   	
+   	
+	   	<div class="content">
+	   	
+	   	   	<h3><wicket:message key="title" />
+	   	   	</h3>
+	   	
+		    <table border="0" cellpadding="0" cellspacing="0" class="portal-container">
+		      <tr>
+		        <td class="portal-container-top-left"></td>
+		        <td class="portal-container-top"></td>
+		        <td class="portal-container-top-right"></td>
+		      </tr>
+		      <tr>
+		        <td class="portal-container-content-left"></td>
+		        <td class="portal-container-content">
+		        <div class="contentbox">
+		            <div class="searchbox-list">
+		              <ul>
+		                <li><b><wicket:message key="accountName" />:</b><span>
+		                  <input type="text" wicket:id="accountName" class="common-textfield" />
+		                  </span></li>
+		              </ul>
+		              
+		              <ul>
+		                <li><b><wicket:message key="accountRole" />:</b><span>
+		                  <select wicket:id="roleName"></select>
+		                  </span></li>
+		              </ul>
+		              
+		              <ul>
+		                <li><b><wicket:message key="providerName" />:</b><span>
+		                  <input type="text" wicket:id="providerName" class="common-textfield" />
+		                  </span></li>
+		              </ul>		              
+		                            
+		              <div class="searchbutton">
+		                <input type="submit" wicket:id="search" wicket:message="value:search" class="button-search" />
+		              </div>
+		            </div>
+		          </div></td>
+		        <td class="portal-container-content-right"></td>
+		      </tr>
+		      <tr>
+		        <td class="portal-container-bottom-left"></td>
+		        <td class="portal-container-bottom"></td>
+		        <td class="portal-container-bottom-right"></td>
+		      </tr>
+		    </table>
+	    </div>
+    </form>
+
+	  <div class="content">
+		<span wicket:id="accountsTable"></span>
+	  </div>
+  
+ </div>  
+</wicket:panel>

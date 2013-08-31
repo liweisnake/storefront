@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Checkout Success</entry>
+<entry key="label.success">You have successfully purchased the asset(s). Please enjoy them.</entry>
+</properties>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--January 16, 2006--><xsd:schema targetNamespace="http://www.csapi.org/schema/parlayx/rate_management/v2_2" xmlns:rate_management_xsd="http://www.csapi.org/schema/parlayx/rate_management/v2_2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="DatedTransaction">
+    <xsd:sequence>
+      <xsd:element name="transactionDate" type="xsd:dateTime"/>
+      <xsd:element name="transactionDetails" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ServiceOperation">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="serviceId" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="serviceName" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="operation" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="trafficType" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="accessInterface" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="rateUnits" type="xsd:integer"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Rate">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ratePlanId" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ServiceOperation" type="rate_management_xsd:ServiceOperation"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="expiryDate" type="xsd:dateTime"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="validFrom" type="xsd:dateTime"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="referenceCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ExpiryDetails">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="rateUnits" type="xsd:integer"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="expiryDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

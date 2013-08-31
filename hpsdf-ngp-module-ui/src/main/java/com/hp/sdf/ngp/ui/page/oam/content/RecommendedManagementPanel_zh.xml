@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Recommended Binary Versions List</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newBinaryVersion">New Content</entry>
+
+
+<entry key="selectAll">Select All</entry>
+<entry key="providerId">Provider External ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="assetId">Asset ID</entry>
+
+<entry key="assetExternalId">Asset External ID</entry>
+<entry key="binaryExternalId">BinaryVersion External ID</entry>
+
+<entry key="name">Name</entry>
+<entry key="targetPublishDate">Target Publish Date</entry>
+<entry key="publishDate">Publish Date</entry>
+<entry key="category1">Category</entry>
+<entry key="category2">Genre</entry>
+<entry key="status">Status</entry>
+<entry key="newArrivalDueDate">New Arrival Due Date</entry>
+<entry key="recommendStartDate">Recommend Start Date</entry>
+<entry key="recommendDueDate">Recommend Due Date</entry>
+<entry key="recommendOrder">Recommend Order</entry>
+<entry key="commissionRate">Commission Rate</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="updateTime">Update Time</entry>
+
+<entry key="title.big">Recommended Management</entry>
+<entry key="title.list">Recommended Contents List</entry>
+
+<entry key="title.prompt">Prompt</entry>
+<entry key="msg.warn.update">你想要批量更新已选的资产二进制版本的推荐顺序吗?</entry>
+<entry key="msg.warn.delete">你想要批量删除已选的资产二进制版本吗?</entry>
+<entry key="msg.result.update.success">批量更新已选的资产二进制版本成功!</entry>
+<entry key="msg.result.delete.success">批量删除已选的资产二进制版本成功!</entry>
+<entry key="msg.warn.delete.noselect">没有选择的列!</entry>
+
+<entry key="delete">Delete</entry>
+<entry key="save">Update</entry>
+
+
+
+</properties>

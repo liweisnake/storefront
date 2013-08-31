@@ -1,0 +1,19 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+   
+<ui:composition template="/jsf/startTemplate.xhtml">
+
+<ui:define name="title">
+	<h:outputText value="#{bundle.IDENTITY_NOT_LOGGED_IN}" />
+</ui:define>
+<ui:define name="content">
+	<h:form id="create-account-form">
+	<p style="text-align:center;"><h:commandLink id="register" value="#{bundle.IDENTITY_CREATE_ACCOUNT}" action="register"/></p>
+	</h:form>
+</ui:define>
+</ui:composition>
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="batchUpload.title">Batch upload</entry>
+	<entry key="batchUpload.file">File</entry>
+	<entry key="batchUpload.upload">Upload</entry>
+
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to upload this file?</entry>
+	<entry key="successMsg">Upload successfully.</entry>
+</properties>

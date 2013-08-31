@@ -1,0 +1,256 @@
+<wicket:panel>
+<!--  -->
+<span wicket:id="feedback"></span>
+<input type="hidden" wicket:id="urlPrefix">
+<input type="hidden" wicket:id="bannerId">
+
+<input type="hidden" wicket:id="contentNameNeed">
+<input type="hidden" wicket:id="contentNameLong">
+<input type="hidden" wicket:id="urlLong">
+<input type="hidden" wicket:id="ImageNeed">
+<input type="hidden" wicket:id="selectImage">
+<input type="hidden" wicket:id="htmlNeed">
+<input type="hidden" wicket:id="selectZip">
+<input type="hidden" wicket:id="bannerNameNeed">
+<input type="hidden" wicket:id="bannerNameLong">
+<input type="hidden" wicket:id="contentNeed">
+<input type="hidden" wicket:id="bannerNameExist">
+<input type="hidden" wicket:id="rotationIntervalNeed">
+
+<form wicket:id="tabbedBannerPanelForm" name="tabbedBannerPanelForm">
+<input type="hidden" wicket:id="bannerStatus">
+<div wicket:id="mainPanel">
+<span><wicket:message key="tabbedBanner"/></span>
+<br/>
+<span><wicket:message key="bannerName"/></span>
+<br/>
+<span><input type="text" wicket:id="bannerName" name="bannerName"></input></span>
+<br/>
+<span><wicket:message key="bannerType"/></span>
+<br/>
+<span wicket:id="bannerType">
+</span>
+<br/>
+<span><input type="checkbox" wicket:id="isAutoRotation" onclick="clickCheckbox()" name="isAutoRotation"/><wicket:message key="rotationCheck"/></span>
+<br/><span><wicket:message key="roatationInterval"/></span>
+<span><input type="text" wicket:id="intervalRotation" name="intervalRotation" onKeypress="Keypress_err_1()" ></input></span>
+<br/>
+<div>
+<span><wicket:message key="content"/></span>
+<br/>
+<span wicket:id="contentTable">
+<table border="1">
+<tr>
+	<th>
+		<span><wicket:message key="contentTableName"/></span>
+	</th>
+	<th>
+		<span><wicket:message key="contentTableType"/></span>
+	</th>
+	<th>
+		<span><wicket:message key="operation"/></span>
+	</th>
+</tr>
+<tr wicket:id="contentListView">
+	<td>
+		<span wicket:id="name"></span>
+	</td>
+	<td>
+		<span wicket:id="type"></span>
+	</td>
+	<td>
+
+	<input type="submit" wicket:id="editBtn"/>
+
+	<input type="submit" wicket:id="delBtn"/>
+	</td>
+</tr>
+</table>
+<br/>
+</span>
+</div>
+
+
+</div>
+<input type="submit" wicket:id="addContentBtn" value="Add Content"/>
+<span wicket:id = "submitPanel">
+<br/><br/>
+<input wicket:id="submitBtn" type="button" value="Submit" onclick="submitBanner('submit')"></input>&nbsp;
+<input wicket:id="previewBtn" type="button"  value="Preview" onclick="submitBanner('preview')">&nbsp;
+</span>
+<input wicket:id="cancelBtn" type="submit" value="Cancel"/>
+<br/>
+</form>
+
+<div>
+<form wicket:id="contentListForm">
+<span><wicket:message key="contentName"/></span>
+<br/>
+<span><input type="text" wicket:id="contentName" name="contentName"></input></span>
+<br/>
+<span><wicket:message key="contentType"/></span>
+<br/>
+<span wicket:id="contentType" name="contentType"></span>
+<br/>
+
+<div>
+<span wicket:id="imagePanel">
+<span><wicket:message key="uploadFile"/></span>
+<br/>
+<input type="file" wicket:id="image"></input>
+<br/>
+<span><wicket:message key="clickLink"/></span>
+<br/>
+<input type="text" wicket:id="href" name="href"></input>
+<br/>
+</span> 
+</div>
+
+<div>
+<span wicket:id="htmlPanel">
+<span><wicket:message key="uploadZip"/></span>
+<br/>
+<input type="file" wicket:id="html"></input>
+<br/>
+</span> 
+</div>
+
+<input type="button" wicket:id="save" value="Save" onclick="saveContent()"></input>
+<input type="submit" wicket:id="cancel" value="Cancel"></input>
+</form>
+</div>
+<script>
+function saveContent(){
+	//alert("call saveContent()");
+	var contentName = document.getElementsByName('contentName')[0];
+	var contentType_image = document.getElementsByName('contentType')[0];
+	var contentType_html = document.getElementsByName('contentType')[1];
+	var href = document.getElementsByName('imagePanel:href')[0];
+	var fileImage = document.getElementsByName('imagePanel:image')[0];
+	var fileHtml = document.getElementsByName('htmlPanel:html')[0];
+	if(contentName.value == ""){
+		alert(document.getElementsByName('TabbedBannerPanel:contentNameNeed')[0].value);
+		return;
+	}
+	if(contentName.value.length > 100){
+		alert(document.getElementsByName('TabbedBannerPanel:contentNameLong')[0].value);
+		return;
+	}
+	if(contentType_image.checked){
+		if(href.value!="" && href.value.length>100){
+			alert(document.getElementsByName('TabbedBannerPanel:urlLong')[0].value);
+			return;
+		}
+		if(fileImage.value==""){
+			alert(document.getElementsByName('TabbedBannerPanel:ImageNeed')[0].value);
+			return;
+		}
+		var file = fileImage.value;
+		if(file.substr(file.length-4,4) != '.JPG' 
+			&& file.substr(file.length-4,4) != '.jpg'
+			&& file.substr(file.length-4,4) != '.png'
+			&& file.substr(file.length-4,4) != '.PNG'				
+			&& file.substr(file.length-4,4) != 'JPEG'
+			&& file.substr(file.length-4,4) != 'jpeg'){
+				alert(document.getElementsByName('TabbedBannerPanel:selectImage')[0].value);
+				return;
+		}
+	} 
+	if (contentType_html.checked){
+		if(fileHtml.value==""){
+			alert(document.getElementsByName('TabbedBannerPanel:htmlNeed')[0].value);
+			return;
+		}
+		var file = fileHtml.value;
+		if(file.substr(file.length-4,4) != '.zip' 
+			&& file.substr(file.length-4,4) != '.ZIP'){
+				alert(document.getElementsByName('TabbedBannerPanel:selectZip')[0].value);
+				return;
+		}
+	}
+	document.forms[1].submit();
+}
+
+function submitBanner(status){
+	//alert("call submitBanner()");
+	var bannerStatus = document.getElementsByName('bannerStatus')[0];
+	//alert(bannerStatus.value);
+	//alert(status);
+	bannerStatus.value = status;
+	//alert(bannerStatus.value);
+	var bannerName = document.getElementsByName('mainPanel:bannerName')[0];
+	var contentListView = document.getElementsByName('mainPanel:contentTable:contentListView:0:editBtn')[0];
+	var isAutoRotation = document.getElementsByName('mainPanel:isAutoRotation')[0];
+	var intervalRotation = document.getElementsByName('mainPanel:intervalRotation')[0];
+	if(bannerName.value == ""){
+		alert(document.getElementsByName('TabbedBannerPanel:bannerNameNeed')[0].value);
+		return;
+	}
+	if(bannerName.value.lenght > 100){
+		alert(document.getElementsByName('TabbedBannerPanel:bannerNameLong')[0].value);
+		return;
+	}
+	if(isAutoRotation.checked && intervalRotation.value==""){
+		alert(document.getElementsByName('TabbedBannerPanel:rotationIntervalNeed')[0].value);
+		return;
+	}
+	if(contentListView == null){
+		alert(document.getElementsByName('TabbedBannerPanel:contentNeed')[0].value);
+		return;
+	}
+
+	try{ 
+		xmlHttp = new XMLHttpRequest(); 
+	}catch(e){ 
+		try{ 
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP"); 
+		}catch(e){ 
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); 
+		} 
+	}
+	if(xmlHttp == null)
+		return;
+	var url= document.getElementsByName('TabbedBannerPanel:urlPrefix')[0].value + "/checkbanner/?bannerName=" + bannerName.value; 
+	var bannerId = document.getElementsByName('TabbedBannerPanel:bannerId')[0].value;
+	if(bannerId != "-1")
+		url = url + "&bannerId=" + bannerId;
+	xmlHttp.onreadystatechange = checkBannerNameResult;
+	xmlHttp.open("GET",url,false); 
+	xmlHttp.send(); 
+}
+
+function checkBannerNameResult(){
+	var result;
+	if(xmlHttp.readystate == 4 || xmlHttp.readystate == undefined)
+		result = xmlHttp.responseText;
+	if(result == "true"){
+		alert(document.getElementsByName('TabbedBannerPanel:bannerNameExist')[0].value);
+		return;
+	}else if(result == "false"){
+		//document.getElementsByName('tabbedBannerPanelForm').submit();
+		document.forms[0].submit();
+		var submitBtn = document.getElementsByName('submitPanel:submitBtn')[0];
+		submitBtn.disabled=true;
+	}
+}
+
+function clickCheckbox(){
+	var isAutoRotation = document.getElementsByName('mainPanel:isAutoRotation')[0];
+	var intervalRotation = document.getElementsByName('mainPanel:intervalRotation')[0];
+	if (isAutoRotation.checked){;
+		intervalRotation.disabled=false;
+		intervalRotation.value = "10";
+	}
+	if (!isAutoRotation.checked) {
+		intervalRotation.disabled=true;
+		intervalRotation.value = "";
+	}
+}
+
+function   Keypress_err_1(){   
+	if(event.keyCode>57 || event.keyCode<48){
+		event.returnValue = false;
+	}   
+}   
+</script>
+</wicket:panel>

@@ -1,0 +1,45 @@
+<wicket:panel>
+	<div class="mainPanel">
+
+	<div class="panelBody"><span style="color: red;" wicket:id="feedBack">error message</span>
+
+	<form wicket:id="configurationBinarySearchForm">
+
+	<table   cellpadding="0" cellspacing="0" class="formTableSet">
+		<tbody>
+			<tr  >
+				<td width="200" align="right"><wicket:message key="keyword" /> : </td>
+				<td><input type="text" wicket:id="keyword" style="width: 200px" /></td>
+			</tr>
+
+			<tr  >
+				<td width="200" align="right"><wicket:message key="status" /> : </td>
+				<td><select wicket:id="status"></select></td>
+			</tr>
+			
+			<tr>
+				<td width="200" align="right"><wicket:message key="beginDate" /> : </td>
+				<td><input type="text" wicket:id="beginDate" /></td>
+			</tr>	
+			
+			<tr>
+				<td width="200" align="right"><wicket:message key="endDate" /> : </td>
+				<td><input type="text" wicket:id="endDate" /></td>
+			</tr>		
+
+			<tr  >
+			<td width="200" align="right"></td>
+				<td ><input type="submit" wicket:id="search" value="Search" /></td>
+			</tr>
+		</tbody>
+	</table>
+
+	</form>
+
+	<div class="clear"></div>
+	<div class="panelFoot"></div>
+
+	</div>
+
+	</div>
+</wicket:panel>

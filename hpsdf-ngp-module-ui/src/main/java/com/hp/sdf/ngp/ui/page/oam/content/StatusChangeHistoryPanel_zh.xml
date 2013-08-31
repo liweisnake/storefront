@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">内容状态转换历史</entry>
+<entry key="defaultSetting">默认设置</entry>
+<entry key="newBinaryVersion">新建二进制版本</entry>
+
+<entry key="assetId">资产编号</entry>
+<entry key="assetName">资产名称</entry>
+<entry key="preStatus">更新前状态</entry>
+<entry key="afterStatus">更新后状态</entry>
+<entry key="updateDate">更新日期</entry>
+<entry key="operatorId">操作员编号</entry>
+<entry key="commentType">操作员评论类型</entry>
+<entry key="comments">操作员评论</entry>
+<entry key="notificationDate">通告日期</entry>
+<entry key="btn.back">返回</entry>
+
+<entry key="title.big">内容管理</entry>
+
+</properties>

@@ -1,0 +1,23 @@
+<wicket:panel>
+ <div class="openWin" >
+   <div class="winPanel">
+      <h4><wicket:message key="header">Success!</wicket:message></h4>
+      <div>
+          <span wicket:id="message">The asset is successfully added to your shopping cart.</span>
+          <br/>
+          <wicket:message key="msg.1">There are</wicket:message>
+          <span wicket:id="count">0</span>
+          <wicket:message key="msg.2"> items in your shopping cart.</wicket:message>
+          <br/>
+          <wicket:message key="label.amount"> Total Amount : </wicket:message>
+          <span wicket:id="amount">0</span>
+      </div>
+      <div class="winButton">
+          <form wicket:id="nav.form">
+            <input type="submit" wicket:id="go.back" class="button1" wicket:message="value:link.cancel"/>
+            <input type="submit" wicket:id="go.cart" class="button1" wicket:message="value:link.cart"/>
+          </form>
+      </div>
+    </div>
+  </div>
+</wicket:panel>

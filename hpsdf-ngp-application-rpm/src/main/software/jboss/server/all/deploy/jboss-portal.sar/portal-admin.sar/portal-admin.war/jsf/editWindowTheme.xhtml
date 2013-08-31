@@ -1,0 +1,23 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core">
+   <ui:composition template="objectTemplate.xhtml">
+      <ui:param name="portalObjectScreen" value="#{bundle.THEME}"/>
+      <ui:define name="content">
+         <br/>
+         <p class="portlet-area-header">#{bundle.WINDOW_THEME_PROPERTIES}</p>
+         <ui:decorate template="common/editWindowTheme.xhtml">
+            <ui:param name="theme" value="#{portalobjectmgr.theme}"/>
+            <ui:define name="form_submit">
+               <h:commandButton value="#{bundle.COMMON_UPDATE}" action="objects" actionListener="#{portalobjectmgr.theme.execute}"
+                                styleClass="portlet-form-button portlet-section-buttonrow"/>
+               <h:commandButton value="#{bundle.COMMON_CANCEL}" action="#{portalobjectmgr.selectObject}"
+                                styleClass="portlet-form-button portlet-section-buttonrow"/>
+            </ui:define>
+         </ui:decorate>
+      </ui:define>
+   </ui:composition>
+</div>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/ratingLayout" android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:padding="10dp">
+
+	<EditText android:id="@+id/commentText" android:layout_width="280dp"
+		android:layout_height="150dp" />
+
+	<RatingBar android:id="@+id/ratingBar" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:numStars="5"
+		android:rating="0" />
+
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:padding="5px">
+		<Button android:id="@+id/commentRatingSubmit" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Submit"
+			android:gravity="center" />
+	</LinearLayout>
+
+</LinearLayout>

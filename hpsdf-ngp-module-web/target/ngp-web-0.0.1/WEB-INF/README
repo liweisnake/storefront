@@ -1,0 +1,11 @@
+Jetty Page Access for Test
+--URL: http://localhost:8080/storefront/web/<Class Short Name>
+--Portlet URL: http://localhost:8080/storefront/portlet/<portlet name>
+for example, if you want to access the PlatformPage.java, please use http://localhost:8080/ngp/web/PlatformPage or http://localhost:8080/ngp/portlet/platform to test your portlet
+
+JBoss Portal Access for deployment
+--URL: http://<host>:<port>/storefront/web/<Class Short Name>
+--Portlet URL: http://<host>:<port>/storefront/portlet/<portlet name>
+
+for example, if you want to access the PlatformPage.java, please use http://<host>:<port>/storefront/web/PlatformPage or http://<host>:<port>/storefront/portlet/platform
+

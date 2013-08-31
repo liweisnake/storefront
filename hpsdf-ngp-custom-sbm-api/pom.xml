@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>master</artifactId>
+		<groupId>com.hp.sdf.ngp</groupId>
+		<version>0.0.1</version>
+		<relativePath>
+			../hpsdf-ngp-application-master/pom.xml
+		</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ngp-sbm-api</artifactId>
+	<name>hpsdf-ngp (02-sbm-api)</name>
+	<properties>
+		<wicket.version>1.4.9</wicket.version>
+	</properties>	
+	<dependencies>
+		<dependency>
+			<groupId>com.hp.sdf.ngp</groupId>
+			<artifactId>ngp-api</artifactId>
+			<version>${pom.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- Continuous integration system information -->
+	<organization>
+		<name>HP GDAC China</name>
+	</organization>
+	<ciManagement>
+		<system>Continuum</system>
+		<url>http://ocmptest4.chn.hp.com:8082/continuum
+		</url>
+	</ciManagement>
+	<!-- SCM system and access information -->
+	<scm>
+		<connection>
+			scm:svn:https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-custom-sbm-api
+		</connection>
+		<developerConnection>
+			scm:svn:https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-custom-sbm-api
+		</developerConnection>
+		<url>
+			https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-custom-sbm-api
+		</url>
+	</scm>
+</project>
+

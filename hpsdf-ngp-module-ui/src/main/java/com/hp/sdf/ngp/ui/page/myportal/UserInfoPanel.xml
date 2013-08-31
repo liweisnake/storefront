@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="userinfo.id">User name: </entry>
+	<entry key="userinfo.currentrole">User role: </entry>
+	<entry key="userinfo.applyrole">Apply for {0}</entry>
+	<entry key="userinfo.selectrole">Select role: </entry>
+</properties>

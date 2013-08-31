@@ -1,0 +1,35 @@
+<wicket:panel>
+	<div class="mainPanel" >
+	<div class="panelBody">
+	<div>
+	<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+
+		<!-- End Table Head -->
+
+		<!-- Table Body -->
+		<tr>
+			<th><wicket:message key="mypromotionapprove.user">User</wicket:message></th>
+			<th><wicket:message key="mypromotionapprove.role">Role</wicket:message></th>
+			<th><wicket:message key="mypromotionapprove.remark">Remark</wicket:message></th>
+			<th><wicket:message key="mypromotionapprove.createdate">Create Date</wicket:message></th>
+			<th><wicket:message key="mypromotionapprove.approve">Approve</wicket:message></th>
+		</tr>
+		<span wicket:id="userPromotion">
+		<tr>
+			<th><span wicket:id="user" /> </th>
+			<th><span wicket:id="role" /> </th>
+			<th><span wicket:id="remark" /> </th>
+			<th><span wicket:id="createDate" /> </th>
+			<th><a href="#" wicket:id="approve"> 
+			<wicket:message key="mypromotionapprove.approve">Approve</wicket:message></a></th>
+		</tr>
+		</span>
+	</table>
+	</div>
+	</div>
+	<div class="clear"></div>
+	<div class="panelBottom">
+	<div class="panelFoot"></div>
+	</div>
+	</div>
+</wicket:panel>

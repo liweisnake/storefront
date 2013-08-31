@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC
+	"-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN"
+	"http://java.sun.com/dtd/application_1_3.dtd">
+<application>
+  <display-name>ngp</display-name>
+  <description>HP Next Generation Portal</description>
+  <module>
+    <web>
+      <web-uri>ngp-web.war</web-uri>
+      <context-root>storefront</context-root>
+    </web>
+  </module>
+  <module>
+    <java>ngp-core.jar</java>
+  </module>
+  <module>
+    <java>ngp-ws.jar</java>
+  </module>
+  <module>
+    <java>ngp-sbm-core.jar</java>
+  </module>
+  <module>
+    <web>
+      <web-uri>ngp-theme-0.0.1.war</web-uri>
+      <context-root>/ngp-theme</context-root>
+    </web>
+  </module>
+</application>

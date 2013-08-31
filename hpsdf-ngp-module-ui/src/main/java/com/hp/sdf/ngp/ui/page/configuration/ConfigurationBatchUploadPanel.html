@@ -1,0 +1,23 @@
+<wicket:panel>
+<div class="mainPanel" >
+	<span style="color: red;" wicket:id="feedBack">error message</span>
+	
+	<form wicket:id="ajaxUpload">
+     <fieldset>
+      <h3><wicket:message key="batchUpload.title" /></h3>
+        <p>
+        <label for="upload"><b><wicket:message key="batchUpload.file" /> :</b></label>
+        <input wicket:id="fileInput" id="upload" type="file"/>
+        </p>
+        
+        <input type="submit" wicket:id="upload" class="button-submit" wicket:message="value:batchUpload.upload"/>
+        <span wicket:id="progress">[[ajax upload progressbar]]</span>
+     </fieldset>
+    </form>
+    
+    <div wicket:id="promptPanel"></div>
+    
+</div>
+</wicket:panel>
+
+  

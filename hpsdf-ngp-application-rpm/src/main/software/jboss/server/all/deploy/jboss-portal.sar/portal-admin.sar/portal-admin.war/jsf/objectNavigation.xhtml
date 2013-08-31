@@ -1,0 +1,208 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+   xmlns:pfc="http://www.jboss.com/portal/facelet/common"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+<h:form id="obj-nav-form">
+
+<c:if test="#{not empty portalobjectmgr.selectedObject.portals}">
+   <h:dataTable id="portal-datatable" var="object" value="#{portalobjectmgr.selectedObject.portals}" styleClass="objectList datatable"
+                rowClasses="portlet-section-body,portlet-section-alternate"
+                columnClasses="objectNameColumn, objectActionColumn"
+                headerClass="portlet-section-header">
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="#{bundle.WIZARD_PORTAL}"/>
+         </f:facet>
+         <h:commandLink id="object-iid-link" action="#{portalobjectmgr.selectObject}" styleClass="actionSelectPortal">#{object.name}
+            <f:param name="id" value="#{object.id}"/>
+         </h:commandLink>
+      </h:column>
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="#{bundle.ACTIONS}"/>
+         </f:facet>
+         <h:panelGrid columns="7" cellpadding="0" cellspacing="0" border="0">
+         <h:commandLink id="security-link" action="editPortalSecurity" actionListener="#{portalobjectmgr.selectObject}"
+                        styleClass="actionSecurity">
+            <f:param name="id" value="#{object.id}"/>#{bundle.SECURITY}
+         </h:commandLink>
+         <h:commandLink id="prop-link" action="editProperties" styleClass="actionProperties"
+                                           actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>#{bundle.COMMON_PROPERTIES}
+      </h:commandLink>
+         <h:commandLink id="theme-link" action="editPortalTheme" styleClass="actionTheme"
+                                        actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.THEME}
+      </h:commandLink>
+            <h:commandLink id="rename" action="renameObject" actionListener="#{portalobjectmgr.selectObject}"
+               rendered="#{(object.name != 'admin') and (object.name != 'template')}"
+                             styleClass="actionRename">
+            <h:outputText value="#{bundle.RENAME}"/>
+            <f:param name="id" value="#{object.id}"/>
+         </h:commandLink>
+
+
+            <h:commandLink id="delete" action="confirm" styleClass="actionDelete" rendered="#{(object.name != 'admin') and (object.name != 'template') and (not object.default)}"
+                             actionListener="#{portalobjectmgr.selectDeletingObject}">
+            <f:param name="id" value="#{object.id}"/>
+            #{bundle.COMMON_DELETE}
+         </h:commandLink>
+
+         <h:commandLink id="default-link" styleClass="actionMakeDefault" rendered="#{not object.default}"
+                                                                          action="#{portalobjectmgr.makeObjectDefault}">
+            <f:param name="id" value="#{object.id}"/>
+            #{bundle.MAKE_DEFAULT}
+         </h:commandLink>
+
+         <h:outputText styleClass="actionDefault" rendered="#{object.default}" value="#{bundle.DEFAULT}"/>
+         </h:panelGrid>
+      </h:column>
+   </h:dataTable>
+</c:if>
+
+<c:if test="#{not empty portalobjectmgr.selectedObject.pages}">
+   <h:dataTable id="pages-datatable" var="object" value="#{portalobjectmgr.selectedObject.pages}" styleClass="objectList datatable"
+                columnClasses="objectNameColumn, objectActionColumn"
+                rowClasses="portlet-section-body,portlet-section-alternate"
+                headerClass="portlet-section-header">
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="#{bundle.WIZARD_PAGE}"/>
+         </f:facet>
+         <h:commandLink id="object-link" action="#{portalobjectmgr.selectObject}">#{object.name}
+            <f:param name="id" value="#{object.id}"/>
+         </h:commandLink>
+      </h:column>
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="#{bundle.ACTIONS}"/>
+         </f:facet>
+
+         <h:commandLink id="edit-page-layout" action="editPageLayout" actionListener="#{portalobjectmgr.selectObject}"
+                        styleClass="actionLayout float-left">
+            <f:param name="id" value="#{object.id}"/>
+            #{bundle.PAGE_LAYOUT}
+         </h:commandLink>
+         <h:commandLink id="security-link" action="editPageSecurity" styleClass="actionSecurity float-left"
+                                           actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>#{bundle.SECURITY}
+      </h:commandLink>
+         <h:commandLink id="prop-link" action="editProperties" styleClass="actionProperties float-left"
+                                        actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>#{bundle.COMMON_PROPERTIES}
+      </h:commandLink>
+         <h:commandLink id="theme-link" action="editPageTheme" styleClass="actionTheme float-left"
+                                        actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.THEME}
+      </h:commandLink>
+         <h:commandLink id="rename-link" action="renameObject" styleClass="actionRename float-left"
+                                        actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.RENAME}
+      </h:commandLink>
+         <h:commandLink id="rename-display" action="#{addDisplayNameAction.editDisplayNames}" styleClass="actionDisplayNames float-left"
+                                        actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.DISPLAY_NAMES}
+      </h:commandLink>
+         <h:commandLink id="edit-coord" action="#{coordinationManager.editCoordination}" styleClass="actionCoordination float-left"
+                                        actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.COORDINATION_COORDINATION}
+      </h:commandLink>
+       <h:commandLink  id="delete-link" rendered="#{not object.default}" action="confirm" styleClass="actionDelete float-left"
+                                       actionListener="#{portalobjectmgr.selectDeletingObject}">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.COMMON_DELETE}
+      </h:commandLink>
+      <h:commandLink id="default-link" styleClass="actionMakeDefault float-left" rendered="#{not object.default}"
+       action="#{portalobjectmgr.makeObjectDefault}">
+            <f:param name="id" value="#{object.id}"/>
+            #{bundle.MAKE_DEFAULT}
+         </h:commandLink>
+
+        <h:outputText styleClass="actionDefault float-left" rendered="#{object.default}"
+                                                                     value="#{bundle.DEFAULT}"/>
+
+      </h:column>
+   </h:dataTable>
+</c:if>
+
+<c:if test="#{not empty portalobjectmgr.selectedObject.windows}">
+   <h3 class="sectionTitle">#{bundle.MANAGE_WINDOWS_WITHIN} <span class="objectName">#{portalobjectmgr.selectedObject.name}</span>
+      #{portalobjectmgr.selectedObject.typeName}</h3>
+
+   <ui:param name="maximizedStateExists" value="#{portalobjectmgr.selectedObject.maximizedStateExists}"/>
+
+   <h:dataTable id="windows-datatable" var="object" value="#{portalobjectmgr.selectedObject.windows}" styleClass="objectList datatable"
+                rowClasses="portlet-section-body,portlet-section-alternate"
+                columnClasses="objectNameColumn, objectActionColumn"
+                headerClass="portlet-section-header">
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="#{bundle.WINDOW}"/>
+         </f:facet>
+
+         <h:graphicImage
+            title="#{object.declaredProperties['portal.windowInitialState'] eq 'minimized' ? bundle.THIS_MINIMIZED_STATE : bundle.THIS_NORMAL_STATE}."
+            rendered="#{!maximizedStateExists}"
+            value="#{object.declaredProperties['portal.windowInitialState'] eq 'minimized' ? '/img/min-icon.gif' : '/img/norm-icon.gif' }"
+            styleClass="windowStateIcon"
+            alt=""/>
+
+         <h:graphicImage
+            title="#{object.declaredProperties['portal.windowInitialState'] eq 'maximized' ? bundle.THIS_MAXIMIZED_STATE : bundle.THIS_MINIMIZED_STATE_BECAUSE_MAXIMIZED}."
+            rendered="#{maximizedStateExists}"
+            value="#{object.declaredProperties['portal.windowInitialState'] eq 'maximized' ? '/img/max-icon.gif' : '/img/min-icon.gif'}"
+            styleClass="windowStateIcon"
+            alt=""/>
+
+
+         <!-- disable edit window for content type widget until JBPORTAL-1561  is fixed -->
+         <h:outputText value="#{object.name}"
+                       rendered="#{fn:startsWith(object.declaredProperties['portal.windowContentType'], 'widget/')}"/>
+
+         <h:commandLink id="window-name-link" action="#{portalobjectmgr.selectObject}"
+                        rendered="#{! fn:startsWith(object.declaredProperties['portal.windowContentType'], 'widget/')}">
+            <h:outputText value="#{object.name}"/>
+            <f:param name="id" value="#{object.id}"/>
+         </h:commandLink>
+
+
+      </h:column>
+      <h:column>
+         <f:facet name="header">
+            <h:outputText value="#{bundle.ACTIONS}"/>
+         </f:facet>
+         <h:panelGrid columns="7" cellpadding="0" cellspacing="0" border="0">
+         <h:commandLink id="theme-link" action="editWindowTheme" actionListener="#{portalobjectmgr.selectObject}"
+                        styleClass="actionTheme">
+            <f:param name="id" value="#{object.id}"/>
+            #{bundle.THEME}
+         </h:commandLink> <h:commandLink id="edit-prop-link" action="editProperties" styleClass="actionProperties"
+                                           actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>
+         <f:param name="maximizedStateExists" value="#{portalobjectmgr.selectedObject.maximizedStateExists}"/>#{bundle.COMMON_PROPERTIES}
+      </h:commandLink> <h:commandLink id="rename-link" action="renameObject" styleClass="actionRename"
+                                        actionListener="#{portalobjectmgr.selectObject}">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.RENAME}
+      </h:commandLink> <h:commandLink id="delete-link" action="confirm" actionListener="#{portalobjectmgr.selectDeletingObject}"
+                                        styleClass="actionDelete">
+         <f:param name="id" value="#{object.id}"/>
+         #{bundle.COMMON_DELETE}
+      </h:commandLink>
+         </h:panelGrid>
+      </h:column>
+   </h:dataTable>
+</c:if>
+</h:form>
+
+</div>

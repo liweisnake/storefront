@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">Save</entry>
+	<entry key="back">Back</entry>
+	
+	<entry key="title">Edit Platform</entry>		
+	
+	<entry key="platformName">Platform Name</entry>
+	<entry key="description">Description</entry>
+
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to update the platform?</entry>
+	<entry key="successMsg">Update the platform successfully.</entry>
+	
+	<entry key="error.save.dpplatform">Duplicated platform.</entry>
+	
+	<entry key="error.save.nullplatform">The platform can not be null.</entry>
+	
+						
+</properties>

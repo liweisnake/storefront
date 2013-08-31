@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dyDataModel>
+	<labled>false</labled>
+	<modelClassName>com.hp.sdf.ngp.model.Category
+	</modelClassName>
+	<dataFields>
+		<dataField>
+			<name>entityName</name>
+			<modelType>domain</modelType>
+			<dataType>String</dataType>
+			<compnentType>TextField</compnentType>
+			<required>true</required>
+			<maxLength>20</maxLength>
+			<minLength>10</minLength>
+		</dataField>
+
+		<dataField>
+			<name>publishDate</name>
+			<modelType>eav</modelType>
+			<dataType>Date</dataType>
+			<compnentType>TextField</compnentType>
+			<required>false</required>
+			<maxLength>20</maxLength>
+			<minLength>10</minLength>
+		</dataField>
+
+		<dataField>
+			<name>country</name>
+			<modelType>domain</modelType>
+			<dataType>String</dataType>
+			<compnentType>DropDownChoice</compnentType>
+			<sourcId>countryList</sourcId>
+			<required>false</required>
+		</dataField>
+
+		<dataField>
+			<name>language</name>
+			<modelType>domain</modelType>
+			<dataType>String</dataType>
+			<compnentType>DropDownChoice</compnentType>
+			<sourcId>userDefinedSourceOne</sourcId>
+			<required>false</required>
+		</dataField>
+
+		<dataField>
+			<name>gender</name>
+			<modelType>domain</modelType>
+			<dataType>String</dataType>
+			<compnentType>RadioChoice</compnentType>
+			<sourcId>genderList</sourcId>
+			<required>false</required>
+		</dataField>
+
+		<dataField>
+			<name>comment</name>
+			<modelType>eav</modelType>
+			<dataType>String</dataType>
+			<compnentType>TextArea</compnentType>
+			<required>false</required>
+		</dataField>
+
+
+		<dataField>
+			<name>genderTwo</name>
+			<modelType>domain</modelType>
+			<dataType>String</dataType>
+			<compnentType>RadioChoice</compnentType>
+			<sourcId>genderListTwo</sourcId>
+			<required>false</required>
+		</dataField>
+
+		<dataField>
+			<name>languageTwo</name>
+			<modelType>domain</modelType>
+			<dataType>String</dataType>
+			<compnentType>RadioChoice</compnentType>
+			<sourcId>userDefinedSourceOne</sourcId>
+			<required>false</required>
+		</dataField>
+	</dataFields>
+	<dataSources>
+		<appServiceSource>
+			<sourcId>countryList</sourcId>
+			<className>infoServiceImpl</className>
+			<methodName>getCountrys</methodName>
+			<keyName>id</keyName>
+			<valueName>name</valueName>
+		</appServiceSource>
+
+		<appServiceSource>
+			<sourcId>languageList</sourcId>
+			<className>infoServiceImpl</className>
+			<methodName>getLanguages</methodName>
+			<keyName>id</keyName>
+			<valueName>name</valueName>
+		</appServiceSource>
+
+		<constDefinedSource>
+			<sourcId>genderList</sourcId>
+			<holderName>com.hp.sdf.ngp.ui.page.myportal.Gender
+			</holderName>
+			<idMethodName>getGenderIdList</idMethodName>
+			<valueMethodName>getGenderMap</valueMethodName>
+		</constDefinedSource>
+
+		<constDefinedSource>
+			<sourcId>genderListTwo</sourcId>
+			<holderName>com.hp.sdf.ngp.ui.page.myportal.Gender
+			</holderName>
+			<idMethodName>getGenderIdList</idMethodName>
+			<valueMethodName>getGenderMap</valueMethodName>
+		</constDefinedSource>
+
+		<userDefinedSource>
+			<keyName>id</keyName>
+			<valueName>value</valueName>
+			<sourcId>userDefinedSourceOne</sourcId>
+			<pairs>
+				<pair>
+					<id>1</id>
+					<value>language</value>
+				</pair>
+				<pair>
+					<id>2</id>
+					<value>language2</value>
+				</pair>
+				<pair>
+					<id>3</id>
+					<value>language3</value>
+				</pair>
+			</pairs>
+		</userDefinedSource>
+
+	</dataSources>
+</dyDataModel>

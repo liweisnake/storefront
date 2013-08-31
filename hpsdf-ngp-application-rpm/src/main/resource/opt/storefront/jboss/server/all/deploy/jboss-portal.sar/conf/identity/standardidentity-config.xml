@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+<!--
+<!DOCTYPE identity-configuration PUBLIC
+   "-//JBoss Portal//DTD JBoss Identity Configuration 1.0//EN"
+   "http://www.jboss.org/portal/dtd/identity-config_1_0.dtd">
+-->
+
+<identity-configuration>
+   <datasources>
+      <datasource>
+         <name>LDAP</name>
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=LDAPConnectionContext</service-name>
+         <class>org.jboss.portal.identity.ldap.LDAPConnectionContext</class>
+         <config>
+            <option>
+               <name>host</name>
+               <value>jboss.com</value>
+            </option>
+            <option>
+               <name>port</name>
+               <value>389</value>
+            </option>
+            <option>
+               <name>contextFactory</name>
+               <value>com.sun.jndi.ldap.LdapCtxFactory</value>
+            </option>
+            <option>
+               <name>adminDN</name>
+               <value>cn=Directory Manager</value>
+            </option>
+            <option>
+               <name>adminPassword</name>
+               <value>password</value>
+            </option>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/LDAPConnectionContext</value>
+            </option>
+            <option>
+               <name>pooling</name>
+               <value>true</value>
+            </option>
+            <option>
+               <name>poolingProtocol</name>
+               <value>plain ssl</value>
+            </option>
+            <option>
+               <name>poolingTimeout</name>
+               <value>300000</value>
+            </option>
+         </config>
+      </datasource>
+   </datasources>
+   <modules>
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>UserProfile</type>
+         <implementation>DELEGATING</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=UserProfile</service-name>
+         <class>org.jboss.portal.identity.DelegatingUserProfileModuleImpl</class>
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/UserProfileModule</value>
+            </option>
+            <option>
+               <name>dbModuleJNDIName</name>
+               <value>java:/portal/DBUserProfileModule</value>
+            </option>
+            <option>
+               <name>profileConfigFile</name>
+               <value>conf/identity/profile-config.xml</value>
+            </option>
+         </config>
+      </module>
+
+
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>User</type>
+         <implementation>DB</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=User</service-name>
+         <class>org.jboss.portal.identity.db.HibernateUserModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>sessionFactoryJNDIName</name>
+               <value>java:/portal/IdentitySessionFactory</value>
+            </option>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/UserModule</value>
+            </option>
+         </config>
+      </module>
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>Role</type>
+         <implementation>DB</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=Role</service-name>
+         <class>org.jboss.portal.identity.db.HibernateRoleModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>sessionFactoryJNDIName</name>
+               <value>java:/portal/IdentitySessionFactory</value>
+            </option>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/RoleModule</value>
+            </option>
+         </config>
+      </module>
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>Membership</type>
+         <implementation>DB</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=Membership</service-name>
+         <class>org.jboss.portal.identity.db.HibernateMembershipModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>sessionFactoryJNDIName</name>
+               <value>java:/portal/IdentitySessionFactory</value>
+            </option>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/MembershipModule</value>
+            </option>
+         </config>
+      </module>
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>DBDelegateUserProfile</type>
+         <implementation>DB</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=DBUserProfile</service-name>
+         <class>org.jboss.portal.identity.db.HibernateUserProfileModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>sessionFactoryJNDIName</name>
+               <value>java:/portal/IdentitySessionFactory</value>
+            </option>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/DBUserProfileModule</value>
+            </option>
+         </config>
+      </module>
+
+      <!--for ldap modules...-->
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>User</type>
+         <implementation>LDAP</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=User</service-name>
+         <class>org.jboss.portal.identity.ldap.LDAPUserModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/UserModule</value>
+            </option>
+            <option>
+               <name>connectionJNDIName</name>
+               <value>java:/portal/LDAPConnectionContext</value>
+            </option>
+         </config>
+      </module>
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>Role</type>
+         <implementation>LDAP</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=Role</service-name>
+         <class>org.jboss.portal.identity.ldap.LDAPRoleModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/RoleModule</value>
+            </option>
+            <option>
+               <name>connectionJNDIName</name>
+               <value>java:/portal/LDAPConnectionContext</value>
+            </option>
+         </config>
+      </module>
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>Membership</type>
+         <implementation>LDAP</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=Membership</service-name>
+         <class>org.jboss.portal.identity.ldap.LDAPStaticGroupMembershipModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/MembershipModule</value>
+            </option>
+            <option>
+               <name>connectionJNDIName</name>
+               <value>java:/portal/LDAPConnectionContext</value>
+            </option>
+         </config>
+      </module>
+
+      <module>
+         <!--type used to correctly map in IdentityContext registry-->
+         <type>LDAPDelegateUserProfile</type>
+         <implementation>LDAP</implementation>
+
+         <!--name of service and class for creating mbean-->
+         <service-name>portal:service=Module,type=LDAPUserProfile</service-name>
+         <class>org.jboss.portal.identity.ldap.LDAPUserProfileModuleImpl</class>
+
+         <!--set of options that are set in instantiated object-->
+         <config>
+            <option>
+               <name>jNDIName</name>
+               <value>java:/portal/LDAPUserProfileModule</value>
+            </option>
+            <option>
+               <name>connectionJNDIName</name>
+               <value>java:/portal/LDAPConnectionContext</value>
+            </option>
+         </config>
+      </module>
+
+   </modules>
+
+   <options>
+      <!--Common options section-->
+      <option-group>
+         <group-name>common</group-name>
+         <option>
+            <name>userCtxDN</name>
+            <value>ou=People,dc=example,dc=com</value>
+         </option>
+         <option>
+            <name>uidAttributeID</name>
+            <value>uid</value>
+         </option>
+         <option>
+            <name>passwordAttributeID</name>
+            <value>userPassword</value>
+         </option>
+         <option>
+            <name>roleCtxDN</name>
+            <value>ou=Roles,dc=example,dc=com</value>
+         </option>
+         <option>
+            <name>ridAttributeId</name>
+            <value>cn</value>
+         </option>
+         <option>
+            <name>roleDisplayNameAttributeID</name>
+            <value>cn</value>
+         </option>
+         <option>
+            <name>membershipAttributeID</name>
+            <value>member</value>
+         </option>
+         <option>
+            <name>membershipAttributeIsDN</name>
+            <value>true</value>
+         </option>
+         <!-- NOTE: defaultAdminRole is a required option -->
+         <option>
+            <name>defaultAdminRole</name>
+            <value>Admin</value>
+         </option>
+      </option-group>
+      <option-group>
+         <group-name>userCreateAttibutes</group-name>
+         <option>
+            <name>objectClass</name>
+            <value>top</value>
+            <value>person</value>
+            <value>inetOrgPerson</value>
+            <!--<value>inetUser</value>-->
+            <!--<value>uidObject</value>-->
+         </option>
+         <!--Schema requires those to have initial value-->
+         <option>
+            <name>cn</name>
+            <value>none</value>
+         </option>
+         <option>
+            <name>sn</name>
+            <value>none</value>
+         </option>
+      </option-group>
+      <option-group>
+         <group-name>roleCreateAttibutes</group-name>
+         <option>
+            <name>objectClass</name>
+            <value>top</value>
+            <value>groupOfNames</value>
+         </option>
+         <!--Schema requires those to have initial value-->
+         <!--<option>
+            <name>cn</name>
+            <value>none</value>
+         </option>-->
+         <!--Some directory servers require this attribute to be valid DN-->
+         <!--For safety reasons point to the admin user here-->
+         <!--<option>
+            <name>member</name>
+            <value>uid=dummynonexistinguser,ou=People,dc=jboss,dc=org</value>
+         </option>-->
+      </option-group>
+   </options>
+</identity-configuration>

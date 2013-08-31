@@ -1,0 +1,30 @@
+<wicket:extend>
+<div>
+<div><wicket:message key="title.error">Error Occurs</wicket:message></div>
+<table cellspacing="0">
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<td><span><wicket:message key="error.simple">Error Message</wicket:message></span></td>
+	</tr>
+	<tr>
+		<td><span wicket:id="simpleMessage" /></td>
+	</tr>
+	<tr>
+		<td><a href="#" wicket:id="detail"><wicket:message key="error.detail">Detail Error Information</wicket:message></a></td>
+	</tr>
+	<tr>
+		<td><span wicket:id="container"> <span
+			wicket:id="detailErrorInfo"></span> </span></td>
+	</tr>
+	<tr>
+		<td><a href="#" wicket:id="back" class="btnBlueShort"><wicket:message key="error.back">Back</wicket:message></a></td>
+	</tr>
+</table>
+</div>
+</wicket:extend>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll">全选</entry>
+	<entry key="censoredWordList">敏感词列表</entry>
+	<entry key="censoredWord">敏感词</entry>
+	<entry key="updateDate">更新时间</entry>
+	<entry key="detail">编辑</entry>
+	<entry key="newEntry">新建敏感词</entry>
+	<entry key="delete">删除</entry>	
+	
+	<entry key="title">敏感词列表</entry>	
+	
+	<entry key="commentsManagement">评论管理</entry>	
+	
+	<entry key="confirmMsg">你确定想要删除所有已选的敏感词吗?</entry>
+	
+	
+	<entry key="msg.error.del.nocensoredword">该敏感词不存在!</entry>
+	<entry key="msg.error.select.noselect">请至少选择一个敏感词!</entry>
+	
+</properties>

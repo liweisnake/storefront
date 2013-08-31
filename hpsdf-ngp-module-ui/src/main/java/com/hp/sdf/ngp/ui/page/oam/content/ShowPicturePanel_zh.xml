@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">显示图片</entry>
+<entry key="defaultSetting">默认设置</entry>
+<entry key="newBinaryVersion">新建二进制版本</entry>
+
+<entry key="btn.back">返回</entry>
+</properties>

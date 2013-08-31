@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">Save</entry>
+	<entry key="back">Back</entry>
+	<entry key="title.big">Category Management</entry>	
+	<entry key="title">Category Detail</entry>	
+	
+	<entry key="categoryId">Category ID</entry>	
+	<entry key="externalId">Category External ID</entry>
+	<entry key="parentExternalId">Parent Category External ID</entry>
+	<entry key="name">Category(Genre) Name</entry>
+	<entry key="displayName">Category(Genre) Display Name</entry>	
+	
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to update the category?</entry>
+	<entry key="successMsg">Update the category successfully.</entry>
+	
+	<entry key="checkPanel.confirmMsg">Display Name Existed,Save anyway?</entry>
+	
+	
+	<entry key="msg.error.save.duplicatedExternalId">Duplicated Category External ID!</entry>
+	
+	<entry key="msg.error.save.duplicatedCategoryName">Duplicated Category Name!</entry>
+	
+	<entry key="msg.error.save.parentExternalId">No category found with Parent Category External ID!</entry>
+	
+	<entry key="msg.error.save.norecord">Category Does not exist!</entry>
+	
+</properties>

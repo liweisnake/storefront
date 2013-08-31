@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE facelet-taglib PUBLIC "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN" "facelet-taglib_1_0.dtd">
+<facelet-taglib>
+    <namespace>http://www.jboss.org/portal</namespace>
+    <tag>
+        <tag-name>scroller</tag-name>
+        <component>
+            <component-type>org.jboss.portal.Scroller</component-type>
+            <renderer-type>default</renderer-type>
+        </component>
+    </tag>
+   <tag>
+       <tag-name>portlet</tag-name>
+       <component>
+           <component-type>org.jboss.portal.Portlet</component-type>
+           <renderer-type>default</renderer-type>
+           <handler-class>org.jboss.portal.faces.component.portlet.PortletHandler</handler-class>
+       </component>
+   </tag>
+   <tag>
+       <tag-name>box</tag-name>
+       <source>tags/boxes.xhtml</source>
+   </tag>
+
+</facelet-taglib>

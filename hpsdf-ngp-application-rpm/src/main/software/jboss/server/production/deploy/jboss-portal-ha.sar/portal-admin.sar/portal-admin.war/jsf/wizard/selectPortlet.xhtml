@@ -1,0 +1,72 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+   <f:loadBundle basename="Resource" var="bundle" />
+   <ui:composition template="newWindowTpl.xhtml">
+      <ui:define name="content">
+         <h:form id="portlet-wiz-form">
+            <h:outputLabel for="menu">
+               <h:outputText value="#{bundle.WIZARD_PORTLET_PROVIDER}: " styleClass="portlet-form-field-label"/>
+            </h:outputLabel>
+            <h:selectOneMenu id="menu" styleClass="portlet-form-field" value="#{portletmgr.selectedPortletInvokerId}">
+               <f:selectItems value="#{portletmgr.portletInvokerItems}"/>
+            </h:selectOneMenu>
+            <h:commandButton id="wiz-change" value="#{bundle.WIZARD_CHANGE}" styleClass="portlet-form-button"/>
+         </h:form>
+
+         <h:form id="portlet-wiz-form1">
+            <ul class="pagination property-container">
+               <c:forEach begin="0" end="#{(portletmgr.portletCount - 1)/portletmgr.paginationSize}" step="1"
+                          var="index">
+                  <li class="#{index == portletmgr.selectedFrom ? 'selected' : ''}">
+                     <h:commandLink action="#{portletmgr.selectFrom}">
+                        <f:param name="from" value="#{index * portletmgr.paginationSize}"/>
+                        <h:outputText value="#{index * portletmgr.paginationSize}"/>
+                     </h:commandLink>
+                  </li>
+               </c:forEach>
+            </ul>
+            <table class="full-width datatable">
+               <thead class="portlet-section-header">
+                  <tr>
+                     <th>#{bundle.COMMON_NAME}</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach items="#{portletmgr.selectedPortlets}" var="portlet" varStatus="status">
+                     <tr
+                        class="#{portlet.context.id == newWindowWizard.selectedPortletId ? 'portlet-section-selected' : (status.index % 2 == 0 ? 'portlet-section-body' : 'portlet-section-alternate')}">
+                        <td title="#{portlet.description.value}">
+                           <h:commandLink id="portlet-link-#{status.index}" action="#{newWindowWizard.selectPortlet}">
+                              <h:outputText>#{portlet.name}</h:outputText>
+                              <f:param name="id" value="#{portlet.context.id}"/>
+                              <f:param name="portletInvokerId" value="#{portletmgr.selectedPortletInvokerId}"/>
+                           </h:commandLink></td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+               <tfoot class="portlet-section-header">
+                  <tr>
+                     <th>#{bundle.COMMON_NAME}</th>
+                  </tr>
+               </tfoot>
+            </table>
+            <ul class="pagination property-container">
+               <c:forEach begin="0" end="#{(portletmgr.portletCount - 1)/portletmgr.paginationSize}" step="1"
+                          var="index">
+                  <li class="#{index == portletmgr.selectedFrom ? 'selected' : ''}">
+                     <h:commandLink id="pagination-#{index}" action="#{portletmgr.selectFrom}">
+                        <f:param name="from" value="#{index * portletmgr.paginationSize}"/>
+                        <h:outputText value="#{index * portletmgr.paginationSize}"/>
+                     </h:commandLink>
+                  </li>
+               </c:forEach>
+            </ul>
+         </h:form>
+
+      </ui:define>
+   </ui:composition>
+</div>

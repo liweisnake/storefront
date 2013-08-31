@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="confirmMsg">移動機情報を更新してよろしいでしょうか。</entry>
+<entry key="mimeType">MIME-Type</entry>
+<entry key="displayName">機種名</entry>
+<entry key="deviceName">デバイス情報</entry>
+<entry key="selectDeviceFunction">デバイス機能を選択してください。</entry>
+<entry key="deviceNameIsNull">デバイス情報の入力が必須です。</entry>
+<entry key="handsetNameIsNull">機種名の入力が必須です。</entry>
+<entry key="mimeTypeIsNull">移動機MIME-TYPE必須です。</entry>
+<entry key="selectDisplaySize">ディスプレイサイズを選択してください。</entry>
+<entry key="successMsg">移動機情報を更新しました。</entry>
+<entry key="title.big">移動機情報管理</entry>
+<entry key="add">追加</entry>
+<entry key="gps">GPS機能</entry>
+<entry key="confirmDeleteMsg">移動機情報を削除してよろしいでしょうか。</entry>
+<entry key="back">戻る</entry>
+<entry key="promptTitle">プロンプト</entry>
+<entry key="camera">カメラ</entry>
+<entry key="save">更新</entry>
+<entry key="delete">削除</entry>
+<entry key="msg.error.save.nohandset">移動機情報が存在していません。</entry>
+<entry key="displaySize">ディスプレイサイズ</entry>
+<entry key="deviceFuction">デバイス機能</entry>
+<entry key="accSensor">加速度センサー</entry>
+<entry key="title">移動機情報編集</entry>
+<entry key="big">High:Width 800 px, Height 480 px</entry>
+<entry key="middle">Midle:Width 480 px, Height 320 px</entry>
+<entry key="small">Low:Width 320 px, Height 240 px</entry>		
+</properties>

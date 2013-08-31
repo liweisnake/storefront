@@ -1,0 +1,33 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink id="user-managment-link" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="pathItem">
+		<h:outputText value="#{bundle.IDENTITY_EDIT_PROFILE_TITLE}" /> 
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{editprofilemgr.uiUser.username}" /> 
+	</li>
+</ui:define>
+
+<ui:define name="content">
+	<ui:decorate template="/jsf/common/profile.xhtml">
+		<ui:param name="manager" value="#{editprofilemgr}"/>
+		<ui:param name="adminMode" value="true"/>
+	</ui:decorate>
+
+</ui:define>
+
+</ui:composition>
+</div>

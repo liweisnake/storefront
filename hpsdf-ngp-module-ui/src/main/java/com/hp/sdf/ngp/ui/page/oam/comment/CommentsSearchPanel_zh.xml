@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="keyword">关键字</entry>
+	<entry key="pid">供应商外部编号</entry>
+	<entry key="providerName">供应商</entry>
+	<entry key="assetID">二进制版本外部编号</entry>
+	<entry key="assetName">资产名称</entry>
+	<entry key="subscriberName">资产显示名称</entry>
+	<entry key="search">搜索</entry>
+	
+	<entry key="title">搜索评论</entry>
+	<entry key="commentsManagement">评论管理</entry>		
+</properties>

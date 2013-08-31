@@ -1,0 +1,20 @@
+<wicket:extend>
+    <div class="body">
+        <div class="dialog" style="display: block;">
+            <div class="dr-pnl">
+                <div class="dr-pnl-h">
+                    <wicket:message key="banner.pageName" />
+                </div>
+				<br/><br/>
+                <form wicket:id="filter-form">
+                    <input type="hidden" name="tracker" wicket:id="focus-tracker"/>
+                    <table wicket:id="bannerlisttable" cellspacing="0" cellpadding="1" class="grid">
+                        [bannerlisttable]
+                    </table>
+                    <span wicket:id="focus-restore">[call to focus restore script]</span>
+                    <input type="submit" wicket:id="addBanner" value="Add"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</wicket:extend>

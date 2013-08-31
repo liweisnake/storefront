@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">My Purchased Assets</entry>
+<entry key="label.app.name">Asset Name</entry>
+<entry key="label.bin.platform">Platform</entry>
+<entry key="label.bin.version">Version</entry>
+<entry key="label.purchase.price">Price</entry>
+<entry key="label.purchase.date">Purchase Date</entry>
+<entry key="label.purchase.status">Status</entry>
+<entry key="label.bin.download">Download Link</entry>
+<entry key="label.download.link">Download</entry>
+<entry key="error">There is no binary to download.</entry>
+</properties>

@@ -1,0 +1,110 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<ui:composition template="/jsf/admin/user/userTemplate.xhtml">
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink id="user-adm-link" action="userAdmin" value="#{bundle.IDENTITY_MANAGEMENT_USER_MANAGEMENT}" />
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_PENDING_REGISTRATIONS}" />
+	</li>
+</ui:define>
+
+<ui:define name="content">
+<f:verbatim>
+<script type="text/javascript">
+// <![CDATA[
+function selectAll() {
+	var form=$('pending');
+	var i=form.getElements('checkbox');
+	i.each(function(item) {
+		item.checked=true
+	});
+}
+function unSelectAll() {
+	var form=$('pending');
+	var i=form.getElements('checkbox');
+	i.each(function(item) {
+		item.checked=false
+	});
+}
+// ]]>
+</script>
+</f:verbatim>
+<h3><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_PENDING_REGISTRATIONS}" /></h3>
+<h:form id="pending-form">
+<h:dataTable id="pending-user-datatable" value="#{useradministrationbean.pendingUsers}" var="user" rowClasses="portlet-section-body,portlet-section-alternate" headerClass="portlet-section-header" styleClass="datatable" width="100%">
+	<h:column>
+		<h:selectBooleanCheckbox id="selected" value="#{user.selected}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_PENDING_BPM_ID}"/>
+		</f:facet>
+		<h:outputText value="#{user.processId}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_USERNAME}"/>
+		</f:facet>
+		<h:outputText value="#{user.username}"/>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_EMAIL}"/>
+		</f:facet>
+		<a href="mailto:#{user.email}">
+			<h:outputText value="#{user.email}"/>
+		</a>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_REGISTRATION_DATE}"/>
+		</f:facet>
+		<h:outputText value="#{user.registrationDate}">
+			<f:convertDateTime dateStyle="medium" type="both" />
+		</h:outputText>
+	</h:column>		
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ACTION}"/>
+		</f:facet>
+		<h:outputText value="Pending" rendered="#{user.currentNode == 'validate_email'}"/>
+			<h:commandLink id="approve-reg-link" action="#{useradministrationbean.approveRegistration}" rendered="#{user.currentNode == 'admin_approval'}" styleClass="actionDefault">
+				<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_PENDING_APPROVE}"/>
+				<f:param name="processId" value="#{user.processId}" />
+				<f:param name="action" value="approve" />
+			</h:commandLink>
+			<h:outputText value=" | " rendered="#{user.currentNode == 'admin_approval'}" /> 
+			<h:commandLink id="reject-reg-link" action="#{useradministrationbean.approveRegistration}" rendered="#{user.currentNode == 'admin_approval'}" styleClass="actionDelete">
+				<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_PENDING_REJECT}"/>
+				<f:param name="processId" value="#{user.processId}" />
+				<f:param name="action" value="reject" />
+			</h:commandLink>
+	</h:column>
+</h:dataTable>
+<br/>
+<table border="0" cellspacing="3" style="width: 100%;" >
+	<tr>
+		<td style="text-align: left;" >
+			<a href="#" onClick="selectAll()"><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_SELECT_ALL}" /></a> | 
+			<a href="#" onClick="unSelectAll()"><h:outputText value="#{bundle.IDENTITY_MANAGEMENT_UNSELECT_ALL}" /></a>
+		</td>
+		<td style="text-align: right;">  
+			<h:commandButton id="approve" value="#{bundle.IDENTITY_MANAGEMENT_APPROVE_ALL}" action="#{useradministrationbean.approveList}" styleClass="portlet-form-button"/>  
+			<h:commandButton id="reject" value="#{bundle.IDENTITY_MANAGEMENT_REJECT_ALL}" action="#{useradministrationbean.rejectList}" styleClass="portlet-form-button"/>
+			<h:commandButton id="cancel" value="#{bundle.IDENTITY_BUTTON_CANCEL}" action="userAdmin" styleClass="portlet-form-button"/>
+		</td>
+	</tr>
+</table>
+</h:form>
+</ui:define>
+</ui:composition>
+</div>

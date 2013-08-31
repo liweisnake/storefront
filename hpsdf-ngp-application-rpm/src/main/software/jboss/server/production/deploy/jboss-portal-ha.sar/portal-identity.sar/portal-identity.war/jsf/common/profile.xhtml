@@ -1,0 +1,26 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<h:form id="profile-form">
+
+	<ui:include src="/jsf/common/userInfo.xhtml" />
+
+		<ui:decorate template="/jsf/common/editProfileInfo.xhtml">
+			<ui:param name="manager" value="#{editprofilemgr}"/>
+			<ui:param name="adminMode" value="false"/>
+		</ui:decorate>
+	
+	<hr/>
+		<p style="text-align: left;">
+			<h:outputText value="* #{bundle.IDENTITY_REGISTER_REQUIRED_INFORMATION}" />
+		</p>
+		<p style="text-align: right;">
+			<h:commandButton id="submit" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" action="#{manager.updateProfile}" styleClass="portlet-form-button"/>
+			<h:commandButton id="cancel" action="#{editprofilemgr.viewStart}" value="#{bundle.IDENTITY_BUTTON_CANCEL}" immediate="true" styleClass="portlet-form-button"/>
+		</p>
+  	</h:form>
+</div>

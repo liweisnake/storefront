@@ -1,0 +1,51 @@
+<wicket:panel>
+	<div id="regionA">
+	    <div wicket:id="searchPanel"></div>
+	      	
+	    <div class="content">
+	    	<div class="portal-box">
+				<div class="content-container">
+	        			<div class="contentbox">
+						    <h3>
+						    	<wicket:message key="title.list">Statistic Result</wicket:message>
+						    </h3>
+						    <div class="overflow" >
+							<div class="table-box">
+		    					<table border="0" cellpadding="0" cellspacing="0" class="table-styles-a">
+					    			<tr>
+						    			<th width="15%"><wicket:message key="name">name</wicket:message></th>
+						    			<th width="15%"><wicket:message key="description">description</wicket:message></th>
+						    			<th width="15%"><wicket:message key="createDate">createDate</wicket:message></th>
+						    			<th width="15%"><wicket:message key="currentVersion">currentVersion</wicket:message></th>
+						    			<th width="15%"><wicket:message key="averageUserRating">averageUserRating</wicket:message></th>
+						    			<th width="15%"><wicket:message key="totalAmount">totalAmount</wicket:message></th>
+						    			<th width="10%"><wicket:message key="downloadCount">downloadCount</wicket:message></th>
+					    			</tr>
+		    		
+					    			<span wicket:id="assets">
+									<tr>
+					    				<td width="15%"><a href="#" wicket:id="nameLink"><span wicket:id="name">name</span></a></td>
+										<td width="15%"><span wicket:id="description">description</span></td>
+										<td width="15%"><span wicket:id="createDate">createDate</span></td>
+										<td width="15%"><span wicket:id="currentVersion">currentVersion</span></td>
+					    				<td width="15%"><span wicket:id="averageUserRating">averageUserRating</span></td>
+					    				<td width="15%"><span wicket:id="totalAmount">totalAmount</span></td>
+						    			<td width="10%"><span wicket:id="downloadCount">downloadCount</span></td>			
+									</tr>
+									</span>
+									
+									<tr>
+										<td colspan="7">
+											<span wicket:id="navigator"></span>
+										</td>
+									</tr>
+		    					</table>
+		      				</div>
+		      				</div>
+						</div>
+					<div class="clear"></div>
+						</div>
+						</div> 
+    	</div>
+	</div>
+</wicket:panel>

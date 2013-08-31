@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.hp.com/sgf/wsdl/sgf_api/flexreports/v1_0/service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.hp.com/sgf/wsdl/sgf_api/flexreports/v1_0/service" xmlns:intf="http://www.hp.com/sgf/wsdl/sgf_api/flexreports/v1_0/service" xmlns:tns1="http://www.hp.com/sgf/schema/sgf_api/flexreports/v1_0/" xmlns:tns2="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/flexreports/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/"/>
+      <complexType name="GetOperationsPerServiceRequest">
+        <sequence>
+          <element name="serviceId" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getOperationsPerServiceRequest" type="tns1:GetOperationsPerServiceRequest"/>
+      <complexType name="GetOperationsPerServiceResponse">
+        <sequence>
+          <element maxOccurs="unbounded" name="operations" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getOperationsPerServiceResponse" type="tns1:GetOperationsPerServiceResponse"/>
+      <complexType name="PmQuery">
+        <sequence>
+          <element name="appUserName" type="xsd:string"/>
+          <element name="serviceId" type="xsd:string"/>
+          <element name="trafficType" type="tns2:TrafficType"/>
+          <element name="operationName" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="GetStatisticsReportRequest">
+        <sequence>
+          <element name="stime" type="xsd:string"/>
+          <element name="pmQuery" type="tns1:PmQuery"/>
+        </sequence>
+      </complexType>
+      <element name="getStatisticsReportRequest" type="tns1:GetStatisticsReportRequest"/>
+      <complexType name="ServiceDetails">
+        <sequence>
+          <element name="serviceId" type="xsd:string"/>
+          <element name="serviceName" type="xsd:string"/>
+          <element name="partnerUserName" type="xsd:string"/>
+          <element name="appUserName" type="xsd:string"/>
+          <element name="appName" type="xsd:string"/>
+          <element name="opName" type="xsd:string"/>
+          <element name="accessIntf" type="xsd:string"/>
+          <element name="version" type="xsd:string"/>
+          <element name="trafficType" type="tns2:TrafficType"/>
+        </sequence>
+      </complexType>
+      <complexType name="PMData">
+        <sequence>
+          <element name="startTime" type="xsd:string"/>
+          <element name="endTime" type="xsd:string"/>
+          <element name="totalRequest" type="xsd:long"/>
+          <element name="successCount" type="xsd:long"/>
+          <element name="failureCount" type="xsd:long"/>
+          <element name="succHandledErrCount" type="xsd:long"/>
+          <element name="unSuccHandledErrCount" type="xsd:long"/>
+          <element name="availability" type="xsd:double"/>
+          <element name="avgResponseTime" type="xsd:double"/>
+          <element name="maxResponseTime" type="xsd:double"/>
+          <element name="respDelayCount" type="xsd:long"/>
+          <element name="outBoundTotalReq" type="xsd:long"/>
+          <element name="outBoundErrCount" type="xsd:long"/>
+        </sequence>
+      </complexType>
+      <complexType name="PMMetrics">
+        <sequence>
+          <element name="serviceDetails" type="tns1:ServiceDetails"/>
+          <element name="pMData" nillable="true" type="tns1:PMData"/>
+        </sequence>
+      </complexType>
+      <complexType name="GetStatisticsReportResponse">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="pmMetrics" type="tns1:PMMetrics"/>
+        </sequence>
+      </complexType>
+      <element name="getStatisticsReportResponse" type="tns1:GetStatisticsReportResponse"/>
+    </schema>
+    <schema targetNamespace="http://www.hp.com/sgf/schema/sgf_api/common/v1_0/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.hp.com/sgf/schema/sgf_api/flexreports/v1_0/"/>
+      <simpleType name="ExceptionType">
+        <restriction base="xsd:string">
+          <enumeration value="SERVICEGROUP_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_MODIFY_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICEGROUP_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="PARTNER_REGISTER_EXCEPTION"/>
+          <enumeration value="PARTNER_MODIFY_EXCEPTION"/>
+          <enumeration value="PARTNER_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_REGISTER_EXCEPTION"/>
+          <enumeration value="SERVICE_APPROVAL_EXCEPTION"/>
+          <enumeration value="SERVICE_DELETE_EXCEPTION"/>
+          <enumeration value="SERVICE_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="COS_RETRIEVAL_EXCEPTION"/>
+          <enumeration value="FLEXREPORTS_EXCEPTION"/>
+          <enumeration value="EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="GET_REST_FOR_WS_EXCEPTION"/>
+          <enumeration value="GET_METADATA_EXCEPTION"/>
+          <enumeration value="DOMAIN_RETRIEVAL_EXCEPTION "/>
+          <enumeration value="REGISTER_WS_EXPOSE_REST_EXCEPTION"/>
+          <enumeration value="REGISTER_METADATA_EXCEPTION"/>
+        </restriction>
+      </simpleType>
+      <complexType name="Status">
+        <sequence>
+          <element name="code" type="xsd:string"/>
+          <element name="text" type="tns2:ExceptionType"/>
+          <element name="details" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SGFException">
+        <sequence>
+          <element name="sgfVersion" type="xsd:string"/>
+          <element name="status" type="tns2:Status"/>
+        </sequence>
+      </complexType>
+      <element name="SGFException" type="tns2:SGFException"/>
+      <simpleType name="TrafficType">
+        <restriction base="xsd:string">
+          <enumeration value="NO"/>
+          <enumeration value="NT"/>
+          <enumeration value="NO-NT"/>
+        </restriction>
+      </simpleType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="getStatisticsReportResponse">
+    <wsdl:part element="tns1:getStatisticsReportResponse" name="getStatisticsReportResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SGFException">
+    <wsdl:part element="tns2:SGFException" name="SGFException"/>
+  </wsdl:message>
+  <wsdl:message name="getOperationsPerServiceRequest">
+    <wsdl:part element="tns1:getOperationsPerServiceRequest" name="getOperationsPerServiceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getStatisticsReportRequest">
+    <wsdl:part element="tns1:getStatisticsReportRequest" name="getStatisticsReportRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getOperationsPerServiceResponse">
+    <wsdl:part element="tns1:getOperationsPerServiceResponse" name="getOperationsPerServiceResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="FlexReports">
+    <wsdl:operation name="getOperationsPerService" parameterOrder="getOperationsPerServiceRequest">
+      <wsdl:input message="impl:getOperationsPerServiceRequest" name="getOperationsPerServiceRequest"/>
+      <wsdl:output message="impl:getOperationsPerServiceResponse" name="getOperationsPerServiceResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getStatisticsReport" parameterOrder="getStatisticsReportRequest">
+      <wsdl:input message="impl:getStatisticsReportRequest" name="getStatisticsReportRequest"/>
+      <wsdl:output message="impl:getStatisticsReportResponse" name="getStatisticsReportResponse"/>
+      <wsdl:fault message="impl:SGFException" name="SGFException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FlexReportsSoapBinding" type="impl:FlexReports">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getOperationsPerService">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getOperationsPerServiceRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOperationsPerServiceResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getStatisticsReport">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getStatisticsReportRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStatisticsReportResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SGFException">
+        <wsdlsoap:fault name="SGFException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FlexReportsService">
+    <wsdl:port binding="impl:FlexReportsSoapBinding" name="FlexReports">
+      <wsdlsoap:address location="http://16.157.132.78:6001/AdminWebApp/webservices/FlexReports"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

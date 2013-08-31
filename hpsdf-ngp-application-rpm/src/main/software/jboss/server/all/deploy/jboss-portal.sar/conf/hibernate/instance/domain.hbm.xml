@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class
+      name="org.jboss.portal.core.impl.model.instance.persistent.PersistentInstanceDefinition"
+      table="JBP_INSTANCE">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         access="field">
+         <generator class="native">
+            <param name="sequence">instance_seq</param>
+         </generator>
+      </id>
+      <natural-id>
+         <property
+            name="instanceId"
+            column="ID"
+            not-null="true"
+            unique="false"/>
+      </natural-id>
+      <property
+         name="portletRef"
+         column="PORTLET_REF"
+         not-null="false"
+         unique="false"/>
+      <property
+         name="mutable"
+         column="MODIFIABLE"
+         not-null="true"
+         unique="false"/>
+      <property
+         name="state"
+         column="SER_STATE"
+         not-null="false"
+         unique="false"
+         length="16384"/>
+      <map
+         name="relatedSecurityBindings"
+         sort="unsorted"
+         inverse="true"
+         cascade="all-delete-orphan"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="INSTANCE_PK"/>
+         <index column="`ROLE`" type="string"/>
+         <one-to-many class="org.jboss.portal.core.impl.model.instance.persistent.PersistentRoleSecurityBinding"/>
+      </map>
+      <map
+         name="displayNames"
+         table="JBP_INSTANCE_DISPLAY_NAMES">
+         <key column="INSTANCE_PK"/>
+         <map-key type="locale" column="LOCALE"/>
+		 <element type="string" column="TEXT"/>
+      </map>
+      <map
+         name="relatedCustomizations"
+         inverse="true"
+         cascade="save-update"
+         fetch="select"
+         lazy="extra">
+         <cache usage="transactional"/>
+         <key column="INSTANCE_PK"/>
+         <map-key
+            type="string"
+            column="USER_ID"/>
+         <one-to-many class="org.jboss.portal.core.impl.model.instance.persistent.PersistentInstanceCustomization"/>
+      </map>
+   </class>
+
+   <class
+      name="org.jboss.portal.core.impl.model.instance.persistent.PersistentInstanceCustomization"
+      table="JBP_INSTANCE_PER_USER">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         access="field">
+         <generator class="native">
+            <param name="sequence">instance_seq</param>
+         </generator>
+      </id>
+      <many-to-one
+         name="relatedDefinition"
+         column="INSTANCE_PK"
+         class="org.jboss.portal.core.impl.model.instance.persistent.PersistentInstanceDefinition"
+         cascade="none"
+         fetch="select"/>
+      <property
+         name="state"
+         column="SER_STATE"
+         not-null="false"
+         unique="false"
+         length="16384"/>
+      <properties
+         name="user_and_portlet_ref"
+         unique="true">
+         <property
+            name="customizationId"
+            column="USER_ID"
+            not-null="true"
+            length="160"/>
+         <property
+            name="portletRef"
+            column="PORTLET_REF"
+            not-null="true"
+            length="170"/>
+      </properties>
+   </class>
+
+   <class
+      name="org.jboss.portal.core.impl.model.instance.persistent.PersistentRoleSecurityBinding"
+      table="JBP_INSTANCE_SECURITY">
+      <cache usage="transactional"/>
+      <id
+         name="key"
+         column="PK"
+         type="java.lang.Long">
+         <generator class="native">
+            <param name="sequence">instance_seq</param>
+         </generator>
+      </id>
+      <property
+         name="role"
+         column="`ROLE`"
+         not-null="true"
+         unique="false"/>
+      <set
+         name="actions"
+         table="JBP_INSTANCE_SECURITY_ACTIONS"
+         cascade="all-delete-orphan"
+         fetch="join">
+         <cache usage="transactional"/>
+         <key column="PK"/>
+         <element column="ACTIONS" type="string"/>
+      </set>
+      <many-to-one
+         name="instance"
+         column="INSTANCE_PK"
+         class="org.jboss.portal.core.impl.model.instance.persistent.PersistentInstanceDefinition"
+         cascade="none"
+         fetch="select"/>
+   </class>
+</hibernate-mapping> 

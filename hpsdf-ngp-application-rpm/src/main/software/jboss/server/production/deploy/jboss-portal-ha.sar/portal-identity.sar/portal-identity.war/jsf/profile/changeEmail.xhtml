@@ -1,0 +1,47 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+   <f:loadBundle var="bundle" basename="conf.bundles.Identity" />
+<ui:composition template="/jsf/profile/editProfileTemplate.xhtml">
+
+<ui:define name="title">
+	<li class="pathItem">
+		<h:commandLink value="#{bundle.IDENTITY_EDIT_PROFILE_TITLE}" action="editProfile" />	
+	</li>
+	<li class="pathSeparator"><h:graphicImage url="/img/pathSeparator.png" alt=">"/></li>
+	<li class="selected">
+		<h:outputText value="#{bundle.IDENTITY_EDIT_EMAIL_TITLE}"/>
+	</li>
+</ui:define>
+
+<ui:define name="content">
+	<h:form id="change-email-form">
+		<h:panelGrid columns="2" cellpadding="3">
+		<h:outputText value="#{bundle.IDENTITY_EDIT_PASSWORD_CURRENT}"/>
+		<h:inputSecret id="currentPassword" value="currentPassword" required="true">
+			<f:validator validatorId="CurrentPasswordValidator"/>
+  		</h:inputSecret>
+  		<h:panelGroup />
+  		<h:message for="currentPassword"  infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+  		
+  		<h:outputText value="#{bundle.IDENTITY_EDIT_EMAIL_NEW}"/>
+		<h:inputText id="email" value="#{editprofilemgr.email}" required="true">
+			<f:validator validatorId="EmailValidator" />
+		</h:inputText>
+  		<h:panelGroup />
+		<h:message for="email"  infoClass="portlet-msg-success" errorClass="portlet-msg-error" fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+		</h:panelGrid>
+		<hr/>
+	<p style="text-align: right;">
+		<h:commandButton id="submit" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" action="#{editprofilemgr.changeEmail}" styleClass="portlet-form-button"/>
+		<h:commandButton id="cancel" action="editProfile" value="#{bundle.IDENTITY_BUTTON_CANCEL}" immediate="true" styleClass="portlet-form-button"/>
+	</p>
+  	</h:form>
+</ui:define>
+
+</ui:composition>
+
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout android:id="@+id/comment"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<Button android:id="@+id/commentBtn" android:layout_width="126px"
+		android:layout_height="53px" android:text="Comment" android:layout_x="10px"
+		android:layout_y="8px">
+	</Button>
+	<Button android:id="@+id/rateBtn" android:layout_width="104px"
+		android:layout_height="53px" android:text="Rate it" android:layout_x="151px"
+		android:layout_y="8px">
+	</Button>
+</AbsoluteLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Applications for Test</entry>
+<entry key="app.name">Application Name</entry>
+<entry key="app.category">Category</entry>
+<entry key="app.version">Binary Version</entry>
+<entry key="app.platform">Platform</entry>
+<entry key="app.releasedate">Release Date</entry>
+<entry key="app.action">Action</entry>
+<entry key="label.test">Test it</entry>
+</properties>

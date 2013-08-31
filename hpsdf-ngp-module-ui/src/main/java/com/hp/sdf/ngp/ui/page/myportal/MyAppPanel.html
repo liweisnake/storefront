@@ -1,0 +1,33 @@
+<wicket:panel>
+	<div class="mainPanel" >
+	<div class="panelBody">
+	<div><a href="#" wicket:id="createAppLink"> <wicket:message
+		key="myportal.createApp">Create app</wicket:message> </a></div>
+	<div>
+	<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+<thead><tr>
+			<th><wicket:message key="myportal.name">App name</wicket:message></th>
+			<th><wicket:message key="myportal.createDate">Create date</wicket:message></th>
+			<th><wicket:message key="myportal.brief">Brief</wicket:message></th>
+		</tr></thead>
+		<!-- End Table Head -->
+
+		<!-- Table Body -->
+		
+		<span wicket:id="apps">
+		<tr>
+			<td><a href="#" wicket:id="nameLink"> <span
+				wicket:id="appName" /></a></td>
+			<td><span wicket:id="createDate" /></td>
+			<td><span wicket:id="brief" /></td>
+		</tr>
+		</span>
+	</table>
+	</div>
+	</div>
+	<div class="clear"></div>
+	<div class="panelBottom">
+	<div class="panelFoot"></div>
+	</div>
+	</div>
+</wicket:panel>

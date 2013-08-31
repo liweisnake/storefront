@@ -1,0 +1,39 @@
+<wicket:panel>
+<div class="mainPanel" >
+	
+	<div class="panelBody">
+	    <div class="panelContent">    
+		<table width="100%" cellpadding="0" cellspacing="0" class="tableSet">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">APIs List</th>
+					<th scope="col">App Keys</th>
+					<th scope="col">URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr wicket:id="subscriptions">
+					<td wicket:id="appKeyID"></td>
+					<td >
+						<span wicket:id="apis">
+							<div wicket:id="apiName">
+							</div>
+						</span>
+					</td>
+					<td >
+						<span wicket:id="username"></span> : 
+						<span wicket:id="password"></span>
+					</td>
+					<td >
+						<span wicket:id="urls">
+							<div><a href="#" wicket:id="accessURL"></a></div>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+</wicket:panel>

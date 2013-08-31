@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">New Asset Detail</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newAsset">New Asset</entry>
+
+<entry key="title.big">Asset Management</entry>
+<entry key="title.left">New Asset Detail</entry>
+
+<entry key="assetName">Asset Name</entry>
+<entry key="status">Status</entry>
+<entry key="assetId">Asset ID</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="priority">Provider Priority</entry>
+<entry key="fileName">Product Name</entry>
+<entry key="binaryId">Binary Version ID</entry>
+<entry key="providerId">Provider ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="providerExternalId">Provider External ID</entry>
+<entry key="externalId">External ID</entry>
+<entry key="category1">Category</entry>
+<entry key="category2">Genre</entry>
+<entry key="description">Description</entry>
+<entry key="brief">Brief</entry>
+<entry key="price">Price</entry>
+<entry key="createDate">Start Date</entry>
+<entry key="publishDate">Publish Date</entry>
+<entry key="expireDate">Expire Date</entry>
+<entry key="fileSize">File Size</entry>
+<entry key="version">Version</entry>
+<entry key="file">File</entry>
+<entry key="tag">Tag</entry>
+
+<entry key="newArrivalDueDate">New Arrival Due Date</entry>
+<entry key="recommendStartDate">Recommend Start Date</entry>
+<entry key="recommendDueDate">Recommend Due Date</entry>
+<entry key="recommendOrder">Recommend Order</entry>
+
+<entry key="thumbnailBig">Thumbnail Big Picture</entry>
+<entry key="thumbnailMed">Thumbnail Med Picture</entry>
+<entry key="thumbnail">Thumbnail Picture</entry>
+<entry key="screenShot">Screen Shot</entry>
+
+<entry key="btn.new">Save</entry>
+<entry key="btn.generate">Generate</entry>
+<entry key="btn.back">Back</entry>
+
+<entry key="msg.save">Do you want to save the asset?</entry>
+<entry key="msg.eav.save">Do you want to save the eav properties of the new asset?</entry>
+<entry key="msg.save.result">You successfully save the asset!</entry>
+<entry key="title.prompt">Prompt</entry>
+
+</properties>

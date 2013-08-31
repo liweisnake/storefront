@@ -1,0 +1,49 @@
+// This bsh script setup the default content of the portal.
+// It is called when the SessionFactoryBinder service has created a schema and needs to populate it
+import org.jboss.portal.common.io.IOTools;
+import org.jboss.portal.common.util.Tools;
+import org.jboss.portal.identity.db.HibernateUserImpl;
+import org.jboss.portal.identity.db.HibernateRoleImpl;
+
+try
+{
+   session = SessionFactory.openSession();
+   tx = session.beginTransaction();
+
+   //
+   HibernateRoleImpl adminRole = new HibernateRoleImpl("Admin", "Administrators");
+   HibernateRoleImpl userRole = new HibernateRoleImpl("User", "Users");
+
+   //
+   HibernateUserImpl admin = new HibernateUserImpl("admin");
+   admin.setPassword(Tools.md5AsHexString("admin"));
+   admin.setRealEmail("admin@portal.com");
+   admin.setViewRealEmail(true);
+   admin.setEnabled(true);
+
+   //
+   admin.getRoles().add(adminRole);
+   adminRole.getUsers().add(admin);
+
+   //
+   HibernateUserImpl user = new HibernateUserImpl("user");
+   user.setPassword(Tools.md5AsHexString("user"));
+   user.setRealEmail("user@portal.com");
+   user.setViewRealEmail(true);
+   user.setEnabled(true);
+
+   //
+   user.getRoles().add(userRole);
+   userRole.getUsers().add(user);
+
+   //
+   session.save(adminRole);
+   session.save(userRole);
+   session.save(admin);
+   session.save(user);
+   tx.commit();
+}
+finally
+{
+   IOTools.safeClose(session);
+}

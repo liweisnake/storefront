@@ -1,0 +1,56 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:jbp="http://www.jboss.org/portal"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="admin-ui">
+
+   <ui:composition template="../objectTemplate.xhtml">
+
+      <ui:param name="portalObjectScreen" value="#{bundle.COMMON_DELETE}"/>
+      <ui:define name="content">
+
+      <f:subview  rendered="#{empty portalobjectmgr.selectedDeletingObject}">
+         <p class="portlet-msg-error">#{bundle.COMMON_INCONSISTENT_STATE}</p>
+      </f:subview>
+
+      <f:subview id="delete-view" rendered="#{not empty portalobjectmgr.selectedDeletingObject}">
+
+
+         <div class="portlet-msg">
+            <div class="portlet-msg-icon"><h:graphicImage url="/img/msgIcon_Warning.gif" alt="/!\"/></div>
+            <div class="portlet-msg-body">
+               <h3>#{bundle.COMMON_DELETE} #{portalobjectmgr.selectedObjectType}</h3>
+
+               <p class="portlet-msg-alert">
+                  #{bundle.COMMON_DELETING}
+                  <span class="objectName">#{portalobjectmgr.selectedObject.name}</span>
+                  #{portalobjectmgr.selectedObject.typeName} #{bundle.COMMON_FROM}
+                  <c:if test="#{not empty portalobjectmgr.selectedObjectParent.name}">
+                     <span class="objectName">#{portalobjectmgr.selectedObjectParent.name}</span>
+                  </c:if>
+                  #{portalobjectmgr.selectedObjectParent.typeName}!
+               </p>
+
+               <p class="portlet-class">#{bundle.COMMON_SURE_DELETE} #{portalobjectmgr.selectedObjectType}?</p>
+
+               <h:form id="confirm-form">
+                  <h:commandButton id="delete" value="#{bundle.COMMON_DELETE}" action="objects" actionListener="#{portalobjectmgr.destroyObject}"
+                                   styleClass="portlet-form-button portlet-section-buttonrow">
+                     <f:attribute name="objectId" value="#{portalobjectmgr.selectedDeletingObject.id}"/>
+                  </h:commandButton>
+                  <h:commandButton id="cancel" value="#{bundle.COMMON_CANCEL}" action="objects"
+                                   actionListener="#{portalobjectmgr.selectParentObject}"
+                                   styleClass="portlet-form-button portlet-section-buttonrow"/>
+               </h:form>
+            </div>
+         </div>
+      </f:subview>
+
+      </ui:define>
+
+   </ui:composition>
+
+</div>

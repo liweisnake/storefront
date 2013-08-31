@@ -1,0 +1,18 @@
+/* We need the min-height in order to have a region that is never empty and can receive draggables
+   min-height doees not work on IE6 and the 2 other lines are there to make it work in that situation.
+   32 pixels is the height of the region when it is empty. */ 
+.dnd-region {
+   min-height:32px;
+   height:auto !important;
+   height:32px;
+}
+
+.dnd-handle {
+   cursor: move;
+}
+
+
+.dnd-droppable {
+   border: red 1px dashed;
+   background-color: Transparent;
+}

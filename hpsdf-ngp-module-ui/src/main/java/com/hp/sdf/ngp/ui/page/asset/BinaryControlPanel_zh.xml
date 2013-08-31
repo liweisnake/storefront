@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">请选择</entry>
+<entry key="title">应用文件管理</entry>
+<entry key="platform">平台 : </entry>
+<entry key="version">版本 : </entry>
+<entry key="status">状态 : </entry>
+<entry key="download">下载</entry>
+<entry key="error">请选则平台和版本</entry>
+<entry key="bin.nostatus"></entry>
+<entry key="btn.new">上传新文件</entry>
+<entry key="btn.update">更新</entry>
+<entry key="btn.delete">删除</entry>
+<entry key="btn.testresult">查看测试结果</entry>
+</properties>

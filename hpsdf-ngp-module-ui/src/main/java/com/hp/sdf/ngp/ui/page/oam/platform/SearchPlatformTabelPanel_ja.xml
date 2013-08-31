@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="platformName">Platform Name</entry>
+<entry key="confirmMsg">Do you want to delete the selected platforms?</entry>
+<entry key="detail">詳細</entry>
+<entry key="description">紹介文</entry>
+<entry key="selectAll">全て選択</entry>
+<entry key="delete">削除</entry>
+</properties>

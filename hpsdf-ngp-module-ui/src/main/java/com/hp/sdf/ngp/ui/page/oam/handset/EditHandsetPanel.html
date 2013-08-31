@@ -1,0 +1,83 @@
+<wicket:panel>
+
+<div id="regionA">
+	<div class="title">
+    	<h2 class="icon-title-content"><wicket:message key="title.big">Handset Model Management</wicket:message></h2>
+	</div> 
+
+	<form wicket:id="editHandsetForm">
+    	
+	<div class="content">
+	<h3><wicket:message key="title" /></h3>
+
+	  <table border="0" cellpadding="0" cellspacing="0" class="portal-container">
+	    
+	      <tr>
+	        <td class="portal-container-top-left"></td>
+	        <td class="portal-container-top"></td>
+	        <td class="portal-container-top-right"></td>
+	      </tr>
+	
+	      <tr>
+	        <td class="portal-container-content-left"></td>
+	        <td class="portal-container-content">
+				<h3><wicket:message key="title" /></h3>
+				<div class="contentbox">
+				
+<span style="color: red;" wicket:id="feedBack">error message</span>
+				
+	            <div class="content-list">
+	              <ul>
+	                <li><b><wicket:message key="displayName" />:</b>
+	                  <span><input type="text" wicket:id="displayName" class="common-textfield" MAXLENGTH="255" /></span></li>
+	                  
+	                <li><b><wicket:message key="deviceName" /><img src="images/icon_reddot.png" />:</b>
+	                <span><input type="text" wicket:id="deviceName" class="common-textfield" MAXLENGTH="255" /></span></li>                
+	                  
+	                <li><b><wicket:message key="mimeType" /><img src="images/icon_reddot.png" />:</b>
+	                <span><input type="text" wicket:id="newMIMEType" class="common-textfield" MAXLENGTH="255" />
+	                      <input wicket:id="add" type="button" class="button-submit-small" wicket:message="value:add" /></span></li>
+	                      
+   					<li><b></b>
+	                <span><select wicket:id="originals" size="5" style="width: 79%; height: 70px;"></select>
+	                      <input wicket:id="delete" type="button" class="button-submit-small" wicket:message="value:delete" /></span></li>	                      
+	                      
+	                <li><b><wicket:message key="deviceFuction" /><img src="images/icon_reddot.png" />:</b>
+	                <span>
+		                <input wicket:id="accSensor" type="checkbox"><wicket:message key="accSensor" /></input><br></br>
+		                <input wicket:id="camera" type="checkbox"><wicket:message key="camera" /></input><br></br>
+		                <input wicket:id="gps" type="checkbox"><wicket:message key="gps" /></input>
+	                </span></li>     
+
+	                <li><b><wicket:message key="displaySize" /><img src="images/icon_reddot.png" />:</b>
+	                	<span wicket:id="displaySizeChoices"></span>
+					</li>   
+
+
+	              </ul>
+	            </div>
+	          </div>
+			</td>
+	        <td class="portal-container-content-right"></td>
+	      </tr>			
+			
+	      <tr>
+	        <td class="portal-container-bottom-left"></td>
+	        <td class="portal-container-bottom"></td>
+	        <td class="portal-container-bottom-right"></td>
+	      </tr>		
+		</table>
+
+		<div class="contentbutton">
+			<div wicket:id="checkPanel"></div>
+			<div wicket:id="checkPanel2"></div>
+			<input type="submit" wicket:id="save" wicket:message="value:save" class="button-submit" /> 
+			<input type="submit" wicket:id="deleteBtn" align="center" class="button-submit" wicket:message="value:delete" />	
+			<input type="submit" wicket:id="back" wicket:message="value:back" class="button-submit" />
+		</div>
+	</div>
+</form>
+
+	<div wicket:id="promptPanel"></div>
+</div>
+</wicket:panel>

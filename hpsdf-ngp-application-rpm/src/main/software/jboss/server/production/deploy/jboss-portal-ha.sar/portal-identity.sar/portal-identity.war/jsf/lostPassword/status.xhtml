@@ -1,0 +1,19 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+   
+<ui:composition template="/jsf/lostPassword/lostTemplate.xhtml">
+
+<ui:define name="title">
+	<h:outputText value="#{bundle.IDENTITY_LOST_PASSWORD_STATUS_TITLE}" />
+</ui:define>
+<ui:define name="content">
+   <h:messages style="list-style:none" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+              fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+</ui:define>
+</ui:composition>
+</div>
+

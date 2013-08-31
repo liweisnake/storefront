@@ -1,0 +1,38 @@
+<wicket:panel>
+  <div>
+  <table class="tableSet">
+    <thead><tr>
+      <th><wicket:message key="label.app.name"/></th>
+      <th><wicket:message key="label.bin.platform"/></th>
+      <th><wicket:message key="label.bin.version"/></th>
+      <th><wicket:message key="label.bin.price"/></th>
+      <th><wicket:message key="label.bin.action"/></th>
+    </tr></thead>
+  <tbody><span wicket:id="items"><!-- list of items -->
+	<tr>
+	  <td><span wicket:id="appName">App Name</span></td>
+	  <td><span wicket:id="binPlatform">Platform</span></td>
+	  <td><span wicket:id="binVersion">Version</span></td>
+	  <td><span wicket:id="binPrice">Price</span></td>
+	  <td><a href="#" wicket:id="removeItem"><wicket:message key="link.remove"/></a></td>
+	</tr> 
+  </span>
+  	<tr>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	  <td>------</td>
+	  <td>&nbsp;</td>
+	</tr>
+  	<tr>
+	  <td colspan="3"><wicket:message key="label.price.sum"/></td>
+	  <td colspan="2"><span wicket:id="priceSum">Price Sum</span></td>
+	</tr></tbody>
+  </table>
+  <div wicket:id="feedback"></div>
+  <div style="width:200px;margin:0 auto;"><!-- actions -->
+   <a wicket:id="checkoutLink" href="#" class="btnBlueShort"><wicket:message key="link.checkout" /></a>
+   <!--<div wicket:id="promptPanel"></div>-->
+  </div>
+  </div>
+</wicket:panel>

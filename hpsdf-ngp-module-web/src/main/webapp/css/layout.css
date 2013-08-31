@@ -1,0 +1,512 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* ==================================Layout Set==================================== */
+
+.topPage{
+		background:url(../images/body_bg.png) top repeat-x #fff;}
+
+
+#page{
+ width:1004px;
+	height:100%;
+	margin:0 auto;
+	padding:0;}
+	
+	
+	
+
+
+/* ==================================TopHeader Set==================================== */
+
+
+#topHeader{
+	width:auto;
+	height:100%;
+	background:url(../images/head_bg.png) top repeat-x #e6e6e6;}
+	
+			#topHeader #topTitle{
+				background:url(../images/head_title.png) top left no-repeat;
+				width:300px;
+				height:49px;
+				margin:0 0 0 25px;
+				padding:10px 0 0 0;}
+				
+				#topHeader #topTitle h1{
+					margin:0 0 0 50px;
+					color:#FFF;
+					font-size:16px;}
+				#topHeader #topTitle h4{
+					margin:0 0 0 50px;
+					color:#eee;
+					font-size:10px;}
+				
+			#topHeader #topNavi1{
+				width:auto;
+				height:100%;
+				float:right;
+				margin:-59px 0 0 0;
+
+				}
+				
+				#topHeader #topNavi1 a{
+					display:block;
+					margin:0 10px;
+					height:49px;
+					float:left;}
+					
+					#topHeader #topNavi1 a.top{
+						background:url(../images/navi_home.png) no-repeat top center;
+						width:58px;}
+						
+						#topHeader #topNavi1 a.topCurrent{
+						background:url(../images/navi_home_hover.png) no-repeat top center;
+						width:58px;}
+						
+					#topHeader #topNavi1 a.gallery{
+						background:url(../images/navi_gallery.png) no-repeat top center;
+						width:60px;}
+						
+						#topHeader #topNavi1 a.galleryCurrent{
+						background:url(../images/navi_gallery_hover.png) no-repeat top center;
+						width:60px;}
+						
+					#topHeader #topNavi1 a.myPortal{
+						background:url(../images/navi_myPortal.png) no-repeat top center;
+						width:79px;}
+						
+						#topHeader #topNavi1 a.myPortalCurrent{
+						background:url(../images/navi_myPortal_hover.png) no-repeat top center;
+						width:79px;}
+						
+					#topHeader #topNavi1 a.forum{
+						background:url(../images/navi_forum.png) no-repeat top center;
+						width:63px;}
+						
+						#topHeader #topNavi1 a.forumCurrent{
+						background:url(../images/navi_forum_hover.png) no-repeat top center;
+						width:63px;}
+						
+					#topHeader #topNavi1 a.blog{
+						background:url(../images/navi_blog.png) no-repeat top center;
+						width:60px;}
+						
+						#topHeader #topNavi1 a.blogCurrent{
+						background:url(../images/navi_blog_hover.png) no-repeat top center;
+						width:60px;}
+						
+					#topHeader #topNavi1 a.devlab{
+						background:url(../images/navi_devlab.png) no-repeat top center;
+						width:60px;}
+						
+						#topHeader #topNavi1 a.devlabCurrent{
+						background:url(../images/navi_devlab_hover.png) no-repeat top center;
+						width:60px;}
+				
+				
+				#topHeader #topNavi2{
+				width:auto;
+				height:20px;
+				margin-top:-10px;
+				background:url(../images/head_bottom.png) bottom center no-repeat;
+				line-height:20px;
+				text-align:right;
+				padding:8px 20px;
+				}
+				
+				#topNavi3{
+					margin:0;
+					height:21px;}
+					
+					#topNavi3 a{
+						display:block;
+						float:left;
+						
+						height:21px;
+						line-height:21px;
+						margin:0 5px;
+						padding:0 8px 0 0;}
+						
+						#topNavi3 a:hover,#topNavi3 a.current{
+							background:url(../images/navi3_btn_bg.png) right top no-repeat;
+							color:#FFF;
+							text-decoration:none;}
+						
+						#topNavi3 a b{
+							width:5px;
+							height:21px;
+							display:block;
+						float:left;
+						}
+						
+						#topNavi3 a:hover b,#topNavi3 a.current b{
+							background:url(../images/navi3_btn_bg.png) left top no-repeat;
+							}
+
+
+
+
+
+/* ==================================End TopHeader Set==================================== */
+
+/* ==================================MainBody Set==================================== */
+#mainBody{
+	width:auto;
+	height:100%;
+	margin:20px 0;
+	}
+
+
+/* ==================================LeftFrame Set==================================== */
+
+
+#mainLeftFrame{
+	width:230px;
+	height:100%;
+	float:left;}
+
+/* Category */
+#category ul{
+	margin:10px 0;}
+	
+	#category ul li{
+		line-height:30px;
+			height:30px;}
+		
+		#category ul li a{
+			text-decoration:none;
+			display:block;
+			margin:0 0 0 35px;}
+
+
+/* Tags */
+#tags .panelContent p{
+	line-height:150%;}
+
+
+/* Billboard */
+/*#billboard ul{
+	margin:0 0 10px 0;}
+*/	
+		#billboard ul li{
+			list-style: square inside;
+			margin-top:10px;
+			line-height:140%;
+			border:1px solid #fdfdfd;
+			}
+			
+/* Quick Links */
+#quickLinks .panelBody .panelContent a img{
+	margin:5px 0 0 0;}
+	
+
+
+
+/* ==================================End LeftFrame Set==================================== */
+
+/* ==================================RightFrame Set==================================== */
+
+#mainRightFrame{
+	width:760px;
+	margin:0 0 0 240px;;}
+	
+	/* top10 */
+	
+#top10 .showList{
+	}
+
+
+/* ==================================End RightFrame Set==================================== */
+
+/* App Details */
+.detailInfo{
+	margin:0 0 0 250px;
+	line-height:16px;
+	height:240px;
+	width:auto;
+	color:#333;}
+	
+	.detailInfo .list_star{
+		position:static;}
+	
+	.appDetail img.bigThumbnail{
+	width:220px;
+	height:220px;
+	padding:10px;
+	border:1px solid #f4f4f4;
+	background:#fefefe;}
+	
+.appDescription b{
+	margin:20px 0;
+	display:block;}
+	
+	.appDescription{
+		margin:20px 0;}
+	.appDescription  p{
+		padding:0 50px;}
+		
+		.previewImg{
+			width:auto;
+			margin:0 50px;
+			
+			text-align:center;}
+			
+			.previewImg img{
+				margin:10px auto;
+				padding:5px;
+			border:1px solid #f4f4f4;
+	background:#fefefe;}
+	
+.detailInfo p{
+	margin:0 0 10px 0;
+	padding:0;}	
+
+b.price{
+	font-size:12px;
+	color:#C60000}
+
+
+#tagsEdit{
+	border:1px solid #ccc;
+	padding:5px;}
+
+/* ==================================End MainBody Set==================================== */
+
+/* ==================================FootBottom Set==================================== */
+
+#footBottom{
+	height:80px;
+
+	width:100%;
+	}
+	
+		#footBottom #footLink{
+			background:#f3f3f3;
+			height:150px;
+			padding:10px 0;}
+			
+			#footBottom #footLink div{
+				height:100%;}
+			
+			#footBottom #footLink div dl{
+				margin:0px;
+				padding:0px;
+				height:100%;}
+				#footBottom #footLink div dl dt{
+					line-height:20px;
+					font-weight:bold;
+					margin:10px 0 0 0;
+					padding:0 0 0 10px;}
+				
+				
+				#footBottom #footLink div dl dd{
+					line-height:18px;}
+			
+		#footBottom #footCopy{
+			background:#d1d1d1;
+			text-align:center;
+			padding:20px 0;
+			line-height:20px;}
+			
+			
+.loginFoot{
+	position:relative;
+	bottom:0px;
+
+	width:100%;}
+
+
+
+
+/* ==================================End Footbottom Set==================================== */
+
+
+
+
+
+
+/* ==================================End Layout Set==================================== */
+
+
+/* Login */
+#loginIntro{
+	width:540px;}
+#loginForm{
+	width:300px;
+	padding:0 0 0 0px;
+	}
+
+
+#loginIntro h3{
+	font-size:14px;}
+	
+	#loginIntro ul{
+		padding:10px;
+		width:520px;}
+	
+	#loginIntro ul li{
+		
+		margin:15px 0;
+		height:40px;}
+		
+		li.user{
+			background:url(../images/icon_user.jpg) left center no-repeat;
+			padding: 0 0 0 60px;
+			line-height:40px;}
+			
+		li.develop{
+			background:url(../images/icon_dev.jpg) left center no-repeat;
+			padding: 0 0 0 60px;
+			line-height:20px;}
+			
+		li.tester{
+			background:url(../images/icon_tester.jpg) left center no-repeat;
+			padding: 0 0 0 60px;
+			line-height:40px;}
+			
+			#loginForm form fieldset input.button{
+	color:#fff;
+	background:url(../images/btn_blue_short.png) center left no-repeat;
+	border:none;
+	width:60px;
+	height:20px;}
+
+
+/* get Start */
+
+#getStart p{
+	background:#efefef;
+	padding:12px;}
+#getStart ol{
+	width:650px;
+	margin:0 auto;}
+#getStart ol li{
+	font-size:14px;
+	font-weight:bold;
+	padding:0 0 0 170px;
+	margin:10px 0;
+	}
+	li.step1{
+		background:url(../images/icon_step1.png) left center no-repeat;}
+	li.step2{
+		background:url(../images/icon_step2.png) left center no-repeat;}
+	li.step3{
+		background:url(../images/icon_step3.png) left center no-repeat;}
+	li.step4{
+		background:url(../images/icon_step4.png) left center no-repeat;}
+	li.step5{
+		background:url(../images/icon_step5.png) left center no-repeat;}
+	
+#getStart ol li p{
+	line-height:26px;
+	font-size:11px;
+	background:url(../images/step_bg.png) left top no-repeat;
+	width:488px;
+	height:84px;
+	padding:8px;
+	font-weight:normal;
+	}
+
+
+
+
+/* error */
+
+.errorTitle {
+	background:url(../images/icon_error.png) center left no-repeat;
+	height:55px;}
+	
+	.errorTitle h2{
+		margin:0 0 0 70px;
+		padding:10px 0 0 0;
+		font-size:18px;}
+		
+		.errorTitle h5{
+		margin:0 0 0 70px;
+		padding:0;
+		font-size:10px;
+		font-weight:normal;}
+		
+.errorInfo{
+	margin:10px;
+	padding:15px;
+	color:#ff3300;
+	background:#fdfdfd;
+	border:1px solid #f3f3f3;}
+
+
+
+/* success */
+
+.successTitle {
+	background:url(../images/icon_sucess.png) center left no-repeat;
+	height:55px;}
+	
+	.successTitle h2{
+		margin:0 0 0 70px;
+		padding:10px 0 0 0;
+		font-size:18px;}
+		
+		.successTitle h5{
+		margin:0 0 0 70px;
+		padding:0;
+		font-size:10px;
+		font-weight:normal;}
+		
+.successInfo{
+	margin:10px;
+	padding:15px;
+	background:#fdfdfd;
+	border:1px solid #f3f3f3;}
+	
+	.successInfo ul{
+		margin:10px;}
+		
+		.successInfo ul li{
+			list-style:circle inside;
+			line-height:150%;}
+
+/* Detail */
+
+.detailInfo table{
+	line-height:20px;}
+	
+	.openWin{
+		position:absolute;
+		top:0;
+		width:100%;
+		left:0;
+		height:100%;
+		/*background:#000;
+		opacity:0.4;
+		filter:alpha(opacity=40);*/
+margin:0 auto;}
+		
+		.openWin .winPanel{
+			margin:250px auto;
+			width:600px;
+			background:#fff;
+			/*position:absolute;*/
+			border:1px solid #06C;
+			top:0;
+			-webkit-box-shadow: 0px 0px 10px #000;
+			-webkit-border-bottom-right-radius:5px;
+			-webkit-border-bottom-left-radius:5px;
+			-webkit-border-top-right-radius:5px;
+			-webkit-border-top-left-radius:5px;}
+			
+			.openWin .winPanel h4{
+				background:#06C;
+				line-height:30px;
+				padding:0 20px;
+				color:#fff;}
+				.openWin .winPanel p{
+					padding:20px;}
+					
+					
+					.openWin .winPanel .winButton{
+						width:100%;
+						margin:10px auto;
+						text-align:center;}
+					

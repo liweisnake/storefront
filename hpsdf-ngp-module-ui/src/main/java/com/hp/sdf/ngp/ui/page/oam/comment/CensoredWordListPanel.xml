@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll">Select All</entry>
+	<entry key="censoredWordList">Censored Word List</entry>
+	<entry key="censoredWord">Censored Word</entry>
+	<entry key="updateDate">Update Date</entry>
+	<entry key="detail">Edit</entry>
+	<entry key="newEntry">New Censored Word</entry>
+	<entry key="delete">Delete</entry>	
+	
+	<entry key="title">Censored Word List</entry>	
+	
+	<entry key="commentsManagement">Comments Management</entry>	
+	
+	<entry key="confirmMsg">Do you want to delete the selected censored words?</entry>
+	
+	
+	<entry key="msg.error.del.nocensoredword">Censored word does not exist!</entry>
+	<entry key="msg.error.select.noselect">Please select one censored word at least!</entry>
+	
+	<entry key="promptTitle">Prompt</entry>
+</properties>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="deviceName">Device Name</entry>
+	<entry key="displayName">Handset Model Name</entry>
+	<entry key="search">Search</entry>
+	<entry key="newHandset">New Handset</entry>	
+	
+	<entry key="title">Search Handset Model</entry>		
+	<entry key="title.big">Handset Model Management</entry>		
+</properties>

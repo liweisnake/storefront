@@ -1,0 +1,53 @@
+<wicket:panel>
+    <div id="appEdit">   
+      <!-- Application Information -->                      			                     
+      <h2><span><wicket:message key="title">New Application</wicket:message></span></h2>
+      <div wicket:id="feedback">[[ feedback ]]</div>
+      <form wicket:id="appForm">                                                         
+	      <table width="98%" border="0" cellspacing="0" cellpadding="0" class="formTableSet">                                                                           
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="name">name</wicket:message>* : </td>
+	          <td><input type="text" wicket:id="name" /></td>                                                                           
+	        </tr>                                                                           
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="category">category</wicket:message>* : </td>
+	          <td><select wicket:id="category" multiple="multiple" style="height:60px; width: 100px;" size="5"></select></td>                                                                           
+	        </tr>
+	        <tr>
+              <td width="200" align="right"><wicket:message key="platform">platform</wicket:message>* : </td>
+              <td><select wicket:id="platform" multiple="multiple" style="height:60px; width: 100px;" size="5"></select></td>                                                                           
+            </tr>
+	        <tr>
+              <td width="200" align="right"><wicket:message key="price">price</wicket:message>* : </td>
+              <td><input wicket:id="price" type="text"/></td>                                                                           
+            </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="brief">brief</wicket:message>* : </td>
+	          <td><input type="text" wicket:id="brief" /></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="preview">preview</wicket:message>* : </td>
+	          <td><input wicket:id="preview" id="preview" type="file"/></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="thumbnail">thumbnail</wicket:message>* : </td>
+	          <td><input wicket:id="thumbnail" id="thumbnail" type="file"/></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="description">description</wicket:message>  : </td>
+	          <td><textarea wicket:id="description" ></textarea></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right"><wicket:message key="doc">doc</wicket:message>*:</td>
+	          <td><input type="text" wicket:id="doc" /></td>                                                                           
+	        </tr>
+	        <tr>
+	          <td width="200" align="right">&nbsp;</td>
+	          <td><input type="submit" value="Submit" wicket:message="value:btn.submit"/></td>                                                                           
+	        </tr>
+	      </table>
+      </form>                                                                                                                         
+    </div>         
+    <!-- End appDetail --> 
+</wicket:panel>
+  

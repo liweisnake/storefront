@@ -1,0 +1,69 @@
+
+<wicket:panel>
+
+
+<div id="regionA">
+
+
+   <div class="title">
+    <h2 class="icon-title-comment"><wicket:message key="commentsManagement" /></h2>
+   </div>
+
+   	<form wicket:id="newCommentsForm">
+   	
+   	<div class="content">
+   	
+    <table border="0" cellpadding="0" cellspacing="0" class="portal-container">
+      <tr>
+        <td class="portal-container-top-left"></td>
+        <td class="portal-container-top"></td>
+        <td class="portal-container-top-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-content-left"></td>
+        <td class="portal-container-content"><!--Begin Search Comments--><div class="contentbox">
+   	<h3><wicket:message key="title" /></h3>
+            <div class="searchbox-list">
+              <ul>
+                <li><b><wicket:message key="keyword" />:</b><span>
+                  <input type="text" wicket:id="keyword" class="common-textfield" />
+                  </span></li>
+                <li><b><wicket:message key="pid" />:</b><span>
+                  <input type="text" wicket:id="pid" class="common-textfield" />
+                  </span></li>
+                <li><b><wicket:message key="providerName" />:</b><span>
+                  <input type="text" wicket:id="providerName" class="common-textfield" />
+                  </span></li>
+                <li><b><wicket:message key="assetID" />:</b><span>
+                  <input type="text" wicket:id="assetID" class="common-textfield" />
+                  </span></li>
+                <li><b><wicket:message key="assetName" />:</b><span>
+                  <input type="text" wicket:id="assetName" class="common-textfield" />
+                  </span></li>
+                <li><b><wicket:message key="subscriberName" />:</b><span>
+                  <input type="text" wicket:id="subscriberName" class="common-textfield" />
+                  </span></li>
+              </ul>
+              <div class="searchbutton">
+                <input type="submit" wicket:id="search" wicket:message="value:search" class="button-search" />
+              </div>
+            </div>
+          </div></td>
+        <td class="portal-container-content-right"></td>
+      </tr>
+      <tr>
+        <td class="portal-container-bottom-left"></td>
+        <td class="portal-container-bottom"></td>
+        <td class="portal-container-bottom-right"></td>
+      </tr>
+    </table>
+    </div>
+    
+    </form>
+	
+	  <div class="content">
+		<span wicket:id="commentsTable"></span>
+	  </div>	
+	
+</div>
+</wicket:panel>

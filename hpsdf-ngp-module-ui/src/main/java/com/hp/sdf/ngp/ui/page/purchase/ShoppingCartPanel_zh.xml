@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">购物车</entry>
+<entry key="label.app.name">应用名</entry>
+<entry key="label.bin.platform">平台</entry>
+<entry key="label.bin.version">版本</entry>
+<entry key="label.bin.price">价格</entry>
+<entry key="label.bin.action">操作</entry>
+<entry key="label.price.sum">总价</entry>
+<entry key="link.checkout">去结算</entry>
+<entry key="link.remove">移出购物车</entry>
+</properties>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="confirmMsg">禁止ワードを登録してよろしいでしょうか。</entry>
+<entry key="back">戻る</entry>
+<entry key="commentsManagement">査閲</entry>
+<entry key="save">登録</entry>
+<entry key="title">禁止ワード登録</entry>
+<entry key="promptTitle">プロンプト</entry>
+<entry key="error.dpword">禁止ワードが既に存在しています。</entry>
+<entry key="error.emptyword">禁止ワードの入力が必須です。</entry>
+<entry key="successMsg">禁止ワードを登録しました。</entry>
+</properties>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="title">Asset Test Report Detail</entry>
+	<entry key="assetName">Asset Name</entry>
+	<entry key="Binary">Binary</entry>
+	<entry key="Version">Version</entry>
+	<entry key="Platform">Platform</entry>
+	<entry key="Tester">Tester</entry>
+	<entry key="TestDuration">Test Duration</entry>
+	<entry key="StartDate">Start Date</entry>
+	<entry key="CompleteDate">Complete Date</entry>
+	<entry key="Comments">Comments</entry>
+</properties>

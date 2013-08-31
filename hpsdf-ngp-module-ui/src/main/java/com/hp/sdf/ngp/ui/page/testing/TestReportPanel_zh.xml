@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">应用测试报告</entry>
+<entry key="name">应用名</entry>
+<entry key="brief">应用简介</entry>
+<entry key="version">版本</entry>
+<entry key="platform">平台</entry>
+<entry key="description">描述</entry>
+<entry key="category">分类</entry>
+<entry key="label.result">测试结果</entry>
+<entry key="label.pass">通过</entry>
+<entry key="label.fail">失败</entry>
+<entry key="btn.submit">提交</entry>
+<entry key="btn.reset">取消</entry>
+</properties>

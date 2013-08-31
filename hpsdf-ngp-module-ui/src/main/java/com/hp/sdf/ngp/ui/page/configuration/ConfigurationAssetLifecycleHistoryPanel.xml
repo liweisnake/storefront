@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="title">Asset Lifecycle History</entry>
+	<entry key="date">Date</entry>
+	<entry key="event">Event</entry>
+	<entry key="preStatus">Pre Status</entry>
+	<entry key="postStatus">Post Status</entry>
+	<entry key="operator">Operator</entry>
+	<entry key="Actions">Actions</entry>
+</properties>

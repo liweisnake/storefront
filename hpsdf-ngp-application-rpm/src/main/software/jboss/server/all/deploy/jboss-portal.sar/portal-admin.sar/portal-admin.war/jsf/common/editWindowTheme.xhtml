@@ -1,0 +1,48 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core">
+
+   <h:form id="common-edit-window-theme-form">
+      <table class="full-width datatable">
+         <thead class="portlet-section-header">
+            <tr>
+               <th>#{bundle.COMMON_NAME}</th>
+               <th>#{bundle.COMMON_DESCRIPTION}</th>
+               <th>#{bundle.COMMON_SETTING}</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr class="portlet-section-body">
+               <td>#{bundle.COMMON_WINDOW_RENDERER}</td>
+               <td>#{bundle.COMMON_NAME_RENDER_ENGINE_WINDOWS}</td>
+               <td>
+                  <h:selectOneMenu id="windowRenderer" value="#{theme.windowRendererName}">
+                     <f:selectItems value="#{applicationScope.LayoutService.renderSetItems}"/>
+                  </h:selectOneMenu>
+               </td>
+            </tr>
+            <tr class="portlet-section-alternate">
+               <td>#{bundle.COMMON_DECORATION_RENDERER}</td>
+               <td>#{bundle.COMMON_NAME_RENDER_ENGINE_DECORATIONS}</td>
+               <td>
+                  <h:selectOneMenu id="decorationRenderer" value="#{theme.decorationRendererName}">
+                     <f:selectItems value="#{applicationScope.LayoutService.renderSetItems}"/>
+                  </h:selectOneMenu>
+               </td>
+            </tr>
+            <tr>
+               <td>#{bundle.COMMON_PORTLET_RENDERER}</td>
+               <td>#{bundle.COMMON_NAME_RENDER_ENGINE_PORTLETS}</td>
+               <td>
+                  <h:selectOneMenu id="portletRenderer" value="#{theme.portletRendererName}">
+                     <f:selectItems value="#{applicationScope.LayoutService.renderSetItems}"/>
+                  </h:selectOneMenu>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <ui:insert name="form_submit"/>
+   </h:form>
+</div>

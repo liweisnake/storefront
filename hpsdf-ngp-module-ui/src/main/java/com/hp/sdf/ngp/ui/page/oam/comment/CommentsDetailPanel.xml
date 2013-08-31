@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="commentsDetail">Comments Detail</entry>
+	<entry key="commentsTitle">Comments Title</entry>
+	<entry key="userId">User Name</entry>
+	<entry key="back">Back</entry>	
+	<entry key="commentsManagement">Comments Management</entry>			
+	<entry key="title">Comments Detail</entry>	
+</properties>

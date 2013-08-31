@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<portlet-app
+   xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+   version="2.0">
+   
+   <portlet>
+      <description>Content Management System Portlet</description>
+      <portlet-name>CMSPortlet</portlet-name>
+      <display-name>Content Management System Portlet</display-name>
+
+      <portlet-class>org.jboss.portal.core.cms.ui.CMSPortlet</portlet-class>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+         <portlet-mode>EDIT_CONTENT</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <supported-locale>fr</supported-locale>
+      <supported-locale>es</supported-locale>
+      <supported-locale>ru</supported-locale>
+      <supported-locale>de</supported-locale>
+      <supported-locale>pt_BR</supported-locale>
+      <resource-bundle>Resource</resource-bundle>
+      <portlet-info>
+         <title>CMS</title>
+      </portlet-info>
+      <portlet-preferences>
+         <preference>
+            <name>indexpage</name>
+            <value>/default/index.html</value>
+         </preference>
+         <!-- Set the Web Browser title with the CMS content title
+         Note that if there are two portlets on a page defining the title
+         It will randomly pick one of them.
+          -->
+         <preference>
+            <name>setBrowserTitle</name>
+            <value>false</value>
+         </preference>
+      </portlet-preferences>
+      <supported-public-render-parameter>uri</supported-public-render-parameter>
+   </portlet>
+
+   <portlet>
+      <description>Administration Portlet for CMS</description>
+      <portlet-name>CMSAdminPortlet</portlet-name>
+      <display-name>Content Management System Administration Portlet</display-name>
+      <portlet-class>org.jboss.portal.core.cms.ui.admin.CMSAdminPortlet</portlet-class>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <supported-locale>fr</supported-locale>
+      <supported-locale>es</supported-locale>
+      <supported-locale>ru</supported-locale>
+      <supported-locale>de</supported-locale>
+      <supported-locale>pt_BR</supported-locale>
+      <resource-bundle>Resource</resource-bundle>
+      <portlet-info>
+         <title>CMS Administration</title>
+      </portlet-info>
+   </portlet>
+   
+   <filter>
+      <filter-name>JBoss Portlet Filter</filter-name>
+      <filter-class>org.jboss.portlet.filter.JBossPortletFilter</filter-class>
+      <lifecycle>ACTION_PHASE</lifecycle>
+      <lifecycle>RENDER_PHASE</lifecycle>
+   </filter>
+
+   <filter-mapping>
+      <filter-name>JBoss Portlet Filter</filter-name>
+      <portlet-name>CMSPortlet</portlet-name>
+      <portlet-name>CMSAdminPortlet</portlet-name>
+   </filter-mapping>
+
+   <public-render-parameter>
+      <identifier>uri</identifier>
+      <qname xmlns:c="urn:jboss:portal:content">c:uri</qname>
+   </public-render-parameter>
+
+   <public-render-parameter>
+      <identifier>title</identifier>
+      <qname xmlns:jbp="urn:jboss:portal:page">jbp:title</qname>
+   </public-render-parameter>
+
+</portlet-app>

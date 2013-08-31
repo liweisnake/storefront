@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="name">Name</entry>
+<entry key="type">Type</entry>
+<entry key="operation">Operation</entry>
+<entry key="select">Select</entry>
+<entry key="refresh">refresh</entry>
+<entry key="bannerHeight">Banner Height</entry>
+<entry key="bannerLocation">Banner Location</entry>
+<entry key="px">px</entry>
+<entry key="selfAdjust">(-1 means self-adjusting)</entry>
+<entry key="staticBanner">Static Banner</entry>
+<entry key="rotatingBanner">Rotating Banner</entry>
+<entry key="tabbedBanner">Tabbed Banner</entry>
+</properties>

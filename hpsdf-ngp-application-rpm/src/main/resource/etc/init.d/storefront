@@ -1,0 +1,21 @@
+#!/bin/sh
+#ngp start|stop|restart
+#script to start or stop HP Store Front Portal
+#
+case "$1" in
+start)
+        runuser - sdpadmin -c "/opt/storefront/start.sh"
+        ;;
+stop)
+        runuser - sdpadmin -c "/opt/storefront/stop.sh"
+        ;;
+restart)
+        runuser - sdpadmin -c "/opt/storefront/stop.sh"
+        runuser - sdpadmin -c "/opt/storefront/start.sh"
+        ;;
+*)
+        echo "TO execute properly..Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+exit 0

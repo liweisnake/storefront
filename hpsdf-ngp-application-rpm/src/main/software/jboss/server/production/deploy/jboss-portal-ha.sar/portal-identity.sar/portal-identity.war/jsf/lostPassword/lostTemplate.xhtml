@@ -1,0 +1,44 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+	<f:loadBundle var="bundle" basename="conf.bundles.Identity" />
+<c:choose>
+	<c:when test="#{configurationbean.validConfiguration}">
+   <h:form id="lost-template-form">
+      <ul class="topnav">
+         <li>
+            <h:commandLink id="start-link" value="#{bundle.IDENTITY_WELCOME}" action="start"/>
+         </li>
+         <li>
+            <h:commandLink id="register-link" value="#{bundle.IDENTITY_REGISTER}" action="register"/>
+         </li>
+         <li id="currentTab">
+            <h:outputText value="#{bundle.IDENTITY_LOST_PASSWORD}" />
+         </li>
+      </ul>
+   </h:form>
+	<ui:decorate template="/jsf/common/noTabContainer.xhtml">
+
+	<ui:define name="tab-object-path"><!-- Title -->
+	<ul class="objectpath">
+		<li class="selected">
+			<ui:insert name="title">Title</ui:insert>
+		</li>
+	</ul>
+      </ui:define>
+      <ui:define name="tab-container-content">
+   <br/>
+   <!-- Content -->
+   <ui:insert name="content">Content</ui:insert>
+   	</ui:define>
+   	</ui:decorate>
+	</c:when>
+	<c:otherwise>
+		<span class="portlet-msg-error"><h:outputText value="#{bundle.IDENTITY_APPLICATION_NOT_AVAILABLE}" /></span>
+   	</c:otherwise>
+</c:choose>
+</div>

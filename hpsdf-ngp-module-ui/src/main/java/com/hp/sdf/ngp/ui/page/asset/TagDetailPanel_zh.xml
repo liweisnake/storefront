@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="tags">标签</entry>
+<entry key="addTags">添加标签</entry>
+<entry key="newTags">新标签 : </entry>
+<entry key="btn.add">添加</entry>
+
+<entry key="tag.tooMany">应用的标签数超过10个限制</entry>
+<entry key="StringValidator.maximum">你的标签总长度超过了100个字符限制</entry>
+</properties>

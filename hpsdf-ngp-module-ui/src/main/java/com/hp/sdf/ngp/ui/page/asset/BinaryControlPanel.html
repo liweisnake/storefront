@@ -1,0 +1,32 @@
+<wicket:panel>
+    <div id="binaryControl">
+                                              
+      <form wicket:id="binaryForm">
+         <table width="98%" border="0" cellspacing="0" cellpadding="0">                                                                           
+	        <tr>
+	          <td width="10%"><b><wicket:message key="version"/></b></td>
+	          <td width="20%"><select wicket:id="version"></select></td>
+              <td width="10%"><b><wicket:message key="status" /></b></td>
+			  <td width="20%"><span wicket:id="binaryStatus"></span></td>
+	          <td width="10%"> <a href="#" wicket:id="download">
+      			<wicket:message key="download">download</wicket:message></a>
+      		  </td>
+	        </tr> 
+	      </table>
+	      <br>
+	  <div id="binOperation">
+	  	<a href="#" wicket:id="newBinLink"><wicket:message key="btn.new">New</wicket:message></a>
+	  	&nbsp; &nbsp;
+	  	<a href="#" wicket:id="testResultLink"><wicket:message key="btn.testresult">View Results</wicket:message></a>
+	  	&nbsp; &nbsp;
+	  	<a href="#" wicket:id="updateBinLink"><wicket:message key="btn.update">Update</wicket:message></a>
+	  	&nbsp; &nbsp;
+	  	<a href="#" wicket:id="delBinLink"><wicket:message key="btn.delete">Delete</wicket:message></a>
+	  </div>
+	  <br>
+      </form>         
+    </div>      
+	<div wicket:id="requestPanel" />    
+    <!-- End appDownload --> 
+</wicket:panel>
+  

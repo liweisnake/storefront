@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="null">Choose One</entry>
+<entry key="title">Application Binaries</entry>
+<entry key="platform">Platform : </entry>
+<entry key="version">Version : </entry>
+<entry key="status">Status : </entry>
+<entry key="download">Download</entry>
+<entry key="error">Please select a binary</entry>
+<entry key="bin.nostatus"></entry>
+<entry key="btn.new">Upload New</entry>
+<entry key="btn.update">Update</entry>
+<entry key="btn.delete">Delete</entry>
+<entry key="btn.testresult">View Test Results</entry>
+</properties>

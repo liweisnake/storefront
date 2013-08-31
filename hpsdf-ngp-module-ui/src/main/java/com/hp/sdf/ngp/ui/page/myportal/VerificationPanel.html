@@ -1,0 +1,31 @@
+<wicket:panel>
+<span style="color:red;" wicket:id="feedBack">error message</span>
+	<form wicket:id="verificationForm">
+	<table width="90%" border="0" cellpadding="8" id="verification">
+		<tr>
+			<td class="HeaderColor">
+			<h4><wicket:message key="verification.title">Input verification code</wicket:message></h4>
+			</td>
+		</tr>
+		<tr style="vertical-align: top">
+		<td style="text-align: right" class="LabelColor" nowrap="nowrap">
+			<span wicket:id="way">Application needs verification code which is available through</span>
+			</td>
+		</tr>
+		<tr>
+			
+			<td  class="LabelColor" nowrap="nowrap">
+			<wicket:message key="verification.label">Verification Code</wicket:message>
+			<input type="text" wicket:id="inputCode"/><br />
+			</td>
+			<td width="60%"></td>
+		</tr>
+		<tr>
+			<td class="LabelColor" nowrap="nowrap">
+			<input type="submit" wicket:message="value:verification.submit" class="button"/>			</td>
+		</tr>
+	</table>
+	
+</form>
+
+</wicket:panel>

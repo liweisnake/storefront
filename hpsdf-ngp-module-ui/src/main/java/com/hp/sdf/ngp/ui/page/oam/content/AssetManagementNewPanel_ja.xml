@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="providerId">プロバイダーID</entry>
+<entry key="recommendOrder">オススメ度</entry>
+<entry key="binaryId">Binary Version ID</entry>
+<entry key="expireDate">提供終了日</entry>
+<entry key="newArrivalDueDate">新着期間完了日</entry>
+<entry key="assetName">商品名</entry>
+<entry key="newAsset">New Asset</entry>
+<entry key="title.big">Asset Management</entry>
+<entry key="recommendStartDate">オススメ期間開始日</entry>
+<entry key="thumbnailBig">アイコン用画像ファイル（大）</entry>
+<entry key="title.prompt">プロンプト</entry>
+<entry key="createDate">開始日</entry>
+<entry key="assetId">子ID</entry>
+<entry key="description">紹介文</entry>
+<entry key="thumbnailMed">アイコン用画像ファイル</entry>
+<entry key="publishDate">公開日</entry>
+<entry key="category2">ジャンル</entry>
+<entry key="category1">カテゴリ</entry>
+<entry key="priority">CP優先度</entry>
+<entry key="fileSize">ダウンロードサイズ</entry>
+<entry key="file">コンテンツファイルパス</entry>
+<entry key="fileName">商品名</entry>
+<entry key="defaultSetting">デフォルト設定</entry>
+<entry key="msg.save.result">You successfully save the asset!</entry>
+<entry key="providerExternalId">プロバイダーID</entry>
+<entry key="status">ステータス</entry>
+<entry key="externalId">External ID</entry>
+<entry key="title">New Asset Detail</entry>
+<entry key="price">販売価格</entry>
+<entry key="parentAssetId">親ID</entry>
+<entry key="btn.back">戻る</entry>
+<entry key="brief">紹介文（極短）</entry>
+<entry key="msg.eav.save">Do you want to save the eav properties of the new asset?</entry>
+<entry key="msg.save">Do you want to save the asset?</entry>
+<entry key="thumbnail">オススメ用画像ファイル名</entry>
+<entry key="screenShot">コンテンツ画像ファイル名</entry>
+<entry key="tag">検索タグ</entry>
+<entry key="title.left">New Asset Detail</entry>
+<entry key="version">バージョン情報</entry>
+<entry key="btn.new">登録</entry>
+<entry key="btn.generate">Generate</entry>
+<entry key="providerName">プロバイダー名</entry>
+<entry key="recommendDueDate">オススメ期間終了日</entry>
+</properties>

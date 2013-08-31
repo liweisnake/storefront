@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAll">Select All</entry>
+	<entry key="deviceName">Device Name</entry>
+	<entry key="displayName">Handset Model Name</entry>
+	<entry key="createTime">Create Time</entry>	
+	<entry key="detail">Edit</entry>
+	<entry key="delete">Delete</entry>
+	
+	<entry key="title.list">Handset Model List</entry>
+	
+	<entry key="confirmMsg">Do you want to delete the selected handsets?</entry>
+	
+	
+	<entry key="msg.error.save.nohandset">Handset does not exist!</entry>
+	<entry key="msg.error.del.noselect">Please select one handset device at least!</entry>	
+	<entry key="promptTitle">Prompt</entry>
+</properties>

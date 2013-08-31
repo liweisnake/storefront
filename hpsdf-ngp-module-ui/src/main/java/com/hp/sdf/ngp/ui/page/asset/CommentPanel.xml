@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="comments">Comments(500 characters max)</entry>
+<entry key="submit">Submit</entry>
+<entry key="showComments">Show Comments</entry>
+<entry key="hideComments">Hide</entry>
+<entry key="StringValidator.maximum">Your comments input is longer than the maximum of 500 characters.</entry>
+<entry key="btn.add">Add</entry>
+</properties>

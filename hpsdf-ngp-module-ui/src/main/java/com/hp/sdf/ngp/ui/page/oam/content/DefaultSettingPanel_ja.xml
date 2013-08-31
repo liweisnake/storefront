@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="defaultRate">デフォルト手数料率</entry>
+<entry key="msg.update.provider.result">プロバイダの手数料率を一括更新しました。</entry>
+<entry key="msg.update.result">ディフォルト設定を更新しました。</entry>
+<entry key="days">新着期間日数</entry>
+<entry key="defaultSetting">デフォルト設定</entry>
+<entry key="newBinaryVersion">コンテンツ登録</entry>
+<entry key="msg.error.save.days">value invalid!</entry>
+<entry key="title.big">コンテンツ管理</entry>
+<entry key="update.pid">プロバイダーID</entry>
+<entry key="title.prompt">プロンプト</entry>
+<entry key="title.left.big">デフォルト設定</entry>
+<entry key="update.provider">プロバイダー</entry>
+<entry key="update.back">戻る</entry>
+<entry key="daysSymbol">日</entry>
+<entry key="content">種別</entry>
+<entry key="msg.update.provider">プロバイダの手数料率を一括更新してよろしいでしょうか。</entry>
+<entry key="msg.update">ディフォルト設定を更新してよろしいでしょうか。</entry>
+<entry key="update.save">更新</entry>
+<entry key="save">更新</entry>
+<entry key="msg.update.days">新着期間日数を編集してよろしいでしょうか。</entry>
+<entry key="title.right.big">プロバイダー手数料率</entry>
+<entry key="msg.update.days.result">新着期間日数を更新しました。</entry>
+<entry key="update.rate">手数料率(%)</entry>
+<entry key="rate">手数料率(%)</entry>
+<entry key="title">デフォルト設定</entry>
+<entry key="rateSymbol">%</entry>
+</properties>

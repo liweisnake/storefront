@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Content Detail</entry>
+<entry key="defaultSetting">Default Setting</entry>
+<entry key="newBinaryVersion">New Content</entry>
+
+<entry key="title.big">Content Management</entry>
+<entry key="title.left">Content Detail</entry>
+<entry key="title.right">Content Additional Metadata</entry>
+
+<entry key="assetName">Name</entry>
+<entry key="status">Status</entry>
+<entry key="assetId">Asset ID</entry>
+<entry key="parentAssetId">Parent Asset ID</entry>
+<entry key="fileName">Product Name</entry>
+<entry key="editProvider">Edit Provider</entry>
+<entry key="providerId">Provider ID</entry>
+<entry key="providerName">Provider Name</entry>
+<entry key="providerJpName">Provider JP Name</entry>
+<entry key="providerExternalId">Provider External ID</entry>
+<entry key="priority">Provider Priority</entry>
+<entry key="externalId">Asset External ID</entry>
+<entry key="category1">Category</entry>
+<entry key="category2">Genre</entry>
+<entry key="description">Description</entry>
+<entry key="brief">Brief</entry>
+<entry key="price">Price</entry>
+<entry key="createDate">Start Date</entry>
+<entry key="publishDate">Publish Date</entry>
+<entry key="expireDate">Expire Date</entry>
+<entry key="fileSize">File Size(Byte)</entry>
+<entry key="version">Version</entry>
+<entry key="file">Binary File</entry>
+<entry key="tag">Tag</entry>
+
+<entry key="newArrivalDueDate">New Arrival Due Date</entry>
+<entry key="recommendStartDate">Recommend Start Date</entry>
+<entry key="recommendDueDate">Recommend Due Date</entry>
+<entry key="recommendOrder">Recommend Order</entry>
+
+<entry key="thumbnailBig">Big Thumbnail</entry>
+<entry key="thumbnailMed">Med Thumbnail</entry>
+<entry key="thumbnail">Thumbnail</entry>
+<entry key="screenShot">Screen Shot</entry>
+<entry key="screenShot1">Screen Shot 1</entry>
+<entry key="screenShot2">Screen Shot 2</entry>
+<entry key="screenShot3">Screen Shot 3</entry>
+<entry key="screenShot4">Screen Shot 4</entry>
+<entry key="screenShot5">Screen Shot 5</entry>
+
+<entry key="btn.add">Add</entry>
+<entry key="btn.new">Save</entry>
+<entry key="btn.generate">Create</entry>
+<entry key="btn.back">Back</entry>
+
+<entry key="msg.warn.save">Do you want to save the asset binary version?</entry>
+<entry key="msg.warn.eavsave">Do you want to save the asset binary version?</entry>
+<entry key="msg.result.save.success">You successfully save the asset binary version!</entry>
+<entry key="msg.result.eavsave.success">You successfully save the asset binary version!</entry>
+<entry key="msg.error.save.noprovider">Can not find specify provider!</entry>
+
+
+<entry key="title.prompt">Prompt</entry>
+<entry key="input.version.first">Please add a new binary version first.</entry>
+<entry key="invalid.asset.external.id">Please input valid External ID.</entry>
+<entry key="invalid.date">Publish Date can not greater than Expire Date.</entry>
+<entry key="tag.tooMany">The application's total tags are more than the maximum of 10.</entry>
+<entry key="StringValidator.maximum">Your tags input is longer than the maximum of 100 characters.</entry>
+
+<entry key="cppriority">CPPRIORITY</entry>
+<entry key="displayorder">DISPLAYORDER</entry>
+<entry key="pickup">PICKUP</entry>
+<entry key="japanesename">JAPANESENAME</entry>
+<entry key="titlename">TITLENAME</entry>
+<entry key="titlejpname">TITLEJPNAME</entry>
+<entry key="partinfo">PARTINFO</entry>
+<entry key="licensername">LICENSERNAME</entry>
+<entry key="musiclabel">MUSICLABEL</entry>
+<entry key="artistname">ARTISTNAME</entry>
+<entry key="artistjpname">ARTISTJPNAME</entry>
+<entry key="shortdescription">SHORTDESCRIPTION</entry>
+<entry key="longdescription">LONGDESCRIPTION</entry>
+<entry key="copyright">COPYRIGHT</entry>
+<entry key="otherdescription">OTHERDESCRIPTION</entry>
+<entry key="lmark">LMARK</entry>
+<entry key="chargetype">CHARGETYPE</entry>
+<entry key="price">PRICE</entry>
+<entry key="billingcomment">BILLINGCOMMENT</entry>
+<entry key="saleprice">SALEPRICE</entry>
+<entry key="salecomment">SALECOMMENT</entry>
+<entry key="campaignstartdate">CAMPAIGNSTARTDATE</entry>
+<entry key="campaignenddate">CAMPAIGNENDDATE</entry>
+<entry key="expiredate">EXPIREDATE</entry>
+<entry key="redownloadflag">REDOWNLOADFLAG</entry>
+<entry key="redownloaddays">REDOWNLOADDAYS</entry>
+<entry key="playduration">PLAYDURATION</entry>
+<entry key="androidmarkerurl">ANDROIDMARKERURL</entry>
+<entry key="cppageurl">CPPAGEURL</entry>
+<entry key="downloadurl">DOWNLOADURL</entry>
+<entry key="sampledownloadurl">SAMPLEDOWNLOADURL</entry>
+<entry key="releventsalesiteurl">RELEVENTSALESITEURL</entry>
+<entry key="filterflag">FILTERFLAG</entry>
+<entry key="versioncomment">VERSIONCOMMENT</entry>
+<entry key="supportname">SUPPORTNAME</entry>
+<entry key="supportcontact">SUPPORTCONTACT</entry>
+<entry key="supportdetail">SUPPORTDETAIL</entry>
+<entry key="officialsiteurl">OFFICIALSITEURL</entry>
+<entry key="releventsiteurl">RELEVENTSITEURL</entry>
+<entry key="flashurl">FLASHURL</entry>
+<entry key="twitter">TWITTER</entry>
+<entry key="enablecommentflag">ENABLECOMMENTFLAG</entry>
+<entry key="lid">LID</entry>
+<entry key="resolutionfilter">RESOLUTIONFILTER</entry>
+<entry key="functionfilter">FUNCTIONFILTER</entry>
+<entry key="mimetypefilter">MIMETYPEFILTER</entry>
+<entry key="releventcontentsid1">RELEVENTCONTENTSID1</entry>
+<entry key="releventcontentsid2">RELEVENTCONTENTSID2</entry>
+<entry key="releventcontentsid3">RELEVENTCONTENTSID3</entry>
+<entry key="installupdateflg">INSTALLUPDATEFLAG</entry>
+<entry key="securityinfo">SECURITYINFO</entry>
+<entry key="saledateinfo">SALEDATEINFO</entry>
+<entry key="managementcode">MANAGEMENTCODE</entry>
+
+</properties>

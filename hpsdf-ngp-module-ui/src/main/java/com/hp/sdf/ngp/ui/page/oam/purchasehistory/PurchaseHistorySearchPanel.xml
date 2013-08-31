@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="msisdn">MSISDN</entry>
+	<entry key="paidStartDate">Temp Paid Date From</entry>
+	<entry key="paidEndDate">To</entry>
+	<entry key="completeStartDate">Complete Date From</entry>
+	<entry key="completeEndDate">To</entry>
+	<entry key="search">Search</entry>
+	
+	<entry key="title">Search Purchase History</entry>
+	<entry key="title.big">Purchase History</entry>			
+</properties>

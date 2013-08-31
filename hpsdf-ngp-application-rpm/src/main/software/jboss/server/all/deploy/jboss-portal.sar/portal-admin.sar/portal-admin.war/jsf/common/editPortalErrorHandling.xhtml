@@ -1,0 +1,141 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core">
+
+<p class="portlet-area-header">#{bundle.COMMON_PORTAL_ERROR_HANDLING}</p>
+
+<div class="portlet-area-body">
+
+<!-- defines error handeling section -->
+<table class="full-width">
+<tr>
+   <th class="portlet-section-title">#{bundle.COMMON_PORTAL_CONFIGURE_ERRORS}.</th>
+</tr>
+<tr>
+<td valign="top" class="portlet-section-body">
+
+<h:form id="common-edit-portal-error-form">
+<table class="datatable full-width">
+<thead class="portlet-section-header">
+   <tr>
+      <th>#{bundle.COMMON_CASE}</th>
+      <th>#{bundle.COMMON_INHERITANCE}</th>
+      <th>#{bundle.COMMON_ACTION}</th>
+   </tr>
+</thead>
+<tbody>
+<tr class="portlet-section-body">
+   <td>
+      <h:outputText value="#{properties.portalControlAccessDenied.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="portal-access-check" disabled="#{!properties.portalControlAccessDenied.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.portalControlAccessDenied.inherit}"
+                               value="#{properties.portalControlAccessDenied.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="portal-access-select" value="#{properties.portalControlAccessDenied.value}"
+                       disabled="#{properties.portalControlAccessDenied.inherited}"
+                       onchange="submit();">
+         <f:selectItems value="#{properties.portalSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-alternate">
+   <td>
+      <h:outputText value="#{properties.portalControlUnavailable.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="portal-unavail-check" disabled="#{!properties.portalControlUnavailable.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.portalControlUnavailable.inherit}"
+                               value="#{properties.portalControlUnavailable.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="portal-unavail-select" value="#{properties.portalControlUnavailable.value}"
+                       disabled="#{properties.portalControlUnavailable.inherited}"
+                       onchange="submit();">
+         <f:selectItems value="#{properties.portalSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-body">
+   <td>
+      <h:outputText value="#{properties.portalControlError.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="portal-error-check" disabled="#{!properties.portalControlError.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.portalControlError.inherit}"
+                               value="#{properties.portalControlError.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="portal-error-select" value="#{properties.portalControlError.value}"
+                       disabled="#{properties.portalControlError.inherited}" onchange="submit();">
+         <f:selectItems value="#{properties.portalSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-alternate">
+   <td>
+      <h:outputText value="#{properties.portalControlInternalError.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="portal-internal-check" disabled="#{!properties.portalControlInternalError.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.portalControlInternalError.inherit}"
+                               value="#{properties.portalControlInternalError.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="portal-internal-select" value="#{properties.portalControlInternalError.value}"
+                       disabled="#{properties.portalControlInternalError.inherited}"
+                       onchange="submit();">
+         <f:selectItems value="#{properties.portalSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-body">
+   <td>
+      <h:outputText value="#{properties.portalControlNotFound.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="portal-not-found-check" disabled="#{!properties.portalControlNotFound.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.portalControlNotFound.inherit}"
+                               value="#{properties.portalControlNotFound.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:selectOneMenu id="portal-not-found-select" value="#{properties.portalControlNotFound.value}"
+                       disabled="#{properties.portalControlNotFound.inherited}" onchange="submit();">
+         <f:selectItems value="#{properties.portalSelectItems}"/>
+      </h:selectOneMenu>
+   </td>
+</tr>
+<tr class="portlet-section-alternate">
+   <td>
+      <h:outputText value="#{properties.portalControlResourceURI.displayName}"/>
+   </td>
+   <td>
+      <h:selectBooleanCheckbox id="portal-res-check" disabled="#{!properties.portalControlResourceURI.inheritable}"
+                               onclick="submit();"
+                               valueChangeListener="#{properties.portalControlResourceURI.inherit}"
+                               value="#{properties.portalControlResourceURI.inherited}"/>#{bundle.COMMON_INHERIT_ACTION}
+   </td>
+   <td>
+      <h:inputText id="portal-res-input" value="#{properties.portalControlResourceURI.value}" size="60"
+                   disabled="#{properties.portalControlResourceURI.inherited}"/>
+   </td>
+</tr>
+</tbody>
+</table>
+<h:commandButton id="update" value="#{bundle.COMMON_UPDATE}" styleClass="portlet-form-button portlet-section-buttonrow"/>
+</h:form>
+</td>
+</tr>
+</table>
+
+</div>
+</ui:composition>

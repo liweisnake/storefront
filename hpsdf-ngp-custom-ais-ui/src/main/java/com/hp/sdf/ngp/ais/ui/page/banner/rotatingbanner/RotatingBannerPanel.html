@@ -1,0 +1,724 @@
+<wicket:panel>
+	
+	<span style="color: red;" wicket:id="feedBack" />
+	<input type="hidden" wicket:id="urlPrefix">
+	<input type="hidden" wicket:id="bannerId">
+	<form wicket:id="rotatingBannerForm" enctype="multipart/form-data">
+	
+	<div class="panelBody">
+		<div id="divAddBanner" style="display:block">
+			<div style="font-size:20px"><wicket:message key="rotatingBanner" /></div>
+			<br>
+			<div><wicket:message key="bannerName" />:</div>
+			<div><input type="text" name="bannerName" wicket:id="bannerName"></div>
+			<br>
+			<div><wicket:message key="bannerType" />:</div>
+			<div wicket:id="bannerTypeChoice" />
+			<br>
+			<div>
+				<wicket:message key="contentSet" />:&nbsp;&nbsp;
+				<input type="button" wicket:id="bnAddSet">
+			</div>
+			<div class="panelContent">
+			<table id="tableContentSet" width="600px" cellpadding="0" cellspacing="0" border="1" class="formTableSet">
+				<thead>
+					<tr>
+						<td align="center"><wicket:message key="name" /></td>
+						<td align="center"><wicket:message key="dow" /></td>
+						<td align="center"><wicket:message key="time" /></td>
+						<td align="center"><wicket:message key="due" /></td>
+						<td align="center"><wicket:message key="operation" /></td>
+					</tr>
+				</thead>
+				<div wicket:id="tableContainer">
+				<tbody>
+				</tbody>
+				</div>
+			</table>
+			</div>
+			<br>
+			<input type="hidden" id="bannerStatus" name="bannerStatus">
+			<input type="button" wicket:id="submit" onclick="onSubmit();" />&nbsp;
+			<input type="button" wicket:id="preview" onclick="onPreview();" />&nbsp;
+			<input type="submit" wicket:id="cancel"/>
+		</div>
+		
+		<div wicket:id="areaContainer">
+			<div id="divAddContentSetArea">
+			</div>
+			
+			<div id="divAddContentArea">
+			</div>
+		</div>
+
+		<div id="divAddContentSet_template">
+			<div id=divAddContentSet__index_ style=DISPLAY:none>
+				<div style="font-size:20px"><wicket:message key="contentSet" /></div>
+				<input type="hidden" id="contentSetId__index_" name="contentSetId__index_" value="-1">
+				<br>
+				<div><wicket:message key="contentSetName" />:</div>
+				<div><input type="text" id="contentSetName__index_" name="contentSetName__index_" size="30"></div>
+				<br>
+				<div><wicket:message key="contentSetPeriod" />:</div>
+				<div>
+					<wicket:message key="dow" />:
+					<input type="hidden" id="contentSetDow__index_" name="contentSetDow__index_">
+					<input type="checkbox" id="contentSetDowMon__index_" name="contentSetDowMon__index_">
+					<wicket:message key="dowMon" />
+					<input type="checkbox" id="contentSetDowTue__index_" name="contentSetDowTue__index_">
+					<wicket:message key="dowTue" />
+					<input type="checkbox" id="contentSetDowWed__index_" name="contentSetDowWed__index_">
+					<wicket:message key="dowWed" />
+					<input type="checkbox" id="contentSetDowThu__index_" name="contentSetDowThu__index_">
+					<wicket:message key="dowThu" />
+					<input type="checkbox" id="contentSetDowFri__index_" name="contentSetDowFri__index_">
+					<wicket:message key="dowFri" />
+					<input type="checkbox" id="contentSetDowSat__index_" name="contentSetDowSat__index_">
+					<wicket:message key="dowSat" />
+					<input type="checkbox" id="contentSetDowSun__index_" name="contentSetDowSun__index_">
+					<wicket:message key="dowSun" />
+				</div>
+				<div>
+					<wicket:message key="time" />:
+					<wicket:message key="timeStart" />
+					<input type="text" id="contentSetTimeStart__index_" name="contentSetTimeStart__index_" size="10">&nbsp;
+					<wicket:message key="timeEnd" />
+					<input type="text" id="contentSetTimeEnd__index_" name="contentSetTimeEnd__index_" size="10">&nbsp;
+					<wicket:message key="exTime" />
+				</div>
+				<br>
+				<div><wicket:message key="expiration" />:</div>
+				<div>
+					<input type="text" id="contentSetDue__index_" name="contentSetDue__index_" size="30">
+					<wicket:message key="exDue" />
+				</div>
+				<br>
+				<div>
+					<wicket:message key="content" />:&nbsp;&nbsp;
+					<!--  
+					<input type="button" value="Add Content" id="bnAddContent" onclick="addContent(_index_);">
+					-->
+					<a class="btnBlueShort" href="javascript:addContent(_index_);"><wicket:message key="bnAddContent" /></a>
+				</div>
+				<div class="panelContent">
+				<table id="tableContent__index_" width="600px" cellpadding="0" cellspacing="0" border="1" class="formTableSet">
+					<thead>
+						<tr>
+							<td align="center"><wicket:message key="name" /></td>
+							<td align="center"><wicket:message key="type" /></td>
+							<td align="center"><wicket:message key="weight" /></td>
+							<td align="center"><wicket:message key="operation" /></td>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				</div>
+				<br>
+				<a class="btnBlueShort" href="javascript:saveContentSet(_index_);"><wicket:message key="bnSave" /></a>
+				<!--
+				<input type="button" value="Save" onclick="saveContentSet(_index_);">&nbsp;
+				<input type="button" value="Cancel" onclick="cancelContentSet();">
+				-->
+			</div>
+		</div>
+
+		<div id="divAddContent_template">
+			<div id=divAddContent__contentSetIndex___index_ style=DISPLAY:none>
+				<div style="font-size:20px"><wicket:message key="content" /></div>
+				<input type="hidden" id="contentSet__contentSetIndex_::contentWeightId__index_" 
+					name="contentSet__contentSetIndex_::contentWeightId__index_" value="-1">
+				<input type="hidden" id="contentSet__contentSetIndex_::contentId__index_" 
+					name="contentSet__contentSetIndex_::contentId__index_" value="-1">
+				<br>
+				<div><wicket:message key="contentName" />:</div>
+				<div><input type="text" id="contentSet__contentSetIndex_::contentName__index_" name="contentSet__contentSetIndex_::contentName__index_" size="30"></div>
+				<br>
+				<div><wicket:message key="contentType" />:</div>
+				<div>
+					<input type="radio" id="contentSet__contentSetIndex_::contentType__index_" 
+						name="contentSet__contentSetIndex_::contentType__index_" value="0" checked 
+						onclick="document.getElementById('divContentClickLink__index_').style.display='block'">
+							<wicket:message key="contentTypeImage" />
+				</div>
+				<div>
+					<input type="radio" id="contentSet__contentSetIndex_::contentType__index_" 
+						name="contentSet__contentSetIndex_::contentType__index_" value="1" 
+						onclick="document.getElementById('divContentClickLink__index_').style.display='none'">
+							<wicket:message key="contentTypeHtml" />
+				</div>
+				<br>
+				<div><wicket:message key="uploadFile" />:</div>
+				<div><input type="file" id="contentSet__contentSetIndex_::contentFile__index_" name="contentSet__contentSetIndex_::contentFile__index_"></div>
+				<br>
+				<div id="divContentClickWeight__index_">
+					<wicket:message key="weight" />:<br>
+					<input type="text" id="contentSet__contentSetIndex_::contentWeight__index_" name="contentSet__contentSetIndex_::contentWeight__index_" size="30">
+					<wicket:message key="exWeight" />
+				</div>
+				<br>
+				<div id="divContentClickLink__index_">
+					<wicket:message key="clickLink" />:<br>
+					<input type="text" id="contentSet__contentSetIndex_::contentLink__index_" name="contentSet__contentSetIndex_::contentLink__index_" size="30">
+					<wicket:message key="exLink" />
+				</div>
+				<br>
+				<a class="btnBlueShort" href="javascript:saveContent(_contentSetIndex_,_index_);"><wicket:message key="bnSave" /></a>
+				<!-- 
+				<input type="button" value="Save" onclick="saveContent(_contentSetIndex_,_index_);">&nbsp;
+				<input type="button" value="Cancel" onclick="cancelContent(_contentSetIndex_,_index_);">
+				-->
+			</div>
+		</div>
+
+	</div>
+	
+	<input type="hidden" wicket:id="msgContentNameNeeded" name="msgContentNameNeeded">
+	<input type="hidden" wicket:id="msgContentWeightNeeded" name="msgContentWeightNeeded">
+	<input type="hidden" wicket:id="msgContentWeightError" name="msgContentWeightError">
+	<input type="hidden" wicket:id="msgContentFileNeeded" name="msgContentFileNeeded">
+	<input type="hidden" wicket:id="msgContentImageNeeded" name="msgContentImageNeeded">
+	<input type="hidden" wicket:id="msgContentZipNeeded" name="msgContentZipNeeded">
+	<input type="hidden" wicket:id="msgSetNameNeeded" name="msgSetNameNeeded">
+	<input type="hidden" wicket:id="msgSetNameTooLong" name="msgSetNameTooLong" >
+	<input type="hidden" wicket:id="msgTimeStartNeeded" name="msgTimeStartNeeded" >
+	<input type="hidden" wicket:id="msgTimeStartError" name="msgTimeStartError" >
+	<input type="hidden" wicket:id="msgTimeEndNeeded" name="msgTimeEndNeeded" >
+	<input type="hidden" wicket:id="msgTimeEndError" name="msgTimeEndError" >
+	<input type="hidden" wicket:id="msgTimeEndBigger" name="msgTimeEndBigger" >
+	<input type="hidden" wicket:id="msgDueNeeded" name="msgDueNeeded" >
+	<input type="hidden" wicket:id="msgDueError" name="msgDueError" >
+	<input type="hidden" wicket:id="msgNoContent" name="msgNoContent" >
+	<input type="hidden" wicket:id="msgBannerNameNeeded" name="msgBannerNameNeeded">
+	<input type="hidden" wicket:id="msgBannerNameTooLong" name="msgBannerNameTooLong" >
+	<input type="hidden" wicket:id="msgBannerNameExists" name="msgBannerNameExists" >
+	<input type="hidden" wicket:id="msgSetConflict" name="msgSetConflict" >
+	<input type="hidden" wicket:id="contentTypeImage" name="contentTypeImage" >
+	<input type="hidden" wicket:id="contentTypeHtml" name="contentTypeHtml" >
+	<input type="hidden" wicket:id="bnEdit" name="bnEdit" >
+	<input type="hidden" wicket:id="bnDelete" name="bnDelete" >
+	<input type="hidden" wicket:id="dowMon" name="dowMon" >
+	<input type="hidden" wicket:id="dowTue" name="dowTue" >
+	<input type="hidden" wicket:id="dowWed" name="dowWed" >
+	<input type="hidden" wicket:id="dowThu" name="dowThu" >
+	<input type="hidden" wicket:id="dowFri" name="dowFri" >
+	<input type="hidden" wicket:id="dowSat" name="dowSat" >
+	<input type="hidden" wicket:id="dowSun" name="dowSun" >
+	
+	<script>
+	
+	var contentSetIndex = 0;
+	var contentIndex = 0;
+	var oldTotalAddContent;
+	var flagContentSetSave = "add";
+	var flagContentSave = "add";
+	var tableContentSet = document.getElementById('tableContentSet');
+	var rowContentSet;
+	var rowContent;
+	var nodeContentArea = document.getElementById('divAddContentArea');
+	var nodeContentSetArea = document.getElementById('divAddContentSetArea');
+	var nodeContentAreaBak;
+	var nodeContentSetAreaBak;
+	var nodeParent = nodeContentArea.parentNode;
+	var newDivContent;
+	var newDivContentSet;
+	
+	String.prototype.replaceAll  = function(s1,s2){    
+    	return this.replace(new RegExp(s1,"g"),s2);    
+  	} 
+  	
+  	function addContent(setIndex){
+  		contentIndex = contentIndex + 1;
+  		newDivContent = document.createElement("div");
+  		newDivContent.id = "divAddContent_" + setIndex + "_" + contentIndex;
+  		newDivContent.style.display = 'block';  		
+
+		var newAddContent = document.getElementById('divAddContent__contentSetIndex___index_').innerHTML;
+		newAddContent = newAddContent.replaceAll("_index_",contentIndex);
+		newAddContent = newAddContent.replaceAll("_contentSetIndex_",setIndex);
+		
+		newDivContent.innerHTML = newAddContent;
+		nodeContentArea.appendChild(newDivContent);
+		document.getElementById('divAddContentSet_' + setIndex).style.display='none';
+  	}
+  	
+	function editContent(contentSetIdx, contentIdx, rowIndex){
+		flagContentSave = "edit";
+		var tableContent = document.getElementById('tableContent_' + contentSetIdx);
+		rowContent = tableContent.rows.item(rowIndex);
+		oldTotalAddContent = nodeContentArea
+		var divContent = document.getElementById('divAddContent_' + contentSetIdx + '_' + contentIdx);
+		divContent.style.display = "block";
+		document.getElementById('divAddContentSet_' + contentSetIdx).style.display='none';
+	}
+	
+	function deleteContent(contentSetIdx, contentIdx, rowIndex){
+		var divContent = document.getElementById('divAddContent_' + contentSetIdx + '_' + contentIdx);
+		var tableContent = document.getElementById('tableContent_' + contentSetIdx);
+		divContent.parentNode.removeChild(divContent);
+		rowContent = tableContent.rows.item(rowIndex);
+		rowContent.style.display = "none";
+	}
+  	
+  	function saveContent(contentSetIdx,contentIdx){
+  		var tableContent = document.getElementById('tableContent_' + contentSetIdx);
+		var name = document.getElementById('contentSet_' + contentSetIdx + '::contentName_' + contentIdx).value;
+		var type = document.getElementById('contentSet_' + contentSetIdx + '::contentType_' + contentIdx).checked
+		var weight = document.getElementById('contentSet_' + contentSetIdx + '::contentWeight_' + contentIdx).value;
+		var file = document.getElementById('contentSet_' + contentSetIdx + '::contentFile_' + contentIdx).value;
+		if(name == ""){
+			alert(document.getElementsByName('msgContentNameNeeded')[0].value);
+			return;
+		}
+		if(weight == ""){
+			alert(document.getElementsByName('msgContentWeightNeeded')[0].value);
+			return;
+		}else if(weight.substr(0,1) == "."){
+			weight = "0" + weight;
+			document.getElementById('contentSet_' + contentSetIdx + '::contentWeight_' + contentIdx).value = weight;
+		}
+		if(weight > 1){
+			alert(document.getElementsByName('msgContentWeightError')[0].value);
+			return;
+		}
+		if (!(/^([+-]?)([1-9]\d*\.\d+|0\.\d*[1-9]\d*)$/.test(weight)) && weight != 1){
+			alert(document.getElementsByName('msgContentWeightError')[0].value);
+			return;
+		}
+		if(file == ""){
+			alert(document.getElementsByName('msgContentFileNeeded')[0].value);
+			return;
+		}
+		if(type == true){
+			if(file.substr(file.length-4,4) != '.JPG' 
+				&& file.substr(file.length-4,4) != '.jpg'
+				&& file.substr(file.length-4,4) != 'JPEG'
+				&& file.substr(file.length-4,4) != 'jpeg'
+				&& file.substr(file.length-4,4) != '.png'
+				&& file.substr(file.length-4,4) != '.PNG'){
+					alert(document.getElementsByName('msgContentImageNeeded')[0].value);
+					return;
+			}
+		}else if(type == false){
+			if(file.substr(file.length-4,4) != '.zip' 
+				&& file.substr(file.length-4,4) != '.ZIP'){
+					alert(document.getElementsByName('msgContentZipNeeded')[0].value);
+					return;
+			}
+		}
+		
+		if(flagContentSave == "add"){
+			var newRow = tableContent.insertRow(-1);
+			var cellName = newRow.insertCell(-1);
+			var cellType = newRow.insertCell(-1);
+			var cellWeight = newRow.insertCell(-1);
+			var cellOperation = newRow.insertCell(-1);
+			cellName.innerHTML = name;
+			cellType.align = "center";
+			if(type == true)
+				cellType.innerHTML = document.getElementsByName('contentTypeImage')[0].value;
+			else if(type == false)
+				cellType.innerHTML = document.getElementsByName('contentTypeHtml')[0].value;
+			cellWeight.align = "center";
+			cellWeight.innerHTML = weight;
+			cellOperation.align = "center";
+			cellOperation.innerHTML = "<a href='javascript:editContent(" + contentSetIdx + "," + contentIdx + "," + newRow.rowIndex + ")'>" 
+										+ document.getElementsByName('bnEdit')[0].value
+										+ "</a>&nbsp;" 
+										+ "<a href='javascript:deleteContent(" + contentSetIdx + "," + contentIdx + "," + newRow.rowIndex + ")'>" 
+										+ document.getElementsByName('bnDelete')[0].value
+										+ "</a>&nbsp;";
+		}else if(flagContentSave == "edit"){
+			flagContentSave = "add";
+			rowContent.cells.item(0).innerHTML = name;
+			if(type == true)
+				rowContent.cells.item(1).innerHTML = document.getElementsByName('contentTypeImage')[0].value;
+			else if(type == false)
+				rowContent.cells.item(1).innerHTML = document.getElementsByName('contentTypeHtml')[0].value;
+			rowContent.cells.item(2).innerHTML = weight;
+		}
+		//nodeContentArea.appendChild(newDivContent);
+		document.getElementById('divAddContentSet_' + contentSetIdx).style.display='block';
+		document.getElementById('divAddContent_' + contentSetIdx + '_' + contentIdx).style.display='none';
+  	}
+  	
+  	function cancelContent(contentSetIdx, contentIdx){
+		if(flagContentSave == "add"){
+			contentIndex = contentIndex - 1;
+			newDivContent.parentNode.removeChild(newDivContent);
+		}else if(flagContentSave == "edit"){
+			flagContentSave = "add";
+			document.getElementById('divAddContent_' + contentSetIdx + '_' + contentIdx).style.display='none';
+			var p = nodeContentArea.parentNode;
+			p.removeChild(nodeContentArea);
+			p.appendChild(oldTotalAddContent);
+		}
+		document.getElementById('divAddContentSet_' + contentSetIdx).style.display='block';
+  	}
+	
+	function addContentSet(){
+		//nodeContentSetAreaBak = nodeContentSetArea.cloneNode(true);
+		//nodeContentAreaBak = nodeContentArea.cloneNode(true);
+		contentSetIndex = contentSetIndex + 1;
+		newDivContentSet = document.createElement("div");
+		newDivContentSet.id = "divAddContentSet_" + contentSetIndex;
+		newDivContentSet.style.display = 'block';  
+		
+		var newAddContentSet = document.getElementById('divAddContentSet__index_').innerHTML;
+		newAddContentSet = newAddContentSet.replaceAll("_index_",contentSetIndex);
+		
+		newDivContentSet.innerHTML = newAddContentSet
+		nodeContentSetArea.appendChild(newDivContentSet);
+		document.getElementById('divAddBanner').style.display='none';
+	}
+	
+	function editContentSet(contentSetIdx,rowIndex){
+		flagContentSetSave = "edit";
+		rowContentSet = tableContentSet.rows.item(rowIndex);
+		var divContentSet = document.getElementById('divAddContentSet_' + contentSetIdx);
+		divContentSet.style.display = "block";
+		document.getElementById('divAddBanner').style.display='none';
+	}
+	
+	function deleteContentSet(contentSetIdx,rowIndex){
+		var divContentSet = document.getElementById('divAddContentSet_' + contentSetIdx);
+		divContentSet.parentNode.removeChild(divContentSet);
+		rowContentSet = tableContentSet.rows.item(rowIndex);
+		rowContentSet.style.display = "none";
+	}
+	
+	function saveContentSet(contentSetIdx){
+		var name = document.getElementById('contentSetName_' + contentSetIdx).value;
+		var dow = document.getElementById('contentSetDow_' + contentSetIdx).value;
+		var dowMon = document.getElementById('contentSetDowMon_' + contentSetIdx).checked;
+		var dowTue = document.getElementById('contentSetDowTue_' + contentSetIdx).checked;
+		var dowWed = document.getElementById('contentSetDowWed_' + contentSetIdx).checked;
+		var dowThu = document.getElementById('contentSetDowThu_' + contentSetIdx).checked;
+		var dowFri = document.getElementById('contentSetDowFri_' + contentSetIdx).checked;
+		var dowSat = document.getElementById('contentSetDowSat_' + contentSetIdx).checked;
+		var dowSun = document.getElementById('contentSetDowSun_' + contentSetIdx).checked;
+		var timeStart = document.getElementById('contentSetTimeStart_' + contentSetIdx).value;
+		var timeEnd = document.getElementById('contentSetTimeEnd_' + contentSetIdx).value;
+		var due = document.getElementById('contentSetDue_' + contentSetIdx).value;
+		document.getElementById('contentSetDow_' + contentSetIdx).value = "";
+		
+		var dowStr = "";
+		if(dowMon == true){
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "1";
+			dowStr = dowStr + document.getElementsByName('dowMon')[0].value + ",";
+		}else{
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "0";
+		}
+		if(dowTue == true){
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "1";
+			dowStr = dowStr + document.getElementsByName('dowTue')[0].value + ",";
+		}else{
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "0";
+		}
+		if(dowWed == true){
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "1";
+			dowStr = dowStr + document.getElementsByName('dowWed')[0].value + ",";
+		}else{
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "0";
+		}
+		if(dowThu == true){
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "1";
+			dowStr = dowStr + document.getElementsByName('dowThu')[0].value + ",";
+		}else{
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "0";
+		}
+		if(dowFri == true){
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "1";
+			dowStr = dowStr + document.getElementsByName('dowFri')[0].value + ",";
+		}else{
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "0";
+		}
+		if(dowSat == true){
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "1";
+			dowStr = dowStr + document.getElementsByName('dowSat')[0].value + ",";
+		}else{
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "0";
+		}
+		if(dowSun == true){
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "1";
+			dowStr = dowStr + document.getElementsByName('dowSun')[0].value + ",";
+		}else{
+			document.getElementById('contentSetDow_' + contentSetIdx).value = document.getElementById('contentSetDow_' + contentSetIdx).value + "0";
+		}
+		if(dowStr.length > 0){
+			dowStr = dowStr.substr(0, dowStr.lastIndexOf(","));
+		}
+		
+		if(name == ""){
+			alert(document.getElementsByName('msgSetNameNeeded')[0].value);
+			return;
+		}
+		if(name.length > 100){
+			alert(document.getElementsByName('msgSetNameTooLong')[0].value);
+			return;
+		}
+		var hourStart;
+		var minuteStart;
+		if(timeStart == ""){
+			alert(document.getElementsByName('msgTimeStartNeeded')[0].value);
+			return;
+		}else{
+			var split = timeStart.split(":");
+			if(split.length != 2){
+				alert(document.getElementsByName('msgTimeStartError')[0].value);
+				return;
+			}
+			if(!(/^\d+$/.test(split[0])) || split[0].length > 2 
+				|| !(/^\d+$/.test(split[1])) || split[1].length > 2){
+				alert(document.getElementsByName('msgTimeStartError')[0].value);
+				return;
+			}
+			hourStart = parseInt(split[0]);
+			minuteStart = parseInt(split[1]);
+			if(hourStart > 24 || minuteStart > 59){
+				alert(document.getElementsByName('msgTimeStartError')[0].value);
+				return;
+			}
+		}
+		if(timeEnd == ""){
+			alert(document.getElementsByName('msgTimeEndNeeded')[0].value);
+			return;
+		}else{
+			var split = timeEnd.split(":");
+			if(split.length != 2){
+				alert(document.getElementsByName('msgTimeEndError')[0].value);
+				return;
+			}
+			if(!(/^\d+$/.test(split[0])) || split[0].length > 2 
+				|| !(/^\d+$/.test(split[1])) || split[1].length > 2){
+				alert(document.getElementsByName('msgTimeEndError')[0].value);
+				return;
+			}
+			var hour = parseInt(split[0]);
+			var minute = parseInt(split[1]);
+			if(hour > 24 || minute > 59){
+				alert(document.getElementsByName('msgTimeEndError')[0].value);
+				return;
+			}
+			if(hour < hourStart || (hour == hourStart && minute <= minuteStart)){
+				alert(document.getElementsByName('msgTimeEndBigger')[0].value);
+				return;
+			}
+		}
+		if(due == ""){
+			alert(document.getElementsByName('msgDueNeeded')[0].value);
+			return;
+		}else{
+			var split = due.split("-");
+			if(split.length != 3){
+				alert(document.getElementsByName('msgDueError')[0].value);
+				return;
+			}
+			if(!(/^\d+$/.test(split[0])) || split[0].length > 4 
+				|| !(/^\d+$/.test(split[1])) || split[1].length > 2 
+				|| !(/^\d+$/.test(split[2])) || split[2].length > 2){
+				alert(document.getElementsByName('msgDueError')[0].value);
+				return;
+			}
+			var year = parseInt(split[0]);
+			var month = parseInt(split[1]);
+			var day = parseInt(split[2]);
+			if(month > 12){
+				alert(document.getElementsByName('msgDueError')[0].value);
+				return;	
+			}
+			var loday = [0,31,28,31,30,31,30,31,31,30,31,30,31]; 
+			if(year%4==0)
+				loday[2] = 29;
+			if(day > loday[month]){
+				alert(document.getElementsByName('msgDueError')[0].value);
+				return;
+			}
+		}
+		if(nodeContentArea.hasChildNodes() == false){
+			alert(document.getElementsByName('msgNoContent')[0].value);
+			return;
+		}
+		
+		if(flagContentSetSave == "add"){
+			var newRow = tableContentSet.insertRow(-1);
+			var cellName = newRow.insertCell(-1);
+			var cellDow = newRow.insertCell(-1);
+			var cellTime = newRow.insertCell(-1);
+			var cellDue = newRow.insertCell(-1);
+			var cellOperation = newRow.insertCell(-1);
+			cellName.innerHTML = name;
+			cellDow.align = "center";
+			cellDow.innerHTML = dowStr;
+			cellTime.align = "center";
+			cellTime.innerHTML = timeStart + " - " + timeEnd;
+			cellDue.align = "center";
+			cellDue.innerHTML = due;
+			cellOperation.align = "center";
+			cellOperation.innerHTML = "<a href='javascript:editContentSet(" + contentSetIdx + "," + newRow.rowIndex + ")'>" 
+										+ document.getElementsByName('bnEdit')[0].value 
+										+ "</a>&nbsp;" 
+										+ "<a href='javascript:deleteContentSet(" + contentSetIdx + "," + newRow.rowIndex + ")'>" 
+										+ document.getElementsByName('bnDelete')[0].value 
+										+ "</a>&nbsp;";
+		}else if(flagContentSetSave == "edit"){
+			flagContentSetSave = "add";
+			rowContentSet.cells.item(0).innerHTML = name;
+			rowContentSet.cells.item(1).innerHTML = dowStr;
+			rowContentSet.cells.item(2).innerHTML = timeStart + " - " + timeEnd;
+			rowContentSet.cells.item(3).innerHTML = due;
+		}
+
+		document.getElementById('divAddBanner').style.display='block';
+		document.getElementById('divAddContentSet_' + contentSetIdx).style.display='none';
+	}
+	
+	function cancelContentSet(){
+		if(flagContentSetSave == "add"){
+			contentSetIndex = contentSetIndex - 1;
+			//newDivContentSet.parentNode.removeChild(newDivContentSet);
+		}else if(flagContentSetSave == "edit"){
+			//flagContentSetSave = "add";
+		}
+		
+		nodeParent.removeChild(nodeContentSetArea);
+		nodeParent.appendChild(nodeContentSetAreaBak);
+		nodeParent.removeChild(nodeContentArea);
+		nodeParent.appendChild(nodeContentAreaBak);
+		document.getElementById('divAddBanner').style.display='block';
+	}
+	
+	var xmlHttp = null; 
+	function onSubmit(){
+		document.getElementById('bannerStatus').value = 0;
+		onCheck();
+	}
+	
+	function onPreview(){
+		document.getElementById('bannerStatus').value = 1;
+		onCheck();
+	}
+	
+	function onCheck(){
+		var name = document.getElementsByName('bannerName')[0].value;
+		if(name == ""){
+			alert(document.getElementsByName('msgBannerNameNeeded')[0].value);
+			return;
+		}
+		if(name.length > 100){
+			alert(document.getElementsByName('msgBannerNameTooLong')[0].value);
+			return;
+		}
+		if(nodeContentSetArea.hasChildNodes() == false){
+			alert(document.getElementsByName('msgNoSet')[0].value);
+			return;
+		}
+		
+		try{ 
+			xmlHttp = new XMLHttpRequest(); 
+		}catch(e){ 
+			try{ 
+				xmlHttp = new ActiveXObject("Msxml2.XMLHTTP"); 
+			}catch(e){ 
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); 
+			} 
+		}
+		if(xmlHttp == null)
+			return;
+		var url= document.getElementsByName('rotatingBannerPanel:urlPrefix')[0].value + "/checkbanner/?bannerName=" + name; 
+		var bannerId = document.getElementsByName('rotatingBannerPanel:bannerId')[0].value;
+		if(bannerId != "-1")
+			url = url + "&bannerId=" + bannerId;
+		xmlHttp.onreadystatechange = checkBannerNameResult;
+		xmlHttp.open("GET",url,false); 
+		xmlHttp.send(); 
+	}
+	
+	function checkBannerNameResult(){
+		var result;
+		if(xmlHttp.readystate == 4 || xmlHttp.readystate == undefined)
+			result = xmlHttp.responseText;
+		if(result == "true"){
+			alert(document.getElementsByName('msgBannerNameExists')[0].value);
+			return;
+		}else if(result == "false"){
+			document.forms[0].submit();
+			document.getElementsByName(":submit")[0].disabled = true;
+		}
+	}
+	
+	function test(){
+		// the example for the validScheduleConfliction
+		var nowStart = "10:00";
+		var nowEnd = "15:00";
+		var nowDowstr = "0100000";
+		var start = ["9:00","18:00",nowStart];
+		var end = ["13:30","20:00",nowEnd];
+		var dowstr = ["1111000","0100111",nowDowstr];
+		var result = validScheduleConfliction(start, end, dowstr);
+		if(result == true){
+			alert(document.getElementsByName('msgSetConflict')[0].value);
+		}	
+	}
+
+	function validScheduleConfliction(startArr, endArr, dowstrArr){
+		//return false = no confliction
+		//return true = confliction
+		var nowStart = startArr[startArr.length-1];
+		var nowEnd = endArr[endArr.length-1];
+		var nowDowstr = dowstrArr[dowstrArr.length-1];
+		startArr.splice(startArr.length-1,1);
+		var start = startArr;
+		endArr.splice(endArr.length-1,1);
+		var end = endArr;
+		dowstrArr.splice(dowstrArr.length-1,1);
+		var dowstr = dowstrArr;
+		
+		var timeStart = new Array();
+		var timeEnd = new Array();
+		
+		for(var j=0; j<7; j++){
+			//alert(j);
+			if(nowDowstr.substr(j,1)=="0"){
+				continue;
+			}
+			var nSArr = nowStart.split(":");
+			nStart = Number(nowDowstr.substr(j,1))*(Number(nSArr[0])*60 + Number(nSArr[1]));
+			//alert("nStart="+nStart);
+			var nEArr = nowEnd.split(":");
+			nEnd = Number(nowDowstr.substr(j,1))*(Number(nEArr[0])*60 + Number(nEArr[1]));
+			//alert("nEnd="+nEnd);
+			for(var i=0; i<start.length; i++){
+				var sArr = start[i].split(":");
+				//alert("start["+i+"]="+start[i]);
+				timeStart[i] = Number(dowstr[i].substr(j,1))*(Number(sArr[0])*60 + Number(sArr[1]));
+				var eArr = end[i].split(":");
+				//alert("end["+i+"]="+end[i]);
+				timeEnd[i] = Number(dowstr[i].substr(j,1))*(Number(eArr[0])*60 + Number(eArr[1]));
+			}
+			for(var k=0; k<timeStart.length;k++){
+				//alert(timeStart[k]);
+				//alert(timeEnd[k]);
+				if(timeStart[k]==0 && timeEnd[k]==0){
+					continue;
+				}
+				if(nStart<=timeStart[k]){
+					if(nEnd>timeStart[k]){
+						//alert("END by Type I");
+						return true;
+					}	
+				}else{
+					if(nStart<timeEnd[k]){
+						//alert("END by Type II");
+						return true;
+					}	
+				}
+			}	
+		}
+		return false;	
+	}
+	
+	</script>
+	
+	</form>
+</wicket:panel>

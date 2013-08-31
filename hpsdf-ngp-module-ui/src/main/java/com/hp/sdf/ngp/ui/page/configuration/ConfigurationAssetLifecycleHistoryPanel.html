@@ -1,0 +1,34 @@
+<wicket:panel>
+	<div class="mainPanel">
+	<div class="panelBody">
+
+	<table width="90%" cellpadding="0" cellspacing="0" border="0" class="tableSet">
+		<thead><tr>
+			<th align="center" width="10%"><wicket:message key="date">Date</wicket:message></th>
+			<th align="center" width="10%"><wicket:message key="event">Event</wicket:message></th>
+			<th align="center" width="10%"><wicket:message key="preStatus">Pre Status</wicket:message></th>
+			<th align="center" width="10%"><wicket:message key="postStatus">Post Status</wicket:message></th>
+			<th align="center" width="10%"><wicket:message key="operator">Operator</wicket:message></th>
+			<th align="center" width="10%"><wicket:message key="Actions">Actions</wicket:message></th>
+		</tr></thead>
+		<tbody>
+		
+		<span wicket:id="appHistory">
+		<tr>
+			<td align="center" width="10%"><span wicket:id="Date" /></td>
+			<td align="center" width="10%"><span wicket:id="Event" /></td>
+			<td align="center" width="10%"><span wicket:id="PreStatus" /></td>
+			<td align="center" width="10%"><span wicket:id="PostStatus" /></td>
+			<td align="center" width="10%"><span wicket:id="Operator" /></td>
+			<td align="center" width="10%"><a wicket:id="actionLink"><span wicket:id="linkName" /></a></td>
+		</tr>
+		</span>
+		</tbody>
+	</table>
+	<div align="right"><span wicket:id="navigator"></span></div>
+
+	<div class="clear"></div>
+	<div class="panelFoot"></div>
+	</div>
+	</div>
+</wicket:panel>

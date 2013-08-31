@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="promotion.success.msg">SUCCESS! Congratulation, you are {0} now</entry>
+<entry key="apply.success.msg">You have applied for {0} role, please wait for manager's approval</entry>
+</properties>

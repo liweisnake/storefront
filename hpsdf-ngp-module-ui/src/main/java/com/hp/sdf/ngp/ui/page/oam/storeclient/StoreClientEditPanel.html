@@ -1,0 +1,87 @@
+<wicket:panel>
+
+<div id="regionA">
+
+  <form wicket:id="storeClientEditForm">
+  
+	<div class="title">
+    	<h2 class="icon-title-content"><wicket:message key="title.big">Client Application Management</wicket:message></h2>
+  	</div>
+  	
+    <div class="content">
+	    <table border="0" cellpadding="0" cellspacing="0" class="portal-container">
+	    
+	      <tr>
+	        <td class="portal-container-top-left"></td>
+	        <td class="portal-container-top"></td>
+	        <td class="portal-container-top-right"></td>
+	      </tr>
+	
+	      <tr>
+	        <td class="portal-container-content-left"></td>
+	        <td class="portal-container-content">
+				<h3><wicket:message key="title" /></h3>
+				<div class="contentbox">
+ <span style="color: red;" wicket:id="feedBack">error message</span>
+				
+	            <div class="content-list">
+	              <ul>
+	                <li><b><wicket:message key="name" />:</b>
+	                  <span wicket:id="name" ></span></li>
+	                
+	                <li><b><wicket:message key="version" />:</b>
+	                <span wicket:id="version" ></span></li>
+	                
+	                <li><b><wicket:message key="updateDate" />:</b>
+	                <span wicket:id="fileUpdateDate" ></span></li>
+	                
+	                <li><b><wicket:message key="configFileName" />:</b>
+	                <span wicket:id="configFileName" ></span></li>                    
+	                  
+	                <li><b><wicket:message key="configFileVersion" />:</b>
+	                <span wicket:id="configFileVersion" ></span></li>
+	                
+	                <li><b><wicket:message key="updateDate" />:</b>
+	                <span wicket:id="configFileUpdateDate" ></span></li>
+	                  
+	                <li><b><wicket:message key="uploadNewFile" /><img src="images/icon_reddot.png" />:</b>
+				    <span wicket:id="uploadNewFile">
+				    <input type="radio" wicket:id="configFile"><wicket:message key="configFile" /></input>
+				    <input type="radio" wicket:id="binaryFile"><wicket:message key="binaryFile" /></input>
+				    </span></li>
+	                
+	                <li><b><wicket:message key="newVersionUpdate" /><img src="images/icon_reddot.png" />:</b>
+	                <span>
+	                 <input wicket:id="newVersionUpdate" id="uploadFile" class="common-textfield" size="50" type="file" />
+	                 </span>
+	                </li>
+	                  
+	                <li><b><wicket:message key="version" /><img src="images/icon_reddot.png" />:</b><span>
+	                <input type="text" wicket:id="newVersion" class="common-textfield"/>
+	                </span></li>
+	              </ul>
+	            </div>
+	          </div>
+			</td>
+	        <td class="portal-container-content-right"></td>
+	      </tr>			
+			
+	      <tr>
+	        <td class="portal-container-bottom-left"></td>
+	        <td class="portal-container-bottom"></td>
+	        <td class="portal-container-bottom-right"></td>
+	      </tr>		
+		</table>
+	
+	 <div class="contentbutton">
+   	 <div wicket:id="checkPanel"></div>
+	    <input type="submit" wicket:id="save" wicket:message="value:save" class="button-submit" /> 
+	 </div>	
+	
+	</div>
+	
+  </form>
+
+	<div wicket:id="promptPanel"></div>	
+</div>
+</wicket:panel>

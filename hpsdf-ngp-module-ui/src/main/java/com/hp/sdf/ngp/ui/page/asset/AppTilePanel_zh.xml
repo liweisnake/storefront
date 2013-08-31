@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">应用</entry>
+<entry key="criteria.all">全部</entry>
+<entry key="criteria.keyword">关键词</entry>
+</properties>

@@ -1,0 +1,51 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+	<f:loadBundle var="bundle" basename="conf.bundles.Identity" />
+
+	<div style="height: 200px; padding-top: 30px; vertical-align:top; text-align: center;">
+
+	<b>
+	<c:choose>
+	<c:when test="#{portletRenderParameter.operation == 'validation_error'}">
+		<h:outputText value="#{bundle.IDENTITY_VERIFICATION_STATUS_ERROR}" />
+	</c:when>
+	<c:when test="#{portletRenderParameter.operation == 'validation_failed'}">
+		<h:outputText value="#{bundle.IDENTITY_VERIFICATION_STATUS_FAILED}" />
+	</c:when>
+	<c:when test="#{portletRenderParameter.operation == 'jbp_identity_validate_email'}">
+		<h:outputText value="#{bundle.IDENTITY_VERIFICATION_STATUS_VALIDATED}" />
+	</c:when>
+	<c:when test="#{portletRenderParameter.operation == 'jbp_identity_validation_workflow'}">
+		<h:outputText value="#{bundle.IDENTITY_VERIFICATION_STATUS_REGISTER_SUCCESS}" />
+	</c:when>
+	<c:when test="#{portletRenderParameter.operation == 'jbp_identity_validation_approval_workflow'}">
+		<h:outputText value="#{bundle.IDENTITY_VERIFICATION_STATUS_REGISTER_APPROVAL}" />
+	</c:when>
+	<c:otherwise>
+		<h:outputText value="#{bundle.IDENTITY_VERIFICATION_STATUS_REGISTER_CUSTOM}" />
+	</c:otherwise>	
+	</c:choose>
+	</b>
+
+	<ul>
+		<li>
+			<a href="#{metadataservice.portalContextPath}">
+				<h:outputText value="#{bundle.IDENTITY_VERIFICATION_RETURN}" />
+			</a>
+		</li>
+		<c:if test="#{portletRenderParameter.operation == 'jbp_identity_validation_workflow'}">
+		<!--  login link -->
+			<li>
+				<a href="#{metadataservice.portalContextPath}/auth">
+					<h:outputText value="#{bundle.IDENTITY_VERIFICATION_LOGIN}" />
+				</a>
+			</li>
+		</c:if>
+	</ul>
+	</div>
+</div>

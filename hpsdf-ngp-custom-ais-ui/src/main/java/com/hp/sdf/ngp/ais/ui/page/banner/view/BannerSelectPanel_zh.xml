@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="name">名字</entry>
+<entry key="type">类型</entry>
+<entry key="operation">操作</entry>
+<entry key="select">选择</entry>
+<entry key="refresh">刷新</entry>
+<entry key="bannerHeight">广告条高度</entry>
+<entry key="bannerLocation">广告条位置</entry>
+<entry key="px">像素</entry>
+<entry key="selfAdjust">(-1 代表自适应)</entry>
+<entry key="staticBanner">静态广告条</entry>
+<entry key="rotatingBanner">轮换广告条</entry>
+<entry key="tabbedBanner">标签页广告条</entry>
+</properties>

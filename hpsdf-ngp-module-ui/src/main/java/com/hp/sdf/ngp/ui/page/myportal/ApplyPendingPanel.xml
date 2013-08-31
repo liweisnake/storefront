@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="apply.pending">Your apply for {0} is now waiting for manager's
+		approve</entry>
+
+</properties>

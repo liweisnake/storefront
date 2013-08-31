@@ -1,0 +1,47 @@
+<div
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jstl/core"
+   class="identity-ui">
+
+<h:form id="confirm-form">
+	<h:panelGrid columns="2">
+		<h:outputText value="#{bundle.IDENTITY_USERNAME}"/>
+		<h:outputText id="username" value="#{manager.uiUser.username}"/>
+		
+		<h:outputText value="#{bundle.IDENTITY_EMAIL}"/>
+		<h:outputText id="email" value="#{manager.uiUser.attribute.email}"/>
+		
+		<h:outputText value="#{bundle.IDENTITY_PASSWORD}"/>
+		<h:outputText id="password">******</h:outputText>
+	</h:panelGrid>
+	<br/>
+	<c:if test="#{portletPreferenceValue.profileAtRegistration == true}">
+		<ui:define name="content">
+			<ui:decorate template="/jsf/common/viewProfileInfo.xhtml">
+				<ui:param name="manager" value="#{userregistermgr}"/>
+			</ui:decorate>
+		</ui:define>
+	</c:if>
+	<br/>
+	<c:if test="#{show_roles == true}">
+	<!-- assigned roles -->
+	<h:outputText value="#{bundle.IDENTITY_MANAGEMENT_ROLE_ASSIGNED}" />
+	<h:dataTable id="roleslist" value="#{manager.roles}" var="role">
+		<h:column>
+			<h:outputText value="#{role}"/>
+		</h:column>
+	</h:dataTable>
+	</c:if>
+   <h:messages style="list-style:none" infoClass="portlet-msg-success" errorClass="portlet-msg-error"
+              fatalClass="portlet-msg-error" warnClass="portlet-msg-alert"/>
+	<hr/>
+<p style="text-align: right;">
+	<h:commandButton id="revise" value="#{bundle.IDENTITY_BUTTON_EDIT}" action="revise" styleClass="portlet-form-button"/>
+	<h:commandButton id="#{subscriptionMode}" value="#{bundle.IDENTITY_BUTTON_SUBMIT}" actionListener="#{manager.register}" action="registered" styleClass="portlet-form-button"/>
+	<h:commandButton id="cancel" action="#{manager.cancelRegistration}" value="#{bundle.IDENTITY_BUTTON_CANCEL}" immediate="true" styleClass="portlet-form-button"/>
+</p>
+</h:form>
+	
+</div>

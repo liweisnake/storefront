@@ -1,0 +1,31 @@
+<div
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:ct="http://www.julien.com"
+   xmlns:jbp="http://www.jboss.org/portal"
+   xmlns:h="http://java.sun.com/jsf/html">
+
+   <ui:composition template="objectTemplate.xhtml">
+
+      <ui:define name="content">
+
+         <!-- -->
+         <div class="clear">
+         <h:form></h:form>
+            <jbp:portlet
+               actionListener="#{portalobjectmgr.processEvent}"
+               portletId="#{portalobjectmgr.selectedContentEditorInstance}"
+               portletInvoker="#{portalobjectmgr.portletDefinitionInvoker}"
+               renderParameters="#{portalobjectmgr.renderParameters}"
+               supportedModes="edit_content"
+               supportedWindowStates="normal"
+               initialMode="edit_content"
+               initialWindowState="normal"
+               />
+         </div>
+
+      </ui:define>
+
+   </ui:composition>
+
+</div>

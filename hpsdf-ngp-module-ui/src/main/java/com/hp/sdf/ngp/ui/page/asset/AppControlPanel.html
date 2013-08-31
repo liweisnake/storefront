@@ -1,0 +1,21 @@
+<wicket:panel>
+    <div id="appControl">
+      <table>
+        <tr>
+          <td>       
+	        <form wicket:id="deleteAppForm">
+	          <input type="submit" wicket:message="value:btn.del.app"/>
+	        </form>                    
+          </td>
+          <td>       
+	        <form wicket:id="statuUpdateForm">
+	          <wicket:message key="label.app.status"/>:
+	          <select wicket:id="appstatus"></select>
+	          <input type="submit" wicket:message="value:btn.status.app"/>
+	        </form>                    
+          </td>
+        </tr>   
+      </table>         
+    </div><!-- End appControl --> 
+</wicket:panel>
+  

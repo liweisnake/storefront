@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="parlayx_account_management_interface" targetNamespace="http://www.csapi.org/wsdl/parlayx/account_management/v2_2/interface" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:account_management_xsd="http://www.hp.com/sgf/schema/acc_mgmt/v1_0/" xmlns:account_operation="http://www.csapi.org/wsdl/parlayx/account_management/v2_2/interface" xmlns:ns="http://www.csapi.org/schema/parlayx/common/v2_1" xmlns:parlayx_account_management="http://www.csapi.org/wsdl/parlayx/account_management/v2_2/interface" xmlns:parlayx_account_management_local_xsd="http://www.csapi.org/schema/parlayx/account_management/v2_2/local" xmlns:parlayx_account_management_xsd="http://www.csapi.org/schema/parlayx/account_management/v2_2" xmlns:parlayx_common_faults="http://www.csapi.org/wsdl/parlayx/common/v2_0/faults" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <import location="AccountManagement_1_2.wsdl" namespace="http://www.csapi.org/wsdl/parlayx/common/v2_0/faults"/>
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/parlayx/account_management/v2_2/local">
+      <xsd:import namespace="http://www.csapi.org/schema/parlayx/account_management/v2_2" schemaLocation="AccountManagement_1_2.xsd"/>
+      <xsd:import namespace="http://www.hp.com/sgf/schema/acc_mgmt/v1_0/" schemaLocation="AccountManagement_1_2_3.xsd"/>
+      <xsd:import namespace="calendar-schemalet" schemaLocation="AccountManagement.xsd"/>
+      <xsd:element name="getBalance" type="parlayx_account_management_local_xsd:getBalance"/>
+      <xsd:complexType name="getBalance">
+        <xsd:sequence>
+          <xsd:element name="endUserIdentifier" type="xsd:anyURI"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="endUserPin" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getBalanceResponse" type="parlayx_account_management_local_xsd:getBalanceResponse"/>
+      <xsd:complexType name="getBalanceResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="result" type="parlayx_account_management_xsd:Balance"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getCreditExpiryDate" type="parlayx_account_management_local_xsd:getCreditExpiryDate"/>
+      <xsd:complexType name="getCreditExpiryDate">
+        <xsd:sequence>
+          <xsd:element name="endUserIdentifier" type="xsd:anyURI"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="endUserPin" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getCreditExpiryDateResponse" type="parlayx_account_management_local_xsd:getCreditExpiryDateResponse"/>
+      <xsd:complexType name="getCreditExpiryDateResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="result" type="parlayx_account_management_xsd:BalanceExpireDetails"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="balanceUpdate" type="parlayx_account_management_local_xsd:balanceUpdate"/>
+      <xsd:complexType name="balanceUpdate">
+        <xsd:sequence>
+          <xsd:element name="endUserIdentifier" type="xsd:anyURI"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="endUserPin" type="xsd:string"/>
+          <xsd:element name="referenceCode" type="xsd:string"/>
+          <xsd:element name="balanceType" type="xsd:string"/>
+          <xsd:element name="amount" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="period" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="balanceUpdateResponse" type="parlayx_account_management_local_xsd:balanceUpdateResponse"/>
+      <xsd:complexType name="balanceUpdateResponse">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="voucherUpdate" type="parlayx_account_management_local_xsd:voucherUpdate"/>
+      <xsd:complexType name="voucherUpdate">
+        <xsd:sequence>
+          <xsd:element name="endUserIdentifier" type="xsd:anyURI"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="endUserPin" type="xsd:string"/>
+          <xsd:element name="referenceCode" type="xsd:string"/>
+          <xsd:element name="voucherIdentifier" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="voucherPin" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="voucherUpdateResponse" type="parlayx_account_management_local_xsd:voucherUpdateResponse"/>
+      <xsd:complexType name="voucherUpdateResponse">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="getHistory" type="parlayx_account_management_local_xsd:getHistory"/>
+      <xsd:complexType name="getHistory">
+        <xsd:sequence>
+          <xsd:element name="endUserIdentifier" type="xsd:anyURI"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="endUserPin" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="date" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="maxEntries" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getHistoryResponse" type="parlayx_account_management_local_xsd:getHistoryResponse"/>
+      <xsd:complexType name="getHistoryResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="result" type="parlayx_account_management_xsd:DatedTransaction"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getBalanceTypes" type="parlayx_account_management_local_xsd:getBalanceTypes"/>
+      <xsd:complexType name="getBalanceTypes">
+        <xsd:sequence>
+          <xsd:element name="endUserIdentifier" type="xsd:anyURI"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="endUserPin" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getBalanceTypesResponse" type="parlayx_account_management_local_xsd:getBalanceTypesResponse"/>
+      <xsd:complexType name="getBalanceTypesResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="result" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="createAccount" type="parlayx_account_management_local_xsd:CreateAccount"/>
+      <xsd:complexType name="CreateAccount">
+        <xsd:sequence>
+          <xsd:element name="account" type="account_management_xsd:Account"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="createAccountResponse" type="parlayx_account_management_local_xsd:CreateAccountResponse"/>
+      <xsd:complexType name="CreateAccountResponse">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="deleteAccount" type="parlayx_account_management_local_xsd:DeleteAccount"/>
+      <xsd:complexType name="DeleteAccount">
+        <xsd:sequence>
+          <xsd:element name="partnerId" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="deleteAccountResponse" type="parlayx_account_management_local_xsd:DeleteAccountResponse"/>
+      <xsd:complexType name="DeleteAccountResponse">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listAccount" type="parlayx_account_management_local_xsd:listAccount"/>
+      <xsd:complexType name="listAccount">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="partnerId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="partnerName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="amount" type="xsd:decimal"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listAccountResponse" type="parlayx_account_management_local_xsd:listAccountResponse"/>
+      <xsd:complexType name="listAccountResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="account" type="account_management_xsd:Account"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="updateExpiryDate" type="parlayx_account_management_local_xsd:updateExpiryDate"/>
+      <xsd:complexType name="updateExpiryDate">
+        <xsd:sequence>
+          <xsd:element name="partnerId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="date" type="xsd:dateTime"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="updateExpiryDateResponse" type="parlayx_account_management_local_xsd:updateExpiryDateResponse"/>
+      <xsd:complexType name="updateExpiryDateResponse">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="listAllAvailableBalanceTypes" type="parlayx_account_management_local_xsd:listAllAvailableBalanceTypes"/>
+      <xsd:complexType name="listAllAvailableBalanceTypes"/>
+      <xsd:element name="listAllAvailableBalanceTypesResponse" type="parlayx_account_management_local_xsd:listAllAvailableBalanceTypesResponse"/>
+      <xsd:complexType name="listAllAvailableBalanceTypesResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="availableBalanceTypes" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="updateExpiryDate_updateExpiryDateResponse">
+    <part element="parlayx_account_management_local_xsd:updateExpiryDateResponse" name="parameters"/>
+  </message>
+  <message name="AccountManagement_getBalanceTypesRequest">
+    <part element="parlayx_account_management_local_xsd:getBalanceTypes" name="parameters"/>
+  </message>
+  <message name="createAccount_createAccountResponse">
+    <part element="parlayx_account_management_local_xsd:createAccountResponse" name="parameters"/>
+  </message>
+  <message name="AccountManagement_voucherUpdateRequest">
+    <part element="parlayx_account_management_local_xsd:voucherUpdate" name="parameters"/>
+  </message>
+  <message name="AccountManagement_voucherUpdateResponse">
+    <part element="parlayx_account_management_local_xsd:voucherUpdateResponse" name="result"/>
+  </message>
+  <message name="createAccount_createAccountRequest">
+    <part element="parlayx_account_management_local_xsd:createAccount" name="parameters"/>
+  </message>
+  <message name="AccountManagement_getBalanceTypesResponse">
+    <part element="parlayx_account_management_local_xsd:getBalanceTypesResponse" name="result"/>
+  </message>
+  <message name="AccountManagement_balanceUpdateRequest">
+    <part element="parlayx_account_management_local_xsd:balanceUpdate" name="parameters"/>
+  </message>
+  <message name="listAccount_listAccountResponse">
+    <part element="parlayx_account_management_local_xsd:listAccountResponse" name="parameters"/>
+  </message>
+  <message name="AccountManagement_getHistoryResponse">
+    <part element="parlayx_account_management_local_xsd:getHistoryResponse" name="result"/>
+  </message>
+  <message name="listAccount_listAccountRequest">
+    <part element="parlayx_account_management_local_xsd:listAccount" name="parameters"/>
+  </message>
+  <message name="deleteAccount_deleteAccountRequest">
+    <part element="parlayx_account_management_local_xsd:deleteAccount" name="parameters"/>
+  </message>
+  <message name="AccountManagement_getHistoryRequest">
+    <part element="parlayx_account_management_local_xsd:getHistory" name="parameters"/>
+  </message>
+  <message name="listAllAvailableBalanceTypes_listAllAvailableBalanceTypesRequest">
+    <part element="parlayx_account_management_local_xsd:listAllAvailableBalanceTypes" name="parameters"/>
+  </message>
+  <message name="AccountManagement_getCreditExpiryDateRequest">
+    <part element="parlayx_account_management_local_xsd:getCreditExpiryDate" name="parameters"/>
+  </message>
+  <message name="listAllAvailableBalanceTypes_listAllAvailableBalanceTypesResponse">
+    <part element="parlayx_account_management_local_xsd:listAllAvailableBalanceTypesResponse" name="parameters"/>
+  </message>
+  <message name="updateExpiryDate_updateExpiryDateRequest">
+    <part element="parlayx_account_management_local_xsd:updateExpiryDate" name="parameters"/>
+  </message>
+  <message name="AccountManagement_getCreditExpiryDateResponse">
+    <part element="parlayx_account_management_local_xsd:getCreditExpiryDateResponse" name="result"/>
+  </message>
+  <message name="AccountManagement_getBalanceRequest">
+    <part element="parlayx_account_management_local_xsd:getBalance" name="parameters"/>
+  </message>
+  <message name="AccountManagement_balanceUpdateResponse">
+    <part element="parlayx_account_management_local_xsd:balanceUpdateResponse" name="result"/>
+  </message>
+  <message name="deleteAccount_deleteAccountResponse">
+    <part element="parlayx_account_management_local_xsd:deleteAccountResponse" name="parameters"/>
+  </message>
+  <message name="AccountManagement_getBalanceResponse">
+    <part element="parlayx_account_management_local_xsd:getBalanceResponse" name="result"/>
+  </message>
+  <portType name="AccountManagement">
+    <operation name="getBalance">
+      <input message="parlayx_account_management:AccountManagement_getBalanceRequest"/>
+      <output message="parlayx_account_management:AccountManagement_getBalanceResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="getCreditExpiryDate">
+      <input message="parlayx_account_management:AccountManagement_getCreditExpiryDateRequest"/>
+      <output message="parlayx_account_management:AccountManagement_getCreditExpiryDateResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="balanceUpdate">
+      <input message="parlayx_account_management:AccountManagement_balanceUpdateRequest"/>
+      <output message="parlayx_account_management:AccountManagement_balanceUpdateResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="voucherUpdate">
+      <input message="parlayx_account_management:AccountManagement_voucherUpdateRequest"/>
+      <output message="parlayx_account_management:AccountManagement_voucherUpdateResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="getHistory">
+      <input message="parlayx_account_management:AccountManagement_getHistoryRequest"/>
+      <output message="parlayx_account_management:AccountManagement_getHistoryResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="getBalanceTypes">
+      <input message="parlayx_account_management:AccountManagement_getBalanceTypesRequest"/>
+      <output message="parlayx_account_management:AccountManagement_getBalanceTypesResponse"/>
+      <fault message="parlayx_common_faults:PolicyException" name="PolicyException"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="createAccount">
+      <input message="parlayx_account_management:createAccount_createAccountRequest"/>
+      <output message="parlayx_account_management:createAccount_createAccountResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="deleteAccount">
+      <input message="parlayx_account_management:deleteAccount_deleteAccountRequest"/>
+      <output message="parlayx_account_management:deleteAccount_deleteAccountResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="listAccount">
+      <input message="parlayx_account_management:listAccount_listAccountRequest"/>
+      <output message="parlayx_account_management:listAccount_listAccountResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="updateExpiryDate">
+      <input message="parlayx_account_management:updateExpiryDate_updateExpiryDateRequest"/>
+      <output message="parlayx_account_management:updateExpiryDate_updateExpiryDateResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+    <operation name="listAllAvailableBalanceTypes">
+      <input message="parlayx_account_management:listAllAvailableBalanceTypes_listAllAvailableBalanceTypesRequest"/>
+      <output message="parlayx_account_management:listAllAvailableBalanceTypes_listAllAvailableBalanceTypesResponse"/>
+      <fault message="parlayx_common_faults:ServiceException" name="ServiceException"/>
+    </operation>
+  </portType>
+</definitions>

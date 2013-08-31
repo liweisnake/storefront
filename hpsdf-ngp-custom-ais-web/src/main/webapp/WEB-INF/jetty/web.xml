@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+
+	<!-- Load Spring and wicket integration -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			WEB-INF/jetty/applicationContext.xml,WEB-INF/jetty/applicationContextMock.xml
+		</param-value>
+	</context-param>
+
+	<!-- use deployment mode for wicket -->
+	<context-param>
+		<param-name>configuration</param-name>
+		<param-value>development</param-value>
+	</context-param>
+	
+	<!-- create the controller for servlet -->
+	<servlet>
+		<servlet-name>redirectionServlet</servlet-name>
+		<servlet-class>
+			org.springframework.web.context.support.HttpRequestHandlerServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>redirectionServlet</servlet-name>
+		<url-pattern>/banner_stats/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>checkBannerNameServlet</servlet-name>
+		<servlet-class>
+			org.springframework.web.context.support.HttpRequestHandlerServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>checkBannerNameServlet</servlet-name>
+		<url-pattern>/checkbanner/*</url-pattern>
+	</servlet-mapping>
+
+	<!--Wicket Application  -->
+	<filter>
+		<filter-name>wicketFilter</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter
+		</filter-class>
+		<init-param>
+			<param-name>applicationFactoryClassName
+			</param-name>
+			<param-value>org.apache.wicket.spring.SpringWebApplicationFactory
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>applicationBean
+			</param-name>
+			<param-value>wicketApplication
+			</param-value>
+		</init-param>
+	</filter>
+
+
+	<filter-mapping>
+		<filter-name>wicketFilter</filter-name>
+		<url-pattern>/ais/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+
+	
+
+	<!--
+		The final is the OSIV solution, which should be put in the bottom
+	-->
+	<!-- resolve the lazy load problem for hibernate-->
+	<!-- 
+	<filter>
+		<filter-name>OpenEntityManagerInViewFilter
+		</filter-name>
+		<filter-class>
+			org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OpenEntityManagerInViewFilter
+		</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	 -->
+	<filter>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+		<init-param>  
+	        <param-name>sessionFactoryBeanName</param-name>  
+	        <param-value>localSessionFactory</param-value>  
+    	</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
+	<!-- Session timeout -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+
+</web-app>

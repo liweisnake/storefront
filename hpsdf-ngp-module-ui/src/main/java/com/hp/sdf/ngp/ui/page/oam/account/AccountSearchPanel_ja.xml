@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="accountRole">ロール</entry>
+<entry key="accountManagement">アカウント管理</entry>
+<entry key="msg.error.save.noaccount">アカウントが存在していません。</entry>
+<entry key="msg.error.del.noselect">アカウントを選択してください。</entry>
+<entry key="newAccount">新規登録</entry>
+<entry key="title">アカウント検索</entry>
+<entry key="providerName">プロバイダー名</entry>
+<entry key="accountName">アカウント名</entry>
+<entry key="search">検索</entry>
+</properties>

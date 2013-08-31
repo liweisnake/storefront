@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="accountRole">ロール</entry>
+<entry key="selectAll"></entry>
+<entry key="accountList">アカウント一覧</entry>
+<entry key="confirmMsg">選択されたアカウントを削除してよろしいでしょうか。</entry>
+<entry key="userLifeCycle">ユーザライフサイクル履歴</entry>
+<entry key="detail">編集</entry>
+<entry key="providerName">プロバイダー名</entry>
+<entry key="accountName">アカウント名</entry>
+<entry key="delete">削除</entry>
+</properties>

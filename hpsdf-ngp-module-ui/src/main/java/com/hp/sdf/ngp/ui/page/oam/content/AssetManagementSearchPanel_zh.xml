@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">搜索资产</entry>
+<entry key="providerId">供应商编号</entry>
+<entry key="providerName">供应商</entry>
+<entry key="parentAssetId">父资产编号</entry>
+<entry key="assetId">资产编号</entry>
+<entry key="assetName">资产名称</entry>
+<entry key="category1">类别</entry>
+<entry key="category2">子类别</entry>
+<entry key="commissionRate">佣金率</entry>
+<entry key="commissionRateSymbol">(%)</entry>
+<entry key="status">状态</entry>
+<entry key="externalId">外部编号</entry>
+<entry key="recommended">推荐</entry>
+<entry key="newArrival">新到商品</entry>
+<entry key="btn.search">搜索</entry>
+<entry key="btn.all">所有资产</entry>
+<entry key="btn.reset">重置</entry>
+
+<entry key="title.search">搜索资产</entry>
+
+</properties>

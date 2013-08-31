@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="title">Edit Handset Model</entry>		
+	<entry key="title.big">Handset Model Management</entry>	
+	<entry key="save">Save</entry>
+	<entry key="back">Back</entry>
+	<entry key="add">Add</entry>
+	<entry key="delete">Delete</entry>
+	
+	<entry key="big">High:Width 800 px, Height 480 px</entry>
+	<entry key="middle">Midle:Width 480 px, Height 320 px</entry>
+	<entry key="small">Low:Width 320 px, Height 240 px</entry>		
+		
+	<entry key="deviceName">Device Name</entry>
+	<entry key="displayName">Handset Name</entry>
+	<entry key="deviceFuction">Device Function</entry>	
+	<entry key="mimeType">MIME Type</entry>	
+	
+	<entry key="accSensor">Acceleration Sensor</entry>
+	<entry key="camera">Camera</entry>
+	<entry key="gps">GPS</entry>	
+	
+	<entry key="displaySize">Display-size</entry>	
+	
+	<entry key="title">Edit Handset Model</entry>
+	
+	<entry key="promptTitle">Prompt</entry>
+	<entry key="confirmMsg">Do you want to update the handset?</entry>
+	<entry key="successMsg">Update the handset successfully.</entry>
+	
+	<entry key="confirmDeleteMsg">Do you want to delete the handset?</entry>
+	
+	<entry key="deviceNameIsNull">Device Name is null.</entry>
+	<entry key="mimeTypeIsNull">Mime Type is null.</entry>
+	<entry key="selectDisplaySize">Please select Display-size.</entry>	
+	<entry key="selectDeviceFunction">Please select Device Function.</entry>
+	<entry key="msg.error.save.nohandset">Handset does not exist!</entry>
+</properties>

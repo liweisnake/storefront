@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="userRole" xmlns="http://jbpm.org/4.3/jpdl">
+
+	<start g="1,125,48,48">
+		<transition to="fork1" />
+	</start>
+	<fork g="76,125,48,48" name="fork1">
+		<transition to="roleDeveloperAction" />
+		<transition to="roleManagerAction" />
+		<transition to="roleTesterAction" />
+		<transition to="roleGolenDeveloperAction" />
+	</fork>
+
+	<custom expr="#{rolesLifeCycleAction}" g="164,34,117,52" name="roleDeveloperAction">
+		<field name="preRoles">
+			<string value="Tester,User" />
+		</field>
+		<field name="applyRole"><string value="Developer"/>
+		</field>
+		<field name="excepRoles">
+			<string value="" />
+		</field>
+		<transition to="join1" />
+	</custom>
+	<custom expr="#{rolesLifeCycleAction}" g="166,133,113,52" name="roleManagerAction">
+		<field name="excepRoles">
+			<string value="Tester,User,Developer" />
+		</field>
+		<field name="applyRole"><string value="Manager"/>
+		</field>
+		<transition to="join1" />
+	</custom>
+	<custom expr="#{rolesLifeCycleAction}" g="158,248,111,52" name="roleTesterAction">
+		<field name="preRoles">
+			<string value="User" />
+		</field>
+		<field name="applyRole"><string value="Tester"/>
+		</field>
+		<field name="excepRoles">
+			<string value="Developer" />
+		</field>
+		<transition to="join1" />
+	</custom>
+
+	<custom expr="#{rolesLifeCycleAction}" g="138,368,151,52" name="roleGolenDeveloperAction">
+		<field name="preRoles">
+			<string value="Developer" />
+		</field>
+		<field name="applyRole"><string value="GoldenDeveloper"/>
+		</field>
+		<transition to="join1" />
+	</custom>
+
+	<join g="349,128,48,48" name="join1">
+		<transition to="end" />
+	</join>
+	<end g="438,128,48,48" name="end" />
+</process>

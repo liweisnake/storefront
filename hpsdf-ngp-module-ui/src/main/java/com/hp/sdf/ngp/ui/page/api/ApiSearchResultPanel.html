@@ -1,0 +1,114 @@
+<wicket:panel>
+
+<link rel="stylesheet" type="text/css" href="./css/ext-all.css" />
+<script type="text/javascript" src="./js/ext-base.js"></script>
+<script type="text/javascript" src="./js/ext-all.js"></script>
+
+<style type="text/css">
+    .x-panel-body p {
+        margin:10px;
+        font-size:14px;
+    }
+</style>
+
+  <div class="showListPanel">
+    <!--  
+    <span wicket:id="criteria">
+      criteria
+    </span>
+    -->
+    <form wicket:id="appListForm">
+	  <a href="#" wicket:id="subscribedApi">
+	  	<wicket:message key="operation.subscription" />
+	  </a>
+	  <p>
+	  <div class="tabpanel4">
+	  	<span wicket:id="tabs" class="tabpanel" />
+	  </div>
+	  <p>
+      <input type="submit" name="submit" class="button" wicket:id="btnSubscribe" value="Subscribe" />
+      
+		<div id="hello-win" class="x-hidden">
+		    <div class="x-window-header">REST Service Metadata</div>
+		    <div id="hello-tabs">
+		        <div class="x-tab" title="Sample Request GET">
+		            <table width="780px" style="table-layout:fixed">
+		            	<tbody>
+		            	<tr>
+		            		<td style="word-wrap:break-word; overflow:hidden;">
+		            			<span wicket:id="metaRequestGet" />
+		            		</td>
+		            	</tr>
+		            	</tbody>
+		            </table>
+		        </div>
+		        <div class="x-tab" title="Sample Request POST">
+		            <table width="780px" style="table-layout:fixed">
+		            	<tbody>
+		            	<tr>
+		            		<td style="word-wrap:break-word; overflow:hidden;">
+		            			<span wicket:id="metaRequestPost" />
+		            		</td>
+		            	</tr>
+		            	</tbody>
+		            </table>
+		        </div>
+		        <div class="x-tab" title="Sample Response">
+		            <table width="780px" style="table-layout:fixed">
+		            	<tbody>
+		            	<tr>
+		            		<td style="word-wrap:break-word; overflow:hidden;">
+		            			<span wicket:id="metaResponse" />
+		            		</td>
+		            	</tr>
+		            	</tbody>
+		            </table>
+		        </div>
+		    </div>
+		</div>
+			
+		<script type="text/javascript">
+		
+		Ext.onReady(function(){
+		    win = new Ext.Window({
+					applyTo:'hello-win',
+					layout:'fit',
+					width:800,
+					height:600,
+					closeAction:'hide',
+					plain: true,
+					resizable:true,
+					shadow: true,
+					autoScroll: true,
+					maximizable: true,
+							
+					items: new Ext.TabPanel({
+						applyTo: 'hello-tabs',
+						autoTabs:true,
+						activeTab:0,
+						deferredRender:false,
+						border:false
+					}),
+		
+					buttons: [{
+						text: 'Close',
+						handler: function(){
+							win.hide();
+						}
+					}]
+			});
+		});
+		
+		function showmeta(){
+			if(win){
+		    	win.show();
+		    }
+		}
+		</script>
+  
+    </form>
+  </div>
+  
+</wicket:panel>
+
+

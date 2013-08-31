@@ -1,0 +1,3 @@
+#Wed Nov 18 17:52:44 CST 2009
+web.contextRoot=../hpsdf-ngp-module-web/src/main/webapp
+web.cssPaths=css/default.css,css/layout.css,css/wicket.css

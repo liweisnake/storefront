@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>master</artifactId>
+		<groupId>com.hp.sdf.ngp</groupId>
+		<version>0.0.1</version>
+		<relativePath>
+			../hpsdf-ngp-application-master/pom.xml
+		</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hp.sdf.ngp</groupId>
+	<artifactId>ngp-theme</artifactId>
+	<name>hpsdf-ngp (09-theme)</name>
+	<packaging>war</packaging>	
+	<dependencies>
+	</dependencies>
+	<build>
+		<finalName>ngp-theme</finalName>
+		<resources>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<filtering>false</filtering>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<optimize>true</optimize>
+					<debug>true</debug>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- Continuous integration system information -->
+	<organization>
+		<name>HP GDAC China</name>
+	</organization>
+	<ciManagement>
+		<system>Continuum</system>
+		<url>http://ocmptest4.chn.hp.com:8082/continuum
+		</url>
+	</ciManagement>
+	<!-- SCM system and access information -->
+	<scm>
+		<connection>
+			scm:svn:https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-module-theme
+		</connection>
+		<developerConnection>
+			scm:svn:https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-module-theme
+		</developerConnection>
+		<url>
+			https://bamboo.chn.hp.com/svns/repos/hpsdf-ngp/trunk/source/hpsdf-ngp-module-theme
+		</url>
+	</scm>
+</project>
+

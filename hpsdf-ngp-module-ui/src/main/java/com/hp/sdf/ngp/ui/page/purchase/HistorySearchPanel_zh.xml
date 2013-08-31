@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">查询购买历史</entry>
+<entry key="null">全部</entry>
+<entry key="all">全部</entry>
+<entry key="keyword">应用名</entry>
+<entry key="purchase.date">购买日期</entry>
+<entry key="purchase.date.from">从</entry>
+<entry key="purchase.date.to">到</entry>
+<entry key="status">状态</entry>
+<entry key="btn.search">查找</entry>
+<entry key="btn.all">全部购买记录</entry>
+</properties>

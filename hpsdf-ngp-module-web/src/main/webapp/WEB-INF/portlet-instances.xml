@@ -1,0 +1,209 @@
+<?xml version="1.0" standalone="yes"?>   
+<deployments>
+   <deployment>
+      <instance>
+         <instance-id>Recommend</instance-id>
+         <portlet-ref>storefront_apprecommended</portlet-ref>
+      </instance>
+   </deployment>  
+   <deployment>
+      <instance>
+         <instance-id>Top</instance-id>
+         <portlet-ref>storefront_apptop</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists> 
+      <instance>
+         <instance-id>UserInfo</instance-id>
+         <portlet-ref>storefront_userinfo</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>ServiceList</instance-id>
+         <portlet-ref>storefront_servicelist</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>Application</instance-id>
+         <portlet-ref>storefront_applist</portlet-ref>
+      </instance>
+   </deployment> 
+
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>Category</instance-id>
+         <portlet-ref>storefront_category</portlet-ref>
+      </instance>
+   </deployment>
+
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>Platform</instance-id>
+         <portlet-ref>storefront_platform</portlet-ref>
+      </instance>
+   </deployment>
+
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>Search</instance-id>
+         <portlet-ref>storefront_appsearch</portlet-ref>
+      </instance>
+   </deployment>
+
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>MyPortal</instance-id>
+         <portlet-ref>storefront_myportal</portlet-ref>
+      </instance>
+   </deployment>
+
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>Configuration</instance-id>
+         <portlet-ref>storefront_configuration</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>ApiConfiguration</instance-id>
+         <portlet-ref>storefront_api_configuration</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>BatchuploadConfiguration</instance-id>
+         <portlet-ref>storefront_asset_batchupload_configuration</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>AssetSearchConfiguration</instance-id>
+         <portlet-ref>storefront_asset_search_configuration</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>HandmarkImportConfiguration</instance-id>
+         <portlet-ref>storefront_handmark_import_configuration</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>NavigatorPage</instance-id>
+         <portlet-ref>storefront_oamnavigator</portlet-ref>
+      </instance>
+   </deployment>
+   
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>AccountManagement</instance-id>
+         <portlet-ref>storefront_oamaccountmanagerment</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>CommentsManagement</instance-id>
+         <portlet-ref>storefront_oamcommentsmanagerment</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>CensoredWordManagement</instance-id>
+         <portlet-ref>storefront_oamcensoredwordmanagerment</portlet-ref>
+      </instance>
+   </deployment>
+      
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>CategoryManagement</instance-id>
+         <portlet-ref>storefront_oamcategorymanagerment</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>RecommendedManagement</instance-id>
+         <portlet-ref>storefront_oamrecommendedmanagerment</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>ContentManagement</instance-id>
+         <portlet-ref>storefront_oamcontentmanagerment</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>StoreClient</instance-id>
+         <portlet-ref>storefront_oamstoreclient</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>Statistic</instance-id>
+         <portlet-ref>storefront_oamstatisticapplication</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>PlatformManagement</instance-id>
+         <portlet-ref>storefront_oamplatformapplication</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>HandsetManagement</instance-id>
+         <portlet-ref>storefront_oamhandsetapplication</portlet-ref>
+      </instance>
+   </deployment>
+   
+   <deployment>
+      <if-exists>overwrite</if-exists>
+      <instance>
+         <instance-id>PurchaseHistory</instance-id>
+         <portlet-ref>storefront_oampurchasehistoryapplication</portlet-ref>
+      </instance>
+   </deployment>
+</deployments>
+

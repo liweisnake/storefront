@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:jbxb="http://www.jboss.org/xml/ns/jbxb"
+	elementFormDefault="qualified">
+
+<xsd:element name="identity-ui-configuration">
+	<xsd:complexType>
+        <xsd:annotation>
+           <xsd:appinfo>
+           	 <jbxb:class impl="org.jboss.portal.core.identity.services.metadata.IdentityUIConfiguration"/>
+           </xsd:appinfo>
+        </xsd:annotation>
+
+		<xsd:all>
+			<!-- User portlet and user management portlet preferences -->
+			<xsd:element name="subscription-mode" type="subscriptionMode" default="jbp_identity_validation_workflow"/>
+			<xsd:element name="admin-subscription-mode" type="subscriptionMode" default="automatic"/>
+			<xsd:element name="overwrite-workflow" type="xsd:boolean" default="false"/>
+			<xsd:element name="email-domain" minOccurs="1" maxOccurs="1" type="xsd:string" default="example.com" />
+			<xsd:element name="email-from" minOccurs="1" maxOccurs="1" type="xsd:string" default="no-reply@example.com" />
+			<xsd:element name="password-generation-characters" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+			<xsd:element name="default-roles" type="defaultRoles" minOccurs="1" maxOccurs="1"/>
+
+			<!-- user interface components -->
+			<xsd:element name="ui-components">
+				<xsd:annotation>
+					<xsd:appinfo>
+			   			<jbxb:class impl="java.util.HashMap"/>
+					</xsd:appinfo>
+			    </xsd:annotation>
+			    <xsd:complexType>
+			    	<xsd:sequence>
+			     		<xsd:element name="ui-component" minOccurs="1" maxOccurs="unbounded" type="UIComponent" />
+			    	</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- end: user interface components -->
+		</xsd:all>
+	</xsd:complexType>
+</xsd:element>
+
+<!-- restictions for subscription-modes -->
+
+<xsd:simpleType name="subscriptionMode">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="custom" />
+		<xsd:enumeration value="automatic" />
+		<xsd:enumeration value="jbp_identity_validation_workflow" />
+		<xsd:enumeration value="jbp_identity_validation_approval_workflow" />
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="defaultRoles">
+	<xsd:sequence>
+		<xsd:element name="role" minOccurs="1" type="xsd:string" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="validators">
+	<xsd:sequence>
+		<xsd:element name="validator" minOccurs="1" type="xsd:string" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="componentValues">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<jbxb:mapEntry nonNullValue="true"/>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:choice minOccurs="1" maxOccurs="1">
+         <xsd:element name="value" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:annotation>
+                  <xsd:appinfo>
+                     <jbxb:mapEntry/>
+                     <jbxb:characters>
+                        <jbxb:mapEntryValue/>
+                     </jbxb:characters>
+                  </xsd:appinfo>
+               </xsd:annotation>
+               <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                     <xsd:attribute name="key" type="xsd:string">
+                        <xsd:annotation>
+                           <xsd:appinfo>
+                              <jbxb:mapEntryKey/>
+                           </xsd:appinfo>
+                        </xsd:annotation>
+                     </xsd:attribute>
+                  </xsd:extension>
+               </xsd:simpleContent>
+            </xsd:complexType>
+         </xsd:element>
+	</xsd:choice>
+</xsd:complexType>
+
+<xsd:complexType name="UIComponent">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<jbxb:mapEntry impl="org.jboss.portal.core.identity.services.metadata.UIComponentConfiguration" getKeyMethod="getName" setKeyMethod="setName" />
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:all>
+		<xsd:element name="property-ref" maxOccurs="1" minOccurs="1" type="xsd:string" />
+		<xsd:element name="localization-bundle" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="validators" type="validators" />
+		<xsd:element name="converter" type="xsd:string" />
+		<xsd:element name="required" type="xsd:boolean" default="false"/>
+		<xsd:element name="read-only" type="xsd:boolean" default="false" />
+		<xsd:element name="values" type="componentValues">
+			<xsd:annotation>
+		         <xsd:appinfo>
+            		<jbxb:class impl="java.util.HashMap"/>
+         		</xsd:appinfo>
+      		</xsd:annotation>
+		</xsd:element>
+	</xsd:all>
+	<!-- attribute name -->
+	<xsd:attribute name="name" type="xsd:string" use="required" />
+</xsd:complexType>
+
+</xsd:schema>

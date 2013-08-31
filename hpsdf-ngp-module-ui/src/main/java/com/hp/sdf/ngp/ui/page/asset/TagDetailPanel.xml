@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="tags">Tags</entry>
+<entry key="addTags">Add Tags</entry>
+<entry key="newTags">New Tags : </entry>
+<entry key="btn.add">Add</entry>
+
+<entry key="tag.tooMany">The application's total tags are more than the maximum of 10.</entry>
+<entry key="StringValidator.maximum">Your tags input is longer than the maximum of 100 characters.</entry>
+</properties>

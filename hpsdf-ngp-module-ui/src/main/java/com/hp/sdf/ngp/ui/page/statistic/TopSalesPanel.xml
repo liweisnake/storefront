@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="title">Top Sales List</entry>
+
+<entry key="name">Name</entry>
+<entry key="description">Description</entry>
+<entry key="createDate">Create Date</entry>
+<entry key="currentVersion">Current Version</entry>
+<entry key="averageUserRating">Average User Rating</entry>
+<entry key="totalAmount">Total Amount</entry>
+<entry key="downloadCount">Download Count</entry>
+
+<entry key="title.list">Statistic Result</entry>
+
+</properties>

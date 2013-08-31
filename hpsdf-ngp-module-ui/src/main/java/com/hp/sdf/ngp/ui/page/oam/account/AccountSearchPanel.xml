@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="null">All</entry>
+	<entry key="providerName">Provider Name</entry>
+	<entry key="accountRole">Role</entry>
+	<entry key="accountName">Account Name</entry>
+	<entry key="search">Search</entry>
+	<entry key="newAccount">New Account</entry>	
+	
+	<entry key="title">Search Account</entry>	
+	<entry key="accountManagement">Account Management</entry>	
+	
+	<entry key="msg.error.save.noaccount">Account does not exist!</entry>
+	<entry key="msg.error.del.noselect">Please select one Account at least!</entry>	
+</properties>
